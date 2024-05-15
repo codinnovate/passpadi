@@ -251,7 +251,7 @@ server.get("/latest-blogs", (req, res) => {
 
 })
 
-server.post("/seach-blogs", (req, res) => {
+server.post("/search-blogs", (req, res) => {
     let { tag } = req.body;
 
     let findQuery = { tags: tag, draft: false }
