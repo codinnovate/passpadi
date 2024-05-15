@@ -289,5 +289,5 @@ server.post("/create-blog", verifyJWT ,  (req, res) => {
 
 
 server.listen(PORT, () => {
-    console.log("listening on port -> http://localhost:" +PORT)
+    console.log("listening on port -> http://localhost:" + PORT)
 })
