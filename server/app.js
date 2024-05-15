@@ -225,21 +225,24 @@ server.post("/google-auth", async (req, res) => {
 
 server.post("/create-blog", verifyJWT ,  (req, res) => {
     let authorId = req.user;
+    
     let { title, banner, content, tags, des, draft } = req.body;
     if (!title.length) {
-        return res.status(403).json({error:"You must provide a title to publish the blog"})
+        return res.status(403).json({error:"You must provide a title !!"})
     }
-    if (!des.length || des.length > 200) {
-        return res.status(403).json({error:"You must provude blog description under 200 characters"})
-    }
-    if (!banner.length) {
-        return res.status(403).json({error:"You must add a banner to publish"})
-    }
-    if (!content.blocks.length){
-        return res.status(403).json({error:"There must be some blog content to publish it"})
-    }
-    if (!tags.length || tags.length > 10) {
-        return res.status(403).json({error: "Provide tags in order to publish the blog, Maximum 10"})
+    if (!draft) {
+        if (!des.length || des.length > 200) {
+            return res.status(403).json({error:"You must provude blog description under 200 characters"})
+        }
+        if (!banner.length) {
+            return res.status(403).json({error:"You must add a banner to publish"})
+        }
+        if (!content.blocks.length){
+            return res.status(403).json({error:"There must be some blog content to publish it"})
+        }
+        if (!tags.length || tags.length > 10) {
+            return res.status(403).json({error: "Provide tags in order to publish the blog, Maximum 10"})
+        }
     }
     tags = tags.map(tag => tag.toLowerCase());
     // replaces dashes in title with "-"
