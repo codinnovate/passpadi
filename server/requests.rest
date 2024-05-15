@@ -1,7 +1,3 @@
 
-POST  http://localhost:3000/create-blog
+GET http://localhost:3000/latest-blogs
 Content-Type: application/json
-
-{
-    "blog-name":"this is a text blog"
-}
