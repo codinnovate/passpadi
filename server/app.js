@@ -23,7 +23,17 @@ let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for pass
 const server = express();
 let PORT = 3000;
 server.use(express.json());
-server.use(cors());
+
+let corsOptions = {
+    origin: ['https://passpadi-e8xj.vercel.app',
+        'https://passpadi.com',
+        'https://passpadi.com.ng'],
+  optionsSuccessStatus: 200 
+}
+
+server.use(cors(corsOptions));
+
+
 
 mongoose.connect(process.env.DB_LOCATION, {
     autoIndex: true,
