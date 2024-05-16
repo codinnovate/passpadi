@@ -1,3 +1,7 @@
 
-GET http://localhost:3000/trending-blogs
+Post http://localhost:3000/get-profile
 Content-Type: application/json
+
+{
+    "username":"kidscantech1"
+}

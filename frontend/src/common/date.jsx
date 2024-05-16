@@ -9,7 +9,10 @@ let days = [
     "saturday"
 ];
 
-
+export const getFullDay = (timestamp) => {
+    let date = new Date(timestamp);
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+}
 export const getDay = (timestamp) => {
     let date = new Date(timestamp);
     return `${date.getDate()} ${months[date.getMonth()]}`
