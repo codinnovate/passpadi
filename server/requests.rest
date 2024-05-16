@@ -1,7 +1,7 @@
 
-Post http://localhost:3000/get-profile
+Post http://localhost:3000/get-blog
 Content-Type: application/json
 
 {
-    "username":"kidscantech1"
+    "blog_id":"Is-UNILAG-doing-Post-UTME-or-Screening-this-Year-(2024/25)4WGllwpB-ibeKBP0RpCFN"
 }
