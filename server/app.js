@@ -106,6 +106,14 @@ const formatDatatoSend = (user) => {
 
 // upload imagge url route
 
+
+
+const generateBlogId = (title) => {
+  let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim();
+  let blogId = `${sanitizedTitle}-${nanoid()}`;
+  return encodeURIComponent(blogId);
+};
+
 server.get('/get-upload-url', (req, res) => {
     generateUploadURL()
         .then(url => res.status(200).json({ uploadURL: url }))
@@ -367,6 +375,9 @@ server.post("/get-profile", (req, res) => {
     })
 })
 
+
+
+
 server.post("/create-blog", verifyJWT ,  (req, res) => {
     let authorId = req.user;
     
@@ -390,7 +401,7 @@ server.post("/create-blog", verifyJWT ,  (req, res) => {
     }
     tags = tags.map(tag => tag.toLowerCase());
     // replaces dashes in title with "-"
-    let blog_id = title.replace(/^a-zA-Z0-9]/g, '').replace(/\s+/g, "-").trim() + nanoid();
+    let blog_id = generateBlogId(title)
     let blog = new Blog({
         title, des, banner, content, tags, author: authorId, blog_id, draft: Boolean(draft)
     });
