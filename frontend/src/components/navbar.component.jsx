@@ -88,13 +88,13 @@ const Navbar = () => {
                     className='btn-dark py-2 '
                     to='/signin'
                     >
-                    Sign In
+                    Login
                 </Link>
                  <Link
                     className='btn-light py-2 hidden md:block'
                     to='/signup'
                     >
-                    Sign Up
+                    Register
                 </Link>                
                 </>
                 }

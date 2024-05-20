@@ -141,7 +141,7 @@ const UserAuthForm = ({ type }) => {
                         : 
                         <p className='mt-6 text-dark-grey text-xl text-center'>
                             Already a member ?
-                        <Link to='/signin' className='underline text-black text-xl ml-1'>Sign in here .</Link>
+                        <Link to='/signin' className='underline text-black text-xl ml-1'>Login here .</Link>
                         </p>
                 }
         </form>
