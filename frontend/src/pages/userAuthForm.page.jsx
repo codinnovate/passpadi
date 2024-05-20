@@ -63,9 +63,10 @@ const UserAuthForm = ({ type }) => {
 
         userAuthThroughServer(serverRoute, formData)
     }
-    const handleGoogleAuth = (e) => {
+    const handleGoogleAuth = async (e) => {
             e.preventDefault();
-        authWithGoogle().then(user => {
+         await authWithGoogle()
+            .then(user => {
             let serverRoute = '/google-auth';
             let formData = {
                 access_token:user.accessToken
