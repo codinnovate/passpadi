@@ -22,9 +22,13 @@ const UserNavigationPanel = () => {
             <Link to="/editor" className='flex gap-2 link md:hidden pl-8 py-4'>
             <i className='fi fi-rr-file-edit'></i>    
             <p>Write</p>
-            </Link>
+              </Link>
+              
             <Link to={`/user/${username}`} className='link pl-8 py-4'>
             Profile
+              </Link>
+            <Link to='/store' className='link pl-8 py-4'>
+            Store
             </Link>
             <Link to='/dashboard/blogs' className='link pl-8 py-4'>
             Dashboard
