@@ -12,8 +12,8 @@ import Notification from './Schema/Notification.js';
 import { verifyJWT } from './middlewares/VerifyJwt.js';
 import { generateUploadURL,formatDatatoSend, generateUsername,generateBlogId , s3 } from './utils/generates.js';
 import { uploadUrl } from './controllers/uploads.js';
-import { userRoutes } from './routes/User.js';
-
+import { userRouter } from './routes/User.js';
+import { commentRouter } from './routes/Comment.js';
 
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
@@ -34,7 +34,7 @@ mongoose.connect(process.env.DB_LOCATION, {
 })
 app.use(cors());
 app.use(express.json());
-app.use("", userRoutes)
+app.use("", [userRouter, commentRouter])
 
 app.get('/get-upload-url', uploadUrl)
 
@@ -280,7 +280,7 @@ app.post("/like-blog", verifyJWT, (req, res) => {
                 })
                 like.save().then(notification => {
                     return res.status(200).json({liked_by_user:true})
-            });
+            }); 
                 
             } else {
                 Notification.findOneAndDelete({ user: user_id, blog: _id, type: "like" })

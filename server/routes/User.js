@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { GoogleAuth, Register, Login } from "../controllers/User.js";
 
-export const userRoutes = Router();
+export const userRouter = Router();
 
-userRoutes.post("/signup", Register)
-userRoutes.post("/signin", Login)
-userRoutes.post("/google-auth", GoogleAuth)
+userRouter.post("/signup", Register)
+userRouter.post("/signin", Login)
+userRouter.post("/google-auth", GoogleAuth)
