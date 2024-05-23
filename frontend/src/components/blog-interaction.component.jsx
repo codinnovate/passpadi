@@ -7,9 +7,7 @@ import axios from 'axios';
 
 
 const BlogInteraction = () => {
-
     let { blog, blog: { _id, title, blog_id, activity, activity: { total_likes, total_comments }, author: { personal_info: { username: author_username } } }, setBlog, isLikedByUser, setLikedByUser } = useContext(BlogContext);
-    
     let { userAuth: { username, access_token } } = useContext(UserContext);
     
     useEffect(() => {
@@ -18,21 +16,22 @@ const BlogInteraction = () => {
                 headers: {
                     'Authorization':`Bearer ${access_token}`
                 }
-            }).then(({ data: { result } }) => {
+            })
+                .then(({ data: { result } }) => {
                 setLikedByUser(Boolean(result))
                 
-            }).catch(err => {
 
-            }
-            )
+            })
+                .catch(err => {
+                console.log(err)
+
+            })
             
-        } else {
-            toast.error("Please Login !!")
         }
-    },[])
+    }, [])
+    
+
     const handleLike = () => {
-
-
         if (access_token) {
             setLikedByUser(preVal => !preVal);
             !isLikedByUser ?  total_likes++ : total_likes--
@@ -43,12 +42,14 @@ const BlogInteraction = () => {
                 }
             })
                 .then(({ data }) => {
-
+                    console.log(data)
                 })
                 .catch(err => {
+                    console.log(err)
                 
             })
-        } else {
+        }
+        else {
             toast.error("Please login to like this article")
         }
 
