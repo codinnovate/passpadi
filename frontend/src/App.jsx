@@ -9,6 +9,8 @@ import SearchPage from "./pages/search.page";
 import PageNotFound from "./pages/404.page";
 import ProfilePage from "./pages/profile.page";
 import BlogPage from "./pages/blog.page";
+import Privacy from "./pages/privacy";
+import Footer from "./pages/footer";
 
 
 
@@ -26,7 +28,7 @@ const App = () => {
             <Routes>
             <Route path="/editor" element={<Editor />} />
             <Route path="/editor/:blog_id" element={<Editor />} />
-                <Route path="/" element={<Navbar />}>
+                <Route path="/" element={[<Navbar />, <Footer />]}>
                     <Route index element={<HomePage />}  />
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
@@ -34,6 +36,7 @@ const App = () => {
                     <Route path="user/:id" element={<ProfilePage />} />
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
+                    <Route path="/privacy" element={<Privacy /> } />
                     
                 </Route>
                 
