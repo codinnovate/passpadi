@@ -38,19 +38,15 @@ const BlogPage = () => {
 
 
     const fetchBlog = () => {
-
         axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", {
             blog_id:blogId,
         })
             .then(async ({ data: { blog } }) => {
             blog.comments = await fetchComments({blog_id: blog._id, setParentCommentCountFun: setTotalParentCommentsLoaded})
-                console.log("before" + blog)
                 setBlog(blog);
-                console.log("after" + blog)
-                axios.post(import.meta.env.VITE_SERVER_DOMAIN + "search-blogs", { tag: blog.tags[0], limit: 6, eliminate_blog:blogId })
+                axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/search-blogs", { tag: blog.tags[0], limit: 6, eliminate_blog:blogId })
                     .then(({ data }) => {
                         setSimilarBlogs(data.blogs);
-                    
                 })
             setLoading(false)
         })
@@ -81,7 +77,7 @@ const BlogPage = () => {
                 loading ? <Loader />
                     : 
                     <BlogContext.Provider value={{ blog, setBlog, isLikedByUser, setLikedByUser, commentsWrapper, setCommentsWrapper, totalParentCommentsLoaded, setTotalParentCommentsLoaded }}>
-                    {/* <CommentsContainer /> */}
+                    <CommentsContainer />
                     <div className='max-w-[900px] center py-10 max-lg:px-[5vw] '>
                         <img src={banner} className='aspect-video ' />
                         <div className='mt-12'>
@@ -104,7 +100,7 @@ const BlogPage = () => {
                         <BlogInteraction />  
                             <div className='my-12 font-gelasio blog-page-content'>
                                 {
-                                    content[0].blocks?.map((block, i) => {
+                                    content[0].blocks.map((block, i) => {
                                         return (
                                         <div
                                             key={i}

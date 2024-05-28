@@ -7,9 +7,7 @@ import { BlogContext } from '../pages/blog.page';
 
 
 const CommentField = ({ action }) => {
-    let { blog,
-        blog:
-        {
+    let { blog,blog:{
             _id,
             author: { _id: blog_author },
             comments,

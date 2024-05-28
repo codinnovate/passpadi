@@ -30,7 +30,9 @@ const BlogEditor = () => {
         let img = e.target.files[0];
         if (img) {
             let loadingToast = toast.loading("Uploading image please wait ..")
-            uploadImage(img).then((url) => {
+            console.log(img)
+            uploadImage(img)
+            .then((url) => {
                 if (url) {
                     setBlog({ ...blog, banner: url })
                     toast.dismiss(loadingToast);

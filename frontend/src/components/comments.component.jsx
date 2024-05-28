@@ -18,7 +18,7 @@ export const fetchComments = async ({ skip = 0, blog_id, setParentCommentCountFu
                 comment.childrenLevel = 0;
             })
             setParentCommentCountFun(preval => preval + data.length)
-            if (comment_array == null) {
+            if (comment_array == null){
                 res = {results: data }
             } else {
                 res = { results:[...comment_array, ...data] }
@@ -29,12 +29,7 @@ export const fetchComments = async ({ skip = 0, blog_id, setParentCommentCountFu
 
 
 const CommentsContainer = () => {
-    let { blog: {
-        title,
-        comments:{ results: commentsArr }
-    },
-        commentsWrapper,
-        setCommentsWrapper
+    let { blog: { title}, commentsWrapper,setCommentsWrapper
     } = useContext(BlogContext)
     
     return (
@@ -44,7 +39,7 @@ const CommentsContainer = () => {
                 <h1 className='text-xl font-medium'>Comments</h1>
                 <p className='text-lg mt-2 w-[70%] text-dark-grey line-clamp-1'>{title}</p>
                 <button
-                    onClick={() => setCommentsWrapper(preval => !preval)}
+                    onClick={() => setCommentsWrapper(!commentsWrapper)}
                 
                     className='absolute top-0 right-0 flex justify-center items-center w-12 h-12 rounded-full bg-grey'>
                     <i className='fi fi-br-cross'></i>
@@ -54,7 +49,7 @@ const CommentsContainer = () => {
                 
                 <CommentField action="comment" />
                 
-                {
+                {/* {
                     commentsArr && commentsArr.length ? 
                         commentsArr.map((comment, i) => {
                             return <AnimationWrapper key={i}>
@@ -62,7 +57,7 @@ const CommentsContainer = () => {
                                 />
                                 </AnimationWrapper>;
                     }) : <NoDataMessage message="No Comments Yet" />
-                }
+                } */}
 
         </div>
         </div>
