@@ -8,6 +8,7 @@ import BlogInteraction from '../components/blog-interaction.component';
 import BlogPostCard from '../components/blog-post.component';
 import BlogContent from '../components/blog-content.component';
 import CommentsContainer, { fetchComments } from '../components/comments.component';
+import Seo from '../components/Seo';
 
 
 
@@ -29,7 +30,7 @@ const BlogPage = () => {
     const [loading, setLoading ] = useState(true)
     const [blog, setBlog] = useState(blogStructure);
     const [similarBlogs, setSimilarBlogs ] = useState(null)
-    let { title, content, banner, author: { personal_info: { fullname, username:author_username, profile_img } }, publishedAt, } = blog;
+    let { title, content, banner, tags, des, author: { personal_info: { fullname, username:author_username, profile_img } }, publishedAt, } = blog;
     const [isLikedByUser, setLikedByUser] = useState(false);
     const [commentsWrapper, setCommentsWrapper] = useState(false);
     const [totalParentCommentsLoaded, setTotalParentCommentsLoaded] = useState(0);
@@ -73,6 +74,15 @@ const BlogPage = () => {
 
     return (
         <AnimationWrapper>
+            <Seo
+                title={title}
+                banner={banner}
+                blogId={blogId}
+                des={des}
+                Tags={tags}
+                author={fullname}
+                
+            />
             {
                 loading ? <Loader />
                     : 
@@ -120,10 +130,8 @@ const BlogPage = () => {
                                         {
                                             similarBlogs.map((blog, i) => {
                                                 let { author: { personal_info }  } = blog;
-                                                return 
-                                                <AnimationWrapper key={i} transition={{ duration: 1, delay: i * 0.08 }}>
+                                                return <AnimationWrapper key={i} transition={{ duration: 1, delay: i * 0.08 }}>
                                                     <BlogPostCard content={blog} author={personal_info}  />
-                                                    
                                                     </AnimationWrapper>
                                                 
                                             })
