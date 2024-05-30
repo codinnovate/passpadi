@@ -6,8 +6,9 @@ import { BlogContext } from '../pages/blog.page';
 
 
 
-const CommentField = ({ action }) => {
-    let { blog,blog:{
+const CommentField = ({ action, index= undefined, replyingTo= undefined, setReplying }) => {
+    
+    let { blog, blog: {
             _id,
             author: { _id: blog_author },
             comments,
@@ -43,12 +44,22 @@ const CommentField = ({ action }) => {
             .then(({ data }) => {
                 setComment("");
                 data.commented_by = {personal_info : {username, profile_img,  fullname }}
-                let newCommentArr = [data];
-                
-                data.childrenLevel = 0;
+                let newCommentArr;
 
-                newCommentArr = [data, ...commentsArr];
-                let parentCommentIncrementVal = 1;
+                if (replyingTo) {
+                    commentsArr[index].children.push(data._id)
+                    data.childrenLevel = commentsArr[index].childrenLevel + 1;
+                    data.parentIndex = index;
+                    commentsArr[index].isReplyLoaded = true;
+                    commentsArr.splice(index + 1, 0, data);
+                    newCommentArr = commentsArr;
+                    setReplying(false);
+                } else {
+                    data.childrenLevel = 0;
+                    newCommentArr = [data, ...commentsArr];
+                }
+                
+                let parentCommentIncrementVal = replyingTo? 0: 1;
                 setBlog({
                     ...blog,
                     comments: { ...comments, results: newCommentArr },

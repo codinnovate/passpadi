@@ -11,7 +11,7 @@ import ProfilePage from "./pages/profile.page";
 import BlogPage from "./pages/blog.page";
 import Privacy from "./pages/privacy";
 import Footer from "./pages/footer";
-
+import AdsTxt from "./pages/ads.page";
 
 
 export const UserContext = createContext({});
@@ -28,7 +28,7 @@ const App = () => {
             <Routes>
             <Route path="/editor" element={<Editor />} />
             <Route path="/editor/:blog_id" element={<Editor />} />
-                <Route path="/" element={[<Navbar />, <Footer />]}>
+                <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />]}>
                     <Route index element={<HomePage />}  />
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
@@ -36,7 +36,8 @@ const App = () => {
                     <Route path="user/:id" element={<ProfilePage />} />
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
-                    <Route path="/privacy" element={<Privacy /> } />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path='/ads.txt' element={<AdsTxt />} />
                     
                 </Route>
                 
