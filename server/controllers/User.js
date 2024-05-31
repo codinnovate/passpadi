@@ -3,8 +3,10 @@ import bcrypt from 'bcrypt';
 import 'dotenv/config'
 import { getAuth } from 'firebase-admin/auth';
 import { formatDatatoSend } from "../utils/generates.js";
+import { generateUsername } from "../utils/generates.js";
 
-
+export const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
+export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
 const Register = (req, res) => {
     let { fullname, email, password } = req.body;
@@ -32,9 +34,9 @@ const Register = (req, res) => {
             return res.status(200).json(formatDatatoSend(u))
         })
         .catch(err => {
-            //     if (err.code == 11000) {
-            //     return res.status(500).json({"error":"Email already exists"})
-            // }
+                if (err.code == 11000) {
+                return res.status(500).json({"error":"Email already exists"})
+            }
             return res.status(500).json({"error":err.message})
         })})
 }

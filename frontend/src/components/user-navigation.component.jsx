@@ -1,17 +1,18 @@
 import React, { useContext } from 'react'
 import AnimationWrapper from '../common/page-animation'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { UserContext } from '../App'
 import { removeFromSession } from '../common/session'
 
 const UserNavigationPanel = () => {
+    const location = useLocation();
     const { userAuth:{username}, setUserAuth} = useContext(UserContext);
     
     const signOutUser = () => {
         removeFromSession("user")
         setUserAuth({access_token: null })
 
-     }
+  }
 
   return (
         <AnimationWrapper 
@@ -19,17 +20,27 @@ const UserNavigationPanel = () => {
         transition={{duration:0.2}}
         >
         <div className='bg-white absolute right-0 border border-gray w-60 overflow-hidden duration-200'>
-            <Link to="/editor" className='flex gap-2 link md:hidden pl-8 py-4'>
-            <i className='fi fi-rr-file-edit'></i>    
-            <p>Write</p>
-              </Link>
+         {location.pathname === '/store' ? (
+        <Link to="/add-product" className="flex gap-2 link md:hidden pl-8 py-4">
+          <i className="fi fi-rr-file-edit"></i>
+          <p>Create Product</p>
+        </Link>
+      ) : (
+        <Link to="/editor" className="flex gap-2 link md:hidden pl-8 py-4">
+          <i className="fi fi-rr-file-edit"></i>
+          <p>Write</p>
+        </Link>
+      )}
+       
               
             <Link to={`/user/${username}`} className='link pl-8 py-4'>
             Profile
-              </Link>
-            <Link to='/store' className='link pl-8 py-4'>
-            Store
-            </Link>
+        </Link>
+            {location.pathname === '/store' ? null : (
+                <Link to='/store' className='link pl-8 py-4'>
+                Store
+                </Link>
+            )}
             <Link to='/dashboard/blogs' className='link pl-8 py-4'>
             Dashboard
             </Link>

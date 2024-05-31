@@ -10,10 +10,11 @@ import { getAuth } from 'firebase-admin/auth';
 import Blog from './Schema/Blog.js';
 import Notification from './Schema/Notification.js';
 import { verifyJWT } from './middlewares/VerifyJwt.js';
-import { generateUploadURL,formatDatatoSend, generateUsername,generateBlogId , s3 } from './utils/generates.js';
+import { generateUploadURL,formatDatatoSend, generateUsername,generateSlug ,    s3 } from './utils/generates.js';
 import { uploadUrl } from './controllers/uploads.js';
 import { userRouter } from './routes/User.js';
 import { commentRouter } from './routes/Comment.js';
+import { productRouter } from './routes/Product.js';
 
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
@@ -34,10 +35,10 @@ mongoose.connect(process.env.DB_LOCATION, {
 })
 app.use(cors());
 app.use(express.json());
-app.use("", [userRouter, commentRouter])
+app.use("", [userRouter, commentRouter, productRouter])
 
 app.get('/get-upload-url', uploadUrl)
-
+// app.use("",)
 
 
 app.post("/latest-blogs", (req, res) => {
@@ -201,7 +202,7 @@ app.post("/create-blog", verifyJWT ,  (req, res) => {
     }
     tags = tags.map(tag => tag.toLowerCase());
     // replaces dashes in title with "-"
-    let blog_id = id || generateBlogId(title)
+    let blog_id = id || generateSlug(title)
     if (id) {
 
         Blog.findOneAndUpdate({ blog_id }, { title, des, banner, content, tags, draft: draft? draft : false })
@@ -240,7 +241,6 @@ app.post("/create-blog", verifyJWT ,  (req, res) => {
 
 app.post("/get-blog", (req, res) => {
     let { blog_id, draft, mode } = req.body;
-
     let incrementVal =  mode != "edit" ? 1: 0 ;
     Blog.findOneAndUpdate({ blog_id }, { $inc: { "activity.total_reads": incrementVal } })
         .populate("author", "personal_info.fullname personal_info.username personal_info.profile_img ")

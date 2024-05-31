@@ -1,4 +1,4 @@
-import { Link ,  Outlet, useNavigate } from 'react-router-dom';
+import { Link ,  Outlet, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useContext, useState } from 'react';
 import { UserContext } from '../App';
@@ -7,6 +7,7 @@ import Logo from './logo.component';
 
 
 const Navbar = () => {
+    const location = useLocation();
     const [searchBoxVisibility, setSearchBoxVisibility] = useState(false);
     const [userNavPanel, setUserNavPanel] = useState(false) 
     const navigate = useNavigate();
@@ -53,11 +54,20 @@ const Navbar = () => {
                     className='md:hidden bg-grey w-12 h-12 rounded-full flex items-center justify-center'>
                     <i className='fi fi-rr-search text-xl'></i>
                 </button>
-
+                    {
+                        location.pathname === '/store' ? (
+                        <Link to='/add-product' className='hidden md:flex gap-2 link'>
+                    <i className='fi fi-rr-file-edit'></i>
+                    <p>create Product</p>
+                            </Link>
+                            
+                        ) : (
                 <Link to='/editor' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
                     <p>Write</p>
-                </Link>
+                </Link>         
+                        )
+                }
 
                 {access_token ?
                 <>

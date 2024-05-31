@@ -1,0 +1,1 @@
+export const serverApp = import.meta.env.VITE_SERVER_DOMAIN

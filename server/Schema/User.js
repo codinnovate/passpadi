@@ -62,6 +62,10 @@ const userSchema = mongoose.Schema({
             type: Number,
             default: 0
         },
+        total_products: {
+            type: Number,
+            default: 0
+        },
         total_reads: {
             type: Number,
             default: 0

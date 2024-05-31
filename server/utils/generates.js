@@ -1,6 +1,9 @@
 import aws from 'aws-sdk';
 import { nanoid } from 'nanoid';
 import jwt from 'jsonwebtoken';
+import User from '../Schema/User.js';
+
+
 
 const s3 = new aws.S3({
     signatureVersion: 'v4',
@@ -53,14 +56,14 @@ const formatDatatoSend = (user) => {
 
 
 
-const generateBlogId = (title) => {
+const generateSlug = (title) => {
   let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim();
-  let blogId = `${sanitizedTitle}-${nanoid()}`;
-  return encodeURIComponent(blogId);
+  let appId = `${sanitizedTitle}`;
+  return encodeURIComponent(appId);
 };
 
 export {
-    generateBlogId,
+    generateSlug,
     formatDatatoSend,
     generateUploadURL,
     generateUsername,

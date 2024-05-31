@@ -12,6 +12,8 @@ import BlogPage from "./pages/blog.page";
 import Privacy from "./pages/privacy";
 import Footer from "./pages/footer";
 import AdsTxt from "./pages/ads.page";
+import Store from "./pages/store.pages";
+import ProductEditor from "./components/product.editor";
 
 
 export const UserContext = createContext({});
@@ -27,7 +29,9 @@ const App = () => {
         <UserContext.Provider value={{userAuth, setUserAuth}}>
             <Routes>
             <Route path="/editor" element={<Editor />} />
-            <Route path="/editor/:blog_id" element={<Editor />} />
+                <Route path="/editor/:blog_id" element={<Editor />} />
+                <Route path="/add-product" element={<ProductEditor /> } />
+                <Route path="/add-product" element={<ProductEditor /> } />
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />]}>
                     <Route index element={<HomePage />}  />
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
@@ -37,6 +41,7 @@ const App = () => {
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/store" element={<Store />} />
                     <Route path='/ads.txt' element={<AdsTxt />} />
                     
                 </Route>

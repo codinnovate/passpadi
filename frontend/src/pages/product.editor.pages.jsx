@@ -16,9 +16,9 @@ const blogStructure = {
     author:{personal_info:{}}
 }
 
-export const EditorContext = createContext({});
+export const ProductEditorContext = createContext({});
 
-const Editor = () => {
+const ProductEditor = () => {
     const [blog, setBlog] = useState(blogStructure);
     const [editorState, setEditorState] = useState("editor");
     const [textEditor, setTextEditor] = useState({ isReady:false });
@@ -60,4 +60,4 @@ const Editor = () => {
     )
 }
  
-export default  Editor
+export default  ProductEditor
