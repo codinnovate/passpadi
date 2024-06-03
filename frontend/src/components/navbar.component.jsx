@@ -56,7 +56,7 @@ const Navbar = () => {
                 </button>
                     {
                         location.pathname === '/store' ? (
-                        <Link to='/add-product' className='hidden md:flex gap-2 link'>
+                        <Link to='/product-editor' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
                     <p>create Product</p>
                             </Link>
@@ -71,11 +71,11 @@ const Navbar = () => {
 
                 {access_token ?
                 <>
-                    <Link to='/dashboard/notification'>
+                    {/* <Link to='/dashboard/notification'>
                         <button className='w-12 h-12 rounded-full bg-grey relative hover:bg-black/10'>
                         <i className='fi fi-rr-bell text-2xl block mt-1'></i>
                         </button>
-                    </Link>
+                    </Link> */}
 
                     <div className="relative">
                                 <button

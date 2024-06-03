@@ -9,6 +9,7 @@ import { EditorContext } from '../pages/editor.pages';
 import Editorjs from "@editorjs/editorjs";
 import { tools } from './tools.component';
 import { UserContext } from '../App';
+import Logo from './logo.component';
 
 const BlogEditor = () => {
     let { blog, blog: { title, banner, content, tags, des }, setBlog, textEditor, setTextEditor, setEditorState } = useContext(EditorContext)
@@ -125,15 +126,13 @@ const BlogEditor = () => {
                 })
             })
         }
-
+        console.log(title);
     }
 
     return (
         <>
         <nav className='navbar'>
-            <Link to="/" className='flex-none w-10'>
-                <img src={logo} />
-            </Link>
+            <Logo />
 
             <p className='max-md:hidden text-black line-clamp-1 w-full '>
                {title ? title : "New Blog"} 

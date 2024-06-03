@@ -125,7 +125,7 @@ const BlogPage = () => {
                             {
                                 similarBlogs != null && similarBlogs.length ? 
                                     <>
-                                        <h1 className='text-2xl mt-14 mb-10 font-medium'>Similar bogs</h1>
+                                        <h1 className='text-2xl mt-14 mb-10 font-medium'>Similar blogs</h1>
                                         
                                         {
                                             similarBlogs.map((blog, i) => {

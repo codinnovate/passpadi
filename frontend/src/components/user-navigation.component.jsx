@@ -21,7 +21,7 @@ const UserNavigationPanel = () => {
         >
         <div className='bg-white absolute right-0 border border-gray w-60 overflow-hidden duration-200'>
          {location.pathname === '/store' ? (
-        <Link to="/add-product" className="flex gap-2 link md:hidden pl-8 py-4">
+        <Link to="/product-editor" className="flex gap-2 link md:hidden pl-8 py-4">
           <i className="fi fi-rr-file-edit"></i>
           <p>Create Product</p>
         </Link>
@@ -36,14 +36,14 @@ const UserNavigationPanel = () => {
             <Link to={`/user/${username}`} className='link pl-8 py-4'>
             Profile
         </Link>
-            {location.pathname === '/store' ? null : (
+            {/* {location.pathname === '/store' ? null : (
                 <Link to='/store' className='link pl-8 py-4'>
                 Store
                 </Link>
-            )}
-            <Link to='/dashboard/blogs' className='link pl-8 py-4'>
+            )} */}
+            {/* <Link to='/dashboard/blogs' className='link pl-8 py-4'>
             Dashboard
-            </Link>
+            </Link> */}
              <Link to='/settings/edit-profile' className='link pl-8 py-4'>
              Settings 
             </Link>

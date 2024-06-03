@@ -1,32 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import logo from '../imgs/logo.png';
 import AnimationWrapper from '../common/page-animation';
 import defaultBanner from '../imgs/blog banner.png'
 import { uploadImage } from '../common/aws';
 import { Toaster, toast } from 'react-hot-toast';
-import { EditorContext } from '../pages/editor.pages';
+import { ProductEditorContext } from '../pages/product.editor.pages';
 import { UserContext } from '../App';
-import { serverApp } from '../../server';
 import Logo from './logo.component';
 
-
-
-
-const productStructure = {
-    title: '',
-    banner: '',
-    price:'',
-    categories: [],
-    des: '',
-    author:{personal_info:{}}
-}
- 
-const ProductEditor = () => {
-    let {product, setProduct } = useState(productStructure)
+const ProductEditorPage = () => {
+    const { product,  setproduct, setEditorState } = useContext(ProductEditorContext)
     let { userAuth: { access_token } } = useContext(UserContext)
-    let navigate = useNavigate();
     let { product_id } = useParams();
+    let navigate = useNavigate();
+   
+
 
 
 
@@ -34,13 +22,13 @@ const ProductEditor = () => {
         let img = e.target.files[0];
         if (img) {
             let loadingToast = toast.loading("Uploading image please wait ..")
+            console.log(img)
             uploadImage(img)
             .then((url) => {
                 if (url) {
-                    setProduct({ ...product, banner: url })
+                    setproduct({ ...product, banner: url })
                     toast.dismiss(loadingToast);
                     toast.success("Image Uploaded sucessfully")
-                    
                 }
             })
                 .catch(err => {
@@ -60,7 +48,12 @@ const ProductEditor = () => {
         let input = e.target;
         input.style.height = 'auto';
         input.style.height = input.scrollHeight + "px";
-        setProduct({ ...product, title: input.value })
+        setproduct({ ...product, title: input.value })
+    }
+
+    const handleDesChange = (e) => {
+        e.preventDefault();
+        setproduct({...product, des:e.target.value})
     }
     const handleError = (e) => {
         let img = e.target;
@@ -75,11 +68,12 @@ const ProductEditor = () => {
         if (!title.length) {
             return toast.error("Write a title to publish.")
         }
+        setEditorState("publish")
 
     }
     const handleSaveDraft = (e) => {
-        if (e.target.className.includes("disable")) {
-        return;
+            if (e.target.className.includes("disable")) {
+            return;
         }
         if (!title.length) {
             return toast.error("Write product title before Saving as Draft")
@@ -88,16 +82,15 @@ const ProductEditor = () => {
             return toast.error(`Write a description about your product within ${characterLimit} characters to publish`)
         }
         if (!categories.length) {
-            return toast.error("Enter at least 1 tag to help us rank your product")
+            return toast.error("Enter at least 1 category to help us rank your product")
         }
         let loadingToast = toast.loading("Saving as Draft.....");
         e.target.classList.add('disable');
 
-        
-        const  blogObj = {
-                    title, banner, des , price , categories, draft:true
-        }
-        axios.post(serverApp + "/add-product", {...blogObj, product_id}, {
+        let productObj = {
+        title, banner, des  ,price , categories, draft:true
+                }
+                axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/add-product", {...productObj, id:product_id }, {
                     headers: {
                         'Authorization':`Bearer ${access_token}`
                     }
@@ -106,7 +99,7 @@ const ProductEditor = () => {
                     toast.dismiss(loadingToast)
                     toast.success("Saved");
                     setTimeout(() => {
-                        navigate("/store")
+                        navigate("/")
                     }, 500)
                 })
                     .catch(({response }) => {
@@ -115,8 +108,7 @@ const ProductEditor = () => {
                         return  toast.error(response.data.error)
             
                 })
-        }
-
+    }
 
     return (
         <>
@@ -124,7 +116,7 @@ const ProductEditor = () => {
             <Logo />
 
             <p className='max-md:hidden text-black line-clamp-1 w-full '>
-               {title? title : "New Product"} 
+               "New product"
             </p>
             <div className='flex  gap-4 ml-auto'>
                     <button
@@ -144,7 +136,7 @@ const ProductEditor = () => {
                         <div className="relative aspect-video bg-white border-4 border-grey hover:opacity-80 ">
                             <label htmlFor='uploadBanner'>
                                 <img
-                                    src={banner}
+                                    src={defaultBanner}
                                     className='z-20'
                                     onError={handleError}
                                 />
@@ -158,15 +150,22 @@ const ProductEditor = () => {
                         </label>
                         </div>
                         <textarea
-                            defaultValue={title}
+                            defaultValue="Product Title"
                             onKeyDown={handleTitleKeyDown}
                             onChange={handleTitleChange}
-                            placeholder='Blog Title'
+                            placeholder='product Title'
                             className='text-4xl font-medium w-full h-20 outline-none resize-none mt-10 leading-tight placeholder:opacity-40'
                         >
                         </textarea>
 
                         <hr className='w-full opacity-10 my-5' />
+                         <textarea
+                            defaultValue="Product Description"
+                            onChange={handleDesChange}
+                            placeholder='product Description'
+                            className='text-4xl font-medium w-full h-20 outline-none resize-none mt-10 leading-tight placeholder:opacity-40'
+                        >
+                        </textarea>
 
                 </div>
                 </section>                
@@ -176,4 +175,4 @@ const ProductEditor = () => {
     )
 }
 
-export default ProductEditor
+export default ProductEditorPage

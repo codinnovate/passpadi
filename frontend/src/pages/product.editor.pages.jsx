@@ -1,62 +1,57 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { UserContext } from '../App';
 import { Navigate, useParams } from 'react-router-dom';
-import BlogEditor from '../components/blog-editor.component';
-import PublishForm from '../components/publish-form.component';
+import ProductEditorPage from '../components/product-editor.component.jsx';
+import ProductPublishForm from '../components/product-publish-form';
 import Loader from '../components/loader.component';
 import axios from 'axios';
 import { serverApp } from '../../server'
 
-const blogStructure = {
+const productStructure = {
     title: '',
     banner: '',
-    content: [],
-    tags: [],
+    price: '',
     des: '',
-    author:{personal_info:{}}
+    categories:[],
+    seller:{personal_info:{}}
 }
 
 export const ProductEditorContext = createContext({});
 
 const ProductEditor = () => {
-    const [blog, setBlog] = useState(blogStructure);
+    const [product, setproduct] = useState(productStructure);
     const [editorState, setEditorState] = useState("editor");
-    const [textEditor, setTextEditor] = useState({ isReady:false });
-    let { blog_id } = useParams();
+    let { product_id } = useParams();
     let [ loading, setLoading ] = useState(true);
-
-
-
-
 
 
     let { userAuth: { access_token } } = useContext(UserContext)
     
 
     useEffect(() => {
-        if (!blog_id) {
+        if (!product_id) {
             return setLoading(false);
         }
 
-        axios.post(serverApp + "/get-blog", {
-            blog_id, draft:true, mode:"edit"
-        }).then(({ data: { blog } }) => {
-            setBlog(blog);
+        axios.post(serverApp + "/get-product", {
+            product_id, draft:true, mode:"edit"
+        }).then(({ data: { product } }) => {
+            setproduct(product);
             setLoading(false)
         }).catch(err => {
-            setBlog(blog)
+            setproduct(product)
             setLoading(false)
         })
     }, [])
 
     return (
-        <EditorContext.Provider value={{blog, setBlog, editorState, setEditorState , textEditor, setTextEditor}}>
+        <ProductEditorContext.Provider value={{product, setproduct, editorState, setEditorState }}>
             {
                 access_token === null ? <Navigate to='/signin' />  :
                 loading ? <Loader /> :
-                 editorState == "editor" ? <BlogEditor /> : <PublishForm />
+                editorState == "editor" ? <ProductEditorPage /> : <ProductPublishForm />
             }
-        </EditorContext.Provider>
+        </ProductEditorContext.Provider>
     )
 }
  
