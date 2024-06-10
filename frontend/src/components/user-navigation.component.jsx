@@ -36,11 +36,11 @@ const UserNavigationPanel = () => {
             <Link to={`/user/${username}`} className='link pl-8 py-4'>
             Profile
         </Link>
-            {/* {location.pathname === '/store' ? null : (
+            {location.pathname === '/store' ? null : (
                 <Link to='/store' className='link pl-8 py-4'>
                 Store
                 </Link>
-            )} */}
+            )}
             {/* <Link to='/dashboard/blogs' className='link pl-8 py-4'>
             Dashboard
             </Link> */}

@@ -4,12 +4,14 @@ import { UserContext } from '../App';
 import toast from 'react-hot-toast';
 import CommentField from './comment-field.component';
 import { BlogContext } from '../pages/blog.page';
+import axios from 'axios';
+import { serverApp } from '../../server';
 
 const CommentCard = ({ index, leftVal, commentData }) => {
     let { commented_by: { personal_info: {profile_img, fullname, username }}, commentedAt, comment,_id , children } = commentData
     let {userAuth:{access_token }} = useContext(UserContext)
     const [isReplying, setReplying] = useState(false);
-    let {blog, blog:{comments:{results:commentsArr}}, setBlog} = useContext(BlogContext)
+    let {blog, blog:{comments, comments:{results:commentsArr}}, setBlog} = useContext(BlogContext)
 
 
     const handleReplyClick = () => {
@@ -39,6 +41,19 @@ const CommentCard = ({ index, leftVal, commentData }) => {
     const loadReplies = ({ skip = 0  }) => {
         if (children.length) {
             hideReplies();
+            axios.post(serverApp + "/get-replies", { _id, skip })
+                .then(({ data: { replies } }) => {
+                    commentData.isReplyLoaded = true;
+                    for (let i = 0; i < replies.length; i++){
+                        replies[i].childrenLevel = commentData.childrenLevel + 1;
+                        commentsArr.splice(index  + 1 + i + skip , 0, replies[i])
+                    }
+
+                    setBlog({ ...blog, comments: { ...comments, results:commentsArr } })
+                })
+                .catch(err => {
+                console.log(err)
+            })
         }
     }
 

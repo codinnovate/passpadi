@@ -16,6 +16,9 @@ import Store from "./pages/store.pages";
 import ProductEditor from "./components/product-editor.component";
 import Quiz from "./pages/Quiz";
 import QuestionEditor from "./pages/QuestionEditor";
+import ProductDetail from "./pages/product.page";
+import Transactions from "./pages/transactions";
+import Seo from "./components/Seo";
 
 
 export const UserContext = createContext({});
@@ -28,14 +31,19 @@ const App = () => {
     },[])
 
     return (
-        <UserContext.Provider value={{userAuth, setUserAuth}}>
+        <UserContext.Provider value={{ userAuth, setUserAuth }}>
+            <Seo
+            title="Passpadi | Built by Students For Students"
+            des="PassPadi is a dynamic and innovative social networking platform tailored specifically for students striving to excel in their exams"
+            />
             <Routes>
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />
-                <Route path="/product-editor" element={<ProductEditor /> } />
-                <Route path="/product-editor/:product_id" element={<ProductEditor /> } />
+                <Route path="/add-product" element={<ProductEditor />} />
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />]}>
+                    <Route path='/transactions/:reference' element={<Transactions />} />
                     <Route path='/question-editor' element={<QuestionEditor />} />
+                <Route path="product/:productId" element={<ProductDetail />} />
                     <Route index element={<HomePage />}  />
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />

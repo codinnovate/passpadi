@@ -57,7 +57,7 @@ const formatDatatoSend = (user) => {
 
 
 const generateSlug = (title) => {
-  let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim();
+  let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim().toLowerCase();
   let appId = `${sanitizedTitle}`;
   return encodeURIComponent(appId);
 };

@@ -1,35 +1,39 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useNavigate,Navigate } from 'react-router-dom'
 import AnimationWrapper from '../common/page-animation';
 import defaultBanner from '../imgs/blog banner.png'
 import { uploadImage } from '../common/aws';
 import { Toaster, toast } from 'react-hot-toast';
-import { ProductEditorContext } from '../pages/product.editor.pages';
 import { UserContext } from '../App';
 import Logo from './logo.component';
+import Input from '../components/UI/Input';
+import { serverApp } from '../../server';
+import axios from 'axios';
+
+
 
 const ProductEditorPage = () => {
-    const { product,  setproduct, setEditorState } = useContext(ProductEditorContext)
-    let { userAuth: { access_token } } = useContext(UserContext)
-    let { product_id } = useParams();
-    let navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [banner, setBanner] = useState('');
+  let { userAuth: { access_token } } = useContext(UserContext)
+  let navigate = useNavigate();
    
-
-
-
-
     const handleBannerUpload = (e) => {
         let img = e.target.files[0];
         if (img) {
             let loadingToast = toast.loading("Uploading image please wait ..")
-            console.log(img)
             uploadImage(img)
-            .then((url) => {
-                if (url) {
-                    setproduct({ ...product, banner: url })
-                    toast.dismiss(loadingToast);
-                    toast.success("Image Uploaded sucessfully")
-                }
+                .then((url) => {
+                    if (url) {
+                        console.log(url)
+                        setBanner(url)
+                        toast.dismiss(loadingToast);
+                        toast.success("Image Uploaded sucessfully")
+                    } else {
+                        alert("No Url Ooo")
+                    }
             })
                 .catch(err => {
                     toast.dismiss(loadingToast);
@@ -38,95 +42,55 @@ const ProductEditorPage = () => {
         }
 
     }
-    const handleTitleKeyDown = (e) => {
-        if (e.keyCode == 13) {
-            e.preventDefault();
 
-        }
-    }
-    const handleTitleChange = (e) => {
-        let input = e.target;
-        input.style.height = 'auto';
-        input.style.height = input.scrollHeight + "px";
-        setproduct({ ...product, title: input.value })
-    }
 
-    const handleDesChange = (e) => {
-        e.preventDefault();
-        setproduct({...product, des:e.target.value})
-    }
-    const handleError = (e) => {
-        let img = e.target;
-        img.src = defaultBanner;
-    }
 
-    const handlePublishEvent = () => {
-        if (!banner.length) {
+    const handlePublishEvent = async (e) => {
+         if (!banner.length) {
             return toast.error("c'mon add a banner to publish it.")
         }
 
-        if (!title.length) {
-            return toast.error("Write a title to publish.")
+        if (!name.length) {
+            return toast.error("add  product name to publish.")
         }
-        setEditorState("publish")
+        if (!price.length) {
+            return toast.error("Write a price to publish.")
+        }
 
-    }
-    const handleSaveDraft = (e) => {
-            if (e.target.className.includes("disable")) {
-            return;
+         if (!description.length) {
+            return toast.error("Write a description to publish.")
         }
-        if (!title.length) {
-            return toast.error("Write product title before Saving as Draft")
-        }
-        if (!des.length || des.length > characterLimit) {
-            return toast.error(`Write a description about your product within ${characterLimit} characters to publish`)
-        }
-        if (!categories.length) {
-            return toast.error("Enter at least 1 category to help us rank your product")
-        }
-        let loadingToast = toast.loading("Saving as Draft.....");
-        e.target.classList.add('disable');
-
-        let productObj = {
-        title, banner, des  ,price , categories, draft:true
+        await axios.post(serverApp + '/add-product', {  name, price, banner, description },
+            {
+                headers: {
+                    'Authorization': `Bearer ${access_token}`
                 }
-                axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/add-product", {...productObj, id:product_id }, {
-                    headers: {
-                        'Authorization':`Bearer ${access_token}`
-                    }
-                }).then(() => {
-                    e.target.classList.remove('disable');
-                    toast.dismiss(loadingToast)
-                    toast.success("Saved");
-                    setTimeout(() => {
-                        navigate("/")
-                    }, 500)
-                })
-                    .catch(({response }) => {
-                        e.target.classList.remove('disable');
-                        toast.dismiss(loadingToast);
-                        return  toast.error(response.data.error)
-            
-                })
-    }
+            }
+        )
+            .then(res => {
+                console.log(res)
+                toast.success(res)
+                navigate('/store')
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error(err)
+        })
 
-    return (
+    }
+    
+
+    return access_token === null ? <Navigate to='/signin' /> : (
         <>
         <nav className='navbar'>
             <Logo />
 
-            <p className='max-md:hidden text-black line-clamp-1 w-full '>
-               "New product"
-            </p>
             <div className='flex  gap-4 ml-auto'>
                     <button
                         onClick={handlePublishEvent}
                         className='btn-dark py-2'
                     >Publish</button>
-                    <button
-                        onClick={handleSaveDraft}
-                        className='btn-light py-2'>Save Draft</button>
-            </div>
+                    </div>
             </nav>
             <Toaster />
         <AnimationWrapper>
@@ -135,11 +99,16 @@ const ProductEditorPage = () => {
                     <div className="mx-auto max-w-[900px] w-full">
                         <div className="relative aspect-video bg-white border-4 border-grey hover:opacity-80 ">
                             <label htmlFor='uploadBanner'>
+                                {banner ? (
+                                    <img
+                                src={banner}
+                                className='z-20'
+                                />): 
                                 <img
-                                    src={defaultBanner}
-                                    className='z-20'
-                                    onError={handleError}
+                                src={defaultBanner}
+                                className='z-20'
                                 />
+                            }
                                 <input
                                     id='uploadBanner'
                                     type='file'
@@ -150,20 +119,29 @@ const ProductEditorPage = () => {
                         </label>
                         </div>
                         <textarea
-                            defaultValue="Product Title"
-                            onKeyDown={handleTitleKeyDown}
-                            onChange={handleTitleChange}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             placeholder='product Title'
                             className='text-4xl font-medium w-full h-20 outline-none resize-none mt-10 leading-tight placeholder:opacity-40'
                         >
                         </textarea>
+                        <div className='flex flex-col w-full gap-2'>
+                        <h1 className='font-semibold text-xl'>Enter price</h1>
+                            <Input
+                            placeholder="Enter Price"
+                            type="number"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            />
+                            
+                            </div>
 
                         <hr className='w-full opacity-10 my-5' />
                          <textarea
-                            defaultValue="Product Description"
-                            onChange={handleDesChange}
+                           value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             placeholder='product Description'
-                            className='text-4xl font-medium w-full h-20 outline-none resize-none mt-10 leading-tight placeholder:opacity-40'
+                            className='text-xl font-medium w-full h-20 outline-none resize-none mt-10 leading-tight placeholder:opacity-40'
                         >
                         </textarea>
 

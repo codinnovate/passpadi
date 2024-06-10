@@ -15,7 +15,7 @@ import { uploadUrl } from './controllers/uploads.js';
 import { userRouter } from './routes/User.js';
 import { commentRouter } from './routes/Comment.js';
 import { productRouter } from './routes/Product.js';
-
+import { paymentRouter } from './routes/Payments.js'
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
 })
@@ -36,6 +36,7 @@ mongoose.connect(process.env.DB_LOCATION, {
 app.use(cors());
 app.use(express.json());
 app.use("", [userRouter, commentRouter, productRouter])
+app.use("/transactions", paymentRouter)
 
 app.get('/get-upload-url', uploadUrl)
 // app.use("",)

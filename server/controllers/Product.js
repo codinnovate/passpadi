@@ -1,93 +1,74 @@
 import Product from "../Schema/Product.js";
-import User from "../Schema/User.js";
 import { generateSlug } from "../utils/generates.js";
 
 
 
-export const addProduct = (req, res) => {
+export const addProduct = async (req, res) => {
     let sellerId = req.user;
-    let { title, banner, des, categories, price, draft , id} = req.body;
-    if (!title.length) {
-            return res.status(403).json({error:"You must provide a title !!"})
+    let { name, banner, description, price } = req.body;
+    if (!name || name.trim().length === 0) {
+        return res.status(403).json({ error: "You must provide a name!" });
+        console.log("No Name")
     }
-    if (!draft) {
-        if (!des.length || des.length > 200) {
-            return res.status(403).json({error:"You must provude Product description under 200 characters"})
-        }
-        if (!banner.length) {
-            return res.status(403).json({error:"You must add a banner to publish"})
-        }
-        if (!price.length){
-            return res.status(403).json({error:"There must be some Product content to publish it"})
-        }
-        if (!categories.length || categories.length > 10) {
-            return res.status(403).json({error: "Provide categories in order to publish the Product, Maximum 10"})
-        }
-    }
-    categories = categories.map(cat => cat.toLowerCase());
-    let product_id = id || generateSlug(title)
-    if (id) {
+    if (!description || description.trim().length === 0 || description.length > 1200) {
+        return res.status(403).json({ error: "You must provide a product description under 200 characters!" });
+            console.log("No Description")
 
-        Product.findOneAndUpdate({ product_id }, { title, des, banner, price, categories, draft: draft ? draft : false })
-            .then(() => {
-                return res.status(200).json({ id: product_id })
-            })
-            .catch(err => {
-                return res.status(500).json({ error: err.message })
-            })
-        
-    } else {
+    }
+    if (!banner || banner.trim().length === 0) {
+        return res.status(403).json({ error: "You must add a banner to publish!" });
+    }
+    if (!price || isNaN(price)) {
+        return res.status(403).json({ error: "Add a valid price!" });
+    }
+
+
+    let product_id = generateSlug(name)
+    try {
         let product = new Product({
-            title, des, banner, content, tags, author: authorId, product_id, draft: Boolean(draft)
+            name, description, banner, product_id, seller:sellerId
         });
-        product.save().then(product => {
-            let incrementVal = draft ? 0 : 1;
-            User.findOneAndUpdate(
-                { _id: authorId },
-                { $inc: { "account_info.total_products": incrementVal }, $push: { "products": product._id } })
-                .then(user => {
-                    return res.status(200).json({ id: product.product_id })
-                })
-                .catch(err => {
-                    return res.status(500).json({ error: "Failed to update total posts number" })
-                })
-        })
-            .catch(err => {
-                return res.status(500).json({ error: err.message })
-            })
-        return res.json({ "status": "done" })
+        await product.save()   
+        return res.status(201).json(product)
 
-
+    } catch (error) {
+        console.log(error)
+     res.status(500).json({ message: 'Failed to create product', error });
     }
-
 }
 
 
-export const getProduct = (req, res) => {
-    let { product_id, draft, mode } = req.body;
-    let incrementVal =  mode != "edit" ? 1: 0 ;
-    Product.findOneAndUpdate({ product_id },
-        {
-            $inc: { "activity.total_views": incrementVal }
-        })
-        .populate("seller", "personal_info.fullname personal_info.username personal_info.profile_img ")
-        .select("title des content banner activity publishedAt product_id tags")
-        .then(product => {
-            User.findOneAndUpdate({ "personal_info.username": product.seller.personal_info.username }, {
-                $inc:{"account_info.total_reads":incrementVal}
-            })
-            .catch(err => {
-                return res.status(500).json({ error:err.message})
-            })
+export const singleProduct = async (req, res) => {
+  try {
+    const { product_id } = req.body;
+    if (product_id) {
+      const product = await Product.findOne({ product_id })
+        .sort({ createdAt: -1 })
+        .populate("seller", "personal_info.profile_img personal_info.username personal_info.email personal_info.fullname -_id");
+      
+      if (product) {
+        return res.status(200).json(product);
+      } else {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+    } else {
+      return res.status(400).json({ error: 'Product ID is required' });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Server error' });
+  }
+};
 
-            if (product.draft && !draft) {
-                return res.status(500).json({error:"you can not access draft product"})
-            }
 
-            return res.status(200).json({ product });
-
-        })
-        .catch(err => {
-            return res.status(500).json({ error: err.message });
-        })
-}
+export const getProduct = async (req, res) => {
+  try {
+      const products = await Product.find()
+        .sort({ createdAt: -1 })
+        .populate("seller", "personal_info.profile_img personal_info.username personal_info.fullname -_id   ")
+      return res.status(200).json(products);
+    }
+    catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};

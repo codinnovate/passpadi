@@ -1,7 +1,8 @@
 
-GET http://localhost:3000/get-upload-url
+POST   http://localhost:3000/transactions/pay
 Content-Type: application/json
 
 {
-
+    "amount":100000,
+    "email":"adeyemis710@gmail.com"
 }

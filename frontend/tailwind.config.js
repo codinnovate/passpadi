@@ -10,6 +10,7 @@ export default {
             'dark-grey': '#6B6B6B',
             'green':'#015055',
             'red': '#FF4E4E',
+            'yellow':'#FFC831',
             'transparent': 'transparent',
             'twitter': '#1DA1F2',
             'purple': '#8B46FF'

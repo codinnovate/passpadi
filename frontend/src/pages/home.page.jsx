@@ -18,7 +18,7 @@ const HomePage = () => {
 
 
     const categories =
-        ["Unilag", "LASU", "Post UTME", "Below 200", "Nursing", "Medicine and Surgery"]
+        ["Unilag", "LASU", "Post UTME", "Below 200", "Nursing", "Medicine and Surgery", "Jamb"]
 
 
 
