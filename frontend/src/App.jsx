@@ -19,7 +19,8 @@ import QuestionEditor from "./pages/QuestionEditor";
 import ProductDetail from "./pages/product.page";
 import Transactions from "./pages/transactions";
 import Seo from "./components/Seo";
-
+import SideNav from './components/sidenavbar.component'
+import ChangePassword from "./pages/change-password.page";
 
 export const UserContext = createContext({});
 
@@ -44,7 +45,11 @@ const App = () => {
                     <Route path='/transactions/:reference' element={<Transactions />} />
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
-                    <Route index element={<HomePage />}  />
+                    <Route index element={<HomePage />} />
+                    <Route path="settings" element={<SideNav />}>
+                        <Route path='edit-profile' element={<h1>This is to edit profile </h1>} />
+                        <Route path='change-password' element={<ChangePassword />} />
+                    </Route>
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
                     <Route path="search/:query" element={<SearchPage />} />

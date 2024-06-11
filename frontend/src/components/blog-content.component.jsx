@@ -3,12 +3,7 @@ import React from 'react'
 
 
 
-const Img = ({ url, caption }) => {
-    <div className=''>
-        <img src={url} />
-        {caption.length ? <p className='w-full text-ceneter my-3 md:mb-12 text-base text-dark-grey'>{caption}</p> : ''}
-    </div>
-}
+
 
 const Quote = ({ quote, caption }) => {
     return (
@@ -48,7 +43,13 @@ const BlogContent = ({ block }) => {
         
     }
     if (type == "image") {
-        return <Img url={data.file.url} caption={data.caption} />
+        return (
+            <div className=''>
+                <img src={data.file.url}
+                    className='aspect-video ' />
+                {data.caption.length ? <p className='w-full text-ceneter my-3 md:mb-12 text-base text-dark-grey'>{data.caption}</p> : ''}
+            </div>     
+        )
     }
 
     if (type == "quote") {
