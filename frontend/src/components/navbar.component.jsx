@@ -6,7 +6,7 @@ import UserNavigationPanel from './user-navigation.component';
 import Logo from './logo.component';
 
 
-const Navbar = () => {
+const Header = () => {
     const location = useLocation();
     const [searchBoxVisibility, setSearchBoxVisibility] = useState(false);
     const [userNavPanel, setUserNavPanel] = useState(false) 
@@ -46,7 +46,26 @@ const Navbar = () => {
                 onKeyDown={handleSearch}
                     />
                 <i className='fi fi-rr-search absolute right-[10%] md:pointer-events-none md:left-5 top-1/2 -translate-y-1/2  text-xl text-dark-grey'></i>
-            </div>
+                </div>
+                
+                <div className='flex gap-3 items-center '>
+                       <Link to='/' className='hidden md:flex gap-2 link'>
+                    <i className="fi fi-rr-house-blank"></i>
+                    <p>Home</p>
+                    </Link>     
+                       <Link to='/store' className='hidden md:flex gap-2 link'>
+                    <i className='fi fi-rr-shop'></i>
+                    <p>Store</p>
+                    </Link>  
+                    <Link to='/classroom' className='hidden md:flex gap-2 link'>
+                        <i className="fi fi-rr-e-learning"></i>
+                        <p>Classroom</p>
+                    </Link>  
+                     <Link to='/pay-bills' className='hidden md:flex gap-2 link'>
+                        <i className="fi fi-rr-money-bill-wave"></i>
+                        <p>Pay Bills</p>
+                    </Link>  
+                </div>
 
             <div className='flex items-center gap-3 md:gap-6 ml-auto '>
                 <button
@@ -55,19 +74,34 @@ const Navbar = () => {
                     <i className='fi fi-rr-search text-xl'></i>
                 </button>
                     {
-                        location.pathname === '/store' ? (
+                        location.pathname === '/store' && (
                         <Link to='/product-editor' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
-                    <p>create Product</p>
+                    <p>Create Product</p>
                             </Link>
                             
-                        ) : (
-                <Link to='/editor' className='hidden md:flex gap-2 link'>
+                        )
+                    }
+                    {
+                        location.pathname === '/' && (
+                        <Link to='/editor' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
                     <p>Write</p>
-                </Link>         
+                            </Link>
+                            
                         )
-                }
+                    }
+                    {
+                        location.pathname === '/classroom' && (
+                        <Link to='/create-subject' className='hidden md:flex gap-2 link'>
+                    <i className='fi fi-rr-file-edit'></i>
+                    <p>create Subject</p>
+                            </Link>
+                            
+                        )
+                    }
+
+                
 
                 {access_token ?
                 <>
@@ -116,4 +150,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Header

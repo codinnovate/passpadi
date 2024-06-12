@@ -17,7 +17,7 @@ const questionSchema =mongoose.Schema({
         ref: 'comments'
   },
   
-    author: {
+  author: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'users'
@@ -37,10 +37,16 @@ const questionSchema =mongoose.Schema({
     min: 1978,
     max: currentYear,
   },
-  correctAnswer: {
+  answer: {
     type: String,
     required: true,
   },
+  answerText: {
+    type: String,
+  },
+}, {
+    timestamps: true
 })
 
 export const Question = mongoose.model("Question", questionSchema)
+

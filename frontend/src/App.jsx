@@ -21,6 +21,10 @@ import Transactions from "./pages/transactions";
 import Seo from "./components/Seo";
 import SideNav from './components/sidenavbar.component'
 import ChangePassword from "./pages/change-password.page";
+import Classroom from "./pages/classroom";
+import CreateSubject from "./pages/createSubject";
+
+
 
 export const UserContext = createContext({});
 
@@ -56,6 +60,8 @@ const App = () => {
                     <Route path="user/:id" element={<ProfilePage />} />
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
+                    <Route path="/classroom" element={<Classroom />} />
+                    <Route path='/create-subject' element={<createSubject />} />
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/store" element={<Store />} />
                     <Route path="/quiz" element={<Quiz />} />

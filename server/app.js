@@ -16,6 +16,10 @@ import { userRouter } from './routes/User.js';
 import { commentRouter } from './routes/Comment.js';
 import { productRouter } from './routes/Product.js';
 import { paymentRouter } from './routes/Payments.js'
+import subjectRoutes  from './routes/Subject.js';
+import  questionRoutes from './routes/Question.js';
+
+
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
 })
@@ -37,7 +41,8 @@ app.use(cors());
 app.use(express.json());
 app.use("", [userRouter, commentRouter, productRouter])
 app.use("/transactions", paymentRouter)
-
+app.use('/api/questions', questionRoutes);
+app.use('/api/subjects', subjectRoutes);
 app.get('/get-upload-url', uploadUrl)
 // app.use("",)
 
@@ -327,3 +332,7 @@ app.post("/isliked-by-user", verifyJWT, (req, res) => {
 app.listen(PORT, () => {
     console.log("listening on port -> http://localhost:" + PORT)
 })
+
+setInterval(() => {
+  console.log('Server is still running...');
+}, 3000); 
