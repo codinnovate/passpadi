@@ -1,14 +1,19 @@
 import { Subject } from '../Schema/Subject.js';
-
+import { generateSlug } from '../utils/generates.js';
 // Create a new subject
 export const createSubject = async (req, res) => {
   const { name } = req.body;
     try {
         if (name) {
-            let subject_id = generateSlug(name)
+          let subject_id = generateSlug(name)
+          const checkSubject = await Subject.findOne({ subject_id })
+          if (!checkSubject) {
             const newSubject = new Subject({ name, subject_id });
             const savedSubject = await newSubject.save();
             res.status(201).json(savedSubject);
+          } else {
+            res.status(500).json("A Subject with this name already exists !");
+          }
         } else {
             res.status(500).json("Please add a  Subject Name");
         }

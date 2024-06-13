@@ -22,9 +22,11 @@ import Seo from "./components/Seo";
 import SideNav from './components/sidenavbar.component'
 import ChangePassword from "./pages/change-password.page";
 import Classroom from "./pages/classroom";
-import CreateSubject from "./pages/createSubject";
-
-
+import CreateSubject from "./pages/create-subject";
+import Groups from './pages/Groups';
+import Chats from './pages/Chats';
+import Feed from './pages/Feed';
+import CreateQuestion from "./pages/create-question";
 
 export const UserContext = createContext({});
 
@@ -60,10 +62,16 @@ const App = () => {
                     <Route path="user/:id" element={<ProfilePage />} />
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
-                    <Route path="/classroom" element={<Classroom />} />
-                    <Route path='/create-subject' element={<createSubject />} />
+                    <Route path="/classroom" element={<Classroom />}>
+                        <Route path="chats" element={<Chats />} />
+                        <Route path="groups" element={<Groups />} />
+                        <Route path=":subjectId" element={<CreateQuestion />} />
+                        <Route index element={<Feed />} />
+
+                    </Route>
+                    <Route path='/create-subject' element={<CreateSubject />} />
                     <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/store" element={<Store />} />
+                    {/* <Route path="/store" element={<Store />} /> */}
                     <Route path="/quiz" element={<Quiz />} />
                     <Route path='/ads.txt' element={<AdsTxt />} />
                     

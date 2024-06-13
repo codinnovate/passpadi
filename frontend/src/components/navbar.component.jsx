@@ -53,10 +53,10 @@ const Header = () => {
                     <i className="fi fi-rr-house-blank"></i>
                     <p>Home</p>
                     </Link>     
-                       <Link to='/store' className='hidden md:flex gap-2 link'>
+                       {/* <Link to='/store' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-shop'></i>
                     <p>Store</p>
-                    </Link>  
+                    </Link>   */}
                     <Link to='/classroom' className='hidden md:flex gap-2 link'>
                         <i className="fi fi-rr-e-learning"></i>
                         <p>Classroom</p>
@@ -73,15 +73,15 @@ const Header = () => {
                     className='md:hidden bg-grey w-12 h-12 rounded-full flex items-center justify-center'>
                     <i className='fi fi-rr-search text-xl'></i>
                 </button>
-                    {
+                    {/* {
                         location.pathname === '/store' && (
-                        <Link to='/product-editor' className='hidden md:flex gap-2 link'>
+                        <Link to='/add-product' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
                     <p>Create Product</p>
                             </Link>
                             
                         )
-                    }
+                    } */}
                     {
                         location.pathname === '/' && (
                         <Link to='/editor' className='hidden md:flex gap-2 link'>
