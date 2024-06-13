@@ -9,7 +9,7 @@ const SubjectCard = ({name, id}) => {
                 className='rounded-full bg-black/30 w-6 h-6 p-2'>
                 <i class="fi fi-rr-pencil"></i>
             </Link>
-            <p className='text-black  text-2xl font-semibold'>{name}</p>
+            <h1 className='text-black  text-2xl'>{name}</h1>
             
         </div>
     )

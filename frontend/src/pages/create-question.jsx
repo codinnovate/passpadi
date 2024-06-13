@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom'
 
 const CreateQuestion = () => {
 
-    const { params } = useParams();
+    const { subject } = useParams();
     return (
         <div>
-            <h1>{params}</h1>
+            <h1>{subject}</h1>
         </div>
     )
 }

@@ -32,7 +32,7 @@ const Classroom = () => {
                             <hr ref={activeTabLine}  className='absolute bottom-0 duration-500 '/>
 
                         </div>
-                        <div className="min-w-[200px] h-cover md:sticky top-24 overflow-y-auto p-6 md:pr-0 md:border-grey md:border-r absolute max-md:top-[64px] bg-white max-md:w-[calc(100%+80px)] max-md:px-16 max-md:-ml-7 duration-500 ">
+                        <div className="hidden min-w-[200px] h-cover md:sticky top-24 overflow-y-auto p-6 md:pr-0 md:border-grey md:border-r absolute max-md:top-[64px] bg-white max-md:w-[calc(100%+80px)] max-md:px-16 max-md:-ml-7 duration-500 ">
                             <h1 className='text-xl text-dark-grey mb-3'>Classroom</h1>
                             <hr className='border-grey -ml-6 mb-8 mr-6' />
                             <NavLink to='/classroom' onClick={(e) => setPageState(e.target.innerText)} className="sidebar-link">

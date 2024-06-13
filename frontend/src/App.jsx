@@ -27,6 +27,7 @@ import Groups from './pages/Groups';
 import Chats from './pages/Chats';
 import Feed from './pages/Feed';
 import CreateQuestion from "./pages/create-question";
+import Bottombar from "./components/bottombar";
 
 export const UserContext = createContext({});
 
@@ -47,7 +48,7 @@ const App = () => {
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />
                 <Route path="/add-product" element={<ProductEditor />} />
-                <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />]}>
+                <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />, <Bottombar />]}>
                     <Route path='/transactions/:reference' element={<Transactions />} />
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
@@ -65,7 +66,7 @@ const App = () => {
                     <Route path="/classroom" element={<Classroom />}>
                         <Route path="chats" element={<Chats />} />
                         <Route path="groups" element={<Groups />} />
-                        <Route path=":subjectId" element={<CreateQuestion />} />
+                        <Route path=":subject" element={<CreateQuestion />} />
                         <Route index element={<Feed />} />
 
                     </Route>
