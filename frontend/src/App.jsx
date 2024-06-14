@@ -28,6 +28,7 @@ import Chats from './pages/Chats';
 import Feed from './pages/Feed';
 import CreateQuestion from "./pages/create-question";
 import Bottombar from "./components/bottombar";
+import Questions from "./pages/questions.page";
 
 export const UserContext = createContext({});
 
@@ -66,11 +67,12 @@ const App = () => {
                     <Route path="/classroom" element={<Classroom />}>
                         <Route path="chats" element={<Chats />} />
                         <Route path="groups" element={<Groups />} />
-                        <Route path=":subject" element={<CreateQuestion />} />
+                        <Route path=":subject" element={<Questions />} />
                         <Route index element={<Feed />} />
 
                     </Route>
                     <Route path='/create-subject' element={<CreateSubject />} />
+                    <Route path='/create-question' element={<CreateQuestion />} />
                     <Route path="/privacy" element={<Privacy />} />
                     {/* <Route path="/store" element={<Store />} /> */}
                     <Route path="/quiz" element={<Quiz />} />

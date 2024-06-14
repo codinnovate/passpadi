@@ -21,7 +21,7 @@ const SubjectForm = () => {
           try {
               await axios.post(`${serverApp}/api/subjects`, { name });
               toast.success("Subject Created Successfully")
-              navigate('/classroom/subjects')
+              // navigate('/classroom/subjects')
               
           } catch (error) {
             toast.error(error.response.data)

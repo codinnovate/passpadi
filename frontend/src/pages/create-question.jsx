@@ -43,15 +43,14 @@ const CreateQuestion = () => {
         console.log(newQuestion);
         try {
             const response = await axios.post(`${serverApp}/api/questions`, newQuestion);
-            toast.success('Question created:', response.data);
+            toast.success('Question created Successfully');
             // Clear form after submission
-            setSubject('');
-            setQuestionText('');
-            setOptions(['', '', '', '']);
-            setanswer('');
-            setAnswerDetail('');
-            setExamType('');
-            setExamYear(new Date().getFullYear());
+            setInterval(() => {
+                setQuestionText('');
+                setOptions(['', '', '', '']);
+                setanswer('');
+                setAnswerDetail('');
+            }, 2000)
         } catch (error) {
             console.error('Error creating question:', error);
             toast.error('Error creating question:', error);

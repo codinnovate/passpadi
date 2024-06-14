@@ -69,3 +69,21 @@ export const deleteQuestion = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const getQuestionsBySubject = async (req, res) => {
+  const { subject_id } = req.params;
+
+  if (!subject_id) {
+      return res.status(400).json({ error: 'Subject ID is required' });
+  }
+
+  try {
+      const questions = await Question.find({ subject: subject_id });
+      if (questions.length === 0) {
+          return res.status(404).json({ message: 'No questions found for this subject' });
+      }
+      return res.status(200).json(questions);
+  } catch (err) {
+      return res.status(500).json({ error: err.message });
+  }
+};

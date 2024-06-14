@@ -37,7 +37,7 @@ export const getAllSubjects = async (req, res) => {
 export const getSubjectById = async (req, res) => {
   const { subject_id } = req.params;
   try {
-    const subject = await Subject.findOne({subject_id});
+    const subject = await Subject.findOne(subject_id);
     if (!subject) return res.status(404).json({ error: 'Subject not found' });
     res.status(200).json(subject);
   } catch (err) {
