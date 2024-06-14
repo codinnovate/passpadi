@@ -18,6 +18,7 @@ export const createSubject = async (req, res) => {
             res.status(500).json("Please add a  Subject Name");
         }
   } catch (err) {
+    console.log(err)
     res.status(500).json({ error: err.message });
   }
 };

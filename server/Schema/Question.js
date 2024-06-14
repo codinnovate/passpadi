@@ -8,7 +8,11 @@ const questionSchema =mongoose.Schema({
     ref: 'Subject',
     required: true,
   },
-  questionText: {
+  question: {
+    type: String,
+    required: true,
+  },
+  question_id: {
     type: String,
     required: true,
   },
@@ -19,7 +23,7 @@ const questionSchema =mongoose.Schema({
   
   author: {
         type: Schema.Types.ObjectId,
-        required: true,
+        // required: true,
         ref: 'users'
     },
   options: {
@@ -41,7 +45,7 @@ const questionSchema =mongoose.Schema({
     type: String,
     required: true,
   },
-  answerText: {
+  answerDetail: {
     type: String,
   },
 }, {

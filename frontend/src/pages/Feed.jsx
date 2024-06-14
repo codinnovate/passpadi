@@ -6,6 +6,7 @@ import SubjectCard from '../components/SubjectCard';
 
 const Feed = () => {
     const [subjects, setSubject] = useState('');
+    const [questions, setQuestion] = useState('');
     
     const fetchSubject = async () => {
     try {
@@ -16,10 +17,20 @@ const Feed = () => {
       console.error('Error fetching subject:', error);
     }
     };
+    const fetchQuestions = async () => {
+        try {
+          const response = await axios.get(`${serverApp}/api/questions/`);
+            console.log(response.data)
+            setQuestion(response.data)
+        } catch (error) {
+          console.error('Error fetching subject:', error);
+        }
+        };
 
     
     useEffect(() => {
         fetchSubject();
+        fetchQuestions();
     },[])
     
     return (
@@ -42,6 +53,16 @@ const Feed = () => {
                 </AnimationWrapper>
             </div>
            
+           <div className='w-full mt-3'>
+            <AnimationWrapper>
+                <div className='w-full flex flex-col gap-3'>
+                {questions && questions.map((item, index) => (
+                    <h4 className='font-gelasio text-xl'>{index + 1}.{item.question}</h4>
+                )
+            )}
+            </div>
+            </AnimationWrapper>
+           </div>
            
 
         </div>

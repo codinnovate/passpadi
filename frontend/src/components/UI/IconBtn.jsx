@@ -6,7 +6,7 @@ const IconBtn = ({icon, link}) => {
     <Link 
     to={link}
      className='hover:bg-grey flex items-center justify-center  w-fit px-4 p-2 '>
-        <i className={`${icon} text-[30px]`}></i>
+        <i className={`${icon} text-2xl`}></i>
     </Link>
   )
 }

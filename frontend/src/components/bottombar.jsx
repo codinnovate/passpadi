@@ -12,9 +12,9 @@ const Bottombar = () => {
   return (
     <div className='md:hidden w-full fixed bottom-0   bg-white border-t border-grey rounded-t-[1.4em] h-[4em]'>
         <div className='flex px-[1em] w-full h-full justify-between   items-center'>
-            {Items.map((item, index) => (
+            {Items.map(item => (
                 <IconBtn 
-                 key={index}
+                 key={item.icon}
                  icon={item.icon}
                  link={item.link}/>
             ))}
