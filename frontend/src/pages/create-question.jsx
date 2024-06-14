@@ -5,6 +5,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const CreateQuestion = () => {
     const [subjects, setSubjects] = useState([]);
+    const [schools, setSchools] = useState([]);
+    const [school, setSchool] = useState('');
+    const [instruction, setInstruction] = useState('');
     const [subject, setSubject] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [options, setOptions] = useState(['', '', '', '']);
@@ -15,12 +18,18 @@ const CreateQuestion = () => {
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
     useEffect(() => {
-        // Fetch subjects from the backend
         axios.get(`${serverApp}/api/subjects`)
             .then(response =>
                 setSubjects(response.data)
             )
             .catch(error => console.error('Error fetching subjects:', error));
+        
+         axios.get(`${serverApp}/api/schools`)
+            .then(response =>
+                setSchools(response.data)
+            )
+            .catch(error => console.error('Error fetching subjects:', error));
+        
     }, []);
 
     const handleOptionChange = (index, value) => {
@@ -33,6 +42,8 @@ const CreateQuestion = () => {
         e.preventDefault();
         const newQuestion = {
             subject,
+            school,
+            instruction,
             question: questionText,
             options,
             answer,
@@ -58,14 +69,15 @@ const CreateQuestion = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+        <div className="max-w-3xl font-medium mx-auto mt-10 p-2 w-full">
             <Toaster />
             <h1 className="text-2xl font-bold mb-4">Create a New Question</h1>
             <form onSubmit={handleSubmit}>
+                <div className='flex flex-wrap place-content-between'>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Subject</label>
+                    <label className="block text-dark-grey font-bold mb-2">Subject</label>
                     <select
-                        className="input-box h-[2em]"
+                        className="border-grey border text-black h-[2em]"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                         required
@@ -75,11 +87,25 @@ const CreateQuestion = () => {
                             <option key={subj._id} value={subj._id}>{subj.name}</option>
                         ))}
                     </select>
+                    </div>
+                     <div className="mb-4">
+                    <label className="block text-dark-grey font-bold mb-2">School</label>
+                    <select
+                        className="border-grey border text-black h-[2em]"
+                        value={school}
+                        onChange={(e) => setSchool(e.target.value)}
+                        required
+                    >
+                        <option value="">Select School</option>
+                        {schools.map((school) => (
+                            <option key={school._id} value={school._id}>{school.name}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Exam Type</label>
+                    <label className="block text-dark-grey font-bold mb-2">Exam Type</label>
                     <select
-                        className="block w-full border border-gray-300 rounded py-2 px-3"
+                        className="block w-full border border-grey rounded py-2 px-3"
                         value={examType}
                         onChange={(e) => setExamType(e.target.value)}
                         required
@@ -89,10 +115,20 @@ const CreateQuestion = () => {
                         ))}
                     </select>
                 </div>
+                </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Question</label>
+                    <label className="block text-dark-grey font-bold mb-2">Instruction</label>
                     <textarea
-                        className="block w-full border border-gray-300 rounded py-2 px-3"
+                        className="block w-full border border-grey rounded py-2 px-3"
+                        value={instruction}
+                        onChange={(e) => setInstruction(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-dark-grey font-bold mb-2">Question</label>
+                    <textarea
+                        className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
                         onChange={(e) => setQuestionText(e.target.value)}
                         required
@@ -100,9 +136,9 @@ const CreateQuestion = () => {
                 </div>
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>
-                        <label className="block text-gray-700 font-bold mb-2">Option {index + 1}</label>
+                        <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
                         <input
-                            className="block w-full border border-gray-300 rounded py-2 px-3"
+                            className="block w-full border border-grey rounded py-2 px-3"
                             type="text"
                             value={option}
                             onChange={(e) => handleOptionChange(index, e.target.value)}
@@ -111,9 +147,9 @@ const CreateQuestion = () => {
                     </div>
                 ))}
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Correct Option</label>
+                    <label className="block text-dark-grey font-bold mb-2">Correct Option</label>
                     <input
-                        className="block w-full border border-gray-300 rounded py-2 px-3"
+                        className="block w-full border border-grey rounded py-2 px-3"
                         type="text"
                         value={answer}
                         onChange={(e) => setanswer(e.target.value)}
@@ -121,9 +157,19 @@ const CreateQuestion = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2">Exam Year</label>
+                    <label className="block text-dark-grey font-bold mb-2">Answer Detail</label>
+                    <textarea
+                        className="block w-full border border-grey rounded py-2 px-3"
+                        value={answerDetail}
+                        onChange={(e) => setAnswerDetail(e.target.value)}
+                        required
+                    />
+                </div>
+                 
+                <div className="mb-4">
+                    <label className="block text-dark-grey font-bold mb-2">Exam Year</label>
                     <input
-                        className="block w-full border border-gray-300 rounded py-2 px-3"
+                        className="block w-full border border-grey rounded py-2 px-3"
                         type="number"
                         value={examYear}
                         onChange={(e) => setExamYear(e.target.value)}

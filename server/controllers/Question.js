@@ -4,14 +4,14 @@ import { generateSlug } from '../utils/generates.js';
 
 // Create a new question
 export const createQuestion = async (req, res) => {
-  const { question, options, answer, answerDetail, examType, examYear, subject } = req.body;
+  const { question, options,school, answer, answerDetail, instruction, examType, examYear, subject } = req.body;
   try {
     const findSubject = await Subject.findById(subject);
     if (!findSubject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
     let question_id = generateSlug(question)
-    const newQuestion = new Question({question_id, question, options, answer, examType, examYear, subject , answerDetail});
+    const newQuestion = new Question({question_id, school,instruction, question, options, answer, examType, examYear, subject , answerDetail});
     const savedQuestion = await newQuestion.save();
     res.status(201).json(savedQuestion);
   } catch (err) {

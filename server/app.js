@@ -17,6 +17,7 @@ import { commentRouter } from './routes/Comment.js';
 import { productRouter } from './routes/Product.js';
 import { paymentRouter } from './routes/Payments.js'
 import subjectRoutes  from './routes/Subject.js';
+import schoolRoutes  from './routes/School.js';
 import  questionRoutes from './routes/Question.js';
 
 
@@ -43,6 +44,7 @@ app.use("", [userRouter, commentRouter, productRouter])
 app.use("/transactions", paymentRouter)
 app.use('/api/questions', questionRoutes);
 app.use('/api/subjects', subjectRoutes);
+app.use('/api/schools', schoolRoutes);
 app.get('/get-upload-url', uploadUrl)
 // app.use("",)
 

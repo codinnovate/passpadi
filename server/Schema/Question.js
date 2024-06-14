@@ -8,6 +8,14 @@ const questionSchema =mongoose.Schema({
     ref: 'Subject',
     required: true,
   },
+  school: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'School'
+  },
+  instruction: {
+    type: String,
+    
+  },
   question: {
     type: String,
     required: true,
@@ -33,7 +41,7 @@ const questionSchema =mongoose.Schema({
     examType: {
         type: String,
         required: true,
-        enum: ['JAMB', 'NECO', 'WAEC', 'POST_UTME'],
+        enum: ['JAMB', 'NECO', 'WAEC', 'POST UTME'],
     },
    examYear: {
     type: Number,

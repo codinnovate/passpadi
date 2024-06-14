@@ -27,7 +27,7 @@ const Feed = () => {
         <div className='flex w-full flex-col'>
             <div className=''>
                 <h2 className='text-3xl font-medium'>You can now study with ease like never before</h2>
-                <h3 className='font-normal'>We have all you need in one place and it's free 😀😋😍😎</h3>
+                <h3 className='font-normal text-xl'>We have all you need in one place and it's free 😀😋😍😎</h3>
             </div>
 
             <div className='mt-5 w-full'>
