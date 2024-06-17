@@ -11,31 +11,32 @@ const Questions = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    const fetchId = async () => {
-        try {
-            const response = await axios.get(`${serverApp}/api/subjects/${subject}`);
-            setSubjectId(response.data._id)
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    // const fetchId = async () => {
+    //     try {
+    //         const response = await axios.get(`${serverApp}/api/subjects/${subject}`);
+    //         setSubjectId(response.data._id)
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+    // }
     useEffect(() => {
-        fetchId();
+        // fetchId();
         const fetchQuestions = async () => {
-            if(subjectId){
+            // if(subjectId){
                 try {
-                    const response = await axios.get(`${serverApp}/api/questions/${subjectId}`);
+                    const response = await axios.get(`${serverApp}/api/questions/`);
+                    setLoading(false)
                     setQuestions(response.data);
                 } catch (err) {
                     setError(err.response ? err.response.data.error : 'An error occurred');
                 } finally {
                     setLoading(false);
                 }
-            }
+            // }
         };
 
         fetchQuestions();
-    }, [subject]);
+    }, []);
 
     if (loading) return <Loader />;
     if (error) return <div>{error}</div>;
