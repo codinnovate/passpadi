@@ -39,6 +39,9 @@ const CreateQuestion = () => {
     };
 
     const handleSubmit = async (e) => {
+        if (!questionText) {
+            toast.error("Add a Question Text")
+        }
         e.preventDefault();
         const newQuestion = {
             subject,
@@ -57,7 +60,7 @@ const CreateQuestion = () => {
             // Clear form after submission
             console.log(response);
             setInterval(() => {
-                setQuestionText('');
+                setQuestionText('The');
                 setOptions(['', '', '', '']);
                 setanswer('');
                 setAnswerDetail('');
@@ -129,7 +132,6 @@ const CreateQuestion = () => {
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
                         onChange={(e) => setQuestionText(e.target.value)}
-                        required
                     />
                 </div>
                 {options.map((option, index) => (

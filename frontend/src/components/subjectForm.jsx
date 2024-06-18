@@ -19,7 +19,7 @@ const SubjectForm = () => {
           toast.error("Please add A Subject Name")
       } else {
           try {
-              await axios.post(`${serverApp}/api/subjects`, { name });
+              await axios.post(`${serverApp}/subjects`, { name });
               toast.success("Subject Created Successfully")
               // navigate('/classroom/subjects')
               
