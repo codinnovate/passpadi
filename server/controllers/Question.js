@@ -48,14 +48,13 @@ export const getQuestionById = async (req, res) => {
 
 // Update a question
 export const updateQuestion = async (req, res) => {
-  const { id } = req.params;
-  const { question, options, answer, examType, examYear, subjectId } = req.body;
+  const { question_id } = req.params;
   try {
-    const subject = await Subject.findById(subjectId);
-    if (!subject) {
-      return res.status(404).json({ error: 'Subject not found' });
+    const question = await Question.findOne({ question_id })
+    if (!question) {
+      return res.status(404).json({ error: 'Question not found' });
     }
-    const updatedQuestion = await Question.findByIdAndUpdate(id, { question, options, answer, examType, examYear, subject: subjectId }, { new: true });
+    const updatedQuestion = await Question.findByIdAndUpdate(id, { question, options, answer, answerDetail, examType, examYear, subject}, { new: true });
     if (!updatedQuestion) return res.status(404).json({ error: 'Question not found' });
     res.status(200).json(updatedQuestion);
   } catch (err) {

@@ -16,8 +16,9 @@ const SchoolForm = () => {
           toast.error("Please add A School Name")
       } else {
           try {
-              await axios.post(`${serverApp}/api/Schools`, { name });
-              toast.success("School Created Successfully")
+              await axios.post(`${serverApp}/Schools`, { name });
+            toast.success("School Created Successfully")
+            setName('');
               // navigate('/classroom/Schools')
               
           } catch (error) {
