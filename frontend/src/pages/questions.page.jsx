@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { serverApp } from '../../server';
 import Loader from '../components/loader.component';
 import AnimationWrapper from '../common/page-animation';
@@ -24,7 +24,7 @@ const Questions = () => {
                         .then(res => {
                             setLoading(false)
                             setQuestions(res.data);
-                            console.log(res)
+                            console.log(res.data)
                     })
                         .catch(err => {
                             setLoading(false)
@@ -52,9 +52,10 @@ const Questions = () => {
                             ))}
                         </div>
                          <div className='w-full flex items-center my-3 justify-between'>
-                                    <button className='border bg-black border-grey rounded-md p-2'>
+                                <Link to={`${question.question_id}`}
+                                    className='border bg-black border-grey rounded-md p-2'>
                                         <p className='text-sm text-white font-medium'>View Answer</p>
-                                    </button>
+                                    </Link>
                             <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>{question.examType} {question.examYear}</span>
                             </div>
                         </div>

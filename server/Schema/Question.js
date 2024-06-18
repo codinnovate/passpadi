@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 const currentYear = new Date().getFullYear();
 
-const questionSchema =mongoose.Schema({
+const questionSchema = mongoose.Schema({
     subject: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Subject',
@@ -24,6 +24,7 @@ const questionSchema =mongoose.Schema({
   question_id: {
     type: String,
     required: true,
+    unique:true,
   },
   comments: {
         type: [Schema.Types.ObjectId],

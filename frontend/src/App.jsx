@@ -29,6 +29,7 @@ import Feed from './pages/Feed';
 import CreateQuestion from "./pages/create-question";
 import Bottombar from "./components/bottombar";
 import Questions from "./pages/questions.page";
+import QuestionDetailPage from "./pages/question-detail";
 
 export const UserContext = createContext({});
 
@@ -68,6 +69,7 @@ const App = () => {
                         <Route path="chats" element={<Chats />} />
                         <Route path="groups" element={<Groups />} />
                         <Route path=":subject" element={<Questions />} />
+                        <Route path=":subject/:question_id" element={<QuestionDetailPage />} />
                         <Route index element={<Feed />} />
 
                     </Route>

@@ -34,10 +34,12 @@ export const getAllQuestions = async (req, res) => {
 
 // Get a single question
 export const getQuestionById = async (req, res) => {
-  const { id } = req.params;
+  const { question_id } = req.params;
   try {
-    const question = await Question.findById(id).populate('subject');
-    if (!question) return res.status(404).json({ error: 'Question not found' });
+    const question = await Question.findOne({ question_id })
+    .populate("school subject");
+    if (!question)
+      return res.status(404).json({ error: 'Question not found' });
     res.status(200).json(question);
   } catch (err) {
     res.status(500).json({ error: err.message });
