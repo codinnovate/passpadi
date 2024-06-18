@@ -160,7 +160,6 @@ const CreateQuestion = () => {
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={answerDetail}
                         onChange={(e) => setAnswerDetail(e.target.value)}
-                        required
                     />
                 </div>
                  
