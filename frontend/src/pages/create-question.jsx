@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
+import Ocr from '../components/Ocr';
 
 const CreateQuestion = () => {
+    const [showOcr, setShowOcr] = useState('');
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -12,8 +14,9 @@ const CreateQuestion = () => {
     const [questionText, setQuestionText] = useState('');
     const [options, setOptions] = useState(['', '', '', '']);
     const [answer, setanswer] = useState('');
-    const [answerDetail, setAnswerDetail ] = useState('');
-    const [examYear, setExamYear] = useState(new Date().getFullYear());
+    const [answerDetail, setAnswerDetail] = useState('');
+    // const year =  new Date.getFullYear();
+    const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
@@ -59,12 +62,9 @@ const CreateQuestion = () => {
             toast.success('Question created Successfully');
             // Clear form after submission
             console.log(response);
-            setInterval(() => {
-                setQuestionText('The');
                 setOptions(['', '', '', '']);
                 setanswer('');
                 setAnswerDetail('');
-            }, 1000)
         } catch (error) {
             console.error('Error creating question:', error);
             toast.error('Error creating question:', error);
@@ -74,7 +74,20 @@ const CreateQuestion = () => {
     return (
         <div className="max-w-3xl font-medium mx-auto mt-10 p-2 w-full">
             <Toaster />
+            <div className='flex justify-between items-center border-b border-grey mb-4'>
             <h1 className="text-2xl font-bold mb-4">Create a New Question</h1>
+                <button
+                    onClick={() => {
+                        setShowOcr(true)
+                    }}
+                    className="bg-black text-white font-bold py-2 px-4 rounded">
+                    Use Image 2 Text
+                </button>
+            </div>
+            {showOcr && (
+               <Ocr />
+            )}
+
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-wrap place-content-between'>
                 <div className="mb-4">
