@@ -1,6 +1,6 @@
 import React, {useContext, useState, useRef} from 'react'
 import { UserContext } from '../App';
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, Navigate } from 'react-router-dom'
 
 const Classroom = () => {
     let { userAuth: { access_token } } = useContext(UserContext)

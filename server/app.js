@@ -42,9 +42,9 @@ app.use(cors());
 app.use(express.json());
 app.use("", [userRouter, commentRouter, productRouter])
 app.use("/transactions", paymentRouter)
-app.use('/api/questions', questionRoutes);
-app.use('/api/subjects', subjectRoutes);
-app.use('/api/schools', schoolRoutes);
+app.use('/questions', questionRoutes);
+app.use('/subjects', subjectRoutes);
+app.use('/schools', schoolRoutes);
 app.get('/get-upload-url', uploadUrl)
 // app.use("",)
 

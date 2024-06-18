@@ -18,13 +18,13 @@ const CreateQuestion = () => {
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
     useEffect(() => {
-        axios.get(`${serverApp}/api/subjects`)
+        axios.get(`${serverApp}/subjects`)
             .then(response =>
                 setSubjects(response.data)
             )
             .catch(error => console.error('Error fetching subjects:', error));
         
-         axios.get(`${serverApp}/api/schools`)
+         axios.get(`${serverApp}/schools`)
             .then(response =>
                 setSchools(response.data)
             )
@@ -51,17 +51,17 @@ const CreateQuestion = () => {
             examType,
             answerDetail
         };
-        console.log(newQuestion);
         try {
-            const response = await axios.post(`${serverApp}/api/questions`, newQuestion);
+            const response = await axios.post(`${serverApp}/questions`, newQuestion);
             toast.success('Question created Successfully');
             // Clear form after submission
+            console.log(response);
             setInterval(() => {
                 setQuestionText('');
                 setOptions(['', '', '', '']);
                 setanswer('');
                 setAnswerDetail('');
-            }, 2000)
+            }, 1000)
         } catch (error) {
             console.error('Error creating question:', error);
             toast.error('Error creating question:', error);
@@ -94,7 +94,6 @@ const CreateQuestion = () => {
                         className="border-grey border text-black h-[2em]"
                         value={school}
                         onChange={(e) => setSchool(e.target.value)}
-                        required
                     >
                         <option value="">Select School</option>
                         {schools.map((school) => (
@@ -122,7 +121,6 @@ const CreateQuestion = () => {
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={instruction}
                         onChange={(e) => setInstruction(e.target.value)}
-                        required
                     />
                 </div>
                 <div className="mb-4">

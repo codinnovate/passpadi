@@ -10,7 +10,8 @@ const questionSchema =mongoose.Schema({
   },
   school: {
     type: mongoose.Schema.Types.ObjectId,
-    ref:'School'
+    ref: 'School',
+    default:"passpadi"
   },
   instruction: {
     type: String,

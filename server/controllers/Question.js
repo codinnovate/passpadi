@@ -11,7 +11,7 @@ export const createQuestion = async (req, res) => {
       return res.status(404).json({ error: 'Subject not found' });
     }
     let question_id = generateSlug(question)
-    const newQuestion = new Question({question_id, school,instruction, question, options, answer, examType, examYear, subject , answerDetail});
+    const newQuestion = new Question({question_id, school, instruction, question, options, answer, examType, examYear, subject , answerDetail});
     const savedQuestion = await newQuestion.save();
     res.status(201).json(savedQuestion);
   } catch (err) {
@@ -21,8 +21,11 @@ export const createQuestion = async (req, res) => {
 
 // Get all questions
 export const getAllQuestions = async (req, res) => {
-  try {
-    const questions = await Question.find().populate('subject').sort({ createdAt: -1 });
+  const { subject } = req.params;
+  try {    const questions = await Question.find()
+
+      .populate('subject')
+      .sort({ createdAt: -1 });
     res.status(200).json(questions);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -75,8 +78,6 @@ export const getQuestionsBySubject = async (req, res) => {
   if (!subject_id) {
       return res.status(400).json({ error: 'Subject ID is required' });
   }
-
-  
   try {
       const questions = await Question.find({ subject: subject_id });
       if (questions.length === 0) {

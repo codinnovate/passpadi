@@ -1,8 +1,3 @@
 
-POST   http://localhost:3000/transactions/pay
+GET    http://localhost:3000/questions/
 Content-Type: application/json
-
-{
-    "amount":100000,
-    "email":"adeyemis710@gmail.com"
-}

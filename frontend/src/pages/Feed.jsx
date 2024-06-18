@@ -9,7 +9,7 @@ const Feed = () => {
     
     const fetchSubject = async () => {
     try {
-      const response = await axios.get(`${serverApp}/api/subjects/`);
+      const response = await axios.get(`${serverApp}/subjects/`);
         console.log(response.data)
         setSubject(response.data)
     } catch (error) {
