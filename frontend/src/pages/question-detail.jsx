@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../components/loader.component';
@@ -15,6 +15,7 @@ const QuestionDetailPage = () => {
         axios.get(`${serverApp}/questions/one/${question_id}`)
             .then(res => {
                 setQuestion(res.data)
+                console(res.data)
                 setLoading(false)
                 })
                 .catch(err => {
@@ -31,15 +32,26 @@ const QuestionDetailPage = () => {
         <div className='mx-auto w-full flex max-w-5xl p-2'>
             <Toaster />
 
-            <div className='flex flex-col gap-2 mt-[2em]'>
-                <h1 className='text-black text-3xl font-semibold '>{question?.question}</h1>
+                <div className='flex flex-col gap-2 mt-[2em]'>
+                    <h3 className='text-sm'>
+                        <span className='font-bold'>
+                        {question?.instruction && 'Instruction:'}
+                    
+                        </span>
+                     <i className='underline font-medium'>
+                         {question?.instruction}
+                     </i>
+                    </h3>
+                    <h1 className='text-black text-3xl font-semibold '>{question?.question}</h1>
+                    <div className='flex items-center justify-between'>
                 <div className='flex flex-wrap gap-2'>
                     <button className='bg-purple text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.examType}</button>
                     <button className='bg-grey text-bold font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.examYear}</button>
                     <button className='bg-red text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.subject?.name}</button>
                     <button className='bg-yellow text-black font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.school?.name}</button>
-
-                </div>
+                        </div>
+                    {/* <Link to={`/edit-question/${question._id}`} className='text-xl underline font-semibold'>Edit</Link> */}
+                    </div>
             <div className="grid grid-cols-1 gap-4 mt-[4em] max-w-[30em]">
                 {options && options.map((option, index) => (
                     <button

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', createQuestion);
 router.get('/',getAllQuestions)
-router.get('/:subject_id', getQuestionsBySubject);
+router.get('/v1/:subject_id', getQuestionsBySubject);
 router.get('/one/:question_id', getQuestionById);
 router.put('/:id', updateQuestion);
 router.delete('/:id', deleteQuestion);

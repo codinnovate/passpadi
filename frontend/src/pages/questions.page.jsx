@@ -20,14 +20,15 @@ const Questions = () => {
     //     }
     // }
     useEffect(() => {
-                    axios.get(`${serverApp}/questions/`)
+                    axios.get(`${serverApp}/questions/v1/${subject}`)
                         .then(res => {
                             setLoading(false)
                             setQuestions(res.data);
-                            console.log(res.data)
+                            console.log(res)
                     })
                         .catch(err => {
                             setLoading(false)
+                            console.log(err)
                             setError(err.response ? err.response.data.error : 'An error occurred')
                         }) 
         
@@ -40,9 +41,15 @@ const Questions = () => {
         <div className="max-w-5xl mx-auto bg-white w-full">
             <h1 className="text-2xl capitalize  mb-4">{subject} Past Questions</h1>
             {loading ? <Loader /> : (
+
                 questions && questions.map((question, index) => (
-                    <AnimationWrapper key={question._id} >
-                    <div className="flex  flex-col">
+                    <AnimationWrapper key={question._id}  className="border-b border-grey mb-5">
+                        <div className="flex  flex-col">
+                            <h3 className='text-sm font-bold underline'>
+                                <i>
+                                    {question?.instruction}
+                                </i>
+                            </h3>
                         <h2 className="text-xl font-medium">{index + 1}. {question.question}</h2>
                         <div className='flex flex-wrap gap-2'>
                             {question.options.map((option, index) => (
@@ -56,7 +63,7 @@ const Questions = () => {
                                     className='border bg-black border-grey rounded-md p-2'>
                                         <p className='text-sm text-white font-medium'>View Answer</p>
                                     </Link>
-                            <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>{question.examType} {question.examYear}</span>
+                            <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>{question.examType} {question.examYear - 1}</span>
                             </div>
                         </div>
                         </AnimationWrapper>

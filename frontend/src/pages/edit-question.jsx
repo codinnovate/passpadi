@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
-import Ocr from '../components/Ocr';
-import Editorjs from "@editorjs/editorjs";
-import { tools } from '../components/tools.component';
+import { useParams } from 'react-router-dom';
+
+const EditQuestion = () => {
+    const { params } = useParams();
 
 
-const CreateQuestion = () => {
-    const [textEditor, setTextEditor] = useState({ isReady:false });
-    const [showOcr, setShowOcr] = useState('');
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -19,19 +17,12 @@ const CreateQuestion = () => {
     const [options, setOptions] = useState(['', '', '', '']);
     const [answer, setanswer] = useState('');
     const [answerDetail, setAnswerDetail] = useState('');
+    // const year =  new Date.getFullYear();
     const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
     useEffect(() => {
-            if (!textEditor.isReady) {
-                        setTextEditor(new Editorjs({
-                            holder: "editorjs",
-                            data: Array.isArray(questionText) ? questionText[0] : questionText,
-                            tools:tools
-                        }))
-
-                    }
         axios.get(`${serverApp}/subjects`)
             .then(response =>
                 setSubjects(response.data)
@@ -53,15 +44,6 @@ const CreateQuestion = () => {
     };
 
     const handleSubmit = async (e) => {
-          if (textEditor.isReady) {
-            textEditor.save().then(data => {
-                if (data.blocks.length) {
-                    setQuestionText({ content: data });
-                } else {
-                    return toast.error("Write something first  ")
-                }
-            })
-        }
         if (!questionText) {
             toast.error("Add a Question Text")
         }
@@ -77,7 +59,6 @@ const CreateQuestion = () => {
             examType,
             answerDetail
         };
-        console.log(questionText)
         try {
             const response = await axios.post(`${serverApp}/questions`, newQuestion);
             toast.success('Question created Successfully');
@@ -93,21 +74,9 @@ const CreateQuestion = () => {
     };
 
     return (
-        <div className="max-w-5xl font-medium mx-auto mt-10 p-2 w-full">
+        <div className="max-w-3xl font-medium mx-auto mt-10 p-2 w-full">
             <Toaster />
-            <div className='flex justify-between items-center border-b border-grey mb-4'>
-            <h1 className="text-2xl font-bold mb-4">Create a New Question</h1>
-                <button
-                    onClick={() => {
-                        setShowOcr(true)
-                    }}
-                    className="bg-black text-white font-bold py-2 px-4 rounded">
-                    Use Image 2 Text
-                </button>
-            </div>
-            {showOcr && (
-               <Ocr />
-            )}
+            <h1 className="text-2xl font-bold mb-4">Edit Question {param}</h1>
 
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-wrap place-content-between'>
@@ -160,20 +129,14 @@ const CreateQuestion = () => {
                         onChange={(e) => setInstruction(e.target.value)}
                     />
                 </div>
-                {/* <div className="mb-4">
+                <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Question</label>
                     <textarea
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
                         onChange={(e) => setQuestionText(e.target.value)}
                     />
-                </div> */}
-                <div className='mb-4 border max-h-[10em]  border-grey p-2 rounded-md'>
-                    <div id='editorjs'
-                        className='h-fit'>
-                    </div>
                 </div>
-                <div  className='my-3'/>
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>
                         <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
@@ -228,4 +191,4 @@ const CreateQuestion = () => {
     );
 };
 
-export default CreateQuestion;
+export default EditQuestion;

@@ -6,6 +6,7 @@ import Quote from "@editorjs/quote";
 import Marker from "@editorjs/marker";
 import InlineCode from "@editorjs/inline-code";
 import {uploadImage} from '../common/aws'
+import MathEditor from 'editorjs-mathlive';
 
 const uploadImageByFile = (e) => {
     return uploadImage(e).then(url => {
@@ -65,6 +66,16 @@ export const tools = {
     quote: {
         class: Quote,
         inlineToolbar:true
+    },
+       math:{
+            class: MathEditor,
+            inlineToolbar: true,
+            config: {
+            virtualKeyboardMode: 'manual',
+            defaultMode: 'math',
+            smartMode:false,
+            virtualKeyboardTheme:'material',
+        },
     },
     marker: Marker,
     inlineCode:InlineCode

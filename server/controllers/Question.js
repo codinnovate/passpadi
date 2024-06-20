@@ -80,12 +80,14 @@ export const getQuestionsBySubject = async (req, res) => {
       return res.status(400).json({ error: 'Subject ID is required' });
   }
   try {
-      const questions = await Question.find({ subject: subject_id });
-      if (questions.length === 0) {
-          return res.status(404).json({ message: 'No questions found for this subject' });
-      }
-      return res.status(200).json(questions);
+    const questions = await Question.find()
+      .populate('subject')
+    const filteredQuestions = questions.filter(question => question.subject.subject_id === subject_id);
+    console.log(filteredQuestions)
+    return res.status(200).json(filteredQuestions);
+    
   } catch (err) {
+    console.log(err);
       return res.status(500).json({ error: err.message });
   }
 };

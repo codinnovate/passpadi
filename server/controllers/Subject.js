@@ -26,7 +26,9 @@ export const createSubject = async (req, res) => {
 // Get all subjects
 export const getAllSubjects = async (req, res) => {
   try {
-    const subjects = await Subject.find().sort({ createdAt: -1 });
+    const subjects = await Subject.find()
+      .sort({ createdAt: -1 })
+      .populate('questions');
     res.status(200).json(subjects);
   } catch (err) {
     res.status(500).json({ error: err.message });
