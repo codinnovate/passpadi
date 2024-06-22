@@ -47,7 +47,10 @@ const UserNavigationPanel = () => {
              <Link to='/settings/edit-profile' className='link pl-8 py-4'>
              Settings 
             </Link>
-
+        <Link to='/image-to-text'
+          className='link pl-8 py-4'>
+             Image to Text
+            </Link>
             <span className='absolute border-t border-grey -ml-6 w-[100%] '>
             </span>
             <button 

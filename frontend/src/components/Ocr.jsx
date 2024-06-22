@@ -1,30 +1,37 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 import { createWorker } from 'tesseract.js';
-
+import Loader from '../components/loader.component';
 
 
 const Ocr = () => {
     const [selectedImage, setSelectedImage] = useState();
     const [text, setText] = useState()
     const [loading, setLoading] = useState(false);
-
-
     const handleImage = (e) => {
         setSelectedImage(URL.createObjectURL(e.target.files[0]))
     }
 
-    const handleClick = () => {
-    setLoading(true)
+    const handleClick = (e) => {
+        if (selectedImage) {
+            toast.error("Please select an Image")
+        }
 (async () => {
-  const worker = await createWorker('eng');
-  const ret = await worker.recognize(selectedImage);
-    setText(ret.data.text)
-    setLoading(false)
-  await worker.terminate();
-})();
-
+    const worker = await createWorker('eng');
+    setLoading(true)
+    await worker.recognize(selectedImage)
+        .then(async (res) => {
+        console.log(res)
+        setText(res.data.text)
+        setLoading(false)
+        await worker.terminate();
+    })
+        .catch(err => {
+        toast.error(err)
+        setLoading(false)
+  })})
+    ();
     }
-    console.log(selectedImage)
 
     return (
          <div className='flex flex-col md:flex-row w-full  gap-2 my-5'>
@@ -45,41 +52,43 @@ const Ocr = () => {
                         accept='image/*'
                         onChange={handleImage} />
                 </div>
-                {selectedImage && (
+                
+                <button
+                    className='w-[9em] pl-2 flex justify-evenly text-white bg-black rounded-md p-2'
+                    onClick={handleClick}
+                >  
+                    Convert
+                  </button>
+
+                <div className='w-full flex '>
+                    {selectedImage && (
                     <div className=''>
                         <img
                             src={selectedImage}
                             alt='Selected Image'
                             
-                            className='aspect-video w-[150px]'
+                            className='aspect-video w-full'
                             
                         />
                     </div>
-                )}
-                <button
-                    disabled={true}
-                    className='w-[9em] pl-2 flex justify-evenly text-white bg-black rounded-md p-2'
-                    onClick={handleClick}
-                >
-                    Convert
-                    {loading && (
-                        <svg className="animate-spin h-5 w-5  rounded-full  border-white   border-t-4 " viewBox="0 0 24 24">
-                        </svg>
                     )}
-                  </button>
-
-                
-                
-                {text && (
-            <div className='mb-5 min-w-full'>
-                        <textarea 
                     
-                    className='input-box min-w-full h-[20em]'
-                    defaultValue={text}
-                />
-            </div>
-            )}
+                {loading ? <Loader /> : (
+                    <>
+                    {text && (
+                <div className='mb-5 min-w-full'>
+                            <textarea 
+                        
+                        className='input-box min-w-full h-[20em]'
+                        defaultValue={text}
+                    />
+                </div>
+                )}  
+                    </>
+                )}
         
+
+                </div>
             </div>
             
                 </div>

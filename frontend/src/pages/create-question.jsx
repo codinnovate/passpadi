@@ -5,11 +5,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import Ocr from '../components/Ocr';
 import Editorjs from "@editorjs/editorjs";
 import { tools } from '../components/tools.component';
+import { Link } from 'react-router-dom';
 
 
 const CreateQuestion = () => {
     const [textEditor, setTextEditor] = useState({ isReady:false });
-    const [showOcr, setShowOcr] = useState('');
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -97,18 +97,14 @@ const CreateQuestion = () => {
             <Toaster />
             <div className='flex justify-between items-center border-b border-grey mb-4'>
             <h1 className="text-2xl font-bold mb-4">Create a New Question</h1>
-                <button
-                    onClick={() => {
-                        setShowOcr(true)
-                    }}
+                <a
+                    href='/image-to-text'
+                    target="_blank"
                     className="bg-black text-white font-bold py-2 px-4 rounded">
                     Use Image 2 Text
-                </button>
+                </a>
             </div>
-            {showOcr && (
-               <Ocr />
-            )}
-
+            
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-wrap place-content-between'>
                 <div className="mb-4">
