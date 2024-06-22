@@ -6,6 +6,11 @@ const schoolSchema = new mongoose.Schema({
         required: true,
         unique:true
     },
+    shortName: {
+        type: String,
+        require: true,
+        unique:true
+    },
     name: {
         type: String,
         require: true,

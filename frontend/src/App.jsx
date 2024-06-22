@@ -31,6 +31,7 @@ import Bottombar from "./components/bottombar";
 import Questions from "./pages/questions.page";
 import QuestionDetailPage from "./pages/question-detail";
 import EditQuestion from './pages/edit-question';
+import ImagetoText from "./pages/imagetoText";
 export const UserContext = createContext({});
 
 const App = () => {
@@ -80,6 +81,7 @@ const App = () => {
                     <Route path="/privacy" element={<Privacy />} />
                     {/* <Route path="/store" element={<Store />} /> */}
                     <Route path="/quiz" element={<Quiz />} />
+                    <Route path="/image-to-text" element={<ImagetoText />} />
                     <Route path='/ads.txt' element={<AdsTxt />} />
                     
                 </Route>

@@ -31,7 +31,8 @@
     "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.4.1",
     "react-paystack": "^5.0.0",
-    "react-router-dom": "^6.14.2"
+    "react-router-dom": "^6.14.2",
+    "tesseract.js": "^5.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

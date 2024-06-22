@@ -61,9 +61,9 @@ const Header = () => {
                         <i className="fi fi-rr-e-learning"></i>
                         <p>Classroom</p>
                     </Link>  
-                     <Link to='/pay-bills' className='hidden md:flex gap-2 link'>
-                        <i className="fi fi-rr-money-bill-wave"></i>
-                        <p>Pay Bills</p>
+                     <Link to='/image-to-text' className='hidden md:flex gap-2 link'>
+                    <i className="fi fi-rr-magic-wand"></i>
+                        <p>Image to Text</p>
                     </Link>  
                 </div>
 

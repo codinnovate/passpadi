@@ -20,7 +20,6 @@ import subjectRoutes  from './routes/Subject.js';
 import schoolRoutes  from './routes/School.js';
 import  questionRoutes from './routes/Question.js';
 
-
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
 })
@@ -47,7 +46,6 @@ app.use('/subjects', subjectRoutes);
 app.use('/schools', schoolRoutes);
 app.get('/get-upload-url', uploadUrl)
 // app.use("",)
-
 
 app.post("/latest-blogs", (req, res) => {
 
@@ -335,6 +333,6 @@ app.listen(PORT, () => {
     console.log("listening on port -> http://localhost:" + PORT)
 })
 
-// setInterval(() => {
-//   console.log('Server is still running...');
-// }, 3000); 
+setInterval(() => {
+  console.log('running...');
+}, 3000); 

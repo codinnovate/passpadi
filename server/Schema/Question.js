@@ -8,11 +8,11 @@ const questionSchema = mongoose.Schema({
     ref: 'Subject',
     required: true,
   },
-  school: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'School',
-    default:"passpadi"
-  },
+  // school: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'School',
+  //   default:"passpadi"
+  // },
   instruction: {
     type: String,
     
@@ -53,7 +53,7 @@ const questionSchema = mongoose.Schema({
   },
   answer: {
     type: String,
-    required: true,
+    // required: true,
   },
   answerDetail: {
     type: String,

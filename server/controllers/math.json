@@ -1,0 +1,1927 @@
+{
+	"subject": "mathematics",
+	"status": 200,
+	"total": 120,
+	"data": [
+		{
+			"id": 296,
+			"question": "y = is inversely proportional to x and y = 4 when x = 1\/2. Find x when y = 10.",
+			"option": {
+				"a": "2",
+				"b": "10",
+				"c": "1\/5",
+				"d": "1\/10"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "y ∝ 1\/x\ny = K\/x\nK = xy\nK = (1\/2) * 4 ( when y = 4 and x = 1\/2)\nK = 2\n∴y = 2\/x\n10 = 2\/x (when y = 10)\n10x = 2\nx = 2\/10\nx = 1\/5",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 69,
+			"question": "If  are the roots of equation 6 +5x –x2 =0, find  x",
+			"option": {
+				"a": "11",
+				"b": "-11",
+				"c": "1",
+				"d": "-1"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 128,
+			"question": "Evaluate (0.14<sup>2<\/sup> x 0.275) 7(0.02) to 3 decimal places.",
+			"option": {
+				"a": "0.039",
+				"b": "0.358",
+				"c": "0.033",
+				"d": "0.308"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "(0.14<sup>2<\/sup> x 0.275) 7(0.02) = (0.14 x 0.14 x 0.275)\/(7 x 0.02) = (0.14 x 0.14 x 0.275)\/(0.14)\n\n=0.14 x 0.275 = 0.0385 Approx. 0.039",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 724,
+			"question": "A man earns N3,500 per month out of which he spends 15% on his children's education. If he spends additional N1,950 on food, how much does he have left?",
+			"option": {
+				"a": "N525",
+				"b": "N1,025",
+				"c": "N1,950",
+				"d": "N2,975"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "Amount spent on children = 15\/100 × 3500 = N525\n\n\nAmount spent = Amount on children + Additional amount on food\n\nAmount Spent = N525 + N1950 = N2475\n\nTherefore amount left = N3,500 - N2,475 = N1,025",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 144,
+			"question": "A cylindrical tank has a capacity of 3080 m3. What is the depth of the tank if the diameter of its base is 14 m?\n\n(Take pi = 22\/7)",
+			"option": {
+				"a": "23 m",
+				"b": "25 m",
+				"c": "20 m",
+				"d": "22 m"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Capacity = 3080 m<sup>3<\/sup>\nBase diameter = 14 m, thus radius = 7 m.\n\nVolume of cylinder = capacity of cylinder = πr<sup>2<\/sup>h. = 3080\n22\/7 x 7<sup>2<\/sup> x h = 3080\nh = 3080\/(22x7)\nh = 20 m",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 105,
+			"question": " If U = {x : x is an integer and 1 ≤\n x ≤\n 20\nE1 = {x : x is a multiple of 3}\nE2 = {x : x is a multiple of 4}\nand an integer is picked at random from U, find the probability that it is not in E2\n",
+			"option": {
+				"a": "3\/4",
+				"b": "3\/10",
+				"c": "1\/4",
+				"d": "1\/20"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "U = {1, 2, 3, 4, 5,..., 20}\nE1 = {3, 6, 9, 12, 15, 18}\nE2 = {4, 8, 12, 16, 20}\nP(E1) = 5\/20\nP(not E1) = 1 - (5\/20) = 15\/20 = 3\/4",
+			"examtype": "utme",
+			"examyear": "2000"
+		},
+		{
+			"id": 53,
+			"question": "Two fair dice are rolled. What is the probability that both show up the same number of point?",
+			"option": {
+				"a": "1\/36 ",
+				"b": "7\/36 ",
+				"c": "½ ",
+				"d": "1\/6"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 381,
+			"question": "Differentiate (x<sup>2<\/sup> - 1\/x)<sup>2<\/sup> with respect to x",
+			"option": {
+				"a": " 4x<sup>2<\/sup> - 4x - 2\/x",
+				"b": " 4x<sup>2<\/sup> - 2 + 2\/x3",
+				"c": "4x<sup>2<\/sup> - 2 - 2\/x3",
+				"d": "4x<sup>2<\/sup> - 3x + 2\/x"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "y = (x<sup>2<\/sup> - 1\/x)<sup>2<\/sup>\ny = (x<sup>2<\/sup> - 1\/x)(x<sup>2<\/sup> - 1\/x)\ny = x<sup>4<\/sup> - x - x + 1\/x<sup>2<\/sup>\ny = x<sup>4<\/sup> - 2x + 1\/x<sup>2<\/sup>\ny= x<sup>4<\/sup> - 2x + x<sup>-2<\/sup>\ndy\/dx = 4x<sup>2<\/sup> - 2 - 2x<sup>-3<\/sup>\n= 4x<sup>2<\/sup> - 2 - 2\/x<sup>3<\/sup>",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 44,
+			"question": "With replacement ",
+			"option": {
+				"a": "0.9,",
+				"b": "1, ",
+				"c": "0.4,",
+				"d": "0.49"
+			},
+			"section": "A bag contains 10 balls of which 3 are red 7 are white. Two balls are drawn at random. Find the probability   of none of the balls is red if the draw is",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 596,
+			"question": "If p : q = 2\/3 : 5\/6 and q : r = 3\/4 : 1\/2, find p : q : r",
+			"option": {
+				"a": "12 : 15 : 10",
+				"b": "12 : 15 : 16",
+				"c": "10 : 15 : 24",
+				"d": "9 : 10 : 15"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "If p : q = 2\/3 : 5\/6, then the sum S1 of ratio = 2\/3 + 5\/6 = 9\/6\n\nIf q : r = 3\/4 : 1\/2, then the sum S2 of ratio = 3\/4 + 1\/2 = 5\/4\n\nLet p + q = T1, then\n\nq = (5\/6÷9\/6)T1 = (5\/6×6\/9)T1 = 5\/9T1\n\nAgain, let q + r = T2, then\n\nq = (3\/4÷5\/4)T2 = (3\/4×4\/5)T2 = 3\/5T2\n\nUsing q = q\n\n5\/9T1 = 3\/5T2\n\n5 x 5T1 = 9 x 3T2\n\nT1\/T2 = 9×3\/5x5 = 27\/25\n\nGiving that, T1 = 27 and T2 = 25\n\nP = (2\/3÷S<sub>1<\/sub>)T1 = (2\/3÷9\/6)T1\n\n= (2\/3×6\/9)27 = 12\n\nq = (5\/6÷S<sub>1<\/sub>)T1 = (5\/6÷9\/6)T1\n\n= (5\/6×6\/9)27 = 15\n\nand r = (1\/2÷S<sub>2<\/sub>)T2 = (1\/2÷5\/4)T2\n\n= (1\/2×4\/5)25 = 10\n\nHence p : q : r = 12: 15 : 10",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 551,
+			"question": "What is the value of p if the gradient of the line joining (-1,p) and (p, 4) is 2\/3?",
+			"option": {
+				"a": "-2",
+				"b": "-1",
+				"c": "1",
+				"d": "2"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "\nGradient =\t(y<sub>2<\/sub> - y<sub>1<\/sub>)\/(x<sub>2<\/sub> - x<sub>1<\/sub>)\n\n2\/3 =4-p\/(p-(-1))\n2\/3 = 4-p\/p+1\n\n3(4-p) = 2(p+1)\n12 - 3p = 2p + 2\n12 – 2 = 2p + 3p\n10 = 5p\np =10\n5= 2",
+			"examtype": "utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 314,
+			"question": "The shaded area in the diagram above is represented by",
+			"option": {
+				"a": " {(x,y) : y - 3x < -6}",
+				"b": "{(x,y) : y + 3x < 6}",
+				"c": "{(x,y) : y + 3x < -6}",
+				"d": "{(x,y) : y - 3x < 6}"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710700865\/ALOC-Questions\/Mathematics\/2004\/math_2004_q43_clgveq.jpg",
+			"answer": "b",
+			"solution": "Coordinates of the line are (x1 y1)(0,2) respectively and (x2 y2)(2,0) respectively\nGradient (m) of the line = (y2 - y1) \/ (x2 - x1) = (0-6) \/ (2-0) = -6\/2\n= -3\nEquation of the line y-y1 = m(x-x1)\ny - 6 = -3(x - 0)\ny - 6 = -3x\ny + 3x = 6\ninequality; from the y axis, the shaded region is below the line\n∴ y + 3x ∠ 6 and line is a broken line",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 593,
+			"question": "Simplify  (3\/4 of 4\/9 ÷ 9(1\/2) ÷ 1(5\/19)",
+			"option": {
+				"a": "1\/2",
+				"b": "1\/4",
+				"c": "1\/36",
+				"d": "1\/25"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "(3\/4 of 4\/9 ÷ 9(1\/2) ÷ 1(5\/19)\n\nApplying the rule of BODMAS, we have:\n\n(3\/4 x 4\/9 ÷19\/2) ÷24\/19\n\n\n(1\/3 x 2\/19) ÷24\/19\n\n1\/3 x 2\/19 x 19\/24\n\n= 1\/36",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 135,
+			"question": "Factorize 4x<sup>2<\/sup>  - 9y<sup>2<\/sup>  + 20x + 25",
+			"option": {
+				"a": "(2x -3y + 5)(2x - 3y - 5)",
+				"b": "(2x - 3y)(2x + 3y)",
+				"c": "(2x - 3y +5)(2x + 3y + 5)",
+				"d": " (2x + 5)(2x - 9y +5)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Given: 4x<sup>2<\/sup> - 9y<sup>2<\/sup> + 20x + 25\nCollect like terms: 4x<sup>2<\/sup> + 20x + 25 - 9y<sup>2<\/sup> (2x + 5)(2x + 5) - 9y<sup>2<\/sup> \n(2x + 5)<sup>2<\/sup> - (3y)<sup>2<\/sup>                            (2x - 3y +5)(2x + 3y + 5)",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 643,
+			"question": "Evaluate ∣∣∣∣42−1231−1−13∣∣∣∣",
+			"option": {
+				"a": "25",
+				"b": "45",
+				"c": "15",
+				"d": "55"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mrow>\n    <mo>|<\/mo>\n    <mtable rowspacing=\"4pt\" columnspacing=\"1em\">\n      <mtr>\n        <mtd>\n          <mn>4<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>2<\/mn>\n        <\/mtd>\n        <mtd>\n          <mo>&#x2212;<!-- − --><\/mo>\n          <mn>1<\/mn>\n        <\/mtd>\n      <\/mtr>\n      <mtr>\n        <mtd>\n          <mn>2<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>3<\/mn>\n        <\/mtd>\n        <mtd>\n          <mo>&#x2212;<!-- − --><\/mo>\n          <mn>1<\/mn>\n        <\/mtd>\n      <\/mtr>\n      <mtr>\n        <mtd>\n          <mo>&#x2212;<!-- − --><\/mo>\n          <mn>1<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>1<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>3<\/mn>\n        <\/mtd>\n      <\/mtr>\n    <\/mtable>\n    <mo>|<\/mo>\n  <\/mrow>\n<\/math>",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716129601\/ALOC-Questions\/Mathematics\/2011\/MATH_JAMB_2011_Q22_v62583.jpg",
+			"answer": "a",
+			"solution": "4[(3 x 3) - (-1 x 1)] -2 [(2x 3) - (-1 x -1)] -1 [(2 x 1) - (-1 x 3)]\n\n= 4[9 + 1] -2 [6 - 1] -1 [2 + 3]\n\n= 4(10) - 2(5) - 1(5)\n\n= 40 - 10 - 5\n\n= 25",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 591,
+			"question": "The table above show the marks obtained in a given test.\nFind the mean mark",
+			"option": {
+				"a": "3.1",
+				"b": "3.0",
+				"c": "3.2",
+				"d": "3.3"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716128511\/ALOC-Questions\/Mathematics\/2010\/MATH_2010_Q20_odkimk.jpg",
+			"answer": "d",
+			"solution": "Mean=∑fx∑f\n= 66\/20\n= 3.3",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 723,
+			"question": "Evaluate 21\/9 to 3 significant figures",
+			"option": {
+				"a": "2.30",
+				"b": "2.31",
+				"c": "2.32",
+				"d": "2.33"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "21\/9 = 7\/3 = 2.33 (to 3 sig. figs)",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 181,
+			"question": "Evaluate ∫sin3xdx",
+			"option": {
+				"a": " (2\/3) cos 3x + c",
+				"b": "(1\/3) cos 3x + c",
+				"c": "(-1\/3) cos 3x + c",
+				"d": "(-2\/3) cos 3x + c"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mo>&#x222B;<!-- ∫ --><\/mo>\n  <mi>sin<\/mi>\n  <mo>&#x2061;<!-- ⁡ --><\/mo>\n  <mn>3<\/mn>\n  <mi>x<\/mi>\n  <mrow class=\"MJX-TeXAtom-ORD\">\n    <mi mathvariant=\"normal\">d<\/mi>\n  <\/mrow>\n  <mi>x<\/mi>\n<\/math>",
+			"image": "",
+			"answer": "c",
+			"solution": "∫sin3xdx=−cos3x\/3 + c\n= −1\/3 (cos 3x) + c",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 663,
+			"question": "Find the probability that a number picked at random from the set(43, 44, 45, ..., 60) is a prime number.",
+			"option": {
+				"a": "2\/3",
+				"b": "1\/3",
+				"c": "2\/9",
+				"d": "7\/9"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Prime numbers = (43,47,53,59)\n\nN = (43, 44, 45,..., 60)\n\nThe universal set contains 18 numbers.\n\nThe prime numbers between 43 and 60 are 4\n\nProbability of picking a prime number = 4\/18\n\n= 2\/9",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 41,
+			"question": "All the 120 pupils in a school learn Yoruba or Igbo or both. Given that 75 learn Yoruba and 60 learn Igbo. How many learn Igbo only?   ",
+			"option": {
+				"a": "45",
+				"b": "30",
+				"c": "15",
+				"d": "60"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 113,
+			"question": "In the diagram, If < RPS = 50°, < RPQ = 30° and pq = QR, Find the value of < prs\n",
+			"option": {
+				"a": "50°",
+				"b": " 60°",
+				"c": "70°",
+				"d": "80<sup>o<\/sup>"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710691930\/ALOC-Questions\/Mathematics\/2000\/question-42_jnvogc.jpg",
+			"answer": "c",
+			"solution": "< QPR = < PRQ = 30° (PQ = QR)\n\n< SPQ + < QRS = 180° (supplementary)\n\n80 + < QRS = 180° = < QRS = 180° - 80° = 100°\n\n< QRP + < PRS = 100° = 30o + < PRS = 100°\n\n= < PRS = 100° - 30° = 70°",
+			"examtype": "utme",
+			"examyear": "2000"
+		},
+		{
+			"id": 349,
+			"question": "If sin θ = -1\/2 for 0 < θ < 360°, the value of θ is",
+			"option": {
+				"a": "30° and 150°",
+				"b": "150° and 210°",
+				"c": "210° and 330°",
+				"d": "150° and 330°"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "sin θ = -1\/2\n= -0.5\nθ = sin-1 (0.5)\nθ = 30°\nSince θ is negative\nθ = 180 + 30 = 210°\nθ = 360 - 30 = 330°\n∴θ = 210° and 330°",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 222,
+			"question": "Evaluate log<sub>√2<\/sub>4 + log1\/2 16 − log<sub>4<\/sub>32",
+			"option": {
+				"a": "-5.5",
+				"b": "-2.5",
+				"c": "2.5",
+				"d": "5.5"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "Note that if we set log<sub>(√2)<\/sub>4 = x<sub>1<\/sub>, solving gives x<sub>1<\/sub> =4 if log <sub>1\/2<\/sub>16= x<sub>2<\/sub>, ⇒ x<sub>2<\/sub> = −4 Also for log<sub>4<\/sub> 32= x<sub>3<\/sub> =2.5 Combining results, x<sub>1<\/sub> + x<sub>2<\/sub> +x<sub>3 <\/sub> = 4+ (−4) −2.5 = −2.5\n\nNote that the solution has been separated to simplify solving difficulty due to different bases.",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 129,
+			"question": "Divide: ax<sup>3x<\/sup> - 26x<sup>2x<\/sup> + 156a<sup>x<\/sup> - 216 by a<sup>2x<\/sup> - 24a<sup>x<\/sup> + 108",
+			"option": {
+				"a": "a<sup>x<\/sup> - 2",
+				"b": "a<sup>x<\/sup> + 2",
+				"c": "a<sup>x<\/sup> - 8",
+				"d": "a<sup>x<\/sup> - 6"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 302,
+			"question": "Factorize completely ac - 2bc - a + 4b<sup>2<\/sup>",
+			"option": {
+				"a": "(a - 2b)(c - a - 2b)",
+				"b": " (a - 2b)(c + a +2b)",
+				"c": " (a - 2b)(c - a + 2b)",
+				"d": " (a - 2b)(c + a - 2b)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "ac - 2bc - a<sup>2<\/sup> + 4b<sup>2<\/sup>\nac - 2bc - (a<sup>2<\/sup> - 4b<sup>2<\/sup>)\nac - 2bc - (a<sup>2<\/sup> -(2b)<sup>2<\/sup>)\nc(a - 2b) - {(a - 2b)(a + 2b)}\n(a - 2b)(c - (a + 2b))\n(a - 2b)(c - a - 2b)",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 209,
+			"question": "How many three-digit numbers can be formed from 32564 without repeating any of the digits?",
+			"option": {
+				"a": " 120",
+				"b": "10",
+				"c": "20",
+				"d": "60"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "To get the answer, we simply do\n\n5!\/(5−3)!\n= 5×4×3×2×1\/(2×1)\n= 60",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 178,
+			"question": "If dy\/dx = 2x - 3 and y = 3 when x = 0, find y in terms of x.",
+			"option": {
+				"a": " 2x<sup>2<\/sup> - 3x",
+				"b": " x<sup>2<\/sup> - 3x",
+				"c": " 2x<sup>2<\/sup> - 3x - 3",
+				"d": " 2x<sup>2<\/sup> - 3x + 3"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "dy\/dx = 2x - 3\ny = ∫2x - 3 dx => y = xx<sup>2<\/sup> - 3x + c\n3 = (0)2 - 3(0) + c\n=> c = 3\n\nThus y = x2 - 3x + 3",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 546,
+			"question": "If the hypotenuse of a right-angled isosceles triangle is 2cm. What is the area of the triangle?",
+			"option": {
+				"a": " 1\/√2 cm<sup>2<\/sup>",
+				"b": "1 cm<sup>2<\/sup>",
+				"c": "√2 cm<sup>2<\/sup>",
+				"d": "2√2 cm<sup>2<\/sup>"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715547147\/ALOC-Questions\/Mathematics\/2009\/MATH_2009_Q25_jzxmbo.jpg",
+			"answer": "b",
+			"solution": "X<sup>2<\/sup> + x<sup>2<\/sup> = 2<sup>2<\/sup>\n2x<sup>2<\/sup> = 4\nx<sup>2<\/sup> = 4\/2\nx<sup>2<\/sup> = 2\nx = +\/-√2\nArea of Δ = 1\/2bh\n= 1\/2 x √2 x √2\n= 2\/2\n= 1 cm<sup>2<\/sup>",
+			"examtype": "utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 263,
+			"question": "A triangle has vertices P(-1,6), Q(-3, -4) and R(1, -4).Find the midpoint of PQ and QR respectively.",
+			"option": {
+				"a": " (0,-2) and (-1, -4)",
+				"b": "(-1,0) and (-1,-1)",
+				"c": "(-2,1) and (0,1)",
+				"d": "(-2,1) and (-1,-4)"
+			},
+			"section": "SOLUTION: <math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mfrac>\n    <mrow>\n      <msub>\n        <mi>x<\/mi>\n        <mn>2<\/mn>\n      <\/msub>\n      <mo>+<\/mo>\n      <msub>\n        <mi>x<\/mi>\n        <mn>1<\/mn>\n      <\/msub>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mrow>\n      <msub>\n        <mi>y<\/mi>\n        <mn>2<\/mn>\n      <\/msub>\n      <mo>+<\/mo>\n      <msub>\n        <mi>y<\/mi>\n        <mn>1<\/mn>\n      <\/msub>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\"><\/mspace>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo>&#x2212;<\/mo>\n      <mn>1<\/mn>\n      <mo>+<\/mo>\n      <mo stretchy=\"false\">(<\/mo>\n      <mo>&#x2212;<\/mo>\n      <mn>3<\/mn>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mrow>\n      <mn>6<\/mn>\n      <mo>&#x2212;<\/mo>\n      <mn>4<\/mn>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\"><\/mspace>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo>&#x2212;<\/mo>\n      <mn>4<\/mn>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mn>2<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\"><\/mspace>\n  <mo>=<\/mo>\n  <mo>&#x2212;<\/mo>\n  <mn>2<\/mn>\n  <mo>,<\/mo>\n  <mn>1<\/mn>\n<\/math>",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 60,
+			"question": "Factorize 6x2 – 14x – 12 ",
+			"option": {
+				"a": "2(x + 3)(3x – 2) ",
+				"b": "6(x – 2)(x + 1) ",
+				"c": "2(x – 3)(3x + 2) ",
+				"d": "6(x + 2)(x – 1) "
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 553,
+			"question": "If y = 3 cos 4x, dy\/dx equals?",
+			"option": {
+				"a": " 6 sin 8x",
+				"b": "-24 sin 4x",
+				"c": "12 sin 4x",
+				"d": "-12 sin 4x"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "y = 3 cos 4x\n\nApplying product rule:\n\ndy\/dx = udv\/dx + vdu\/dx\nWhere u = 3 and v = cos 4x\n\ndu\/dx of 3 = 0 and \n\ndv\/dx of cos 4x = -4sin 4x\n\n\ndy\/dx = 3 × -4 sin 4x  +   cos 4x × 0\n\ndy\/dx = -12 sin 4x",
+			"examtype": "utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 633,
+			"question": "Factorize completely 9y<sup>2<\/sup> - 16X<sup>2<\/sup>",
+			"option": {
+				"a": "(3y - 2x)(3y + 4x)",
+				"b": "(3y + 4x)(3y + 4x)",
+				"c": "(3y + 2x)(3y - 4x)",
+				"d": "(3y - 4x)(3y + 4x)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "9y<sup>2<\/sup> - 16x<sup>2<\/sup>\n\n= 32y<sup>2<\/sup> - 42x<sup>2<\/sup>\n\n= (3y - 4x)(3y +4x)",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 753,
+			"question": "Find the median of 2,3,7,3,4,5,8,9,9,4,5,3,4,2,4 and 5",
+			"option": {
+				"a": "9",
+				"b": "8",
+				"c": "7",
+				"d": "4"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "Arrange all the values in ascending order,\n\n2,2,3,3,3,4,4,4,4,5,5,5,7,8,9,9",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 147,
+			"question": "If the gradient of the curve y = 2kx<sup>2<\/sup> + x + 1 at x = 1 is 9, find k.",
+			"option": {
+				"a": "4",
+				"b": "3",
+				"c": "2",
+				"d": "1"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "y = 2kx<sup>2<\/sup> + x + 1\nGradient function dy\/dx = 4kx + 1\nat dy\/dx = 9, => 9 = 4kx + 1\n=> 8 = 4kx, and k = 8\/4x.\n\nAt x = 1, k = 8\/4 = 2",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 57,
+			"question": "If 7 and 189 are the first and fourth terms of a geometric progression respectively find the sum of the first three terms of the progression ",
+			"option": {
+				"a": "182",
+				"b": "180",
+				"c": "91",
+				"d": "63"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 502,
+			"question": "Find the derivative of y=x<sup>7<\/sup> −x<sup>7<\/sup>\/ x<sup>4<\/sup> ",
+			"option": {
+				"a": " x(x<sup>2<\/sup> -1)",
+				"b": "3x(x<sup>2<\/sup> -1)",
+				"c": "3x<sup>2<\/sup> -1",
+				"d": "7x<sup>6<\/sup> -5x<sup>4<\/sup> "
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "y=(x<sup>7<\/sup> -x<sup>5<\/sup> )\/x<sup>4<\/sup>.   y=x<sup>7<\/sup> \/x<sup>4<\/sup>  ÷ x<sup>5<\/sup> \/x<sup>4<\/sup>.   y=x<sup>3<\/sup> -x. dy\/dx=3x<sup>2<\/sup> -1",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 627,
+			"question": "If log<sub>3<\/sub>18 + log<sub>3<\/sub>3 - log<sub>3<\/sub>x = 3, Find x.",
+			"option": {
+				"a": "1",
+				"b": "2",
+				"c": "0",
+				"d": "3"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "log<sub>3<\/sub>18\n + log<sub>3<\/sub>3\n - log<sub>3<\/sub>x\n = 3\n\nlog<sub>3<\/sub>18\n + log<sub>3<\/sub>3\n - log<sub>3<\/sub>x\n = 3log<sub>3<\/sub>3\n\nlog<sub>3<\/sub>18\n + log<sub>3<\/sub>3\n - log<sub>3<\/sub>x\n = log<sub>3<\/sub>3<sup>3<\/sup>\n\nlog<sub>3<\/sub>(18×3\/X\n) = log<sub>3<\/sub>3<sup>3<\/sup>\n\n18×3\/X\n = 3<sup>3<\/sup>\n\n18 x 3 = 27 x X\n\nx = 18×3\/27\n\n\n= 2",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 199,
+			"question": "The sum of the interior angles of a polygon is 20 right angles. How many sides does the polygon have?",
+			"option": {
+				"a": "12",
+				"b": " 20",
+				"c": " 40",
+				"d": "10"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "The formula for the sum of the interior angles of a regular polygon = (2n - 4) x 90°\n\nGiven: Sum = 20 right angles\n\n(2n - 4) x 90° = 20 times 90°\n\n⇒ 2n - 4 = 20\n\n2n = 24; n = 12.",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 213,
+			"question": "The venn diagram above shows the numbers of students offering music and history in a class of 80 students. If a student is picked at random from the class, what is the probability that he offers Music only?",
+			"option": {
+				"a": " 0.38",
+				"b": "0.13",
+				"c": "0.50",
+				"d": " 0.25"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710697888\/ALOC-Questions\/Mathematics\/2002\/math_2000_q42_ikiy1n.jpg",
+			"answer": "d",
+			"solution": "30 - x + x + 40 - x = 80 - 20\n70 - x = 60\n- x = 60 - 70\n- x = - 10\n∴ x = 10\nMusic only = 30 - x\n= 30 - 10\n20\nP(music only) = 20\/80\n= 1\/4\n= 0.25",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 372,
+			"question": "The table above shows the scores of a group of students in a physics test. If the mode is m and the number of students who scored 4 or more is n, what is (n, m)?",
+			"option": {
+				"a": "(33, 4)",
+				"b": " (22, 4)",
+				"c": " (33, 12)",
+				"d": "(12, 4)"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715540411\/ALOC-Questions\/Mathematics\/2006\/JAMB_MATH_2006_Q1_pyffkb.jpg",
+			"answer": "a",
+			"solution": "The mode (m) = 4.\n\nNo of students who scored 4 and above = 12 + 10 + 6 + 4 + 1 = 33.\n\n∴ (n, m) = (33, 4)",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 364,
+			"question": "What is the probability that an integer x,(1 ≤\n x ≤\n 20) chosen at random is divisible by both 2 and 3?",
+			"option": {
+				"a": "1\/20",
+				"b": "1\/3",
+				"c": "3\/20",
+				"d": "7\/10"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "U = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}\nA = {x\/x is divisible by 2}\nA = {2,4,6,8,10,12,14,16,18,20}\nB = {x\/x is divisible by 3}\nA ∩ B = {6, 12, 18}\nP(Number divisible by both 2 and 3)\n= 3\/20",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 413,
+			"question": "The sum of the first n positive integers is",
+			"option": {
+				"a": "1\/2 n(n-1)",
+				"b": " n(n+1)",
+				"c": "n(n-1)",
+				"d": "1\/2 n(n-1)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "Let the positive integers be 1, 2, ,3, 4, .....n\n∴ a = 1, d = 1 and n = n\nSn = n\/2(2a + (n-1)d)\n= n\/2 (2 + n – 1)\n= 1\/2n(n + 1)",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 743,
+			"question": "The angles of a polygon are given by x, 2x, 3x, 4x and 5x respectively. Find the value of x.",
+			"option": {
+				"a": " 24°",
+				"b": "30°",
+				"c": "33°",
+				"d": "36°"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "Since there are 5 angles given, the polygon is a pentagon.\n\nSum of interior angles of a pentagon = (2(5) - 4) x 90° = 540°\n\n∴\n x + 2x + 3x + 4x + 5x = 15x\n\n15x = 540°\n\nx=540\/15=36°",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 337,
+			"question": "If the 7th term of an AP is twice the third term and the sum of the first four terms is 42, find the common difference.",
+			"option": {
+				"a": "6",
+				"b": "3",
+				"c": "2",
+				"d": "1"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "U7 = a + (7 - 1)d\n= a + 6d\nU3 = a + (3 - 1)d\n= a + 2d\nBut U7 = 2(U3)\n∴a + 6d = 2(a + 2d)\na + 6d = 2a + 4d\n2a - a + 4d - 6d = 0\na - 2d = 0 → eqn1\nSn = n\/2 (2a + (n - 1)d)\n42 = 4\/2 (2a + (4 - 1)d)\n42 = 2(2a + 3d)\n21 = 2a + 3d → eqn2\neqn1 * eqn2 0 = 2a - 4d\n21 = 7d\n∴d = 21\/7\nd = 3",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 162,
+			"question": "The identity element with respect to the multiplication shown in the table above is",
+			"option": {
+				"a": "o",
+				"b": "m",
+				"c": "i",
+				"d": "k"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710696566\/ALOC-Questions\/Mathematics\/2001\/JAMB_2001_Q_40_wirh19.jpg",
+			"answer": "b",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 393,
+			"question": "Compute 110011<sub>2<\/sub> + 11111<sub>2<\/sub>",
+			"option": {
+				"a": "1001010<sub>2<\/sub>",
+				"b": "1010010<sub>2<\/sub>",
+				"c": "1000110<sub>2<\/sub>",
+				"d": "1000100<sub>2<\/sub>"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "110011<sub>2<\/sub> + 11111<sub>2<\/sub> = 1010010<sub>2<\/sub>",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 284,
+			"question": "Find the derivatives of the function y = 2x2(2x - 1) at the point x = -1",
+			"option": {
+				"a": "18",
+				"b": "16",
+				"c": "-4",
+				"d": "-6"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "y = 2x<sup>2<\/sup>(2x - 1)\ny = 4x<sup>3<\/sup> - 2x<sup>2<\/sup>\ndy\/dx = 12x<sup>2<\/sup> - 4x\nat x = -1\ndy\/dx = 12(-1)<sup>2<\/sup> - 4(-1)\n= 12 + 4\n= 16",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 423,
+			"question": "In a basket, there are 6 grapes, 11 bananas and 13 oranges. If one fruit is chosen at random. What is the probability that the fruit is either a grape or a banana",
+			"option": {
+				"a": "6\/30",
+				"b": "5\/30",
+				"c": " 17\/30",
+				"d": "11\/30"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Number of grapes = 6\nNumber of banana = 11\nNumber of oranges = 13\nTotal = 30\nP(Grape) = 6\/30, P(Banana) = 11\/30\nP(Orange) = 13\/30\n∴P(Either grape or banana) = 6\/30 + 11\/30\n= 17\/30",
+			"examtype": "utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 114,
+			"question": "In the diagram, EFGH is a circle centre O. FH is a diameter and GE is a chord which meets FH at right angle at the point N. If NH = 8cm and EG = 24cm, calculate FH",
+			"option": {
+				"a": " 32cm",
+				"b": " 26cm",
+				"c": "20cm",
+				"d": "16cm"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710691965\/ALOC-Questions\/Mathematics\/2000\/question-43_ptovoz.jpg",
+			"answer": "b",
+			"solution": "△OEN = △OGN\n\nOE = OG = r(radii)\n\n(r - 8)<sup>2<\/sup> + 12<sup>2<\/sup> = r<sup>2<\/sup>\n\nr<sup>2<\/sup> - 16r + 64 + 144 = r<sup>2<\/sup>\n\n16r = 64 + 144 = r<sup>2<\/sup>\n\n16r = 64 + 144 = 208\n\n208\/16 = 13cm\n\nFH = 2FO = 2OH = 2R\n\n= 2 x 13cm\n\n= 26cm",
+			"examtype": "utme",
+			"examyear": "2000"
+		},
+		{
+			"id": 462,
+			"question": "Find the locus of point equidistant from two straight lines y - 5 = 0 and y - 3 = 0",
+			"option": {
+				"a": "y - 2 = 0",
+				"b": " y - 4 = 0",
+				"c": "y - 1 = 0",
+				"d": "y - 3 = 0"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715545117\/ALOC-Questions\/Mathematics\/2007\/JAMB_2007_Q41_solution_r1aho2.jpg",
+			"answer": "b",
+			"solution": "Locus of point P equidistant from y - 5 = 0 and y - 3 = 0 is y = 4 i.e y - 4 = 0",
+			"examtype": "utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 14,
+			"question": "The trigonometric expression cos 2A +sin 2A can be written as    ",
+			"option": {
+				"a": "cosA (cosA-sinA),    ",
+				"b": "Cos2A +sin2A-2sinAcosA,  ",
+				"c": "Cos2A + sin2A = Cos2A –sin2A+2sinAcosA",
+				"d": "cos2A+sin2A"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 55,
+			"question": "A man kept 6 black, 5 brown and 7 purple shirts in a drawer. What is the probability of his picking a purple shirt with his eyes close ",
+			"option": {
+				"a": "1\/7",
+				"b": "7\/18 ",
+				"c": "11\/18 ",
+				"d": "7\/11"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 391,
+			"question": "Find the tax on an income of N20,000 if no tax is paid on the first N10,000 and tax is paid at N50 in N1000 on the next N5000 and at N55 in N1000 on the remainder",
+			"option": {
+				"a": " N500",
+				"b": " N552",
+				"c": "N255",
+				"d": "N525"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "N20,000 - N10,000 = N10,000\n1st tax on N5000 at N50 per N1000\n= 5*50 = N250\n2nd tax on the remaining N5000 at N55 per N1000 = 5*55 = N275\nTotal tax paid = N250 + N275\n= N525",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 519,
+			"question": "Calculate the distance between points L(-1, -6) and M(-3, -5)",
+			"option": {
+				"a": "√5",
+				"b": "2√3",
+				"c": " √20",
+				"d": "√50"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "L ( x <sub>1<\/sub>  −1 y <sub>1<\/sub>  −6 )  m L ( x <sub>2<\/sub>  −3 y <sub>2<\/sub>  −5 )                                 D = √(x<sub>2<\/sub> −x<sub>1<\/sub> )<sup>2<\/sup> +(y<sub>2<\/sub> −y<sub>1<\/sub> )<sup>2<\/sup> \n\nD = √(−3−(−1)2+(−5−(−6)<sup>2<\/sup> \n\nD =√(−3+1)<sup>2<\/sup> +(−5+6)<sup>2<\/sup> \n\nD = √(−2)<sup>2<\/sup> +1<sup>2<\/sup> )\n\nD = √(4+1)\n\nD = √5",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 125,
+			"question": "A car dealer bought a second-hand car for N250,000 and spent N70,000 refurbishing it. He then sold the car for N400,000. What is the percentage gain?",
+			"option": {
+				"a": "60%",
+				"b": " 32%",
+				"c": "25%",
+				"d": "20%"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Total cost = N(250,000 + 70,000) = N320,000\nSelling price = N400,000 (given)\nGain = SP - CP = N(400,000 - 320,000) = N80,000\nGain % = gain\/CP x 100 = (80,000\/320,000) x 100\n\nGain % = 25%",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 4,
+			"question": "In how many different ways can the letters of the word GEOLOGY be arranged in order? ",
+			"option": {
+				"a": "720",
+				"b": "1260",
+				"c": "2520",
+				"d": "5040"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 76,
+			"question": "Evaluate (2.813×10<sup>−3<\/sup>×1.063)\/(5.637×10<sup>−2<\/sup>) reducing each number to two significant figures and leaving your answer in two significant figures.\n",
+			"option": {
+				"a": "0.056",
+				"b": "0.055",
+				"c": "0.054",
+				"d": "0.54"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mn>2.813<\/mn>\n      <mo>&#x00D7;<!-- × --><\/mo>\n      <msup>\n        <mn>10<\/mn>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mo>&#x2212;<!-- − --><\/mo>\n          <mn>3<\/mn>\n        <\/mrow>\n      <\/msup>\n      <mo>&#x00D7;<!-- × --><\/mo>\n      <mn>1.063<\/mn>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mn>5.637<\/mn>\n      <mo>&#x00D7;<!-- × --><\/mo>\n      <msup>\n        <mn>10<\/mn>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mo>&#x2212;<!-- − --><\/mo>\n          <mn>2<\/mn>\n        <\/mrow>\n      <\/msup>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n  <\/mfrac>\n<\/math>",
+			"image": "",
+			"answer": "b",
+			"solution": "(2.813×10<sup>(−3)<\/sup>)×1.063)\/(5.637×10<sup>(−2)<\/sup> ) = (0.002813×1.063)\/0.05637 ≊(0.0028×1.1)\/0.056=0.055\n\n\n\n",
+			"examtype": "utme",
+			"examyear": "2000"
+		},
+		{
+			"id": 206,
+			"question": "The range of the data: k+2, k-3, k+4, k-2, k, k-5, k+3, k-1, and k+6 is",
+			"option": {
+				"a": "10",
+				"b": "11",
+				"c": "6",
+				"d": "8"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "Range = Highest value - Lowest value\n\n= (k + 6) - (k - 5)\n\n= 11",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 574,
+			"question": "Express the product of 0.21 and 0.34 in standard form",
+			"option": {
+				"a": " 7.14 x 10<sup>-3<\/sup>",
+				"b": " 7.14 x 10<sup>-2<\/sup>",
+				"c": "7.14 x 10<sup>-1<\/sup>",
+				"d": " 7.14 x 10sup>-4<\/sup>"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "0.21 x 0.34 = 0.0714\n= 7.14 x 10<sup>2<\/sup>",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 421,
+			"question": "If E⊆G⊆U, where U is the universal set, then the shaded venn diagram representing U−E or E<sup>c<\/sup is",
+			"option": {
+				"a": "I",
+				"b": "II",
+				"c": "III",
+				"d": "IV"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715542948\/ALOC-Questions\/Mathematics\/2006\/MATH_JAMB_2006_Q50_rwcry3.jpg",
+			"answer": "d",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 746,
+			"question": "The distance between the point (4, 3) and the intersection of y = 2x + 4 and y = 7 - x is",
+			"option": {
+				"a": "√13",
+				"b": "3√2",
+				"c": "√26",
+				"d": "10√5"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "P<sub>1<\/sub> (4, 3), P<sub>2<\/sub> (x, y)\n\ny = 2x + 4 .....(1)\n\ny = 7 - x .....(2)\n\nSubstitute (2) in (1)\n\n7 - x = 2x + 4\n\n7 - 4 = 2x + x\n\n3 = 3x\n\nx = 1\n\nSubstitute in eqn (2)\n\ny = 7 - x\n\ny = 7 - 1\n\ny = 6\n\nP<sub>2<\/sub> (1, 6)\n\nDistance between 2 points is given as\n\nD =√ (x<sub>2<\/sub>−x<sub>1<\/sub>)<sup>2<\/sup>+(y<sub>2<\/sub> − y<sub>1<\/sub>)\n\n\nD = √(1−4)<sup>2<\/sup>+(6−3)<sup>2<\/sup>\n\n\nD = √(−3)<sup>2<\/sup>+(3)<sup>2<\/sup>\n\n\nD = √9+9\n\n\nD = √18\n\n\nD = √9×2\n\n\nD = 3√2",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 5,
+			"question": "A cyclist rode for 30minutes at xhkm\/hr. if the total distance covered is less than 60km, what is the range of values for x? ",
+			"option": {
+				"a": "x<14   ",
+				"b": "x<20  ",
+				"c": "x<29  ",
+				"d": "x< 28"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 580,
+			"question": "If ∣∣∣x237∣∣∣ = 15, find the value of x",
+			"option": {
+				"a": "3",
+				"b": "4",
+				"c": "5",
+				"d": "2"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716128199\/ALOC-Questions\/Mathematics\/2010\/MATH_2010_Q9_eaggil.jpg",
+			"answer": "a",
+			"solution": "x x 7 - 2 x 3 = 15\n7x - 6 = 15\n7x = 15+6\n7x = 21\nx = 21\/7\nx = 3",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 518,
+			"question": "( −2 2 1 3 ) ( p r q s ) = ( 1 0 0 1 ) . What is the value of r?",
+			"option": {
+				"a": "-1\/8",
+				"b": "3\/8",
+				"c": "5\/8",
+				"d": "1\/4"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715546423\/ALOC-Questions\/Mathematics\/2008\/MATH_2008_Q47_nqccri.jpg",
+			"answer": "d",
+			"solution": "-2p + r = 1.......(i)\n\n2p + 3r = 0.......(ii)\n\nr - 1 + 2p ........(iii)\n\n2p + 3(1 + 2p) = 0\n\n2p + 3(1 + 2p) = 0\n\n2p + 3 + 6p = 0\n\n3 - 8p = 0 → 8p = 3\n\np = 3\/8\n\n6 = 1 - 2 (3\/8)\n\n= 1 - 6\/8\n\n8−6\/8 = 2\/8\n\n= 1\/4",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 261,
+			"question": "In the diagram above, PQ is parallel to RS. What is the value of α + β + γ?",
+			"option": {
+				"a": " 360°",
+				"b": "200°",
+				"c": "180°",
+				"d": "90°"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710699608\/ALOC-Questions\/Mathematics\/2003\/math_2003_q40_olppxr.jpg",
+			"answer": "a",
+			"solution": "γ + S = 180(Allied angles)\nS = 180 - γ\nα + P = 180(Allied angles)\np = 180 - α\nβ = P + S\nβ = 180 - α + 180 - γ\nβ = 360 - α - γ\nβ + α + γ = 360",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 377,
+			"question": "The table above shows the distribution of recharge cards of four major GSM operators. What is the probability that a recharge card selected at random will be GTN or Qtel?",
+			"option": {
+				"a": " 3\/20",
+				"b": " 1\/4",
+				"c": "2\/5",
+				"d": " 3\/4"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715542580\/ALOC-Questions\/Mathematics\/2006\/MATH_JAMB_2006_Q6_t8tkjx.jpg",
+			"answer": "c",
+			"solution": "P(GTN) = 5\/20\nP(Qtel) = 3\/20\n∴P(GTN or Qtel) = (5\/20) + (3\/20)\n= 8\/20\n= 2\/5",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 598,
+			"question": "At what value of X does the function y = -3 - 2x + X2 attain a minimum value?",
+			"option": {
+				"a": "-1",
+				"b": "14",
+				"c": "4",
+				"d": "1"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "Given that y = -3 - 2x + X<sup>2<\/sup>\n\nthen, dy\/dx = -2 + 2x\n\nAt maximum value, dydx = O\n\ntherefore, -2 + 2x\n\n2x = 2\n\nx = 2\/2 = 1",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 276,
+			"question": "Find the midpoint of the line joining P(-3, 5) and Q(5, -3).",
+			"option": {
+				"a": "(1, 1)",
+				"b": "(2, 2)",
+				"c": "(4, 4)",
+				"d": "(4, -4)"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mi>M<\/mi>\n  <mi>i<\/mi>\n  <mi>d<\/mi>\n  <mi>p<\/mi>\n  <mi>o<\/mi>\n  <mi>i<\/mi>\n  <mi>n<\/mi>\n  <mi>t<\/mi>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <msub>\n        <mi>x<\/mi>\n        <mn>1<\/mn>\n      <\/msub>\n      <mo>+<\/mo>\n      <msub>\n        <mi>x<\/mi>\n        <mn>2<\/mn>\n      <\/msub>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <msub>\n        <mi>y<\/mi>\n        <mn>1<\/mn>\n      <\/msub>\n      <mo>+<\/mo>\n      <msub>\n        <mi>y<\/mi>\n        <mn>2<\/mn>\n      <\/msub>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mn>3<\/mn>\n      <mo>+<\/mo>\n      <mn>5<\/mn>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mn>5<\/mn>\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mn>3<\/mn>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>2<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>;<\/mo>\n  <mfrac>\n    <mn>2<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mo stretchy=\"false\">(<\/mo>\n  <mn>1<\/mn>\n  <mo>,<\/mo>\n  <mn>1<\/mn>\n  <mo stretchy=\"false\">)<\/mo>\n<\/math>",
+			"image": "",
+			"answer": "a",
+			"solution": "Midpoint = (x<sub>1<\/sub>+x<sub>2<\/sub>)\/2; (y<sub>1<\/sub>+y<sub>2<\/sub>)\/2 = (−3+5)\/2; (5−3)\/2 = 2\/2; 2\/2 = (1, 1)",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 67,
+			"question": "What is the 15th term of the sequence -3, 2,7,…? ",
+			"option": {
+				"a": "65",
+				"b": "66",
+				"c": "68",
+				"d": "67"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 172,
+			"question": "Without using tables, evaluate (343)<sup>(1\/3)<\/sup> × (0.14)<sup>−1<\/sup> × (25)<sup>(−1\/2)<\/sup>",
+			"option": {
+				"a": "10",
+				"b": "12",
+				"c": "8",
+				"d": "7"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mo stretchy=\"false\">(<\/mo>\n  <mn>343<\/mn>\n  <msup>\n    <mo stretchy=\"false\">)<\/mo>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mfrac>\n        <mn>1<\/mn>\n        <mn>3<\/mn>\n      <\/mfrac>\n    <\/mrow>\n  <\/msup>\n  <mo>&#x00D7;<!-- × --><\/mo>\n  <mo stretchy=\"false\">(<\/mo>\n  <mn>0.14<\/mn>\n  <msup>\n    <mo stretchy=\"false\">)<\/mo>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mn>1<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>&#x00D7;<!-- × --><\/mo>\n  <mo stretchy=\"false\">(<\/mo>\n  <mn>25<\/mn>\n  <msup>\n    <mo stretchy=\"false\">)<\/mo>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mfrac>\n        <mn>1<\/mn>\n        <mn>2<\/mn>\n      <\/mfrac>\n    <\/mrow>\n  <\/msup>\n<\/math>",
+			"image": "",
+			"answer": "a",
+			"solution": "(343)<sup>(1\/3)<\/sup> × (0.14)<sup>-1<\/sup> × (25)<sup>-1\/2<\/sup>\n \n= 3√343×(14\/100)<sup>−1<\/sup>×(√25)<sup>−1<\/sup>\n= 7×100\/14×1\/5\n= 10.",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 520,
+			"question": "\nA student sitting on a tower 68 metres high observes his principal's car at the angle of depression of 20°. How far is the car from the bottom of the tower to the nearest metre?",
+			"option": {
+				"a": "184 m",
+				"b": "185 m",
+				"c": "186 m",
+				"d": "187 m"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "Tan 20° = 68m\/x\n\nx tan 20° = 68\n\nx = 68\/tan20 = 68\/0.364\n\nx = 186.8\n\n= 187m",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 159,
+			"question": "Find the number of ways of selecting 8 subjects from 12 subjects for an examination.",
+			"option": {
+				"a": "490",
+				"b": "495",
+				"c": "496",
+				"d": "498"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "Combination is the (n) number of ways of selecting a number of (r) subjects from n.\nnCr = n!\/r!(n-r)! = 12! 8! x 4! = 495",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 237,
+			"question": "Find the value of x and y respectively if 3x - 5y + 5 = 0 and 4x - 7y + 8 = 0",
+			"option": {
+				"a": "-5, -4",
+				"b": " -4,. -5",
+				"c": " 4, 5",
+				"d": " 5, 4"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "3x - 5y + 5 = 0 → eqn1\n4x - 7y + 8 = 0 → eqn2\neqn1 * 4; 12x - 20y + 20 = 0 → eqn3\neqn2 * 3; 12x - 21y + 24 = 0 → eqn4\neqn3 - eqn4 = y - 4 = 0\n∴ y = 4\nFrom eqn1,\n3x - 5y + 5 = 0\n3x - 5(4) + 5 = 0\n3x - 20 + 5 = 0\n3x - 15 = 0\n3x = 15\nx = 5\nx and y = 5, 4 respectively",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 577,
+			"question": "If y varies directly as the square root of x and y = 3 when x = 16. Calculate y when x = 64",
+			"option": {
+				"a": "12",
+				"b": "6",
+				"c": "3",
+				"d": "5"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "y ∝ √x\ny = K√x\nK = y\/√x = 3\/√16\n= 3\/4\ny = 3\/4√x\n= 3\/4√64 when x = 64\n= 3\/4 x 8\/1\n= 6",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 220,
+			"question": "Use the graph find the values of p and q if px + qy ≥\n 4",
+			"option": {
+				"a": " p = 2, q = -1",
+				"b": "p = -1, q = 2",
+				"c": "p = 2, q = 2",
+				"d": "p = 1, q = 2"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710698589\/ALOC-Questions\/Mathematics\/2002\/math_2000_q49_ohcxp1.jpg",
+			"answer": "b",
+			"solution": "m =( y<sub>2<\/sub>−y<sub>1<\/sub>)\/ (x<sub>2<\/sub>−x<sub>1<\/sub>) = 2−0\/0−(4) = 2\/4 = 1\/2\n\n\n(y<sub>2<\/sub>−y<sub>1<\/sub>)\/x<sub>2<\/sub>− x<sub>1<\/sub> ≥ m\n\n\n(y−0)\/(x+4) ≥ 1\/2\n\n2y ≥ x + 4, -x + 2y ≥ 4 = px + qy ≥ 4\np = -1, q = 2",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 297,
+			"question": "What is the integral value of x which satisfy the inequality -1 < 3 -2x \n  ≤ 5?",
+			"option": {
+				"a": "-1. 0, 1, 2",
+				"b": "-2, 1, 0 , -1",
+				"c": "0, 1, 2",
+				"d": "-1, 0, 1"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "-1 < 3 -2x and 3 - 2x ≤\n 5\n2x < 3 + 1 and -2x ≤\n 5 - 3\n2x < 4 and -2x ≤\n 2\nx < 2 and x ≥\n 2\/-2 = x ≥\n -1\nIf -1 ≤\n x < 2\nit implies that x = -1, 0, 1",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 489,
+			"question": "Solve the quadratic inequalities x<sup>2<\/sup> - 5x + 6 ≥ 0",
+			"option": {
+				"a": "x ≤ 2, x ≥ 3",
+				"b": "x ≤ 3, x ≥ 2",
+				"c": "x ≤ -2, x ≥ -3",
+				"d": "x ≤-3, x ≥ 2"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715545860\/ALOC-Questions\/Mathematics\/2008\/MATH_2008_Q18_SOLUTION_qtwz0u.jpg",
+			"answer": "a",
+			"solution": "x<sup>2<\/sup> - 5x + 6 = 0\n(X-2)(X-3) = 0\nX-2 = 0 implies X = 2\nX-3 = 0 implies X = 3\n− x ≤ 2, x ≥ 3",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 441,
+			"question": "W ∝ L<sup>2<\/sup> and W = 6 when L = 4. If L = √17 find W",
+			"option": {
+				"a": "6(7\/8)",
+				"b": "6(5\/8)",
+				"c": "6(3\/8)",
+				"d": "6(1\/8)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "W ∝ L<sup>2<\/sup>\nW = KL<sup>2<\/sup>\nK = W\/L<sup>2<\/sup>\nK = 6\/4<sup>2<\/sup>\nK = 6\/16 = 3\/8\nW = 3\/8 L<sup>2<\/sup>\nW = 3\/8(√17)<sup>2<\/sup>\nW = 3\/8 x 17\nW = 51\/8 = 6(3\/8",
+			"examtype": "utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 355,
+			"question": "Evaluate  ∫<sub>0<\/sub>, <sup>(π\/2<\/sup>sin2xdx",
+			"option": {
+				"a": "1",
+				"b": "Zero",
+				"c": "-1\/2",
+				"d": "-1"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <msubsup>\n    <mo>&#x222B;<!-- ∫ --><\/mo>\n    <mn>0<\/mn>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mfrac>\n        <mi>&#x03C0;<!-- π --><\/mi>\n        <mn>2<\/mn>\n      <\/mfrac>\n    <\/mrow>\n  <\/msubsup>\n  <mi>s<\/mi>\n  <mi>i<\/mi>\n  <mi>n<\/mi>\n  <mn>2<\/mn>\n  <mi>x<\/mi>\n  <mi>d<\/mi>\n  <mi>x<\/mi>\n<\/math>",
+			"image": "",
+			"answer": "a",
+			"solution": "∫<sub>0<\/sub><sup>(π\/2<\/sup>sin2xdxx = [-1\/2cos 2x + C]<sup>(π\/2<\/sup, <sub>0<\/sub>\n\n=[-1\/2 cos 2 * π\/2 + C] - [-1\/2 cos 2 * 0]\n= [-1\/2 cos π] - [-1\/2 cos 0]\n= [-1\/2x - 1] - [-1\/2 * 1]\n= 1\/2 -(-1\/2) = 1\/2 + 1\/2 = 1",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 656,
+			"question": "Evaluate ∫<sup>1<\/sup><sub>0<\/sub>(3 - 2x)dx",
+			"option": {
+				"a": "33m",
+				"b": "5",
+				"c": "2",
+				"d": "6"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "∫<sup>1<\/sup><sub>0<\/sub>(3 - 2x)dx   [3x - x2]<sup>1<\/sup<sub>0<\/sub>\n\n\n[3(1) - (1)<sup>2<\/sup>] - [3(0) - (0)<sup>2<\/sup>]\n\n(3 - 1) - (0 - 0) = 2 - 0\n\n= 2",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 382,
+			"question": "Find the value of x for which the function 3x<sup>3<\/sup> - 9x is minimum",
+			"option": {
+				"a": "zero",
+				"b": "2",
+				"c": "3",
+				"d": "5"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "y = 3x<sup>3<\/sup> - 9x<sup>2<\/sup>\ndy\/dx = 9x2 - 18x\nAs dy\/dx = 0\n9x<sup>2<\/sup> - 18x = 0\n9x(x-2) = 0\n9x = 0 which implies x = 0\nx-2 = 0 implies x = 2\nd<sup>2<\/sup>y\/dx<sup>2<\/sup> = 18x - 18\nwhen x = 0\nd<sup>2<\/sup>y\/dx<sup>2<\/sup> < 0 ∴ x is is minimum\nwhen x = 2d<sup>2<\/sup>y\/dx<sup>2<\/sup> = 18\n∴ > 0 x is minimum",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 476,
+			"question": "calculate the simple interest on N7,500 for 8 years at 5% per annum.",
+			"option": {
+				"a": "N3,000",
+				"b": "N600",
+				"c": "N300",
+				"d": "N150"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "I=(P×T×R)\/100 = (7500 × 8 × 5)\/100 = N3000",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 585,
+			"question": "What is the locus of point that is equidistant from points P(1,3) and Q(3,5)?",
+			"option": {
+				"a": " y = -χ + 6",
+				"b": " y = -χ - 6",
+				"c": " y = χ + 6",
+				"d": " y = χ - 6"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716128329\/ALOC-Questions\/Mathematics\/2010\/MATH_2010_Q14_SOLUTION_iugbbt.jpg",
+			"answer": "a",
+			"solution": "Locus of a point equidistant from two fixed points is the perpendicular bisector of the straight line joining the points Gradients of PQ = (5-3 \/ 3-1) = 2\/2 = 1\nGradient bisector = -1\nEquation of perpendicular bisector\ny - y<sub>1<\/sub> = m(χ - χ<sub>1<\/sub>\ny - 4 = -χ + 2\ny = -χ + 6",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 190,
+			"question": "The inverse function f(x) = 3x + 4 is",
+			"option": {
+				"a": "(x-4)\/3",
+				"b": " (x-5)\/5",
+				"c": " (x+3)\/4",
+				"d": " (x+4)\/3"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "Let y = f(x).\n\nY = 3x + 4 ⟹ x = y−4\/3\nReplace y with x.\n\nY = x−4\/3",
+			"examtype": "utme",
+			"examyear": "2002"
+		},
+		{
+			"id": 447,
+			"question": "Evaluate ((05652)<sup>2<\/sup> - (04375)<sup>2<\/sup>)\/0.04 correct to three significant figures",
+			"option": {
+				"a": " 3.11",
+				"b": "3.13",
+				"c": " 0.313",
+				"d": "3.12"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "((0.5652<sup>2<\/sup>-(0.4375)<sup>2<\/sup>)\/0.04  ((0.5625+0.4375)(0.5625-0.4375))\/0.04  (1.000×0.125)\/0.04=3.125=3.13",
+			"examtype": "utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 29,
+			"question": "If x= 0.0012 + 0.00074 + 0.003174, what is the difference between x to 2 decimal places and x to 1 significant figure? ",
+			"option": {
+				"a": "0.01",
+				"b": "0.0051",
+				"c": "0.1",
+				"d": "0.005"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 770,
+			"question": "Convert 27<sub>10<\/sub>  to another number in base three",
+			"option": {
+				"a": "1001<sub>3<\/sub> ",
+				"b": "1010<sub>3<\/sub> ",
+				"c": "1100<sub>3<\/sub> ",
+				"d": "1000<sub>3<\/sub> "
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 657,
+			"question": "Find ∫ cos4 x dx",
+			"option": {
+				"a": " 3\/4 sin 4x + k",
+				"b": "-1\/4 sin 4x + k",
+				"c": " -3\/4 sin 4x + k",
+				"d": " 1\/4 sin 4x + k"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "∫ cos4 x dx\n\nlet u = 4x\n\ndy\/dx = 4\n\ndx = dy\/4\n\n\n∫cos u. dy\/4 = 14\n∫cos u du\n\n= 1\/4 sin u + k\n\n= 1\/4 sin4x + k",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 517,
+			"question": "Find the values of x and y respectively if",
+			"option": {
+				"a": "-3, -2",
+				"b": "-5, -3",
+				"c": "-2, -5",
+				"d": "-3, -5"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1715546391\/ALOC-Questions\/Mathematics\/2008\/MATH_2008_Q46_qipup5.jpg",
+			"answer": "d",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 472,
+			"question": "Add 1101<sub>2<\/sub> ,10111<sub>2<\/sub>  and 111<sub>2<\/sub> ",
+			"option": {
+				"a": "111011<sub>2<\/sub> ",
+				"b": "110110<sub>2<\/sub> ",
+				"c": "101011<sub>2<\/sub> ",
+				"d": "101010<sub>2<\/sub> "
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": " 1101<sub>2<\/sub> + 10111<sub>2<\/sub>  +  111<sub>2<\/sub>  = 101011",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 662,
+			"question": "In how many ways can five people sit round a circular table?",
+			"option": {
+				"a": "24",
+				"b": "60",
+				"c": "12",
+				"d": "120"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "The first person will sit down and the remaining will join.\n\ni.e. (n - 1)!\n\n= (5 - 1)! = 4!\n\n= 24 ways",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 565,
+			"question": "In how many ways can 9 people be seated if 3 chairs are available?",
+			"option": {
+				"a": "720",
+				"b": "504",
+				"c": "336",
+				"d": "210"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "\n9P3 =9!ways\/(9-3)!\n \n=9!\/6!\n \n=9 x 8 x 7 x 6!\/6!\n\n= 504 ways",
+			"examtype": "utme",
+			"examyear": "2009"
+		},
+		{
+			"id": 318,
+			"question": "P, R and S lie on a circle centre O as shown in the diagram while Q lies outside the circle. Find < PSO",
+			"option": {
+				"a": "35°",
+				"b": "40°",
+				"c": "45°",
+				"d": "55°"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710701048\/ALOC-Questions\/Mathematics\/2004\/math_2004_q47_hqamwu.jpg",
+			"answer": "a",
+			"solution": "< PRS = 20° + 35° = 55°\n\n< POS = 2 < PRS\n\n2 x 55° = 10°\n\n< OPS = < PSO = x\n\nIn △\nPOS\n\nOP = OS(radii)\n\n△POS is an isosceles\n\n2x + 110° = 180°\n\n2x = 180° - 110° = 70°\n\nx = 70°\/2\n \n\n\n= 35",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 340,
+			"question": "In the diagram above calculate the value of x",
+			"option": {
+				"a": "60°",
+				"b": "100°",
+				"c": "120°",
+				"d": "140°"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710702104\/ALOC-Questions\/Mathematics\/2005\/math_2005_q19_gir53c.jpg",
+			"answer": "c",
+			"solution": "p + 40° = 100° (exterior ∠ = sum of two interior opp ∠s)\np = 100° - 40°\nP = 60°\nBut q + p = 180° (∠s on a straight line)\nq + 60°\nq = 180° - 60°\nq = 120°\nx = q (corresponding ∠)\n∴x = 120°",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 325,
+			"question": "If the interest on N150.00 for 2(1\/2) years is N4.50, find the interest on N250.00 for 6 months at the same rate",
+			"option": {
+				"a": "N1.50",
+				"b": "N7.50",
+				"c": "N15.00",
+				"d": "N18.00"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "I=N4.50,P=N150,T=2 1\/2 years. I = (P×T×R)\/100. 4.50= (150 × 2 (1\/2) × R ) \/100  4.50\/1=(150 × 5 × R)\/(100 × 2). 4.50× 4 = 15R. R = (4.50 × 5)\/15. R =6\/5 Again I = (P × T × R)\/100=(250 × 1 × 6)\/(100 × 2 ×5). = 3\/2=N1.50",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 727,
+			"question": "Simplify (√6+2)<sup>2<\/sup> −(√6−2)<sup>2<\/sup> ",
+			"option": {
+				"a": "2√6",
+				"b": "4√6",
+				"c": "8√6",
+				"d": "16√6"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "√6+2)<sup>2<\/sup> −(√6−2)<sup>2<\/sup>  =  [(√6+2)+(√6 − 2)][(√6 + 2) − (√6 − 2)]\n\n= (√6 + 2 + √6 − 2)(√6 + 2− √6 + 2)]\n\n\n= (2√6)(4)\n\n\n= 8√6",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 130,
+			"question": "If two graphs y = px<sup>2<\/sup>+ q and y = 2x<sup>2<\/sup> -1 intersect at x = 2, find the value of p in terms q.",
+			"option": {
+				"a": "(q-8)\/7",
+				"b": "(7-q)\/4",
+				"c": "(8-q)\/2",
+				"d": "(7-q)\/8"
+			},
+			"section": "Solution.  <math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mi>y<\/mi>\n  <mo>=<\/mo>\n  <mi>p<\/mi>\n  <msup>\n    <mi>x<\/mi>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>+<\/mo>\n  <mi>q<\/mi>\n  <mtext mathcolor=\"red\">\\y<\/mtext>\n  <mo>=<\/mo>\n  <mn>2<\/mn>\n  <msup>\n    <mi>x<\/mi>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>&#x2212;<\/mo>\n  <mn>1<\/mn>\n  <mspace linebreak=\"newline\"><\/mspace>\n  <mi>R<\/mi>\n  <mi>i<\/mi>\n  <mi>g<\/mi>\n  <mi>h<\/mi>\n  <mi>t<\/mi>\n  <mi>a<\/mi>\n  <mi>r<\/mi>\n  <mi>r<\/mi>\n  <mi>o<\/mi>\n  <mi>w<\/mi>\n  <mi>p<\/mi>\n  <msup>\n    <mi>x<\/mi>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>+<\/mo>\n  <mi>q<\/mi>\n  <mo>=<\/mo>\n  <mn>2<\/mn>\n  <msup>\n    <mi>x<\/mi>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>&#x2212;<\/mo>\n  <mn>1<\/mn>\n  <msup>\n    <mtext mathcolor=\"red\">\\px<\/mtext>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>=<\/mo>\n  <mn>2<\/mn>\n  <msup>\n    <mi>x<\/mi>\n    <mrow data-mjx-texclass=\"ORD\">\n      <mn>2<\/mn>\n    <\/mrow>\n  <\/msup>\n  <mo>&#x2212;<\/mo>\n  <mn>1<\/mn>\n  <mo>&#x2212;<\/mo>\n  <mi>q<\/mi>\n  <mtext mathcolor=\"red\">\\p<\/mtext>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mn>2<\/mn>\n      <msup>\n        <mi>x<\/mi>\n        <mrow data-mjx-texclass=\"ORD\">\n          <mn>2<\/mn>\n        <\/mrow>\n      <\/msup>\n      <mo>&#x2212;<\/mo>\n      <mi>q<\/mi>\n      <mo>&#x2212;<\/mo>\n      <mn>1<\/mn>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <msup>\n      <mi>x<\/mi>\n      <mrow data-mjx-texclass=\"ORD\">\n        <mn>2<\/mn>\n      <\/mrow>\n    <\/msup>\n  <\/mfrac>\n  <mtext mathcolor=\"red\">\\At<\/mtext>\n  <mspace width=\"1mm\"><\/mspace>\n  <mi>x<\/mi>\n  <mo>=<\/mo>\n  <mn>2<\/mn>\n  <mtext mathcolor=\"red\">\\p<\/mtext>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mn>2<\/mn>\n      <mo stretchy=\"false\">(<\/mo>\n      <msup>\n        <mn>2<\/mn>\n        <mrow data-mjx-texclass=\"ORD\">\n          <mn>2<\/mn>\n        <\/mrow>\n      <\/msup>\n      <mo stretchy=\"false\">)<\/mo>\n      <mo>&#x2212;<\/mo>\n      <mn>1<\/mn>\n      <mo>&#x2212;<\/mo>\n      <mi>q<\/mi>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <msup>\n      <mn>2<\/mn>\n      <mrow data-mjx-texclass=\"ORD\">\n        <mn>2<\/mn>\n      <\/mrow>\n    <\/msup>\n  <\/mfrac>\n  <mtext mathcolor=\"red\">\\p<\/mtext>\n  <mo>=<\/mo>\n  <mfrac>\n    <mrow>\n      <mo stretchy=\"false\">(<\/mo>\n      <mn>8<\/mn>\n      <mo>&#x2212;<\/mo>\n      <mn>1<\/mn>\n      <mo>&#x2212;<\/mo>\n      <mi>q<\/mi>\n      <mo stretchy=\"false\">)<\/mo>\n    <\/mrow>\n    <mn>4<\/mn>\n  <\/mfrac>\n  <mtext mathcolor=\"red\">\\=<\/mtext>\n  <mfrac>\n    <mrow>\n      <mn>7<\/mn>\n      <mo>&#x2212;<\/mo>\n      <mi>q<\/mi>\n    <\/mrow>\n    <mn>4<\/mn>\n  <\/mfrac>\n<\/math>                                             ",
+			"image": "",
+			"answer": "b",
+			"solution": "\n\tY = px <sup>2<\/sup> + q\/5 = 2x<sup>2<\/sup> - 1 Right arrow px<sup>2<\/sup> + q = 2x<sup>2<\/sup> - 1\\px<sup>2<\/sup> = 2x<sup>2<\/sup> - 1 – q\\p = (2x<sup>2<\/sup> - q – 1) \/ x<sup>2<\/sup> \\ Atx = 2\\p = [(2(2<sup>2<\/sup>) – 1 – q)]\/ 2<sup>2<\/sup> \\ p = [(8 – 1- q)]\/ 4 \\ = ( 7 – q ) \/ 4                                                                                 ",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 456,
+			"question": "If the lines 3y = 4x - 1 and qy = x + 3 are parallel to each other, the value of q is",
+			"option": {
+				"a": " -4\/3",
+				"b": "-3\/4",
+				"c": "4\/3",
+				"d": "3\/4"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "If the line 3y = 4x – 1 is parallel t[ line qy = x + 3\nImplies gradient of 3y = 4x – 1\nY = 4\/3x - 1\/3\n∴Gradient = 4\/3\nGradient of line qy = x + 3\nY = 1\/qx + 3\/q\n∴ Gradient = 1\/q\n4\/3 = 1\/q\n4q = 3\nQ = 3\/4",
+			"examtype": "utme",
+			"examyear": "2007"
+		},
+		{
+			"id": 389,
+			"question": "If (K2)\n<sub>6<\/sub> * 3<sub>6<\/sub> = 3<sub>5<\/sub>(K4)<sub>5<\/sub>, what is the value of k?",
+			"option": {
+				"a": "1",
+				"b": "4",
+				"c": "3",
+				"d": "2"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": " (K2)\n<sub>6<\/sub> * 3<sub>6<\/sub> = 3<sub>5<\/sub>(K4)<sub>5<\/sub>\nk*6<sup>1<\/sup>  + 2*6<sup>0<\/sup>  + 3*5<sup>0<\/sup>  = 3*5<sup>0<\/sup>  + K*5<sup>1<\/sup>  + 4*5<sup>0<\/sup> \n6K + 2 = 5K + 4\n6K - 5k = 4 - 2\nK = 2",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 250,
+			"question": "Triangle OPQ is the solution of the inequalities",
+			"option": {
+				"a": "x - 1 < 0, y + ≥  0, y - x ≥  0",
+				"b": "x + 1 ≤ 0, y + x ≥  0, y - x ≤ 0",
+				"c": "x - 1 ≥  0, y - x ≥ 0, y + x ≥ 0",
+				"d": "y + x ≥ 0, y - x ≤ 0"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710699397\/ALOC-Questions\/Mathematics\/2003\/math_2003_q29_nr90g5.jpg",
+			"answer": "b",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 763,
+			"question": "Find the area of the trapezium above.",
+			"option": {
+				"a": "91 cm<sub>2<\/sub> ",
+				"b": "78 cm<sub>2<\/sub> ",
+				"c": "60 cm<sub>2<\/sub> ",
+				"d": "19 cm<sub>2<\/sub> "
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716130466\/ALOC-Questions\/Mathematics\/2012\/2012_MATH_JAMB_Q43_ylpswm.jpg",
+			"answer": "c",
+			"solution": "Area of trapezium =1\/2(a + b )× h = 1\/2(7 + 13) × 6\n= 60cm<sub>2<\/sub> ",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 738,
+			"question": "The sum to infinity of a geometric progression is −1\/10\n and the first term is −1\/8\n. Find the common ratio of the progression.",
+			"option": {
+				"a": "−1\/5",
+				"b": "−1\/4",
+				"c": "−1\/3",
+				"d": "−1\/2"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "S<sub>r<\/sub> = a\/(1−r)\n\n\n−1\/10 = 1\/8 × 1\/(1−r)\n\n\n−1\/10 = 1\/8(1−r)\n\n\n−1\/10 = 18−8r\n\n\ncross multiply...\n\n-1(8 - 8r) = -10\n\n-8 + 8r = -10\n\n8r = -2\n\nr = -1\/4",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 764,
+			"question": "The grades of 36 students in a class test are as shown in the pie chart above. How many students have excellent?",
+			"option": {
+				"a": "12",
+				"b": "9",
+				"c": "8",
+				"d": "7"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716130496\/ALOC-Questions\/Mathematics\/2012\/2012_MATH_JAMB_Q44_f6pzeb.jpg",
+			"answer": "d",
+			"solution": "Excellent = 360° - (120° + 90° + 80°)\n\n= 70°\n\nNumber of excellent students = 70\/360 × 36\n= 7 students",
+			"examtype": "utme",
+			"examyear": "2012"
+		},
+		{
+			"id": 815,
+			"question": "Integrate 1+x\/x<sup>3<\/sup>dx",
+			"option": {
+				"a": " 2x<sup>2<\/sup>−(1\/x) + k",
+				"b": "−1\/2x<sup>2<\/sup> −1\/x + k",
+				"c": " −x<sup>2<\/sup>\/2 − (1\/x) + k",
+				"d": " x<sup>2<\/sup> − (1\/x) + k"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mfrac>\n    <mrow>\n      <mn>1<\/mn>\n      <mo>+<\/mo>\n      <mi>x<\/mi>\n    <\/mrow>\n    <msup>\n      <mi>x<\/mi>\n      <mrow class=\"MJX-TeXAtom-ORD\">\n        <mn>3<\/mn>\n      <\/mrow>\n    <\/msup>\n  <\/mfrac>\n  <mrow class=\"MJX-TeXAtom-ORD\">\n    <mi mathvariant=\"normal\">d<\/mi>\n  <\/mrow>\n  <mi>x<\/mi>\n<\/math>",
+			"image": "",
+			"answer": "b",
+			"solution": "∫1+x\/x<sup>3<sup> dx\n= ∫(1\/x<sup>3<\/sup> + x\/x<sup>3<\/sup>)dx\n= ∫(x<sup>-3<\/sup> + x<sup>-2<\/sup>)dx\n= −1\/2x<sup>2<\/sup> − 1\/x + k",
+			"examtype": "utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 72,
+			"question": "Solve the equation 3x+1 = 271-x  ",
+			"option": {
+				"a": "1\/2",
+				"b": "-1\/2",
+				"c": "3\/4",
+				"d": "-3\/4"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 289,
+			"question": "The pie chart above shows the distribution of the crops harvested from a farmland in a year. If 3000 tonnes of millet is harvested, what amount of beans is harvested",
+			"option": {
+				"a": "6000 tonnes",
+				"b": "1500 tonnes",
+				"c": " 1200 tonnes",
+				"d": "9000 tonnes"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710700755\/ALOC-Questions\/Mathematics\/2004\/math_2004_q18_cn4gpi.jpg",
+			"answer": "c",
+			"solution": "Sectorial angle of beans = 360 - (150 + 90 + 60)\n= 360 -300\n= 60°\nif 150° represents 3000 tonnes\n1o 3000\/150\n60° will represents (3000\/150) * (60\/1)\n= 1200 tonnes",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 132,
+			"question": "Solve the equations\nm<sup>2<\/sup> + n<sup>2<\/sup> = 29\nm + n = 7",
+			"option": {
+				"a": "(2, 3) and ( 3, 5)",
+				"b": "(2, 5) and (5, 2)",
+				"c": "(5, 2) and ( 5, 3)",
+				"d": "(5, 3) and (3, 5)"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "m<sup>2<\/sup> + n<sup>2<\/sup> = 29 .......(1)\nm + n = 7 ............(2)\n\nFrom (2),\nm = 7 - n\nbut m<sup>2<\/sup> + n<sup>2<\/sup> = 29, substituting;\n(7-n)<sup>2<\/sup> + n<sup>2<\/sup> = 29\n49 - 14n + n<sup>2<\/sup> + n<sup>2<\/sup> = 29\n=> 2n<sup>2<\/sup> -14n + 20 = 0\nThus n<sup>2<\/sup> -7n + 10 = 0\n\nFactorizing;\n(n-5)(n-2) = 0\nn - 5 = 0, => n = 5\nn - 2 = 0, => n = 2.\n\nWhen n = 5,\nm + n = 7, => m = 2,\n\nWhen n = 2,\nm + n = 7, => m = 5.\n\nThus (m,n) = (5,2) and (2,5)",
+			"examtype": "utme",
+			"examyear": "2001"
+		},
+		{
+			"id": 111,
+			"question": "In the diagram above, if ∠RPS = 50°, ∠RPQ = 30° and PQ = QR, find the value of ∠PRS.",
+			"option": {
+				"a": " 80°",
+				"b": "70°",
+				"c": "60°",
+				"d": "50°"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710691373\/ALOC-Questions\/Mathematics\/2000\/question-40_dk16ta.jpg",
+			"answer": "b",
+			"solution": "Δ PQR is isosceles\n∴∠PRQ = 30°\nAlso in Δ PQR\n^Q = 180 -(30 + 30)\n= 120°\nPQRS is a cyclic quad\n∴^S + ^Q = 180(opp ∠s of a cyclic quad)\nS + 120 = 180\nS = 60°\nIn ΔPSR\nx + 50 + 60\n= 180(sum of ∠s of a Δ)\nx + 110 = 180\nx = 180 - 110\nx = 70°",
+			"examtype": "utme",
+			"examyear": "2000"
+		},
+		{
+			"id": 668,
+			"question": "In how many ways can the letters of the word ELATION be arranged?",
+			"option": {
+				"a": " \n5!",
+				"b": " \n7!",
+				"c": "8!",
+				"d": " \n6!"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "<sup>7<\/sup>P<sub>7<\/sub = 7!",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 303,
+			"question": "Find the sum to infinity of the series 1\/2 , 1\/6, 1\/18, .....",
+			"option": {
+				"a": "2\/3",
+				"b": "1\/3",
+				"c": "3\/4",
+				"d": "1"
+			},
+			"section": "SOLUTION: <math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mi>a<\/mi>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>1<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mi>r<\/mi>\n  <mo>=<\/mo>\n  <mfrac>\n    <mfrac>\n      <mn>1<\/mn>\n      <mn>6<\/mn>\n    <\/mfrac>\n    <mfrac>\n      <mn>1<\/mn>\n      <mn>2<\/mn>\n    <\/mfrac>\n  <\/mfrac>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>1<\/mn>\n    <mn>6<\/mn>\n  <\/mfrac>\n  <mo>&#x00D7;<!-- × --><\/mo>\n  <mfrac>\n    <mn>2<\/mn>\n    <mn>1<\/mn>\n  <\/mfrac>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>1<\/mn>\n    <mn>3<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <msub>\n    <mi>S<\/mi>\n    <mi mathvariant=\"normal\">&#x221E;<!-- ∞ --><\/mi>\n  <\/msub>\n  <mo>=<\/mo>\n  <mfrac>\n    <mi>a<\/mi>\n    <mrow>\n      <mn>1<\/mn>\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mi>r<\/mi>\n    <\/mrow>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <msub>\n    <mi>S<\/mi>\n    <mi mathvariant=\"normal\">&#x221E;<!-- ∞ --><\/mi>\n  <\/msub>\n  <mo>=<\/mo>\n  <mfrac>\n    <mfrac>\n      <mn>1<\/mn>\n      <mn>2<\/mn>\n    <\/mfrac>\n    <mrow>\n      <mn>1<\/mn>\n      <mo>&#x2212;<!-- − --><\/mo>\n      <mfrac>\n        <mn>1<\/mn>\n        <mn>3<\/mn>\n      <\/mfrac>\n    <\/mrow>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mfrac>\n    <mfrac>\n      <mn>1<\/mn>\n      <mn>2<\/mn>\n    <\/mfrac>\n    <mfrac>\n      <mn>3<\/mn>\n      <mn>2<\/mn>\n    <\/mfrac>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>1<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mo>&#x00D7;<!-- × --><\/mo>\n  <mfrac>\n    <mn>3<\/mn>\n    <mn>2<\/mn>\n  <\/mfrac>\n  <mspace linebreak=\"newline\" \/>\n  <mo>=<\/mo>\n  <mfrac>\n    <mn>3<\/mn>\n    <mn>4<\/mn>\n  <\/mfrac>\n<\/math>",
+			"image": "",
+			"answer": "c",
+			"solution": "a=1\/2 r=(1\/6)\/(1\/2)=1\/6×2\/1=1\/3 S_∞=a\/(1-r) S_∞=(1\/2)\/(1-1\/3)=(1\/2)\/(3\/2)=1\/2×3\/2=3\/4",
+			"examtype": "utme",
+			"examyear": "2004"
+		},
+		{
+			"id": 481,
+			"question": "If X = {n<sup>2<\/sup>\n + 1:n = 0,2,3} and Y = {n+1:n=2,3,5}, find X∩Y.",
+			"option": {
+				"a": " {1,3}",
+				"b": "{5,10}",
+				"c": "0",
+				"d": "{4,6}"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "X = {1,5,10}\nY = {3,4,6}\nX∩Y = ∅",
+			"examtype": "utme",
+			"examyear": "2008"
+		},
+		{
+			"id": 646,
+			"question": "A chord of circle of radius 7cm is 5cm from the centre of the circle.What is the length of the chord?",
+			"option": {
+				"a": "4√6 cm",
+				"b": " 3√6 cm",
+				"c": ". 6√6 cm",
+				"d": " 2√6 cm"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "From Pythagoras theorem\n\n|OA|2 = |AN|2 + |ON|2\n\n72 = |AN|2 + (5)2\n\n49 = |AN|2 + 25\n\n|AN|2 = 49 - 25 = 24\n\n|AN| = √24\n\n\n= √4 x 6\n\n\n= 2√6 cm\n\n|AN| = |NB| (A line drawn from the centre of a circle to a chord, divides the chord into two equal parts)\n\n|AN| + |NB| = |AB|\n\n2√6 + 2√6 = |AB|\n\n|AB| = 4√6 cm",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 806,
+			"question": "If the angles of a quadrilateral are (3y + 10)°, (2y + 30)°, (y + 20)° and 4y°. Find the value of y.",
+			"option": {
+				"a": " 66°",
+				"b": "12°",
+				"c": "30°",
+				"d": " 42°"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "Sum of angles in a quadrilateral = 360°\n\n∴\n (3y + 10) + (2y + 30) + (y + 20) + 4y = 360\n\n10y + 60 = 360 ⟹\n 10y = 300\n\ny = 30° ",
+			"examtype": "utme",
+			"examyear": "2013"
+		},
+		{
+			"id": 595,
+			"question": "At what rate will the interest on N400 increases to N24 in 3 years reckoning in simple interest?",
+			"option": {
+				"a": "3%",
+				"b": "2%",
+				"c": "5%",
+				"d": "4%"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "Using simple interest = P × T × R\/100,\n\nwhere: P denoted principal = N400\nT denotes time = 3 years\nR denotes interest rate = ?\n\n24 = 400×3×R\/100\n\n24 x 100 = 400 x 3 x R\n\nR = (24 × 100)\/(400 × 3)\n\n= 2%",
+			"examtype": "utme",
+			"examyear": "2010"
+		},
+		{
+			"id": 386,
+			"question": "Simolify (7\/9-2\/3)\/(1\/3+(2\/5)\/(4\/5))",
+			"option": {
+				"a": "11\/12",
+				"b": "5\/6",
+				"c": "1\/5",
+				"d": "2\/15"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "(7\/9-2\/3)\/(1\/3+(2\/5)\/(4\/5))=((7-6)\/9)\/(1\/3+(2\/5)\/(4\/5))=(1\/9)\/(1\/3+(2\/5×5\/4))=(1\/9)\/(1\/3+1\/2)=(1\/9)\/((2+3)\/6)=(1\/9)\/(5\/6)=1\/9×6\/5=2\/15",
+			"examtype": "utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 223,
+			"question": "Simplify 213<sub>4<\/sub>\n x 23<sub>4<\/sub>",
+			"option": {
+				"a": "10311<sub>4<\/sub>",
+				"b": "10321<sub>4<\/sub>",
+				"c": "12231<sub>4<\/sub>",
+				"d": "13211<sub>4<\/sub>"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "You can either multiply directly in base 4 or you can decide to convert to base 10 and do the multiplication and re-convert.",
+			"examtype": "utme",
+			"examyear": "2003"
+		},
+		{
+			"id": 642,
+			"question": "If ∣∣∣2533x∣∣∣ = ∣∣∣4312x∣∣∣\n, find the value of x. ",
+			"option": {
+				"a": "-6",
+				"b": "6",
+				"c": "-12",
+				"d": "12"
+			},
+			"section": "<math xmlns=\"http:\/\/www.w3.org\/1998\/Math\/MathML\">\n  <mrow>\n    <mo>|<\/mo>\n    <mtable rowspacing=\"4pt\" columnspacing=\"1em\">\n      <mtr>\n        <mtd>\n          <mn>2<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>3<\/mn>\n        <\/mtd>\n      <\/mtr>\n      <mtr>\n        <mtd>\n          <mn>5<\/mn>\n        <\/mtd>\n        <mtd>\n          <mn>3<\/mn>\n          <mi>x<\/mi>\n        <\/mtd>\n      <\/mtr>\n    <\/mtable>\n    <mo>|<\/mo>\n  <\/mrow>\n<\/math>",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1716129575\/ALOC-Questions\/Mathematics\/2011\/MATH_JAMB_2011_Q21_mrjaiw.jpg",
+			"answer": "a",
+			"solution": "(2 x 3x) - (5 x 3) = (4 x 2x) - (3 x 1)\n\n6x - 15 = 8x - 3\n\n6x - 8x = 15 - 3\n\n-2x = 12\n\nx = 12\/−2\n\n\n= -6\n",
+			"examtype": "utme",
+			"examyear": "2011"
+		},
+		{
+			"id": 353,
+			"question": "The maximum value of the function\nf(x) = 2 + x - x<sup>2<\/sup> is",
+			"option": {
+				"a": "9\/4",
+				"b": " 7\/4",
+				"c": " 3\/2",
+				"d": " 1\/2"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "f(x) = 2 + x - x<sup>2<\/sup>\ndy\/dx = 1-2x\nAs dy\/dx = 0\n1-2x = 0\n2x = 1\nx = 1\/2\nAt x = 1\/2\nf(x) = 2 + x - x<sup>2<\/sup>\n= 2 + 1\/2 -(1\/2)<sup>2<\/sup>\n= 2 + 1\/2 - 1\/4\n= (8+2-1) \/ 4 = 9\/4",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 358,
+			"question": "The table above shows that the scores of a group of students in a test. If the average score is 3.5, find the value of x",
+			"option": {
+				"a": "1",
+				"b": "2",
+				"c": "3",
+				"d": "4"
+			},
+			"section": "",
+			"image": "https:\/\/res.cloudinary.com\/aloc-ng\/image\/upload\/v1710702412\/ALOC-Questions\/Mathematics\/2005\/math_2005_q37_qthxpu.jpg",
+			"answer": "b",
+			"solution": "mean = (60+5x)\/(18+x).  3.5 =(60+5)\/(x18+x). 7\/2 = (60+5x)\/(18+x)\n\n7(18+x) = 2(60+5x)\n126 + 7x = 120 + 10x\n10x - 7x = 126 - 120\n3x = 6\nx = 2",
+			"examtype": "utme",
+			"examyear": "2005"
+		},
+		{
+			"id": 27,
+			"question": "The journey from Lagos to Ibadan usually takes a motorist 1 hour 30 minutes. By increasing his average speed by 20km\/hr, the motorist saves 15 minutes. His usual speed, in Km\/hr is ",
+			"option": {
+				"a": "100",
+				"b": "90",
+				"c": "85",
+				"d": "80"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2007"
+		}
+	]
+}
