@@ -63,7 +63,10 @@ const Questions = () => {
                                     className='border bg-black border-grey rounded-md p-2'>
                                         <p className='text-sm text-white font-medium'>View Answer</p>
                                     </Link>
-                            <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>{question.examType} {question.examYear - 1}</span>
+                                <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>
+                                    {question.examType}
+                                    <span className='ml-3'>{question.examYear}</span>
+                                </span>
                             </div>
                         </div>
                         </AnimationWrapper>

@@ -3,13 +3,13 @@ import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
 import Ocr from '../components/Ocr';
-import Editorjs from "@editorjs/editorjs";
 import { tools } from '../components/tools.component';
 import { Link } from 'react-router-dom';
+import Editor from 'quill-editor-math'
+import 'quill-editor-math/dist/index.css'
 
 
 const CreateQuestion = () => {
-    const [textEditor, setTextEditor] = useState({ isReady:false });
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -24,14 +24,6 @@ const CreateQuestion = () => {
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
     useEffect(() => {
-            if (!textEditor.isReady) {
-                        setTextEditor(new Editorjs({
-                            holder: "editorjs",
-                            data: Array.isArray(questionText) ? questionText[0] : questionText,
-                            tools:tools
-                        }))
-
-                    }
         axios.get(`${serverApp}/subjects`)
             .then(response =>
                 setSubjects(response.data)
@@ -53,15 +45,7 @@ const CreateQuestion = () => {
     };
 
     const handleSubmit = async (e) => {
-          if (textEditor.isReady) {
-            textEditor.save().then(data => {
-                if (data.blocks.length) {
-                    setQuestionText({ content: data });
-                } else {
-                    return toast.error("Write something first  ")
-                }
-            })
-        }
+        
         if (!questionText) {
             toast.error("Add a Question Text")
         }
@@ -77,7 +61,7 @@ const CreateQuestion = () => {
             examType,
             answerDetail
         };
-        console.log(questionText)
+        console.log(newQuestion)
         try {
             const response = await axios.post(`${serverApp}/questions`, newQuestion);
             toast.success('Question created Successfully');
@@ -156,18 +140,14 @@ const CreateQuestion = () => {
                         onChange={(e) => setInstruction(e.target.value)}
                     />
                 </div>
-                {/* <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Question</label>
+               
+                <div className="mb-4">
+                    <label className="block text-dark-grey font-bold mb-2">Instruction</label>
                     <textarea
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
-                        onChange={(e) => setQuestionText(e.target.value)}
+                        onChange={(e) => setQuestionText(e.target.questionText)}
                     />
-                </div> */}
-                <div className='mb-4 border max-h-[10em]  border-grey p-2 rounded-md'>
-                    <div id='editorjs'
-                        className='h-fit'>
-                    </div>
                 </div>
                 <div  className='my-3'/>
                 {options.map((option, index) => (

@@ -26,6 +26,8 @@
     "editorjs-mathlive": "^1.0.1",
     "firebase": "^10.1.0",
     "framer-motion": "^10.13.0",
+    "math-text-editor": "^0.1.6",
+    "quill-editor-math": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",

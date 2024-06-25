@@ -47,8 +47,10 @@ const QuestionDetailPage = () => {
                 <div className='flex flex-wrap gap-2'>
                     <button className='bg-purple text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.examType}</button>
                     <button className='bg-grey text-bold font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.examYear}</button>
-                    <button className='bg-red text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.subject?.name}</button>
-                    <button className='bg-yellow text-black font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.school?.name}</button>
+                            <button className='bg-red text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.subject?.name}</button>
+                            {question.school ? (
+                                <button className='bg-yellow text-black font-medium p-1 rounded-2xl rounded-tl-3xl'>{ question.school.name}</button>
+                            ) : null}
                         </div>
                     {/* <Link to={`/edit-question/${question._id}`} className='text-xl underline font-semibold'>Edit</Link> */}
                     </div>
