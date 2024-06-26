@@ -4,7 +4,7 @@ import { generateSlug } from '../utils/generates.js';
 
 // Create a new question
 export const createQuestion = async (req, res) => {
-  const { question, options,school, answer, answerDetail, instruction, examType, examYear, subject } = req.body;
+  const { question, options, school , answer, answerDetail, instruction, examType, examYear, subject } = req.body;
   try {
     const findSubject = await Subject.findById(subject);
     if (!findSubject) {
@@ -22,8 +22,8 @@ export const createQuestion = async (req, res) => {
 // Get all questions
 export const getAllQuestions = async (req, res) => {
   const { subject } = req.params;
-  try {    const questions = await Question.find()
-
+  try {
+    const questions = await Question.find()
       .populate('subject')
       .sort({ createdAt: -1 });
     res.status(200).json(questions);

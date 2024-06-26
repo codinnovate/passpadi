@@ -142,7 +142,7 @@ const CreateQuestion = () => {
                 </div>
                
                 <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Instruction</label>
+                    <label className="block text-dark-grey font-bold mb-2">Question</label>
                     <textarea
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
