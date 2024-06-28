@@ -5,6 +5,8 @@ import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../components/loader.component';
 import AnimationWrapper from '../common/page-animation';
+import Seo from '../components/Seo';
+
 
 const QuestionDetailPage = () => {
     const { question_id } = useParams();
@@ -28,7 +30,12 @@ const QuestionDetailPage = () => {
     if(loading) return <Loader />
     return (
         <AnimationWrapper>
-
+        <Seo 
+        title={question.title}
+        des ={question.question}
+        blogId={question.question_id}
+        
+        />
         <div className='mx-auto w-full flex max-w-5xl p-2'>
             <Toaster />
 

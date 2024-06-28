@@ -5,8 +5,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import Ocr from '../components/Ocr';
 import { tools } from '../components/tools.component';
 import { Link } from 'react-router-dom';
-import Editor from 'quill-editor-math'
-import 'quill-editor-math/dist/index.css'
 
 
 const CreateQuestion = () => {
