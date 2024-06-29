@@ -78,6 +78,12 @@ const QuestionDetailPage = () => {
                 </button>
                 ))}
             </div>
+            {question.answerDetail && (
+            <div className='mt-[4em]'>
+                <h1 className='text-2xl font-semibold'>Answer Detail</h1>
+                <p className='font-medium text-xl'>{question.answerDetail}</p>
+            </div>
+            )}
             </div>
         </div>
     </AnimationWrapper>

@@ -82,8 +82,8 @@ export const getQuestionsBySubject = async (req, res) => {
   try {
     const questions = await Question.find()
       .populate('subject')
+      .sort({ createdAt: -1 });
     const filteredQuestions = questions.filter(question => question.subject.subject_id === subject_id);
-    console.log(filteredQuestions)
     return res.status(200).json(filteredQuestions);
     
   } catch (err) {

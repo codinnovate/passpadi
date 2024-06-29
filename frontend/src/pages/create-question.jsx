@@ -144,7 +144,7 @@ const CreateQuestion = () => {
                     <textarea
                         className="block w-full border border-grey rounded py-2 px-3"
                         value={questionText}
-                        onChange={(e) => setQuestionText(e.target.questionText)}
+                        onChange={(e) => setQuestionText(e.target.value)}
                     />
                 </div>
                 <div  className='my-3'/>
