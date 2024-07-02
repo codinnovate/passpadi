@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
+
+  
 
 const CreateQuestion = () => {
     const [subjects, setSubjects] = useState([]);
@@ -17,11 +21,14 @@ const CreateQuestion = () => {
     const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
+    const [value, setValue] = useState('');
+
    
 
     
 
     useEffect(() => {
+        console.log(value)
         axios.get(`${serverApp}/subjects`)
             .then(response => {
                 setSubjects(response.data)
@@ -36,7 +43,7 @@ const CreateQuestion = () => {
             )
             .catch(error => console.error('Error fetching subjects:', error));
 
-    }, []);
+    }, [value]);
 
     const handleOptionChange = (index, value) => {
         const newOptions = [...options];
@@ -75,6 +82,17 @@ const CreateQuestion = () => {
             toast.error('Error creating question:', error);
         }
     };
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image', 'formula'],
+          ['clean']
+        ],
+    }
+
+    
 
     return (
         <div className="max-w-5xl font-medium mx-auto mt-10 p-2 w-full">
@@ -88,7 +106,7 @@ const CreateQuestion = () => {
                     Use Image 2 Text
                 </a>
             </div>
-            
+
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-wrap place-content-between'>
                 <div className="mb-4">
@@ -144,16 +162,21 @@ const CreateQuestion = () => {
                     />
                 </div>
             
-                <div className="mb-4">
+                {/* <div className="mb-4">
                 <label className="block text-dark-grey font-bold mb-2">Question</label>
                 <textarea
                     className="block w-full border border-grey rounded py-2 px-3"
                     value={questionText}
                     onChange={(e) => setQuestionText(e.target.value)}
                 />
-            </div>
-            
-                <div  className='my-3'/>
+            </div> */}
+            <ReactQuill
+             theme="snow" 
+             modules={modules}
+             value={questionText}
+              onChange={setQuestionText}
+                />            
+            <div  className='my-3'/>
 
         
                 {options.map((option, index) => (
@@ -184,11 +207,12 @@ const CreateQuestion = () => {
 
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Answer Detail</label>
-                    <textarea
-                        className="block w-full border border-grey rounded py-2 px-3"
+                     <ReactQuill
+                        theme="snow" 
+                        modules={modules}
                         value={answerDetail}
-                        onChange={(e) => setAnswerDetail(e.target.value)}
-                    />
+                        onChange={setAnswerDetail}
+                        />   
                 </div> 
 
                 

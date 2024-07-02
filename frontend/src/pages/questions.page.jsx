@@ -4,6 +4,9 @@ import { useParams, Link } from 'react-router-dom';
 import { serverApp } from '../../server';
 import Loader from '../components/loader.component';
 import AnimationWrapper from '../common/page-animation';
+import parse from 'html-react-parser';
+
+
 
 const Questions = () => {
     const {subject} = useParams();
@@ -50,7 +53,8 @@ const Questions = () => {
                                     {question?.instruction}
                                 </i>
                             </h3>
-                        <h2 className="text-xl font-medium">{index + 1}. {question.question}</h2>
+                        <h2 className="text-xl font-medium">{index + 1}.{parse(`${question.question}`)}
+  </h2>
                         <div className='flex flex-wrap gap-2'>
                             {question.options.map((option, index) => (
                                     <div className='flex gap-2'>

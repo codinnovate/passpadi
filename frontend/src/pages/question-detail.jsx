@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../components/loader.component';
 import AnimationWrapper from '../common/page-animation';
 import Seo from '../components/Seo';
+import parse from 'html-react-parser';
 
 
 const QuestionDetailPage = () => {
@@ -49,7 +50,7 @@ const QuestionDetailPage = () => {
                          {question?.instruction}
                      </i>
                     </h3>
-                    <h1 className='text-black text-3xl font-semibold '>{question?.question}</h1>
+                    <h1 className='text-black text-3xl font-semibold '>{parse(`${question.question}`)}</h1>
                     <div className='flex items-center justify-between'>
                 <div className='flex flex-wrap gap-2'>
                     <button className='bg-purple text-white font-medium p-1 rounded-2xl rounded-tl-3xl'>{question?.examType}</button>
@@ -81,7 +82,7 @@ const QuestionDetailPage = () => {
             {question.answerDetail && (
             <div className='mt-[4em]'>
                 <h1 className='text-2xl font-semibold'>Answer Detail</h1>
-                <p className='font-medium text-xl'>{question.answerDetail}</p>
+                <p className='font-medium text-xl'>{parse(`${question.answerDetail}`)}</p>
             </div>
             )}
             </div>

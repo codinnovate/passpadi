@@ -1,6 +1,6 @@
 import { Question } from '../Schema/Question.js';
 import { Subject } from '../Schema/Subject.js';
-import { generateSlug } from '../utils/generates.js';
+import { generateQuestionSlug } from '../utils/generates.js';
 
 // Create a new question
 export const createQuestion = async (req, res) => {
@@ -10,7 +10,7 @@ export const createQuestion = async (req, res) => {
     if (!findSubject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
-    let question_id = generateSlug(question)
+    let question_id = generateQuestionSlug(question, examType, examYear)
     const newQuestion = new Question({question_id, school, instruction, question, options, answer, examType, examYear, subject , answerDetail});
     const savedQuestion = await newQuestion.save();
     res.status(201).json(savedQuestion);
