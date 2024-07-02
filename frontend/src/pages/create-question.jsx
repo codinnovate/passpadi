@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
-import Ocr from '../components/Ocr';
-import { tools } from '../components/tools.component';
-import { Link } from 'react-router-dom';
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const CreateQuestion = () => {
     const [subjects, setSubjects] = useState([]);
@@ -20,6 +18,22 @@ const CreateQuestion = () => {
     const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image', 'formula'],
+          ['clean']
+        ],
+      }
+    
+      const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image'
+      ]
 
     useEffect(() => {
         axios.get(`${serverApp}/subjects`)
@@ -138,14 +152,15 @@ const CreateQuestion = () => {
                         onChange={(e) => setInstruction(e.target.value)}
                     />
                 </div>
-               
-                <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Question</label>
-                    <textarea
-                        className="block w-full border border-grey rounded py-2 px-3"
+
+                <div className='mb-4'>
+                <ReactQuill 
+                theme="snow" 
+                modules={modules}
+                formats={formats}
                         value={questionText}
-                        onChange={(e) => setQuestionText(e.target.value)}
-                    />
+                        onChange={(e) => setQuestionText(e.target.value)} 
+                        />
                 </div>
                 <div  className='my-3'/>
                 {options.map((option, index) => (
