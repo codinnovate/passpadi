@@ -2,14 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
-import Ocr from '../components/Ocr';
-import { Link } from 'react-router-dom';
-import EquationEditor from "equation-editor-react";
 
 
 const CreateQuestion = () => {
     const [subjects, setSubjects] = useState([]);
-    const [hasEquation, setHasEquation] = useState(false)
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
     const [instruction, setInstruction] = useState('');
@@ -138,19 +134,7 @@ const CreateQuestion = () => {
                     </select>
                 </div>
                 </div>
-                {subject === '666a341bbb22c0f1efb38e50' ? (
-                    <div className='flex items-center  bg-green w-fit p-2 '>
-                        <button className='flex items-center gap-2'>
-                            <label className='text-white'>Has Equation ?</label>
-                            <input 
-                            type='checkbox'
-                            value={hasEquation}
-                            onChange={() => setHasEquation(!hasEquation)}
-                            />
-                        </button>
-                    </div>
-                ) :
-
+                
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Instruction</label>
                     <textarea
@@ -159,23 +143,8 @@ const CreateQuestion = () => {
                         onChange={(e) => setInstruction(e.target.value)}
                     />
                 </div>
-            }
-               
-                
-                {hasEquation ? (
-                <div className='mb-2'>
-                <label className="block text-dark-grey font-bold mb-2">Math Questions</label>
-                <div className='border border-b-black px-2 input-box'>
-                <EquationEditor
-                    value={questionText}
-                    onChange={setQuestionText}
-                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-                    autoOperatorNames="sin cos tan"
-                    required
-                    />
-                </div>
-                    </div>
-                ): <div className="mb-4">
+            
+                <div className="mb-4">
                 <label className="block text-dark-grey font-bold mb-2">Question</label>
                 <textarea
                     className="block w-full border border-grey rounded py-2 px-3"
@@ -183,28 +152,10 @@ const CreateQuestion = () => {
                     onChange={(e) => setQuestionText(e.target.value)}
                 />
             </div>
-            }
+            
                 <div  className='my-3'/>
 
-                {hasEquation ? (
-                    <>
-                    {options.map((option, index) => (
-                       <div className="mb-4" key={index}>
-                        <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
-                        <div className='border border-b-black px-2 input-box'>
-                        <EquationEditor
-                    value={option}
-                    onChange={(e) => handleOptionChange(index, e.target.value)}
-                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-                    autoOperatorNames="sin cos tan"
-                    required
-                    />
-                        </div>
-                        </div>
-                    ))}
-                    </>
-                ) :
-                <>
+        
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>
                         <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
@@ -217,25 +168,8 @@ const CreateQuestion = () => {
                         />
                     </div>
                 ))}
-                </>
-            }
-                {hasEquation ? (
-                    <>
-                    <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Correct Option</label>
-                     <div className='border border-b-black px-2 input-box'>
-                    <EquationEditor
-                     value={answer}
-                     onChange={(e) => setanswer(e.target.value)}
-                     required
-                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-                    autoOperatorNames="sin cos tan"
-                    />
-                        </div>
-                    
-                </div>
-                    </>
-                ) :
+        
+                
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Correct Option</label>
                     <input
@@ -246,25 +180,7 @@ const CreateQuestion = () => {
                         required
                     />
                 </div> 
-                
-                }
-                                {subject === '666a341bbb22c0f1efb38e50'  ? (
-                                <>
-                    <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Answer Detail</label>
-                    <div className='border border-b-black px-2 input-box'>
-                    <EquationEditor
-                    value={answerDetail}
-                    onChange={(e) => setAnswerDetail(e.target.value)}
-                     required
-                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
-                    autoOperatorNames="sin cos tan"
-                
-                    />
-                </div> 
-                </div> 
-                                </>
-                                ) :
+                   
 
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Answer Detail</label>
@@ -273,7 +189,7 @@ const CreateQuestion = () => {
                         value={answerDetail}
                         onChange={(e) => setAnswerDetail(e.target.value)}
                     />
-                </div> }
+                </div> 
 
                 
                  
