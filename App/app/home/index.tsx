@@ -1,76 +1,111 @@
-import { View, Text, SafeAreaView,StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView,StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import Colors from '@/constants/Colors'
 import SubCard from '@/components/SubCard'
 import Images from '@/constants/Images'
+import { Fontisto} from '@expo/vector-icons'
 
 
 
 
 
 const cards = [
-  {name:"math", link:"home/math", image:Images.math},
-  {name:"english", link:"home/english", image:Images.english},
-  {name:"General Paper", link:"home/gpaper", image:Images.gpaper},
-  {name:"Cbt", link:"cbt", image:Images.cbt},
+  {name:"Math", link:"home/math", image:Images.math, bgColor:'#f8f899'},
+  {name:"English", link:"home/english", image:Images.english, bgColor:'#f55f99'},
+  {name:"General Paper", link:"home/gpaper", image:Images.gpaper , bgColor:'#55ff99'},
+  {name:"Cbt", link:"cbt", image:Images.cbt , bgColor:'#f9f933'},
 ]
 
 
 const Home = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor:Colors.white}}>
-      <View style={styles.container}>
-      <View >
-        <Text style={styles.text}>Hello</Text>
-        <Text style={[styles.text, styles.username]}>Brooklyn Simmons</Text>
+    <View style={{ flex: 1, width:'100%', marginTop:20, backgroundColor:Colors.white}}>
+      <View style={styles.avatar}>
+        <Text style={styles.text}>Hello,</Text>
+        <Text style={styles.username}>Brooklyn Simmons</Text>
       </View>
+       <ScrollView>
+
+      <View style={styles.container}>
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
       <View style={styles.cards}>
         {/* subjects and cbts */}
        {
-       cards.map((card, index) => (
-         <SubCard  
-         key={index}
-         link={card.link}
-         image={card.image}
-         text={card.name}
-         />
-       ))
-      }
+         cards.map((card, index) => (
+           <SubCard
+           bgColor={card.bgColor}  
+           key={index}
+           link={card.link}
+           image={card.image}
+           text={card.name}
+           />
+          ))
+        }
+      </View>
+      <View style={styles.whatsapp}>
+        <Text style={{fontSize:20, fontFamily:'SpaceGM', color:'white' }}>Join Unilag Whatsapp  {'\n'}Group for Updates</Text>
+        <Fontisto name="whatsapp" size={50} color="white" />
       </View>
       </View>
-    </SafeAreaView>
+        </ScrollView>
+    </View>
   )
 }
 
 
 
 const styles = StyleSheet.create({
+  avatar:{
+    borderRadius:30,
+    paddingTop:50,
+    paddingBottom:20,
+    padding:10,
+    width:'100%',
+    backgroundColor:'#f5f5f5'
+  },
   container:{
-      padding:20,
+      width:'100%',
+      paddingHorizontal:10,
       display:'flex',
-      gap:30,
+      gap:10,
   },
   text:{
     color:Colors.black,
-    fontFamily:'SpaceGM'
+    fontFamily:'SpaceGM',
+    fontSize:15,
+    marginBottom:-10,
   },
   username:{
     fontSize:24,
-    fontWeight:'bold'
+    fontFamily:'SpaceGM'
   },
   bigText:{
     fontFamily:'SpaceGM',
-    fontSize:35,
+    fontSize:20,
     letterSpacing:-1,
+    marginTop:20,
     color:Colors.green,
 
   },
   cards:{
     display:'flex',
+    width:'100%',
     flexDirection:'row',
+    justifyContent:'space-between',
     gap:10,
     flexWrap:'wrap'
+  },
+  whatsapp:{
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    alignItems:'center',
+    borderRadius:20,
+    padding:10,
+    width:'100%',
+    height:140,
+    backgroundColor:'#25D366',
+    marginBottom:20
   }
 
 })

@@ -83,9 +83,15 @@ const userSchema = mongoose.Schema({
         type: [ Schema.Types.ObjectId ],
         ref: 'blogs',
         default: [],
-    }
+    },
+    role:{
+        type: String,
+        enum: ["user", "admin", "paidUser"],
+        default: "user",
+      },
 
 }, 
+
 { 
     timestamps: {
         createdAt: 'joinedAt'

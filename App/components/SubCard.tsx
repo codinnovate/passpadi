@@ -10,14 +10,15 @@ type CardProps = {
   image:ImageSourcePropType,
   text:string,
   link:string,
+  bgColor:string,
 
 
 }
-const SubCard = ({image, text, link}:CardProps) => {
+const SubCard = ({image, text, link, bgColor}:CardProps) => {
   return (
     <TouchableOpacity
      onPress={() => router.navigate(link)}
-     style={styles.card}>
+     style={[{backgroundColor:`${bgColor}`}, styles.card]}>
       <Image
        style={styles.image}
        source={image} 
@@ -30,26 +31,23 @@ const SubCard = ({image, text, link}:CardProps) => {
 
 const styles = StyleSheet.create({
   card:{
-    width:180,
+    width:'100%',
     justifyContent:'center',
     alignItems:'center',
-    height:200,
+    height:150,
     padding:10,
     borderRadius:20,
-    backgroundColor:Colors.green,
   },
   image:{
-    width:100,
-    height:100,
+    width:60,
+    height:60,
     marginBottom:10
   },
   text:{
     fontFamily:'SpaceGM',
-    fontSize:20,
+    fontSize:18,
     marginTop:10,
-    color:Colors.white,
-    fontWeight:'200'
-
+    color:Colors.black,
   }
 
 })

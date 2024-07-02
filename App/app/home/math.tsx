@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import Colors from '@/constants/Colors'
@@ -17,7 +17,7 @@ const Math = () => {
       // setData(json.movies);
       console.log(response)
     } catch (error) {
-      console.error(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -27,11 +27,12 @@ const Math = () => {
     getQuestions();
   }, []);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1, marginTop:20}}>
       <View style={{padding:20}}>
       <Header />
+      <ScrollView>
       <View style={styles.questionCard}>
-        <Text style={{}}>Question 1</Text>
+        <Text style={{ fontFamily:'SpaceGM', }}>Question 1</Text>
         <Text style={styles.question}>What is the value of x in the equation 2x + 3 = 11?</Text>
         <View style={styles.questionOptions}>
           <Pressable style={styles.button}>
@@ -49,31 +50,32 @@ const Math = () => {
         </View> 
       </View>
       <View style={styles.answerDetail}>
-        <Text style={{fontFamily:'SpaceGM', color:Colors.black, fontWeight:'bold'}}>Basic Explanation</Text>
-        <Text>Question 2</Text>
-        <Text>Question 2</Text>
+        <Text style={{fontFamily:'SpaceGM', color:Colors.black}}>Basic Explanation</Text>
+        <Text style={{    fontFamily:'SpaceGM'}}>Question 2</Text>
+        <Text style={{    fontFamily:'SpaceGM'}}>Question 1</Text>
         <View style={{display:'flex', flexDirection:'row', alignItems:'center', marginTop:10}}>
         <Ionicons name="checkmark-circle-sharp" size={24} color={Colors.green} />
-          <Text style={{fontFamily:'SpaceGM', color:Colors.green, fontWeight:'bold', marginLeft:5}}>
+          <Text style={{fontFamily:'SpaceGM', color:Colors.green, fontWeight:500, marginLeft:5}}>
           Your answer is correct
           </Text>
           </View>
           <View style={{display:'flex', flexDirection:'row', alignItems:'center', marginTop:10}}>
         <Ionicons name="checkmark-circle-sharp" size={24} color={Colors.red} />
-          <Text style={{fontFamily:'SpaceGM', color:Colors.red, fontWeight:'bold', marginLeft:5}}>
+          <Text style={{fontFamily:'SpaceGM', color:Colors.red, fontWeight:500, marginLeft:5}}>
           Your answer is wrong
           </Text>
           </View>
       </View>
       <View style={{width:'100%', display:'flex', flexDirection:'row', justifyContent:'space-between', marginTop:30}}>
         <TouchableOpacity style={styles.skip}>
-          <Text style={{color:Colors.green, fontFamily:'SpaceGM', fontSize:20, fontWeight:'bold', textAlign:'center'}}>Skip</Text>
+          <Text style={{color:Colors.green, fontFamily:'SpaceGM', fontSize:20, fontWeight:500, textAlign:'center'}}>Skip</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.next}>
-          <Text style={{color:Colors.white, fontFamily:'SpaceGM', fontSize:20, fontWeight:'bold', textAlign:'center'}}>Next</Text>
+          <Text style={{color:Colors.white, fontFamily:'SpaceGM', fontSize:20, fontWeight:500, textAlign:'center'}}>Next</Text>
         </TouchableOpacity>
       </View>
+      </ScrollView>
       </View>
     </SafeAreaView>
   )

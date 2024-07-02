@@ -6,15 +6,21 @@ import Colors from '@/constants/Colors'
 import { router } from 'expo-router'
 import Home from '@/app/home'
 
-const Header = () => {
+
+type HeaderType = {
+  title:string,
+  questionLength:number,
+
+}
+const Header = ({title, questionLength }:HeaderType) => {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={() => router.back(Home)}>
       <Ionicons name="chevron-back-outline" size={24} color="black" />
       </TouchableOpacity>
       <View>
-        <Text style={styles.headerText}>Math Past Questions</Text>
-        <Text style={styles.headerSubtext}>3000 + Questions</Text>
+        <Text style={styles.headerText}>{title ? title : ''} Questions</Text>
+        <Text style={styles.headerSubtext}>{questionLength ? questionLength : ''}+ Questions</Text>
       </View>
 
       <TouchableOpacity onPress={() => {}}>
@@ -31,16 +37,17 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
+    padding:10,
   },
   headerText:{
     fontFamily:'SpaceGM',
-    fontSize:20,
+    fontSize:18,
   },
   headerSubtext:{
     textAlign:'center',
     color:'#9c9d9c',
+    fontSize:12,
     fontFamily:'SpaceGM',
-    fontWeight:'600'
   }
 })
 

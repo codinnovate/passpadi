@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity, ScrollView, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import Colors from '@/constants/Colors'
@@ -8,63 +8,99 @@ import axios from 'axios'
 
 
 const Gpaper = () => {
-  const [data, setData] = useState();
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
-
+  const getQuestions = async () => {
+    try {
+      const response = await axios.get(server + '/questions/v1/general-paper');
+      setQuestions(response.data)
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleNext = () => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  }
+  const handleBack = () => {
+    if (currentIndex != 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  }
   useEffect(() => {
-
-    
+    getQuestions();
   }, []);
+
+
+  const question = questions[currentIndex]
+  console.log(question)
+
   return (
-    <SafeAreaView>
-      <View style={{padding:20}}>
-      <Header />
+    <SafeAreaView style={{  height:'100%', width:'100%'}}>
+      <View style={{height:'100%', width:'100%', position:'relative'}}>
+      <Header title="General Paper" questionLength={questions.length}/>
       <View style={styles.questionCard}>
-        <Text style={{}}>Question 1</Text>
-        <Text style={styles.question}>What is the value of x in the equation 2x + 3 = 11?</Text>
-        <View style={styles.questionOptions}>
-          <Pressable style={styles.button}>
-            <Text style={styles.text}>2</Text>
-          </Pressable>
-          <Pressable style={[styles.button, styles.clickedBtn]}>
-            <Text  style={styles.text}>3</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text  style={styles.text}>5</Text>
-          </Pressable>
-          <Pressable style={styles.button}>
-            <Text  style={styles.text}>4</Text>
-          </Pressable>
+        <Text style={{ fontFamily:'SpaceGM', }}>Question {currentIndex + 1}</Text>
+        {question?.instruction? (
+          <Text style={{ fontSize:13}}>{question?.instruction}</Text>
+        ) : null}
+
+        <Text style={styles.question}>{question?.question}</Text>
+        <View  style={styles.questionOptions}>
+        {question?.options.map((option, index) => (
+          <Pressable
+          key={index}
+          style={[styles.button, option === question?.answer ? styles.clickedBtn : null ]}
+        >
+          <Text style={styles.text}>{option}</Text>
+        </Pressable>
+        ))}
         </View> 
       </View>
+      <ScrollView contentContainerStyle={{height:'100%', padding:10, marginBottom:50,}}>
       <View style={styles.answerDetail}>
-        <Text style={{fontFamily:'SpaceGM', color:Colors.black, fontWeight:'bold'}}>Basic Explanation</Text>
-        <Text>Question 2</Text>
-        <Text>Question 2</Text>
-        <View style={{display:'flex', flexDirection:'row', alignItems:'center', marginTop:10}}>
+        <Text style={{fontFamily:'SpaceGM', color:Colors.black}}>Basic Explanation</Text>
+        <Text style={{    fontFamily:'SpaceGM'}}>{question?.answerDetail}</Text>
+        {/* <View style={{display:'flex', flexDirection:'row', alignItems:'center', marginTop:10}}>
         <Ionicons name="checkmark-circle-sharp" size={24} color={Colors.green} />
-          <Text style={{fontFamily:'SpaceGM', color:Colors.green, fontWeight:'bold', marginLeft:5}}>
+          <Text style={{fontFamily:'SpaceGM', color:Colors.green, fontWeight:500, marginLeft:5}}>
           Your answer is correct
           </Text>
           </View>
           <View style={{display:'flex', flexDirection:'row', alignItems:'center', marginTop:10}}>
         <Ionicons name="checkmark-circle-sharp" size={24} color={Colors.red} />
-          <Text style={{fontFamily:'SpaceGM', color:Colors.red, fontWeight:'bold', marginLeft:5}}>
+          <Text style={{fontFamily:'SpaceGM', color:Colors.red, fontWeight:500, marginLeft:5}}>
           Your answer is wrong
           </Text>
+          </View> */}
+       </View>
+
+        </ScrollView>
+
+      <View style={styles.buttonContainer}>
+        <View style={styles.buttonWrapper}>
+      <Pressable
+         style={styles.back} 
+         onPress={() => handleBack()}
+         >
+          <Text style={{color:Colors.green, fontFamily:'SpaceGM', fontSize:20, fontWeight:500, textAlign:'center'}}>Back</Text>
+        </Pressable>
+        
+        <Pressable
+         style={styles.next} 
+         onPress={() => handleNext()}
+         >
+          <Text style={{color:Colors.white, fontFamily:'SpaceGM', fontSize:20, fontWeight:500, textAlign:'center'}}>Next</Text>
+        </Pressable>
           </View>
       </View>
-      <View style={{width:'100%', display:'flex', flexDirection:'row', justifyContent:'space-between', marginTop:30}}>
-        <TouchableOpacity style={styles.skip}>
-          <Text style={{color:Colors.green, fontFamily:'SpaceGM', fontSize:20, fontWeight:'bold', textAlign:'center'}}>Skip</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.next}>
-          <Text style={{color:Colors.white, fontFamily:'SpaceGM', fontSize:20, fontWeight:'bold', textAlign:'center'}}>Next</Text>
-        </TouchableOpacity>
-      </View>
-      </View>
+
+      </View> 
     </SafeAreaView>
   )
 }
@@ -79,18 +115,33 @@ const styles = StyleSheet.create({
     borderRadius:30,
   },
   question:{
-    fontSize:24,
+    fontSize:20,
     marginVertical:10,
-    fontFamily:'SpaceGM',
     color:Colors.green,
   },
   questionOptions:{
     gap:10,
     marginTop:10,
   },
+  buttonContainer:{
+    width:'100%',
+    position:'absolute',
+    padding:10,
+    backgroundColor:Colors.white,
+    bottom:0,
+  },
+  buttonWrapper:{
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between', 
+
+  },
   button:{
     width:'100%',
-    padding:10,
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'center',
+    height:50,
     borderRadius:50,
     borderWidth:1,
     borderColor:Colors.green,
@@ -101,13 +152,14 @@ const styles = StyleSheet.create({
   },
   text:{
     color:Colors.green,
-    fontSize:23,
+    fontSize:15,
     textAlign:'center',
     fontWeight:'semibold'
     
   },
   answerDetail:{
     marginTop:25,
+    marginBottom:50,
   },
   next:{
     backgroundColor:Colors.green,
@@ -116,7 +168,7 @@ const styles = StyleSheet.create({
     borderRadius:30,
     
   },
-  skip:{
+  back:{
     borderColor:Colors.green,
     borderWidth:1,
     paddingVertical:13,

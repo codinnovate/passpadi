@@ -25,7 +25,8 @@ export const getAllQuestions = async (req, res) => {
   try {
     const questions = await Question.find()
       .populate('subject')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .limit(30)
     res.status(200).json(questions);
   } catch (err) {
     res.status(500).json({ error: err.message });

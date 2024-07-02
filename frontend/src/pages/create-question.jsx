@@ -5,9 +5,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import Ocr from '../components/Ocr';
 import { tools } from '../components/tools.component';
 import { Link } from 'react-router-dom';
+import EquationEditor from "equation-editor-react";
 
 
 const CreateQuestion = () => {
+    const [equation, setEquation] = useState("y=x");
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -20,20 +22,25 @@ const CreateQuestion = () => {
     const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
+   
+
+    
 
     useEffect(() => {
         axios.get(`${serverApp}/subjects`)
-            .then(response =>
+            .then(response => {
                 setSubjects(response.data)
+                console.log(response)
+            }
             )
             .catch(error => console.error('Error fetching subjects:', error));
-        
+    
          axios.get(`${serverApp}/schools`)
             .then(response =>
                 setSchools(response.data)
             )
             .catch(error => console.error('Error fetching subjects:', error));
-        
+
     }, []);
 
     const handleOptionChange = (index, value) => {
@@ -99,6 +106,7 @@ const CreateQuestion = () => {
                     >
                         <option value="">Select Subject</option>
                         {subjects.map((subj) => (
+                            
                             <option key={subj._id} value={subj._id}>{subj.name}</option>
                         ))}
                     </select>
@@ -139,14 +147,26 @@ const CreateQuestion = () => {
                     />
                 </div>
                
-                <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Question</label>
-                    <textarea
-                        className="block w-full border border-grey rounded py-2 px-3"
-                        value={questionText}
-                        onChange={(e) => setQuestionText(e.target.value)}
+                
+                {subject !== '666a341bbb22c0f1efb38e50' ? (
+                <div className='mb-2'>
+                <label className="block text-dark-grey font-bold mb-2">Math Questions</label>
+                <EquationEditor
+                    value={questionText}
+                    onChange={setQuestionText}
+                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
+                    autoOperatorNames="sin cos tan"
                     />
-                </div>
+                    </div>
+                ): <div className="mb-4">
+                <label className="block text-dark-grey font-bold mb-2">Question</label>
+                <textarea
+                    className="block w-full border border-grey rounded py-2 px-3"
+                    value={questionText}
+                    onChange={(e) => setQuestionText(e.target.value)}
+                />
+            </div>
+            }
                 <div  className='my-3'/>
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>

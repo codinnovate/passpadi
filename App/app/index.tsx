@@ -13,11 +13,11 @@ const Splashpage = () => {
        style={styles.Image} />
       <View>
         <Text style={styles.bigTextContainer}>
-          Think <Text style={styles.text}>Outside the Box</Text> WIth PassPadi Quizzax
+          Think <Text style={styles.text}>Outside the Box</Text> With PassPadi Quizzax
         </Text>
         <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized quizzez</Text>
       </View>
-      <Link href='home' style={styles.link}>
+      <Link href='/home' style={styles.link}>
         <Text style={styles.linkText}>Continue</Text>
         <Feather name="arrow-up-right" size={20} color={Colors.yellow} />
       </Link>

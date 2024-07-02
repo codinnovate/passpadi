@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import "@flaticon/flaticon-uicons/css/all/all";
 
@@ -126,3 +127,7 @@
 }
 
       
+
+.mq-math-mode{
+    border: 1px !important;
+}
