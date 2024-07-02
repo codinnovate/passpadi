@@ -25,6 +25,7 @@
     "equation-editor-react": "^0.0.10",
     "firebase": "^10.1.0",
     "framer-motion": "^10.13.0",
+    "mathquill": "^0.10.1-a",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
