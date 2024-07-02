@@ -148,15 +148,17 @@ const CreateQuestion = () => {
                 </div>
                
                 
-                {subject !== '666a341bbb22c0f1efb38e50' ? (
+                {subject === '666a341bbb22c0f1efb38e50' ? (
                 <div className='mb-2'>
                 <label className="block text-dark-grey font-bold mb-2">Math Questions</label>
+                <div className='border border-b-black px-2 input-box'>
                 <EquationEditor
                     value={questionText}
                     onChange={setQuestionText}
                     autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
                     autoOperatorNames="sin cos tan"
                     />
+                </div>
                     </div>
                 ): <div className="mb-4">
                 <label className="block text-dark-grey font-bold mb-2">Question</label>
@@ -170,6 +172,16 @@ const CreateQuestion = () => {
                 <div  className='my-3'/>
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>
+                                        {subject === '666a341bbb22c0f1efb38e50' ? (
+
+                        <EquationEditor
+                     value={option}
+                    onChange={(e) => handleOptionChange(index, e.target.value)}
+                    autoCommands="pi theta sqrt sum prod alpha beta gamma rho"
+                    autoOperatorNames="sin cos tan"
+                    />
+                                        ) : 
+                                        <>
                         <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
                         <input
                             className="block w-full border border-grey rounded py-2 px-3"
@@ -177,7 +189,9 @@ const CreateQuestion = () => {
                             value={option}
                             onChange={(e) => handleOptionChange(index, e.target.value)}
                             required
-                        />
+                            />
+                            </>
+                                        }
                     </div>
                 ))}
                 <div className="mb-4">
