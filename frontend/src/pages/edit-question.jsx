@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const EditQuestion = () => {
-    const { params } = useParams();
-
-
+    const { question_id } = useParams();
+    const navigate = useNavigate();
     const [subjects, setSubjects] = useState([]);
     const [schools, setSchools] = useState([]);
     const [school, setSchool] = useState('');
@@ -15,27 +16,36 @@ const EditQuestion = () => {
     const [subject, setSubject] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [options, setOptions] = useState(['', '', '', '']);
-    const [answer, setanswer] = useState('');
+    const [answer, setAnswer] = useState('');
     const [answerDetail, setAnswerDetail] = useState('');
-    // const year =  new Date.getFullYear();
     const [examYear, setExamYear] = useState(2024);
     const [examType, setExamType] = useState('JAMB');
     const examTypes = ['JAMB', 'NECO', 'WAEC', 'POST UTME'];
 
     useEffect(() => {
-        axios.get(`${serverApp}/subjects`)
-            .then(response =>
-                setSubjects(response.data)
-            )
-            .catch(error => console.error('Error fetching subjects:', error));
-        
-         axios.get(`${serverApp}/schools`)
-            .then(response =>
-                setSchools(response.data)
-            )
-            .catch(error => console.error('Error fetching subjects:', error));
-        
-    }, []);
+        const fetchData = async () => {
+            try {
+                const subjectsResponse = await axios.get(`${serverApp}/subjects`);
+                setSubjects(subjectsResponse.data);
+                const schoolsResponse = await axios.get(`${serverApp}/schools`);
+                setSchools(schoolsResponse.data);
+                const questionResponse = await axios.get(`${serverApp}/questions/one/${question_id}`);
+                const question = questionResponse.data;
+                setSubject(question.subject);
+                setSchool(question.school);
+                setInstruction(question.instruction);
+                setQuestionText(question.question);
+                setOptions(question.options);
+                setAnswer(question.answer);
+                setAnswerDetail(question.answerDetail);
+                setExamYear(question.examYear);
+                setExamType(question.examType);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, [question_id]);
 
     const handleOptionChange = (index, value) => {
         const newOptions = [...options];
@@ -44,11 +54,12 @@ const EditQuestion = () => {
     };
 
     const handleSubmit = async (e) => {
-        if (!questionText) {
-            toast.error("Add a Question Text")
-        }
         e.preventDefault();
-        const newQuestion = {
+        if (!questionText) {
+            toast.error("Add a Question Text");
+            return;
+        }
+        const updatedQuestion = {
             subject,
             school,
             instruction,
@@ -60,67 +71,83 @@ const EditQuestion = () => {
             answerDetail
         };
         try {
-            const response = await axios.post(`${serverApp}/questions`, newQuestion);
-            toast.success('Question created Successfully');
-            // Clear form after submission
-            console.log(response);
-                setOptions(['', '', '', '']);
-                setanswer('');
-                setAnswerDetail('');
+            await axios.put(`${serverApp}/questions/update/${question_id}/`, updatedQuestion);
+            toast.success('Question updated Successfully');
+            navigate.push('/questions');
         } catch (error) {
-            console.error('Error creating question:', error);
-            toast.error('Error creating question:', error);
+            console.error('Error updating question:', error);
+            toast.error('Error updating question:', error);
         }
     };
 
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, false] }],
+            ['bold', 'italic', 'underline','strike', 'blockquote'],
+            [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+            ['link', 'image', 'formula'],
+            ['clean']
+        ],
+    };
+
     return (
-        <div className="max-w-3xl font-medium mx-auto mt-10 p-2 w-full">
+        <div className="max-w-5xl font-medium mx-auto mt-10 p-2 w-full">
             <Toaster />
-            <h1 className="text-2xl font-bold mb-4">Edit Question {param}</h1>
+            <div className='flex justify-between items-center border-b border-grey mb-4'>
+                <h1 className="text-2xl font-bold mb-4">Edit Question</h1>
+                <a
+                    href='/image-to-text'
+                    target="_blank"
+                    className="bg-black text-white font-bold py-2 px-4 rounded">
+                    Use Image 2 Text
+                </a>
+            </div>
 
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-wrap place-content-between'>
-                <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Subject</label>
-                    <select
-                        className="border-grey border text-black h-[2em]"
-                        value={subject}
-                        onChange={(e) => setSubject(e.target.value)}
-                        required
-                    >
-                        <option value="">Select Subject</option>
-                        {subjects.map((subj) => (
-                            <option key={subj._id} value={subj._id}>{subj.name}</option>
-                        ))}
-                    </select>
+                    <div className="mb-4">
+                        <label className="block text-dark-grey font-bold mb-2">Subject</label>
+                        <select
+                            className="border-grey border text-black h-[2em]"
+                            value={subject}
+                            onChange={(e) => setSubject(e.target.value)}
+                            required
+                        >
+                            <option value="">Select Subject</option>
+                            {subjects.map((subj) => (
+                                <option key={subj._id} value={subj._id}>{subj.name}</option>
+                            ))}
+                        </select>
                     </div>
-                     <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">School</label>
-                    <select
-                        className="border-grey border text-black h-[2em]"
-                        value={school}
-                        onChange={(e) => setSchool(e.target.value)}
-                    >
-                        <option value="">Select School</option>
-                        {schools.map((school) => (
-                            <option key={school._id} value={school._id}>{school.name}</option>
-                        ))}
-                    </select>
+                    <div className="mb-4">
+                        <label className="block text-dark-grey font-bold mb-2">School</label>
+                        <select
+                            className="border-grey border text-black h-[2em]"
+                            value={school}
+                            required
+                            onChange={(e) => setSchool(e.target.value)}
+                        >
+                            <option value="">Select School</option>
+                            {schools.map((school) => (
+                                <option key={school._id} value={school._id}>{school.name}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-dark-grey font-bold mb-2">Exam Type</label>
+                        <select
+                            className="block w-full border border-grey rounded py-2 px-3"
+                            value={examType}
+                            onChange={(e) => setExamType(e.target.value)}
+                            required
+                        >
+                            {examTypes.map((type) => (
+                                <option key={type} value={type}>{type}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
-                <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Exam Type</label>
-                    <select
-                        className="block w-full border border-grey rounded py-2 px-3"
-                        value={examType}
-                        onChange={(e) => setExamType(e.target.value)}
-                        required
-                    >
-                        {examTypes.map((type) => (
-                            <option key={type} value={type}>{type}</option>
-                        ))}
-                    </select>
-                </div>
-                </div>
+                
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Instruction</label>
                     <textarea
@@ -129,14 +156,15 @@ const EditQuestion = () => {
                         onChange={(e) => setInstruction(e.target.value)}
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-dark-grey font-bold mb-2">Question</label>
-                    <textarea
-                        className="block w-full border border-grey rounded py-2 px-3"
-                        value={questionText}
-                        onChange={(e) => setQuestionText(e.target.value)}
-                    />
-                </div>
+
+                <ReactQuill
+                    theme="snow" 
+                    modules={modules}
+                    value={questionText}
+                    onChange={setQuestionText}
+                />            
+                <div className='my-3'/>
+
                 {options.map((option, index) => (
                     <div className="mb-4" key={index}>
                         <label className="block text-dark-grey font-bold mb-2">Option {index + 1}</label>
@@ -149,25 +177,28 @@ const EditQuestion = () => {
                         />
                     </div>
                 ))}
+
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Correct Option</label>
                     <input
                         className="block w-full border border-grey rounded py-2 px-3"
                         type="text"
                         value={answer}
-                        onChange={(e) => setanswer(e.target.value)}
+                        onChange={(e) => setAnswer(e.target.value)}
                         required
                     />
-                </div>
+                </div> 
+                
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Answer Detail</label>
-                    <textarea
-                        className="block w-full border border-grey rounded py-2 px-3"
+                    <ReactQuill
+                        theme="snow" 
+                        modules={modules}
                         value={answerDetail}
-                        onChange={(e) => setAnswerDetail(e.target.value)}
-                    />
-                </div>
-                 
+                        onChange={setAnswerDetail}
+                    />   
+                </div> 
+
                 <div className="mb-4">
                     <label className="block text-dark-grey font-bold mb-2">Exam Year</label>
                     <input
@@ -184,7 +215,7 @@ const EditQuestion = () => {
                     type="submit"
                     className="bg-black text-white font-bold py-2 px-4 rounded"
                 >
-                    Create Question
+                    Update Question
                 </button>
             </form>
         </div>

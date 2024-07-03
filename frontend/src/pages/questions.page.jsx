@@ -63,10 +63,13 @@ const Questions = () => {
                             ))}
                         </div>
                          <div className='w-full flex items-center my-3 justify-between'>
-                                <Link to={`${question.question_id}`}
+                                <Link to={`${question._id}`}
                                     className='border bg-black border-grey rounded-md p-2'>
                                         <p className='text-sm text-white font-medium'>View Answer</p>
-                                    </Link>
+                                </Link>
+                                <Link to={`${question._id}/edit-question`} className='link'>
+                                Edit Question
+                                </Link>
                                 <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>
                                     {question.examType}
                                     <span className='ml-3'>{question.examYear}</span>

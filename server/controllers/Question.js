@@ -51,7 +51,7 @@ export const getQuestionById = async (req, res) => {
 export const updateQuestion = async (req, res) => {
   const { question_id } = req.params;
   try {
-    const question = await Question.findOne({ question_id })
+    const question = await Question.findOne({ _id:question_id })
     if (!question) {
       return res.status(404).json({ error: 'Question not found' });
     }

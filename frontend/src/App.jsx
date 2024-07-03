@@ -75,12 +75,13 @@ const App = () => {
                         <Route path=":subject" element={<Questions />} />
                         
                         <Route path=":subject/:question_id" element={<QuestionDetailPage />} />
+                        <Route path=':subject/:question_id/edit-question/' element={<EditQuestion />} />
+
                         <Route index element={<Feed />} />
 
                     </Route>
                     <Route path='/create-subject' element={<CreateSubject />} />
                     <Route path='/create-question' element={<CreateQuestion />} />
-                    <Route path='/edit-question' element={<EditQuestion />} />
                     <Route path="/privacy" element={<Privacy />} />
                     {/* <Route path="/store" element={<Store />} /> */}
                     <Route path="/quiz" element={<Quiz />} />

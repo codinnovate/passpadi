@@ -18,7 +18,7 @@ const QuestionDetailPage = () => {
         axios.get(`${serverApp}/questions/one/${question_id}`)
             .then(res => {
                 setQuestion(res.data)
-                console(res.data)
+                console.log(res.data)
                 setLoading(false)
                 })
                 .catch(err => {
