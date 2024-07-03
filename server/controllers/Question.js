@@ -1,6 +1,6 @@
 import { Question } from '../Schema/Question.js';
 import { Subject } from '../Schema/Subject.js';
-import { generateQuestionSlug } from '../utils/generates.js';
+import { generateSlug } from '../utils/generates.js';
 
 // Create a new question
 export const createQuestion = async (req, res) => {
@@ -37,7 +37,7 @@ export const getAllQuestions = async (req, res) => {
 export const getQuestionById = async (req, res) => {
   const { question_id } = req.params;
   try {
-    const question = await Question.findOne({ question_id })
+    const question = await Question.findOne({ _id:question_id })
     .populate("school subject");
     if (!question)
       return res.status(404).json({ error: 'Question not found' });

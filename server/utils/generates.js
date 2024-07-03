@@ -72,6 +72,4 @@ export {
     generateUploadURL,
     generateUsername,
     s3,
-    generateQuestionSlug
-
 }
