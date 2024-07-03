@@ -62,11 +62,9 @@ const generateSlug = (title) => {
   let appId = `${sanitizedTitle}`;
   return encodeURIComponent(appId);
 };
-const generateQuestionSlug = (title, examType, examYear) => {
-    let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim().toLowerCase();
-    let appId = `${sanitizedTitle}${examType}${examYear}`;
-    return encodeURIComponent(appId);
-  };
+
+
+
 
 export {
     generateSlug,

@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView,StyleSheet, ScrollView } from 'react-native'
-import React from 'react'
+import React , {useContext} from 'react'
 import Colors from '@/constants/Colors'
 import SubCard from '@/components/SubCard'
 import Images from '@/constants/Images'
 import { Fontisto} from '@expo/vector-icons'
-
+import { Link } from 'expo-router'
+import ActivationContext from '@/context/ActivationContext'
 
 
 
@@ -18,16 +19,24 @@ const cards = [
 
 
 const Home = () => {
+  const { isActivated } = useContext(ActivationContext);
+
   return (
     <View style={{ flex: 1, width:'100%', marginTop:20, backgroundColor:Colors.white}}>
       <View style={styles.avatar}>
         <Text style={styles.text}>Hello,</Text>
-        <Text style={styles.username}>Brooklyn Simmons</Text>
+        <Text style={styles.username}>Grachie</Text>
       </View>
        <ScrollView>
 
       <View style={styles.container}>
+        
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
+      {isActivated ? null : (
+      <Link href='activate'>
+          <Text>Activate App</Text>
+      </Link>
+      )}
       <View style={styles.cards}>
         {/* subjects and cbts */}
        {

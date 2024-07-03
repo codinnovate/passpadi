@@ -10,7 +10,7 @@ export const createQuestion = async (req, res) => {
     if (!findSubject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
-    let question_id = generateQuestionSlug(question, examType, examYear)
+    let question_id = generateSlug(question)
     const newQuestion = new Question({question_id, school, instruction, question, options, answer, examType, examYear, subject , answerDetail});
     const savedQuestion = await newQuestion.save();
     res.status(201).json(savedQuestion);

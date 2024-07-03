@@ -32,6 +32,8 @@ import Questions from "./pages/questions.page";
 import QuestionDetailPage from "./pages/question-detail";
 import EditQuestion from './pages/edit-question';
 import ImagetoText from "./pages/imagetoText";
+import Pay from "./pages/Pay";
+
 export const UserContext = createContext({});
 
 const App = () => {
@@ -61,6 +63,7 @@ const App = () => {
                         <Route path='change-password' element={<ChangePassword />} />
                     </Route>
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
+                     <Route path="pay" element={<Pay/>} />
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
                     <Route path="search/:query" element={<SearchPage />} />
                     <Route path="user/:id" element={<ProfilePage />} />

@@ -5,7 +5,7 @@ import Colors from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 import { server } from '@/server'
 import axios from 'axios'
-
+import HTML from 'react-native-render-html';
 
 const English = () => {
   const [questions, setQuestions] = useState([]);

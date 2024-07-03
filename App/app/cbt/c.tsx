@@ -141,17 +141,26 @@ const Cbt = () => {
           ) : (
             <>
               <View style={{marginTop:20, backgroundColor:Colors.gray, padding:10, width:'100%'}}>
-              <Text>Math Questions:</Text>
-              {questions.math.map((q, index) => (
-                <Text key={index}>{q.question}</Text>
-              ))}
-              <Text>General Paper Questions:</Text>
-              {questions.generalPaper.map((q, index) => (
-                <Text key={index}>{q.question}</Text>
-              ))}
-              <Text>English Questions:</Text>
-              {questions.english.map((q, index) => (
-                <Text key={index}>{q.question}</Text>
+            {selectedTab === 'Math' && (
+              <View>
+                {mathQuestions.map((q, index) => (
+                  <Text key={index}>{q.question}</Text>
+                ))}
+              </View>
+            )}
+            {selectedTab === 'General Paper' && (
+              <View>
+                {generalPaperQuestions.map((q, index) => (
+                  <Text key={index}>{q.question}</Text>
+                ))}
+              </View>
+            )}
+            {selectedTab === 'English' && (
+              <View>
+                {englishQuestions.map((q, index) => (
+                  <Text key={index}>{q.question}</Text>
+                ))}
+              </View>
               ))}
               <Button title="Change Settings" onPress={handleSettingsChange} />
           </View>

@@ -36,6 +36,7 @@ const Register = (req, res) => {
         .catch(err => {
                 if (err.code == 11000) {
                 return res.status(500).json({"error":"Email already exists"})
+                console.log({"error":"Email already exists"})
             }
             return res.status(500).json({"error":err.message})
         })})
@@ -107,6 +108,22 @@ const GoogleAuth = async (req, res) => {
 
     
 }
+
+// async function updateUsers() {
+//     try {
+//       const users = await User.find({ role: { $exists: false } }); // Find users without the role field
+//       for (let user of users) {
+//         user.role = 'user'; // Set default role for existing users
+//         await user.save(); // Save updated user document
+//       }
+  
+//       console.log('Users updated successfully.');
+//     } catch (error) {
+//       console.error('Error updating users:', error);
+//     } finally {
+//     }
+//   }
+  
 export {
     Register,Login, GoogleAuth
 }
