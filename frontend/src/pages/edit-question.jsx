@@ -71,7 +71,7 @@ const EditQuestion = () => {
             answerDetail
         };
         try {
-            await axios.put(`${serverApp}/questions/update/${question_id}/`, updatedQuestion);
+            await axios.put(`${serverApp}/questions/${question_id}`, updatedQuestion);
             toast.success('Question updated Successfully');
             navigate.push('/questions');
         } catch (error) {

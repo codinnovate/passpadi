@@ -21,7 +21,8 @@ export const createQuestion = async (req, res) => {
 
 // Get all questions
 export const getAllQuestions = async (req, res) => {
-  const { subject } = req.params;
+  const { subject } = req.params
+  
   try {
     const questions = await Question.find()
       .populate('subject')
@@ -50,12 +51,14 @@ export const getQuestionById = async (req, res) => {
 // Update a question
 export const updateQuestion = async (req, res) => {
   const { question_id } = req.params;
+  const { question, options, school , answer, answerDetail, instruction, examType, examYear, subject } = req.body;
+
   try {
     const question = await Question.findOne({ _id:question_id })
     if (!question) {
       return res.status(404).json({ error: 'Question not found' });
     }
-    const updatedQuestion = await Question.findByIdAndUpdate(id, { question, options, answer, answerDetail, examType, examYear, subject}, { new: true });
+    const updatedQuestion = await Question.findByIdAndUpdate({ _id:question_id }, req.body, { new: true });
     if (!updatedQuestion) return res.status(404).json({ error: 'Question not found' });
     res.status(200).json(updatedQuestion);
   } catch (err) {

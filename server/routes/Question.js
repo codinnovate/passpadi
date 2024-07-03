@@ -6,7 +6,7 @@ router.post('/', createQuestion);
 router.get('/',getAllQuestions)
 router.get('/v1/:subject_id', getQuestionsBySubject);
 router.get('/one/:question_id', getQuestionById);
-router.put('/:id', updateQuestion);
+router.put('/:question_id', updateQuestion);
 router.delete('/:id', deleteQuestion);
 
 
