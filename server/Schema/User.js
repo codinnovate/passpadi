@@ -32,6 +32,7 @@ const userSchema = mongoose.Schema({
             type: Boolean,
             default: false,
         },
+        points: { type: Number, default: 100 },
         profile_img: {
             type: String,
             default: () => {
@@ -88,6 +89,15 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ["user", "admin", "paidUser"],
         default: "user",
+      },
+      sentFollowRequests: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+      receivedFollowRequests: [
+        { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      ],
+      followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+      verified: {
+        type: Boolean,
+        default: false,
       },
 
 }, 

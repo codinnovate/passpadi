@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     marginBottom:10
   },
   text:{
-    fontFamily:'SpaceGM',
+    fontFamily:'Ubuntu',
     fontSize:18,
     marginTop:10,
     color:Colors.black,

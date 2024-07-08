@@ -1,27 +1,51 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Colors from '@/constants/Colors'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import { Feather } from '@expo/vector-icons'
 import Images from '@/constants/Images'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const Splashpage = () => {
+export function Splashpage (){
+    const [role, setRole] = useState('')
+
+  useEffect(() => {
+      const checkLoginStatus = async () => {
+        try {
+           const token = await AsyncStorage.getItem("authToken");
+           
+           if (token !== null) {
+               router.replace("/home")
+             ;
+          } 
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+ 
+     checkLoginStatus();
+   }, []);
   return (
-    <View style={{flex:1, alignItems:'center', padding:20, backgroundColor:Colors.green}}>
+    <View style={{flex:1, height:'100%', backgroundColor:Colors.green}}>
+    <View style={{flex:1, alignItems:'center', padding:20, }}>
+    <Image source={Images.logo} style={styles.logo}/>
       <Image 
       source={Images.splash}
-       style={styles.Image} />
+      style={styles.Image} />
       <View>
         <Text style={styles.bigTextContainer}>
-          Think <Text style={styles.text}>Outside the Box</Text> With PassPadi Quizzax
+          Score <Text style={styles.text}>30/30</Text> With PassPadi Unilag  Cbt App
         </Text>
-        <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized quizzez</Text>
+        <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized cbt app</Text>
       </View>
-      <Link href='/home' style={styles.link}>
-        <Text style={styles.linkText}>Continue</Text>
-        <Feather name="arrow-up-right" size={20} color={Colors.yellow} />
+      <Link href='/(auth)/signin' style={styles.link}>
+        <Text style={styles.linkText}>Login</Text>
+      </Link>
+      <Link href='https://www.passpadi.com/signup' style={styles.link}>
+        <Text style={styles.linkText}>Register</Text>
       </Link>
     </View>
+      </View>
   )
 }
 
@@ -31,17 +55,24 @@ const styles = StyleSheet.create({
       width:240,
       height:300,
       alignSelf:'center',
-      marginTop:80,
+  },
+  logo:{
+    width:300,
+    height:100,
+    marginTop:20,
+    marginLeft:20,
   },
   bigTextContainer:{
     fontSize:35,
     color:Colors.white,
-    fontFamily:'SpaceGM',
+    fontFamily:'Ubuntu',
     fontWeight:'300',
     marginBottom:10
   },
   text:{
     color:Colors.yellow,
+    fontFamily:'SpaceGM',
+
   },
 
   smallText:{
@@ -51,14 +82,26 @@ const styles = StyleSheet.create({
     fontWeight:'300'
   },
   link:{
-    marginLeft:'auto',
+    display:'flex',    
     alignItems:'center',
     marginTop:20,
+    width:'100%',
+    borderWidth:1,
+    padding:10,
+    height:50,
+    borderColor:Colors.yellow,
+    justifyContent:'center',
+    borderRadius:15,
 
 
   },
   linkText:{
     color:Colors.yellow,
+    fontSize:20,
+    fontFamily:'Ubuntu',
+    fontWeight:'300',
+    textAlign:'center',
+    
   }
 
 

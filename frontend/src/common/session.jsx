@@ -11,7 +11,7 @@ const removeFromSession = (key) => {
 }
 
 const logOutUser = () => {
-    localStorage.clear();s
+    localStorage.clear();
 }
 
 export {storeInSession, logOutUser,lookInSession, removeFromSession}

@@ -33,9 +33,9 @@ const UserNavigationPanel = () => {
       )}
        
               
-            <Link to={`/user/${username}`} className='link pl-8 py-4'>
+            <Link to={`/${username}`} className='link pl-8 py-4'>
             Profile
-        </Link>
+            </Link>
             {location.pathname === '/store' ? null : (
                 <Link to='/store' className='link pl-8 py-4'>
                 Store

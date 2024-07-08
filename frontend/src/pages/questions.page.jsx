@@ -42,7 +42,12 @@ const Questions = () => {
 
     return (
         <div className="max-w-5xl mx-auto bg-white w-full">
-            <h1 className="text-2xl capitalize  mb-4">{subject} Past Questions</h1>
+            <div className='flex justify-between w-full'>
+            <h1 className="text-2xl capitalize ubuntu-regular  mb-4">{subject} Past Questions</h1>
+            <span className='flex items-center justify-center bg-black/10 w-8 h-8 rounded-full p-2'>
+            <i className="fi fi-rr-filter"></i>
+            </span>
+            </div>
             {loading ? <Loader /> : (
 
                 questions && questions.map((question, index) => (
@@ -53,19 +58,19 @@ const Questions = () => {
                                     {question?.instruction}
                                 </i>
                             </h3>
-                        <h2 className="text-xl font-medium">{index + 1}.{parse(`${question.question}`)}
+                        <h2 className="text-xl flex mt-3 ubuntu-regular font-medium">{index + 1}.{parse(`${question.question}`)}
   </h2>
                         <div className='flex flex-wrap gap-2'>
                             {question.options.map((option, index) => (
                                     <div className='flex gap-2'>
-                                    <span className='font-bold '>{optionLabels[index]}. </span><p key={index}>{option}</p>
+                                    <h1 className='font-bold'>{optionLabels[index]}. </h1><p className="ubuntu-regular" key={index}>{option}</p>
                                     </div>
                             ))}
                         </div>
                          <div className='w-full flex items-center my-3 justify-between'>
                                 <Link to={`${question._id}`}
-                                    className='border bg-black border-grey rounded-md p-2'>
-                                        <p className='text-sm text-white font-medium'>View Answer</p>
+                                    className='border bg-black border-grey rounded-2xl p-2'>
+                                        <p className='text-sm text-white ubuntu-medium'>View Answer</p>
                                 </Link>
                                 <Link to={`${question._id}/edit-question`} className='link'>
                                 Edit Question

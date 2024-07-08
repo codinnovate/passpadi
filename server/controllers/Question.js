@@ -78,6 +78,9 @@ export const deleteQuestion = async (req, res) => {
   }
 };
 
+
+
+
 export const getQuestionsBySubject = async (req, res) => {
   const { subject_id } = req.params;
   if (!subject_id) {

@@ -31,7 +31,7 @@ export const profileDataStructure = {
 }
 const ProfilePage = () => {
 
-    let { id: profileId } = useParams();
+    let { userId: profileId } = useParams();
     let [profile, setProfile] = useState(profileDataStructure);
     let { personal_info: { fullname, username: profile_username, profile_img, bio }, account_info: { total_posts, total_reads }, social_links, joinedAt } = profile;
     let [loading, setLoading] = useState(true);

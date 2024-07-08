@@ -9,7 +9,7 @@ export const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // re
 export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
 const Register = (req, res) => {
-    let { fullname, email, password } = req.body;
+    let { fullname, email, password, profile_img , bio} = req.body;
     if (fullname.length < 3){
         return res.status(403).json({"error":"Fullname must be at least 3 letters "})
     }
@@ -28,7 +28,7 @@ const Register = (req, res) => {
         let username = await generateUsername(email);
         let user = new User({
             personal_info: {
-                fullname, email, password:hash_password , username}
+                fullname, email, password:hash_password , username, profile_img, bio}
         })
         user.save().then((u) => {
             return res.status(200).json(formatDatatoSend(u))

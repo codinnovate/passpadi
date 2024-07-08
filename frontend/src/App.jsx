@@ -33,6 +33,8 @@ import QuestionDetailPage from "./pages/question-detail";
 import EditQuestion from './pages/edit-question';
 import ImagetoText from "./pages/imagetoText";
 import Pay from "./pages/Pay";
+import PurchasePoints from "./pages/Points";
+import VerifyTransaction from "./pages/verifyTransactions";
 
 export const UserContext = createContext({});
 
@@ -54,7 +56,6 @@ const App = () => {
                 <Route path="/editor/:blog_id" element={<Editor />} />
                 <Route path="/add-product" element={<ProductEditor />} />
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />, <Bottombar />]}>
-                    <Route path='/transactions/:reference' element={<Transactions />} />
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
                     <Route index element={<HomePage />} />
@@ -64,9 +65,12 @@ const App = () => {
                     </Route>
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                      <Route path="pay" element={<Pay/>} />
+                     <Route path="/purchase-points" element={<PurchasePoints />} />
+                     <Route path="verify/:reference" element={<VerifyTransaction />} />
+            
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
                     <Route path="search/:query" element={<SearchPage />} />
-                    <Route path="user/:id" element={<ProfilePage />} />
+                    <Route path=":userId" element={<ProfilePage />} />
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/classroom" element={<Classroom />}>

@@ -4,4 +4,4 @@ import { verifyJWT } from '../middlewares/VerifyJwt.js';
 
 export const paymentRouter = Router();
 paymentRouter.post('/pay', verifyJWT, initTransaction)
-paymentRouter.get('/verify/:reference', VerifyTransaction)
+paymentRouter.get('/verify/:reference', verifyJWT, VerifyTransaction)
