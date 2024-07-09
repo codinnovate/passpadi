@@ -4,10 +4,9 @@ import {Navigate, useParams } from 'react-router-dom';
 import { serverApp } from '../../server';
 import { UserContext } from '../App';
 
-const VerifyTransaction = () => {
+const VerifyTransaction = ({reference}) => {
     const { userAuth: { access_token  } } = useContext(UserContext);
-    const {reference} = useParams();
-    const [message, setMessage] = useState('Verifying Transaction...');
+    const [message, setMessage] = useState('Verifying Transaction...Please wait......');
     const [error, setError] = useState(null);
     
     useEffect(() => {
@@ -20,17 +19,15 @@ const VerifyTransaction = () => {
 
     const verifyTransaction = async (reference) => {
         try {
-            const response = await axios.get(`${serverApp}/transactions/verify/${reference}`, {
+            const response = await axios.post(`${serverApp}/transactions/verify`, {reference}, {
                 headers: {
                     'Authorization': `Bearer ${access_token}`
                 }
             });
             console.log(response)
 
-            if (response.data.status === 'success') {
-                setMessage('Transaction successful! Points have been added to your account.');
-            } else {
-                setMessage('Transaction verification failed.');
+            if (response.status === 200) {
+                setMessage('Transaction successful! Your App has been activated Automatically., just make sure to login again ');
             }
         } catch (error) {
             console.error(error);
@@ -39,9 +36,8 @@ const VerifyTransaction = () => {
     };
 
     return (
-        <div>
-            <p>Verify {reference}</p>
-            <h2>{message}</h2>
+        <div className='max-w-5xl mx-auto '>
+            <h2 className='text-xl'>{message}</h2>
             {error && <p>{error}</p>}
         </div>
     );

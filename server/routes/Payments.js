@@ -1,7 +1,9 @@
 import express, { Router } from 'express';
-import { VerifyTransaction, initTransaction } from '../controllers/Payments.js';
+import {getTransactions, initTransaction,verifyTransaction } from '../controllers/Payments.js';
 import { verifyJWT } from '../middlewares/VerifyJwt.js';
+import { checkAdmin } from '../middlewares/checkAdmin.js';
 
 export const paymentRouter = Router();
 paymentRouter.post('/pay', verifyJWT, initTransaction)
-paymentRouter.get('/verify/:reference', verifyJWT, VerifyTransaction)
+paymentRouter.post('/verify', verifyJWT, verifyTransaction)
+paymentRouter.get('/', verifyJWT, getTransactions);

@@ -15,6 +15,7 @@ export const verifyJWT = (req, res, next) => {
             console.log(err)
         }
         req.user = user.id
+        req.userRole = user.role
         next();
     })
 }   

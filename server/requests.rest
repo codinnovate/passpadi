@@ -1,3 +1,5 @@
 
-POST    http://localhost:3000/questions/upload
+GET    http://localhost:3000/transactions/
 Content-Type: application/json
+
+

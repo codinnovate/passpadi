@@ -1,7 +1,7 @@
 import { Question } from '../Schema/Question.js';
 import { Subject } from '../Schema/Subject.js';
 import { generateSlug } from '../utils/generates.js';
-
+import mongoose from 'mongoose';
 // Create a new question
 export const createQuestion = async (req, res) => {
   const { question, options, school , answer, answerDetail, instruction, examType, examYear, subject } = req.body;
@@ -48,6 +48,20 @@ export const getQuestionById = async (req, res) => {
   }
 };
 
+
+
+// async function updateExamYear() {
+//   try {
+//     const result = await Question.updateMany({ examYear: 2024 }, { $set: { examYear: 2023 } });
+//     console.log('Update result:', result);
+//   } catch (error) {
+//     console.error('Error updating examYear:', error);
+//   } finally {
+//     mongoose.connection.close();
+//   }
+// }
+
+// updateExamYear();
 // Update a question
 export const updateQuestion = async (req, res) => {
   const { question_id } = req.params;

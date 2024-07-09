@@ -11,6 +11,7 @@ import BlogPostCard from '../components/blog-post.component';
 import NoDataMessage from '../components/nodata.component';
 import LoadMoreDataBtn from '../components/load-more.component';
 import PageNotFound from './404.page';
+import { serverApp } from '../../server';
 
 
 
@@ -21,19 +22,21 @@ export const profileDataStructure = {
         username: "",
         profile_img: "",
         bio:"",
+        
     },
     account_info: {
         total_posts: 0,
         total_blogs:0
     },
     social_links: {},
-    joinedAt:""
+    joinedAt:"",
+    role:"",
 }
 const ProfilePage = () => {
 
     let { userId: profileId } = useParams();
     let [profile, setProfile] = useState(profileDataStructure);
-    let { personal_info: { fullname, username: profile_username, profile_img, bio }, account_info: { total_posts, total_reads }, social_links, joinedAt } = profile;
+    let { personal_info: { fullname, username: profile_username, profile_img, bio }, account_info: { total_posts, total_reads }, social_links, joinedAt , role } = profile;
     let [loading, setLoading] = useState(true);
     let { userAuth: { username } } = useContext(UserContext);
     let [blogs, setBlogs] = useState(null);
@@ -43,7 +46,7 @@ const ProfilePage = () => {
 
 
     const fetchUserProfile = () => {
-        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-profile", {
+        axios.post(serverApp + "/get-profile", {
             username: profileId
         })
             .then(({ data: user }) => {
@@ -64,7 +67,7 @@ const ProfilePage = () => {
 
     const getBlogs = ({ page = 1, user_id }) => {
         user_id = user_id == undefined ? blogs.user_id : user_id;
-        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/search-blogs", {
+        axios.post(serverApp + "/search-blogs", {
             author: user_id,
             page
         })
@@ -115,6 +118,7 @@ const ProfilePage = () => {
                             
                             />
                             <h1 className='text-2xl font-medium'>@{profile_username}</h1>
+                            <h1 className='text-2xl font-medium bg-orange-500 p-2 rounded-2xl'>{role}</h1>
                             <p className='text-xl capitalize h-6'>{fullname}</p>
                             <p>{total_posts.toLocaleString()} Blogs - {total_reads.toLocaleString()} - Reads </p>
                             <div className='flex gap-4 mt-2 '>

@@ -23,6 +23,10 @@ const userSchema = mongoose.Schema({
             minlength: [3, 'Username must be 3 letters long'],
             unique: true,
         },
+        phoneNumber:{
+            type:String,
+            unique:true,
+        },
         bio: {
             type: String,
             maxlength: [200, 'Bio should not be more than 200'],

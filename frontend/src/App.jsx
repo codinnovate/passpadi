@@ -17,7 +17,7 @@ import ProductEditor from "./components/product-editor.component";
 import Quiz from "./pages/Quiz";
 import QuestionEditor from "./pages/QuestionEditor";
 import ProductDetail from "./pages/product.page";
-import Transactions from "./pages/transactions";
+import Transactions from "./pages/Admin/transactions";
 import Seo from "./components/Seo";
 import SideNav from './components/sidenavbar.component'
 import ChangePassword from "./pages/change-password.page";
@@ -35,6 +35,7 @@ import ImagetoText from "./pages/imagetoText";
 import Pay from "./pages/Pay";
 import PurchasePoints from "./pages/Points";
 import VerifyTransaction from "./pages/verifyTransactions";
+import AdminTransactionsPage from "./pages/Admin/transactions";
 
 export const UserContext = createContext({});
 
@@ -65,12 +66,14 @@ const App = () => {
                     </Route>
                      <Route path="signin" element={<UserAuthForm  type="sign-in"/>}/>
                      <Route path="pay" element={<Pay/>} />
-                     <Route path="/purchase-points" element={<PurchasePoints />} />
+                     <Route path="/pay-for-app" element={<PurchasePoints />} />
                      <Route path="verify/:reference" element={<VerifyTransaction />} />
             
                     <Route path="signup" element={<UserAuthForm type="sign-up" />} />
                     <Route path="search/:query" element={<SearchPage />} />
                     <Route path=":userId" element={<ProfilePage />} />
+                    <Route path="/transactions" element={<AdminTransactionsPage />} />
+
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/classroom" element={<Classroom />}>

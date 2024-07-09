@@ -4,7 +4,6 @@ import Colors from '@/constants/Colors';
 import Loader from './Loader';
 
 const Questions = ({ question, onAnswerClicked }) => {
-
   const handleAnswer = (option) => {
     onAnswerClicked(option);
   };

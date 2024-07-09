@@ -16,7 +16,11 @@ const SchoolForm = () => {
           toast.error("Please add A School Name")
       } else {
           try {
-              await axios.post(`${serverApp}/Schools`, { name });
+              await axios.post(`${serverApp}/Schools`, { name }, {
+                headers: {
+                  'Authorization': `Bearer ${access_token}`
+              }
+              });
             toast.success("School Created Successfully")
             setName('');
               // navigate('/classroom/Schools')

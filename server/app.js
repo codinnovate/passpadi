@@ -178,6 +178,7 @@ app.post("/get-profile", (req, res) => {
     .select("-personal_info.password -google_auth -updatedAt -blogs")
         .then(user => {
         return res.status(200).json(user)
+        console.log(user)
         })
         .catch(err => {
         return res.status(500).json({error:err.message})

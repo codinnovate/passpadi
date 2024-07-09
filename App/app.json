@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "App",
-    "slug": "App",
+    "name": "Passpadi",
+    "slug": "Passpadi Unilag Cbt App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -14,7 +14,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/android-chrome-512x512.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kidscantech.App"
     },
     "web": {
       "bundler": "metro",
@@ -26,6 +27,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "8fe3fb05-c447-436c-ba4c-a0baea6ab8e4"
+      }
     }
   }
 }

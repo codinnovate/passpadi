@@ -109,6 +109,7 @@ const Subject = () => {
           selectedYear={selectedYear}
           onYearChange={handleYearChange}
         />
+        
         <View style={styles.questionCard}>
           <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={{ fontFamily: 'Raleway' }}>Question {currentIndex + 1}</Text>
@@ -138,6 +139,7 @@ const Subject = () => {
             ))}
           </View>
         </View>
+
         {question?.answerDetail ? (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={styles.answerDetail}>
