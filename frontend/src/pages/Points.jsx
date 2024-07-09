@@ -1,22 +1,29 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import { UserContext } from '../App';
 import { Navigate, useNavigate } from 'react-router-dom';
 import VerifyTransaction from './verifyTransactions';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const PurchasePoints = () => {
+    const router = useNavigate()
+    // const [email, setEmail] = useState();
     let { userAuth: { access_token , email } } = useContext(UserContext)
+    console.log(access_token)
+    console.log(email)
     // const [amount, setAmount] = useState(1000);
     const [transaction, setTransaction] = useState(null);
     const [reference, setReference ] = useState(null)
     
+
+
     
     const handlePurchase = async () => {
         try {
             const response = await axios.post(`${serverApp}/transactions/pay`,
-                {email}, 
+                {email:email}, 
                 {
                 headers: {
                     'Authorization':`Bearer ${access_token}`
@@ -49,9 +56,12 @@ const PurchasePoints = () => {
         handler.openIframe();
       }
       if(reference ) return  <VerifyTransaction amount='1000' reference={reference}  />
-    if(access_token === null ) return  <Navigate to='/signin' /> 
+
+
+    if(access_token === null ) return <Navigate to='/signin' />
     return (
         <div className='max-w-5xl mx-auto p-2'>
+            <Toaster />
             <h2>Activate Your Cbt App Automatically.</h2>
             <button 
             className='mt-5 bg-black text-white text-xl font-bold p-3 rounded-2xl'

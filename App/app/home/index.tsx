@@ -60,7 +60,8 @@ const Logout  = async () => {
         
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
       {role === 'user' && (
-      <TouchableOpacity
+      <TouchableOpacity 
+       onPress={() => router.push('https://www.passpadi.com/pay-for-app')}
        style={styles.activate}>
         <View style={{}}>
           <Text style={{marginBottom:20, fontFamily:'Ubuntu', fontSize:15}}>Activate App</Text>
