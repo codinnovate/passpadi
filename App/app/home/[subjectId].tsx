@@ -9,6 +9,9 @@ import { useWindowDimensions } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Loader from '@/components/Loader';
 import RenderHTML from 'react-native-render-html';
+import Calculator from '@/components/Calculator';
+import CalculatorApp from '@/components/Calculator';
+
 
 const Subject = () => {
   const [data, setData] = useState([]);
@@ -97,19 +100,18 @@ const Subject = () => {
   };
 
   if (loading) return (
-   <Loader />
+   <Loader  />
   );
 
   return (
-    <SafeAreaView style={{ height: '100%', width: '100%' }}>
-      <View style={{ height: '100%', width: '100%', position: 'relative' }}>
+    <SafeAreaView style={{ height: '100%', width: '100%' ,}}>
+      <View style={{ height: '100%', width: '100%', position: 'relative', marginTop:40 }}>
         <Header
           title={subjectName}
           questionLength={filteredData?.length}
           selectedYear={selectedYear}
           onYearChange={handleYearChange}
         />
-        
         <View style={styles.questionCard}>
           <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={{ fontFamily: 'Raleway' }}>Question {currentIndex + 1}</Text>
@@ -118,15 +120,15 @@ const Subject = () => {
             </View>
           </View>
           {question?.instruction && (
-            <Text style={{ fontSize: 13, fontFamily: 'Raleway' }}>{question?.instruction}</Text>
+            <Text style={{ fontSize: 15, fontFamily: 'Raleway' }}>{question?.instruction}</Text>
           )}
           <View style={styles.webViewContainer}>
-            {/* <WebView
+            <WebView
               originWhitelist={['*']}
               source={source}
               style={styles.text}
-            /> */}
-            <RenderHTML source={source} contentWidth={300}/>
+            />
+            {/* <RenderHTML source={source} contentWidth={300}/> */}
           </View>
           <View style={styles.questionOptions}>
             {question?.options.map((option, index) => (
@@ -200,7 +202,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     padding: 10,
     backgroundColor: Colors.white,
-    bottom: 0,
+    bottom:'10%',
   },
   buttonWrapper: {
     display: 'flex',

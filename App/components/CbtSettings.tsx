@@ -13,10 +13,10 @@ import { router } from 'expo-router';
 
 
 const CbtSettings = ({ startCBT }) => {
-  const [time, setTime] = useState(1);
-  const [mathQuestions, setMathQuestions] = useState(1);
-  const [englishQuestions, setEnglishQuestions] = useState(1);
-  const [generalPaperQuestions, setGeneralPaperQuestions] = useState(1);
+  const [time, setTime] = useState(30);
+  const [mathQuestions, setMathQuestions] = useState(10);
+  const [englishQuestions, setEnglishQuestions] = useState(20);
+  const [generalPaperQuestions, setGeneralPaperQuestions] = useState(10);
   const [subjects, setSubjects] = useState(['mathematics', 'english', 'general-paper']);
 
   const totalQuestions = mathQuestions + englishQuestions + generalPaperQuestions;
@@ -98,8 +98,13 @@ const CbtSettings = ({ startCBT }) => {
 
       <Text style={[style.label, {backgroundColor:Colors.green, color:Colors.white, width:150, padding:5, borderRadius:10, textAlign:'center', fontSize:15}]}>Total Questions: {totalQuestions}</Text>
       <View style={{display:'flex', gap:10, marginTop:20}}>
-      <Button  title="Start CBT" onPress={handleStartCBT} />
-      <Button title="Download Questions for Offline Use" onPress={downloadQuestions} />
+      <Button 
+       color={Colors.yellow}
+       textColor={Colors.black}
+       title="Start CBT" onPress={handleStartCBT} />
+      <Button 
+       title="Download Questions for Offline Use"
+       onPress={downloadQuestions} />
       
       </View>
     </View>
@@ -109,7 +114,7 @@ const CbtSettings = ({ startCBT }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop: 10,
+    marginTop:50,
   },
 
   input: {

@@ -1,7 +1,8 @@
 import { Question } from '../Schema/Question.js';
 import { Subject } from '../Schema/Subject.js';
 import { generateSlug } from '../utils/generates.js';
-import mongoose from 'mongoose';
+
+
 // Create a new question
 export const createQuestion = async (req, res) => {
   const { question, options, school , answer, answerDetail, instruction, examType, examYear, subject } = req.body;

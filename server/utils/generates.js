@@ -51,7 +51,8 @@ const formatDatatoSend = (user) => {
         fullname: user.personal_info.fullname,
         role:user.role,
         points:user.personal_info.points,
-        email:user.personal_info.email
+        email:user.personal_info.email,
+        userId:user._id
         }
     }
 

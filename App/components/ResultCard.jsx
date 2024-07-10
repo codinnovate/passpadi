@@ -4,11 +4,9 @@ import Colors from '@/constants/Colors';
 import Loader from './Loader';
 import { WebView } from 'react-native-webview';
 
-const Questions = ({ question, onAnswerClicked, index, total }) => {
-  const [pressed, setPressed] = useState();
-  const handleAnswer = (option) => {
-    onAnswerClicked(option);
-  };
+const ResultCard = ({ questions, index, total, userAnswer}) => {
+
+
   const generateHtmlContent = (content) => {
     return `
       <!DOCTYPE html>
@@ -39,10 +37,10 @@ const Questions = ({ question, onAnswerClicked, index, total }) => {
       </html>
     `;
   };
-  if(!question)
+  if(!questions)
     return <Loader />
   const source = {
-    html: question ? generateHtmlContent(question.question) : '<p>No question available</p>',
+    html: questions ? generateHtmlContent(questions?.question) : '<p>No question available</p>',
   };
   return (
     <View>
@@ -50,11 +48,11 @@ const Questions = ({ question, onAnswerClicked, index, total }) => {
         <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <Text style={{ fontFamily: 'Raleway' }}>Question {index} of {total} </Text>
           <View style={{ backgroundColor: Colors.red, width: 40, display: 'flex', alignItems: 'center' }}>
-            <Text style={{ fontFamily: 'SpaceGM', color: Colors.white }}>{question?.examYear}</Text>
+            <Text style={{ fontFamily: 'SpaceGM', color: Colors.white }}>{questions?.examYear}</Text>
           </View>
         </View>
-        {question?.instruction && (
-          <Text style={{ fontSize: 13, fontFamily: 'Raleway' }}>{question?.instruction}</Text>
+        {questions?.instruction && (
+          <Text style={{ fontSize: 13, fontFamily: 'Raleway' }}>{questions?.instruction}</Text>
         )}
         <View style={styles.webViewContainer}>
         <WebView
@@ -64,14 +62,14 @@ const Questions = ({ question, onAnswerClicked, index, total }) => {
             />          
         </View>
         <View style={styles.questionOptions}>
-          {question?.options.map((option, index) => (
+          {questions?.options.map((option, index) => (
             <TouchableOpacity
-              onPress={() => {
-                setPressed(true)
-                handleAnswer(option)}
-              }
+             
               key={index}
-              style={[styles.button]}
+              style={[{
+                backgroundColor: userAnswer === option && option !== questions.answer ? 'red' : // Incorrect option chosen by user
+                       option === questions.answer ? Colors.yellow : 'white' // Other options
+              }, styles.button]}
             >
               <Text style={styles.text}>{option}</Text>
             </TouchableOpacity>
@@ -106,11 +104,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   text: {
-    color: Colors.green,
+    color: Colors.black,
     fontSize: 23,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },
 });
 
-export default Questions;
+export default ResultCard;

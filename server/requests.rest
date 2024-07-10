@@ -1,5 +1,9 @@
 
-GET    http://localhost:3000/transactions/
+POST   http://localhost:3000/create-post
 Content-Type: application/json
 
-
+{   
+    "userId":"65eedc323-0cddd",
+    "content":"THis is the first post Ever, you like it ??",
+    "image":"https://www.passpadi.com/assets/logo-0589d0c9.png"
+}

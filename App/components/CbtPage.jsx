@@ -7,12 +7,13 @@ import Colors from '@/constants/Colors';
 import Questions from './Questions';
 import Results from './Result';
 import { style } from '@/constants/Styles';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const CbtPage = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timer, setTimer] = useState(settings.time * 60);
+  const [timer, setTimer] = useState(settings.time * 60 + 6);
   const [submitted, setSubmitted] = useState(false);
   const [correctionsMode, setCorrectionsMode] = useState(false);
   const timerRef = useRef();
@@ -88,9 +89,12 @@ const CbtPage = ({ settings }) => {
         <>
           <View style={styles.header}>
             {!correctionsMode && (
-              <Text style={styles.label}>
-                Time Remaining: {Math.floor(timer / 60)}:{timer % 60}
+              <View style={{display:"flex", justifyContent:'center', flexDirection:"row", alignItems:'center'}}>
+              <MaterialIcons name="timer" size={24} color={Colors.green} />
+              <Text style={[styles.label, {color:Colors.red, fontSize:15, fontFamily:'Ubuntu'}]}>
+                {Math.floor(timer / 60)}:{timer % 60}
               </Text>
+              </View>
             )}
             <Button
               width={200}
@@ -100,7 +104,7 @@ const CbtPage = ({ settings }) => {
               disabled={submitted}
             />
           </View>
-          <Questions question={questions[currentIndex]} onAnswerClicked={handleNext} />
+          <Questions question={questions[currentIndex]} total ={questions.length} onAnswerClicked={handleNext} index={currentIndex} />
         </>
       )}
     </View>
@@ -110,6 +114,7 @@ const CbtPage = ({ settings }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    marginTop:20,
   },
   header: {
     flexDirection: 'row',

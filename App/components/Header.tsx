@@ -44,10 +44,10 @@ const Header = ({ title, questionLength, selectedYear, onYearChange }: HeaderTyp
       {settings && (
         <View style={styles.headerSettings}>
           <TouchableOpacity onPress={() => setYearModalVisible(true)}>
-            <Text style={styles.headerSubtext}>Change Year</Text>
+            <Text style={[styles.headerSubtext, styles.button]}>Change Year</Text>
           </TouchableOpacity>
-          <Link href='/home' style={styles.headerSubtext}>Change Subject</Link>
-          <Link href='/cbt' style={styles.headerSubtext}>CBT ?</Link>
+          <Link href='/home' style={[styles.headerSubtext, styles.button]}>Change Subject</Link>
+          <Link href='/cbt' style={[styles.headerSubtext, styles.button]}>CBT ?</Link>
         </View>
       )}
       <Modal
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 10,
+    width:'100%'
   },
   headerText: {
     fontFamily: 'Ubuntu',
@@ -93,15 +94,15 @@ const styles = StyleSheet.create({
   headerSubtext: {
     textAlign: 'center',
     color: '#9c9d9c',
-    fontSize: 12,
-    fontFamily: 'Raleway',
+    fontSize: 15,
+    fontFamily: 'Ubuntu',
   },
   headerSettings: {
     position: 'absolute',
     width: '100%',
-    right: 0,
     display: 'flex',
-    flexDirection: 'row',
+    gap:10,
+    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
     top: 20,
@@ -141,6 +142,12 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 5,
     alignItems: 'center',
+  },
+  button:{
+    backgroundColor: Colors.black,
+    color:Colors.white,
+    padding:15,
+    width:200
   },
   yearText: {
     fontSize: 16,

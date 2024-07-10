@@ -6,6 +6,7 @@ import Images from '@/constants/Images'
 import { Fontisto} from '@expo/vector-icons'
 import { Link, router } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import Button from '@/components/Button'
 
 
 
@@ -43,7 +44,7 @@ const Logout  = async () => {
     <View style={{ flex: 1, width:'100%', marginTop:20, backgroundColor:Colors.white}}>
       <View style={styles.header}>
       <View>
-        <Text style={styles.text}>Hello</Text>
+        <Text style={styles.text}>Hello,</Text>
         <Text style={styles.username}>{user ? user : 'Genius'}</Text>
       </View>
 
@@ -57,7 +58,15 @@ const Logout  = async () => {
        <ScrollView>
 
       <View style={styles.container}>
-        
+      <Text style={styles.bigText}>See What Students are saying in the community?</Text>
+      <Button 
+      onPress={() => router.navigate('/threads')}
+      title='Go to Community'
+      color={Colors.yellow}
+      textColor={Colors.black}
+      
+      />
+
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
       {role === 'user' && (
       <TouchableOpacity 

@@ -2,7 +2,10 @@ import mongoose, {Schema} from 'mongoose';
 
 const postSchema = new mongoose.Schema({
   content: { type: String },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  image:{type:String},
+  user: { type: mongoose.Schema.Types.ObjectId, 
+    ref: "users", 
+    required: true },
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -13,7 +16,7 @@ const postSchema = new mongoose.Schema({
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "users",
       },
       content: {
         type: String,

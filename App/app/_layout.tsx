@@ -50,6 +50,8 @@ export default function RootLayout() {
         <Stack.Screen name="home/index" options={{ headerShown: false }} />
         <Stack.Screen name="home/[subjectId]" options={{ headerShown: false }} />
         <Stack.Screen name="cbt/index" options={{ headerShown: false }} />
+        <Stack.Screen name="threads/index" options={{ headerShown: false }} />
+        <Stack.Screen name="threads/create" />
       </Stack>
   )
 }

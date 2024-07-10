@@ -1,9 +1,16 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import Colors from '@/constants/Colors';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import ResultCard from './ResultCard';
+
+
 
 const Result = ({ userAnswers, questions }) => {
-  // Calculate the number of correct answers
-  const correctAnswers = questions.reduce((totalCorrect, question, index) => {
+const [currentIndex, setCurrentIndex ] = useState(0);
+
+
+
+const correctAnswers = questions.reduce((totalCorrect, question, index) => {
     // Check if the user's answer matches the correct answer for each question
     const userAnswer = userAnswers[index];
     const correctAnswer = question.answer;
@@ -14,12 +21,20 @@ const Result = ({ userAnswers, questions }) => {
       return totalCorrect;
     }
   }, 0);
+  let questionLength = questions.length
+  const calculateScore = (correctAnswers, questionLength) => {
+    return (correctAnswers / questionLength) * 30;
+}
 
   return (
     <View style={styles.container}>
+      <View>
       <Text style={styles.summaryText}>Summary</Text>
-      <Text style={styles.scoreText}>Score: {correctAnswers}/{questions.length}</Text>
-
+      <Text style={styles.scoreText}>You got {correctAnswers} out of {questions.length} questions</Text>
+      <Text style={styles.scoreText}>Real Score: {calculateScore(correctAnswers, questionLength)} / 30</Text>
+      </View>
+{/* 
+      <ScrollView>
       {questions.map((question, index) => (
         <View key={index} style={styles.questionContainer}>
           <Text style={styles.questionText}>{question.question}</Text>
@@ -38,6 +53,9 @@ const Result = ({ userAnswers, questions }) => {
           ))}
         </View>
       ))}
+      </ScrollView> */}
+
+      <ResultCard questions={questions[currentIndex]}/>
     </View>
   );
 };
@@ -53,6 +71,12 @@ const styles = StyleSheet.create({
   },
   scoreText: {
     marginBottom: 10,
+    backgroundColor:Colors.green,
+    width:100,
+    padding:10,
+    color:Colors.white,
+    fontFamily:'Raleway',
+    fontSize:15,
   },
   questionContainer: {
     marginVertical: 10,

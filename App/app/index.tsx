@@ -5,6 +5,8 @@ import { Link, router } from 'expo-router'
 import { Feather } from '@expo/vector-icons'
 import Images from '@/constants/Images'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { style } from '@/constants/Styles'
+import Button from '@/components/Button'
 
 export function Splashpage (){
     const [role, setRole] = useState('')
@@ -27,7 +29,7 @@ export function Splashpage (){
    }, []);
   return (
     <View style={{flex:1, height:'100%', backgroundColor:Colors.green}}>
-    <View style={{flex:1, alignItems:'center', padding:20, }}>
+    <View style={{flex:1, alignItems:'center', padding:10, }}>
     <Image source={Images.logo} style={styles.logo}/>
       <Image 
       source={Images.splash}
@@ -38,12 +40,27 @@ export function Splashpage (){
         </Text>
         <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized cbt app</Text>
       </View>
-      <Link href='/(auth)/signin' style={styles.link}>
-        <Text style={styles.linkText}>Login</Text>
-      </Link>
-      <Link href='https://www.passpadi.com/signup' style={styles.link}>
-        <Text style={styles.linkText}>Register</Text>
-      </Link>
+      <View>
+        
+      </View>
+      <View style={{gap:10, width:'100%', marginTop:20}}>
+     
+      <Button 
+      textColor={Colors.black}
+      color={Colors.yellow}
+      title="Register on the website"
+      onPress={() => router.navigate('https://www.passpadi.com/signup')} 
+      style={style.button} />
+      
+       <Button 
+      title="Login with your passpadi details"
+      onPress={() => router.push('/(auth)/signin')} 
+      style={style.button}
+
+       />
+      
+      </View>
+
     </View>
       </View>
   )

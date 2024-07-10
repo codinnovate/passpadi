@@ -36,6 +36,7 @@ import Pay from "./pages/Pay";
 import PurchasePoints from "./pages/Points";
 import VerifyTransaction from "./pages/verifyTransactions";
 import AdminTransactionsPage from "./pages/Admin/transactions";
+import { Whatsapp } from "./components/whatsapp";
 
 export const UserContext = createContext({});
 
@@ -52,6 +53,7 @@ const App = () => {
             title="Passpadi | Built by Students For Students"
             des="PassPadi is a dynamic and innovative social networking platform tailored specifically for students striving to excel in their exams"
             />
+            <Whatsapp />
             <Routes>
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />

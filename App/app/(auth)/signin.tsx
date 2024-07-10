@@ -19,6 +19,8 @@ import { router } from "expo-router";
 import { server } from "@/server";
 import Images from "@/constants/Images";
 import Loader from "@/components/Loader";
+import Colors from "@/constants/Colors";
+import Button from "@/components/Button";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -61,11 +63,13 @@ const Signin = () => {
         const token = data.access_token;
         const username = data.username;
         const role = data.role
+        const userId = data.userId
         setLoading(false)
         AsyncStorage.setItem("authToken", token);
         console.log(token)
         AsyncStorage.setItem("username", username);
         AsyncStorage.setItem("role", role);
+        AsyncStorage.setItem("userId", userId);
         router.push("/home");
       })
       .catch((error) => {
@@ -78,22 +82,20 @@ const Signin = () => {
   if(loading) return <Loader text="Signing in, please wait!!" />
   return (
     <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
+      style={{ flex: 1, backgroundColor:Colors.green, alignItems: "center" }}
     >
-      <View style={{ marginTop: 50 }}>
         <Image
-          style={{ width: 150, height: 100, resizeMode: "contain" }}
+          style={{ width: 250, height: 150, marginTop:20}}
           source={Images.logo}
         />
-      </View>
 
       <KeyboardAvoidingView>
         <View style={{ }}>
-          <Text style={{ fontSize: 23, fontFamily:'Ubuntu', marginTop: 25 }}>
+          <Text style={{ fontSize: 25, fontFamily:'Ubuntu', marginTop: 25, color:Colors.white }}>
             Login
           </Text>
-          <Text style={{ fontSize: 15, fontFamily:'Raleway'}}>
-            Enter Your Passpadi Credentials here
+          <Text style={{ fontSize: 18, fontFamily:'Raleway', color:Colors.white}}>
+            Enter Your Passpadi Username and Password
           </Text>
         </View>
 
@@ -106,26 +108,27 @@ const Signin = () => {
               borderColor: "#D0D0D0",
               borderWidth: 1,
               paddingVertical: 5,
-              borderRadius: 5,
+              borderRadius: 10,
             }}
           >
             <MaterialIcons
               style={{ marginLeft: 8 }}
               name="email"
               size={24}
-              color="gray"
+              color="white"
             />
             <TextInput
               value={email}
               onChangeText={(text) => setEmail(text)}
-              placeholderTextColor={"gray"}
+              placeholderTextColor={Colors.yellow}
               style={{
-                color: "gray",
-                marginVertical: 10,
+                color:Colors.yellow,
                 width: 300,
-                fontSize: email ? 16 : 16,
+                height:'100%',
+                paddingVertical:5,
+                fontSize: 16,
               }}
-              placeholder="enter your Email"
+              placeholder="Enter your Passpadi Email"
             />
           </View>
 
@@ -138,65 +141,50 @@ const Signin = () => {
                 borderColor: "#D0D0D0",
                 borderWidth: 1,
                 paddingVertical: 5,
-                borderRadius: 5,
+                borderRadius: 10,
               }}
             >
-              <AntDesign
-                style={{ marginLeft: 8 }}
-                name="lock"
-                size={24}
-                color="gray"
-              />
+              <MaterialIcons
+              style={{ marginLeft: 8 }}
+              name="lock"
+              size={24}
+              color="white"
+            />
               <TextInput
-                secureTextEntry={true}
+                // secureTextEntry={true}
                 value={password}
                 onChangeText={(text) => setPassword(text)}
-                placeholderTextColor={"gray"}
+                placeholderTextColor={Colors.yellow}
                 style={{
-                  color: "gray",
-                  marginVertical: 10,
+                  color: "white",
+                  paddingVertical: 5,
                   width: 300,
-                  fontSize: password ? 16 : 16,
+                  fontSize: 16,
                 }}
-                placeholder="enter your Password"
+                placeholder="Enter your Password"
               />
             </View>
           </View>
 
         </View>
 
-        <View style={{ marginTop: 45 }} />
+        <View style={{ marginTop: 45 }}>
 
-        <TouchableOpacity
-          onPress={handleLogin}
-          style={{
-            width: 320,
-            backgroundColor: "black",
-            padding: 15,
-            marginTop: 40,
-            marginLeft: "auto",
-            marginRight: "auto",
-            borderRadius: 20,
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: 16,
-              color: "white",
-            }}
-          >
-            Login
-          </Text>
-        </TouchableOpacity>
+        <Button
+        onPress={handleLogin}
+        title='Login'
+        color={Colors.yellow}
+        textColor={Colors.black}
+        />
+        </View>
 
         <Pressable
           onPress={() => router.navigate('https://www.passpadi.com/signup')}
           style={{ marginTop: 10 }}
         >
-          <Text style={{ textAlign: "center", fontSize: 16 }}>
-            Don't have an account?  <Text style={{ fontWeight: "500", color: "#007FFF" }}>
+          <Text style={{ textAlign: "center", color:Colors.white, fontFamily:'Raleway', fontSize: 16 }}>
+            Don't have an account? 
+             <Text style={{ fontWeight: "500", color: "#007FFF" }}>
             Register Here
             </Text>
           </Text>

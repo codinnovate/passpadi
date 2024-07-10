@@ -20,6 +20,7 @@ import subjectRoutes  from './routes/Subject.js';
 import schoolRoutes  from './routes/School.js';
 import  questionRoutes from './routes/Question.js';
 import { Post } from './Schema/Post.js';
+import PostRouter from './routes/Post.js';
 
 
 admin.initializeApp({
@@ -41,12 +42,12 @@ mongoose.connect(process.env.DB_LOCATION, {
 })
 app.use(cors());
 app.use(express.json());
-app.use("", [userRouter, commentRouter, productRouter])
+app.use("", [userRouter, commentRouter, productRouter, PostRouter])
 app.use("/transactions", paymentRouter)
 app.use('/questions', questionRoutes);
 app.use('/subjects', subjectRoutes);
 app.use('/schools', schoolRoutes);
-app.get('/get-upload-url', uploadUrl)
+app.get('/get-upload-url', uploadUrl);
 // app.use("",)
 
 app.post("/latest-blogs", (req, res) => {
@@ -371,29 +372,7 @@ app.get("/user/:userId", (req, res) => {
     }
   });
   
-  //endpoint to create a new post in the backend
-  app.post("/create-post", async (req, res) => {
-    try {
-      const { content, userId } = req.body;
-  
-      const newPostData = {
-        user: userId,
-      };
-    
-      if (content) {
-        newPostData.content = content;
-      }
-  
-      const newPost = new Post(newPostData);
-  
-      await newPost.save();
-  
-      res.status(200).json({ message: "Post saved successfully" });
-    } catch (error) {
-      res.status(500).json({ message: "post creation failed" });
-    }
-  });
-  
+
 
   //endpoint for liking a particular post
   app.put("/posts/:postId/:userId/like", async (req, res) => {
@@ -456,14 +435,15 @@ app.get("/user/:userId", (req, res) => {
   app.get("/get-posts", async (req, res) => {
     try {
       const posts = await Post.find()
-        .populate("user", "name")
-        .sort({ createdAt: -1 });
+      .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
+      .sort({ createdAt: -1 });
   
       res.status(200).json(posts);
     } catch (error) {
       res
         .status(500)
-        .json({ message: "An error occurred while getting the posts" });
+        .json({ message: "An error occurred while getting the posts" })
+        console.log(error)
     }
   });
   
