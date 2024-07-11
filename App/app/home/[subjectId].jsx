@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, Pressable, TouchableOpacity, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Colors from '@/constants/Colors';
@@ -8,10 +8,7 @@ import { usePathname } from 'expo-router';
 import { useWindowDimensions } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Loader from '@/components/Loader';
-import RenderHTML from 'react-native-render-html';
-import Calculator from '@/components/Calculator';
-import CalculatorApp from '@/components/Calculator';
-
+import * as FileSystem from 'expo-file-system';
 
 const Subject = () => {
   const [data, setData] = useState([]);
@@ -22,22 +19,58 @@ const Subject = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { width } = useWindowDimensions();
   const [selectedYear, setSelectedYear] = useState(2023);
+  const [offlineAvailable, setOfflineAvailable] = useState(false);
 
   const handleYearChange = (year) => {
     setSelectedYear(year);
   };
 
-  const getQuestions = async () => {
+  const checkOfflineData = async () => {
+    const fileUri = `${FileSystem.documentDirectory}${subjectName}.json`;
+    const fileInfo = await FileSystem.getInfoAsync(fileUri);
+    setOfflineAvailable(fileInfo.exists);
+    return fileInfo.exists;
+  };
+
+  const downloadOfflineData = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`${server}/questions/v1/${subjectName}`);
+      const fileUri = `${FileSystem.documentDirectory}${subjectName}.json`;
+      await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(response.data));
       setData(response.data);
-      console.log(response.data);
       setFilteredData(response.data.filter((question) => question.examYear === selectedYear));
-      setLoading(false);
+      setOfflineAvailable(true);
     } catch (error) {
       console.log(error);
+      Alert.alert("Error", "Failed to download data. Please try again.");
+    } finally {
       setLoading(false);
+    }
+  };
+
+  const loadOfflineData = async () => {
+    const fileUri = `${FileSystem.documentDirectory}${subjectName}.json`;
+    const jsonData = await FileSystem.readAsStringAsync(fileUri);
+    const parsedData = JSON.parse(jsonData);
+    setData(parsedData);
+    setFilteredData(parsedData.filter((question) => question.examYear === selectedYear));
+    setLoading(false);
+  };
+
+  const getQuestions = async () => {
+    setLoading(true);
+    if (await checkOfflineData()) {
+      loadOfflineData();
+    } else {
+      Alert.alert(
+        "Download Required",
+        "You need to download the data for offline use.",
+        [
+          { text: "Cancel", onPress: () => setLoading(false), style: "cancel" },
+          { text: "Download", onPress: downloadOfflineData }
+        ]
+      );
     }
   };
 
@@ -128,7 +161,6 @@ const Subject = () => {
               source={source}
               style={styles.text}
             />
-            {/* <RenderHTML source={source} contentWidth={300}/> */}
           </View>
           <View style={styles.questionOptions}>
             {question?.options.map((option, index) => (

@@ -446,6 +446,23 @@ app.get("/user/:userId", (req, res) => {
         console.log(error)
     }
   });
+
+  app.get("/post/:postId", async (req, res) => {
+    const {postId} = req.params;
+
+    try {
+        const post = await Post.findOne({postId})
+        .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
+        .sort({ createdAt: -1 });
+        res.status(200).json(post);
+        console.log(post)
+      } catch (error) {
+        res
+          .status(500)
+          .json({ message: "An error occurred while getting the posts" })
+          console.log(error)
+      }
+  })
   
   app.get("/profile/:userId", async (req, res) => {
     try {

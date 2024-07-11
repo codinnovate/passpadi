@@ -11,6 +11,7 @@ const userSchema = mongoose.Schema({
             required: true,
             minlength: [3, 'fullname must be 3 letters long'],
         },
+        deviceInfo: String,
         email: {
             type: String,
             required: true,
@@ -22,6 +23,9 @@ const userSchema = mongoose.Schema({
             type: String,
             minlength: [3, 'Username must be 3 letters long'],
             unique: true,
+        },
+        referralCode:{
+            type:String,
         },
         phoneNumber:{
             type:String,

@@ -21,11 +21,16 @@ import Images from "@/constants/Images";
 import Loader from "@/components/Loader";
 import Colors from "@/constants/Colors";
 import Button from "@/components/Button";
+import * as Device from 'expo-device';
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+
+
+
   useEffect(() => {
      const checkLoginStatus = async () => {
        try {
@@ -48,11 +53,13 @@ const Signin = () => {
       setLoading(false)
     }
   }
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    setLoading(true)
     checkFields();
     const user = {
       email: email,
       password: password,
+      deviceInfo:Device.deviceName
     };
     
     axios
@@ -73,7 +80,7 @@ const Signin = () => {
         router.push("/home");
       })
       .catch((error) => {
-        Alert.alert("Login error");
+        Alert.alert("Login error", error.message);
         setLoading(false)
         console.log("error ", error);
       });
@@ -122,7 +129,7 @@ const Signin = () => {
               onChangeText={(text) => setEmail(text)}
               placeholderTextColor={Colors.yellow}
               style={{
-                color:Colors.yellow,
+                color:Colors.white,
                 width: 300,
                 height:'100%',
                 paddingVertical:5,

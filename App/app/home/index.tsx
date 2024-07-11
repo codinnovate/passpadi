@@ -45,7 +45,7 @@ const Logout  = async () => {
       <View style={styles.header}>
       <View>
         <Text style={styles.text}>Hello,</Text>
-        <Text style={styles.username}>{user ? user : 'Genius'}</Text>
+        <Text style={styles.username}>@{user ? user : 'Genius'}</Text>
       </View>
 
       <TouchableOpacity

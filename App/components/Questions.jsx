@@ -48,7 +48,7 @@ const Questions = ({ question, onAnswerClicked, index, total }) => {
     <View>
       <View style={styles.questionCard}>
         <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Text style={{ fontFamily: 'Raleway' }}>Question {index} of {total} </Text>
+          <Text style={{ fontFamily: 'Raleway' }}>Question {index + 1} of {total} </Text>
           <View style={{ backgroundColor: Colors.red, width: 40, display: 'flex', alignItems: 'center' }}>
             <Text style={{ fontFamily: 'SpaceGM', color: Colors.white }}>{question?.examYear}</Text>
           </View>

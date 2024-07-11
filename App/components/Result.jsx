@@ -55,7 +55,11 @@ const correctAnswers = questions.reduce((totalCorrect, question, index) => {
       ))}
       </ScrollView> */}
 
-      <ResultCard questions={questions[currentIndex]}/>
+      <ResultCard 
+      questions={questions[currentIndex]}
+       index={currentIndex} 
+       userAnswer={userAnswers[currentIndex]}
+       />
     </View>
   );
 };
@@ -66,17 +70,21 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily:"Ubuntu",
     marginBottom: 10,
   },
   scoreText: {
     marginBottom: 10,
-    backgroundColor:Colors.green,
-    width:100,
+    backgroundColor:Colors.yellow,
+    width:'100%',
     padding:10,
-    color:Colors.white,
+    borderRadius:15,
+    height:50,
+    shadowRadius:20,
+    shadowColor:Colors.green,
+    color:Colors.black,
     fontFamily:'Raleway',
-    fontSize:15,
+    fontSize:20,
   },
   questionContainer: {
     marginVertical: 10,

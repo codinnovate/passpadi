@@ -9,7 +9,7 @@ export const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // re
 export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 
 const Register = (req, res) => {
-    let { fullname, email, password, profile_img , bio} = req.body;
+    let { fullname, email, password, phoneNumber, referralCode, } = req.body;
     if (fullname.length < 3){
         return res.status(403).json({"error":"Fullname must be at least 3 letters "})
     }
@@ -28,21 +28,21 @@ const Register = (req, res) => {
         let username = await generateUsername(email);
         let user = new User({
             personal_info: {
-                fullname, email, password:hash_password , username, profile_img, bio}
+                fullname, email, password:hash_password , username,  phoneNumber, referralCode }
         })
         user.save().then((u) => {
             return res.status(200).json(formatDatatoSend(u))
         })
         .catch(err => {
                 if (err.code == 11000) {
-                return res.status(500).json({"error":"Email already exists"})
+                return res.status(500).json({"error":"Email or Phone Number  already exists"})
                 console.log({"error":"Email already exists"})
             }
             return res.status(500).json({"error":err.message})
         })})
 }
 const Login = (req, res) => {
-    let { email, password } = req.body;
+    let { email, password, deviceInfo } = req.body;
     User.findOne({ "personal_info.email": email })
         .then((user) => {
             if (!user){
@@ -50,7 +50,7 @@ const Login = (req, res) => {
             }
             if (!user.google_auth) {
                 bcrypt.compare(password, user.personal_info.password,
-                    (err, result) => {
+                    async (err, result) => {
                         if (err) {
                             return res.status(403).json({"error":"Error occured while login please try again!"})
                         }
@@ -58,7 +58,13 @@ const Login = (req, res) => {
                             return res.status(403).json({"error":"Incorrect password"})
                         }
                         else {
-                            return res.status(200).json(formatDatatoSend(user))
+                            if (user.deviceInfo && user.deviceInfo !== deviceInfo) {
+                                return res.status(403).json({ "error": "User is already logged in on another device." });
+                            }
+                            console.log("Got Here")
+                            user.deviceInfo = deviceInfo; // Update deviceInfo
+                            await user.save();
+                            return res.status(200).json(formatDatatoSend(user));
                         }
                 })
             } else {

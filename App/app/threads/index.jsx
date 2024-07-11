@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image, Pressable } from "react-native";
 import React, { useEffect, useState, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -10,6 +10,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { server } from "@/server";
 import Images from "@/constants/Images";
 import Colors from "@/constants/Colors";
+import { Link, router } from "expo-router";
 
 const Threads = () => {
   const [ userId, setUserId]  = useState();
@@ -90,7 +91,8 @@ const Threads = () => {
       marginTop: 20, gap: 10,
  }}>
         {posts?.map((post) => (
-          <View
+          <Pressable
+          onPress={() => router.push(`threads/${post?._id}`)}
             key={post?._id}
             style={{
               width:'100%',
@@ -108,16 +110,15 @@ const Threads = () => {
               display:'flex',
 
             }}>
+              
               <Image
                 style={{
                   width: 30,
                   height: 30,
                   borderRadius: 20,
                 }}
-                source={{
-                  uri: post.user?.personal_info?.profile_img,
-                }}
-              />
+                src={ post.user?.personal_info?.profile_img}
+                />
             </View>
 
             <View 
@@ -149,7 +150,8 @@ const Threads = () => {
                 <Text style={{color:Colors.white, fontFamily:'Raleway'}}>{post?.content}</Text>
               )}
               {post?.image && (
-                <View 
+              <Link 
+                href={`threads/${post?._id}`}
                 style={{
                   width: '100%',
                   maxHeight:400,
@@ -157,6 +159,7 @@ const Threads = () => {
                   backgroundColor:Colors.green,
                   borderRadius: 5,
                 }}>
+
                   <Image
                    style={{
                    width: '100%',
@@ -164,11 +167,9 @@ const Threads = () => {
                    objectFit:'contain',
                    borderRadius: 2,
                  }}
-                 source={{
-                   uri: post?.image,
-                 }}
+                 src={post?.image}
                />
-                </View>
+                </Link>
               )}
                 
               </View>
@@ -184,14 +185,14 @@ const Threads = () => {
                 <View style={{flexDirection:"row", alignItems:'center'}}>
                 {post?.likes?.includes(userId) ? (
                   <AntDesign
-                    onPress={() => handleDislike(post?._id)}
+                    // onPress={() => handleDislike(post?._id)}
                     name="heart"
                     size={20}
-                    color={Colors.gray}
+                    color={Colors.red}
                   />
                 ) : (
                   <AntDesign
-                    onPress={() => handleLike(post?._id)}
+                    // onPress={() => handleLike(post?._id)}
                     name="hearto"
                     size={20}
                     color={Colors.gray}
@@ -209,7 +210,7 @@ const Threads = () => {
 
              
             </View>
-          </View>
+          </Pressable>
         ))}
       </View>
     </ScrollView>

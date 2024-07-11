@@ -110,6 +110,26 @@ const UserAuthForm = ({ type }) => {
                             placeholder="Password"
                             icon="fi-rr-key"
                             />
+
+{
+                    type != "sign-in" ?
+                    <InputBox
+                    name="phoneNumber"
+                    type="text"
+                    placeholder="Enter Phone number, e.g 0812300000"
+                    icon="fi-rr-phone-flip"
+                    /> : ""
+                }  
+                               {
+                    type != "sign-in" ?
+                    <InputBox
+                    name="referralCode"
+                    type="text"
+                    placeholder="Enter Refferal Code, Skip if none"
+                    icon="fi-rr-user"
+                    /> : ""
+                }  
+                
                     <button
                     onClick={handleSubmit}
                     type='submit'
