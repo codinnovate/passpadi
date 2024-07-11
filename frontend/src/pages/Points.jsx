@@ -38,7 +38,7 @@ const PurchasePoints = () => {
     };
     function payWithPaystack() {
         const handler = PaystackPop.setup({
-          key: 'pk_test_6b10c305ac9c9ff3601b7be8b88bd0addd1d2e68', // Replace with your public key
+          key: import.meta.env.VITE_PAYSTACK_PUBLICK_KEY, // Replace with your public key
           email: email,
           amount:100000, // the amount value is multiplied by 100 to convert to the lowest currency unit
           currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars

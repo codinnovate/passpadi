@@ -6,6 +6,8 @@ import axios from 'axios';
 import { style } from '@/constants/Styles';
 
 
+
+
 const Comments = ({comment}) => {
   const [user, setUser] = useState();
 

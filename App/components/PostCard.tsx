@@ -6,6 +6,8 @@ import Colors from "@/constants/Colors";
 import axios from "axios";
 import { server } from "@/server";
 import { UserContext } from '@/context/UserContext';
+// import { Image } from 'expo-image';
+
 
 const PostCard = ({ post }) => {
   const { userId } = useContext(UserContext);
@@ -32,6 +34,9 @@ const PostCard = ({ post }) => {
     }
   };
 
+  // href={`threads/${post?._id}`}
+
+
   return (
     <View
       style={{
@@ -54,6 +59,7 @@ const PostCard = ({ post }) => {
           }}
           source={{ uri: post?.user?.personal_info?.profile_img }}
         />
+        
       </View>
 
       <View style={{ width: '100%' }}>
@@ -69,27 +75,15 @@ const PostCard = ({ post }) => {
           {post?.content && (
             <Text style={{ color: Colors.white, fontFamily: 'Raleway' }}>{post?.content}</Text>
           )}
-          {post?.image && (
-            <Link
-              href={`threads/${post?._id}`}
-              style={{
-                width: '100%',
-                maxHeight: 400,
-                height: 300,
-                backgroundColor: Colors.gray,
-                borderRadius: 10,
-              }}
-            >
+          {post?.image && (              
               <Image
                 style={{
                   width: '100%',
-                  height: '100%',
-                  borderRadius: 2,
-                  resizeMode: 'cover'
+                  height: 300,
+                  // resizeMode: 'cover'
                 }}
                 source={{ uri: post?.image }}
               />
-            </Link>
           )}
         </View>
 

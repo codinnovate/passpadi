@@ -91,7 +91,7 @@ const PostComment = ({ postId}) => {
   }
 }
 
-  if(!user) return <Loader />
+  // if(!user) return <Loader />
   return (
     <View style={styles.container}>
       <View style={styles.avatar}>
