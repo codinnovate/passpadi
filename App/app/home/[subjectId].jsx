@@ -9,6 +9,8 @@ import { useWindowDimensions } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Loader from '@/components/Loader';
 import * as FileSystem from 'expo-file-system';
+import { style } from '@/constants/Styles';
+
 
 const Subject = () => {
   const [data, setData] = useState([]);
@@ -65,7 +67,7 @@ const Subject = () => {
     } else {
       Alert.alert(
         "Download Required",
-        "You need to download the data for offline use.",
+        "You need to download the questions for offline use.",
         [
           { text: "Cancel", onPress: () => setLoading(false), style: "cancel" },
           { text: "Download", onPress: downloadOfflineData }
@@ -173,7 +175,8 @@ const Subject = () => {
             ))}
           </View>
         </View>
-
+        
+   {/* anwer details */}
         {question?.answerDetail ? (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={styles.answerDetail}>
@@ -208,6 +211,8 @@ const Subject = () => {
             )}
           </View>
         </View>
+
+
       </View>
     </SafeAreaView>
   );

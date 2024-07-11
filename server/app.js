@@ -399,9 +399,10 @@ app.get("/user/:userId", (req, res) => {
       const { content, image } = req.body;
       const userId = req.user;
   
-      if (!content || !image) {
-        return res.status(400).json({ message: "Content is required" });
+      if (!content && !image) {
+        return res.status(500).json({ message: "Please either write something or upload an image" });
       }
+  
   
       const user = await User.findById(userId);
       if (!user) {

@@ -3,17 +3,14 @@ import React, { useState, useContext } from 'react';
 import { Link } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { server } from "@/server";
-import {UserContext } from '@/context/UserContext';
+import { UserContext } from '@/context/UserContext';
 
 const PostCard = ({ post }) => {
   const { userId } = useContext(UserContext);
   const [likes, setLikes] = useState(post?.likes);
   const [liked, setLiked] = useState(post?.likes.includes(userId));
-
-
 
   const handleLike = async (postId) => {
     try {
@@ -55,9 +52,7 @@ const PostCard = ({ post }) => {
             height: 30,
             borderRadius: 20,
           }}
-          source={{
-            uri: post?.user?.personal_info?.profile_img,
-          }}
+          source={{ uri: post?.user?.personal_info?.profile_img }}
         />
       </View>
 
@@ -81,20 +76,18 @@ const PostCard = ({ post }) => {
                 width: '100%',
                 maxHeight: 400,
                 height: 300,
-                backgroundColor: Colors.green,
-                borderRadius: 5,
+                backgroundColor: Colors.gray,
+                borderRadius: 10,
               }}
             >
               <Image
                 style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'contain',
                   borderRadius: 2,
+                  resizeMode: 'cover'
                 }}
-                source={{
-                  uri: post?.image,
-                }}
+                source={{ uri: post?.image }}
               />
             </Link>
           )}

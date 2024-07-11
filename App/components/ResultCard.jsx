@@ -43,7 +43,6 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
     html: questions ? generateHtmlContent(questions?.question) : '<p>No question available</p>',
   };
   return (
-    <View>
       <View style={styles.questionCard}>
         <View style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <Text style={{ fontFamily: 'Raleway' }}>Question {index + 1} of {total} </Text>
@@ -63,7 +62,7 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
         </View>
         <View style={styles.questionOptions}>
           {questions?.options.map((option, index) => (
-            <TouchableOpacity
+            <Pressable
              
               key={index}
               style={[{
@@ -72,11 +71,13 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
               }, styles.button]}
             >
               <Text style={styles.text}>{option}</Text>
-            </TouchableOpacity>
+            </Pressable>
           ))}
         </View>
+
+        {/* buttons for previous and next */}
+        
       </View>
-    </View>
   );
 };
 
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   webViewContainer: {
-    height: 200,
+    height: 100,
     width: '100%',
     marginTop: 10,
   },

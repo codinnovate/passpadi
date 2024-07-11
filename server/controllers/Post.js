@@ -17,8 +17,8 @@ export const CreatePost = async (req,res) => {
         newPostData.image = image;
       }
 
-      if(!image || !content){
-        return res.status(500).json({message:"Please Either Write something or Upload an Image"})
+      if (!content && !image) {
+        return res.status(500).json({ message: "Please either write something or upload an image" });
       }
   
       const newPost = new Post(newPostData);

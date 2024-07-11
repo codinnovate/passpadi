@@ -30,7 +30,6 @@ const Signin = () => {
 
 
 
-  alert(server)
   useEffect(() => {
      const checkLoginStatus = async () => {
        try {

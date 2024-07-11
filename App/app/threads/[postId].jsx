@@ -7,7 +7,6 @@ import { server } from "@/server";
 import { useState } from 'react';
 import PostCard from '@/components/PostCard'
 import Colors  from '@/constants/Colors'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Comments from '@/components/Comments';
 import PostComment from '@/components/PostComment'
 import {UserContext} from '@/context/UserContext';

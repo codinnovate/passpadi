@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import Button from '@/components/Button'
 import Colors from '@/constants/Colors';
@@ -10,8 +10,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ImagePicker from 'expo-image-picker';
 import Loader from '@/components/Loader';
 import { router } from 'expo-router';
+import {UserContext} from '@/context/UserContext';
 
-const PostComment = ({userId, postId}) => {
+
+const PostComment = ({ postId}) => {
+  const {userId} = useContext(UserContext)
   const [user, setUser] = useState();
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);

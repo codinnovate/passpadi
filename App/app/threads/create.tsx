@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TextInput, Button, Image, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
@@ -14,8 +14,18 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
-
- 
+  const [role, setRole] = useState('')
+  const getUser = async () => {
+    const userRole = await AsyncStorage.getItem("role")
+    setRole(userRole)
+  }
+  useEffect(() => {
+    getUser();
+    if(role === 'user'){
+      Alert.alert("You Need to Pay just 1000Naira to take Cbt !!")
+        router.back()
+    }
+  })
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -64,6 +74,7 @@ const CreatePost = () => {
       setContent('');
       setImage(null);
     } catch (error) {
+      console.log(error)
       Alert.alert("Error creating post:", error?.message);
     } finally {
       setUploading(false);
