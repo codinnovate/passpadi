@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons'
 import Button from '@/components/Button'
@@ -93,7 +93,7 @@ const PostComment = ({ postId}) => {
 
   // if(!user) return <Loader />
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.avatar}>
          <Image
             style={{
@@ -106,7 +106,7 @@ const PostComment = ({ postId}) => {
             }}
             />    
 
-
+    
           <TextInput 
           style={styles.input}
           value={content}
@@ -136,7 +136,7 @@ const PostComment = ({ postId}) => {
         </View>
       )}
           </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 

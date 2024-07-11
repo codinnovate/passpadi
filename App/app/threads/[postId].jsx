@@ -40,10 +40,11 @@ const ThreadsDetail = () => {
     <SafeAreaView 
     style={{
     flex:1,
+    backgroundColor:Colors.black,
 
     }}>
-      <ScrollView style={{flex:1, backgroundColor:Colors.black, height:'100%',}}>
-      <Text style={{color:Colors.white}}>ThreadsDetail</Text>
+      <ScrollView style={{flex:1,     marginTop:20,  height:'100%',}}>
+      <Text style={{color:Colors.white, textAlign:'center', fontFamily:'Ubuntu', fontSize:20, marginVertical:20}}>ThreadsDetail</Text>
       <PostCard post={post} />
       <PostComment userId={userId} postId={postId}/>
       {post && post?.replies.map((reply, index) => (

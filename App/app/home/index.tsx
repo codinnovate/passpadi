@@ -24,6 +24,7 @@ const Home = () => {
   // const {userAuth, userAuth:{ access_token, profile_img, username }} = useContext(UserContext);
   const getUser = async () => {
     const username = await AsyncStorage.getItem("username")
+    console.log(username)
     const userRole = await AsyncStorage.getItem("role")
     setRole(userRole)
     setUser(username);
@@ -34,8 +35,10 @@ const Home = () => {
   })
 
 const Logout  = async () => {
-    const token = await AsyncStorage.removeItem("authToken")
-    console.log(token)
+    await AsyncStorage.removeItem("authToken")
+    await AsyncStorage.removeItem("username");
+    await AsyncStorage.removeItem("role");
+    await AsyncStorage.removeItem("userId");
     router.navigate('(auth)/signin')
   } 
   return (

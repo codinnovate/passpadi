@@ -22,7 +22,15 @@ const CreatePost = () => {
   useEffect(() => {
     getUser();
     if(role === 'user'){
-      Alert.alert("You Need to Pay just 1000Naira to take Cbt !!")
+      Alert.alert("")
+      Alert.alert(
+        "App Activation Required",
+        "Sorry you need to activate your app first.!!",
+        [
+          { text: "No,I won't pay, Lemme Alone !!", onPress: () => router.push('https://passpadi.com/pay-for-app'), style: "cancel" },
+          { text: "Activate", onPress:() => router.push('https://passpadi.com/pay-for-app') }
+        ]
+      );
         router.back()
     }
   })

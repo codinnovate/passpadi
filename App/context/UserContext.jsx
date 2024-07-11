@@ -1,10 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const UserContext = createContext(null);
+export const UserContext = createContext({});
 
 export const UserContextProvider = ({ children }) => {
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
     const getUserId = async () => {

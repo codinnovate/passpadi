@@ -46,22 +46,18 @@ const PostCard = ({ post }) => {
         borderBottomWidth: 1,
         borderColor: Colors.gray,
         display: 'flex',
-        gap: 20,
+        gap: 5,
         flexDirection: "row",
       }}
     >
-      <View style={{ display: 'flex' }}>
-        <Image
-          style={{
-            width: 30,
-            height: 30,
-            borderRadius: 20,
-          }}
-          source={{ uri: post?.user?.personal_info?.profile_img }}
-        />
         
-      </View>
-
+        <Image
+            style={{
+                  width:50,
+                  height:50,
+                }}
+            source={{uri:post?.user?.personal_info?.profile_img}}
+         />
       <View style={{ width: '100%' }}>
         <View style={{ flexDirection: 'row', gap: 10 }}>
           <Text style={{ fontSize: 15, fontFamily: 'Ubuntu', color: Colors.white }}>

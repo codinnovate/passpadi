@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/CbtPage.jsx", "app/home/[subjectId].jsx", "app/(auth)/signin.jsx", "app/threads/index.jsx"  ]
+, "components/CbtPage.jsx", "app/home/[subjectId].jsx", "app/(auth)/signin.jsx", "app/threads/index.jsx", "app/threads/create.jsx", "components/PostCard.jsx", "context/ActivationContext.jsx"  ]
 }

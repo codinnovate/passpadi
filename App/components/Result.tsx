@@ -79,7 +79,6 @@ const question = questions[currentIndex];
        userAnswer={userAnswers[currentIndex]}
        />
 
-
 {question?.answerDetail ? (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={style.answerDetail}>
