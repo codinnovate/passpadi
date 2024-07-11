@@ -1,38 +1,30 @@
 import { StyleSheet, Text, View, ScrollView, Image, Pressable } from "react-native";
-import React, { useEffect, useState, useCallback } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AntDesign } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { useFocusEffect } from "@react-navigation/native";
 import { server } from "@/server";
 import Images from "@/constants/Images";
 import Colors from "@/constants/Colors";
 import { Link, router } from "expo-router";
+import { UserContext } from '@/context/UserContext';
+import PostCard from "@/components/PostCard";
+
 
 const Threads = () => {
-  const [ userId, setUserId]  = useState();
+  const { userId } = useContext(UserContext);
   const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const getUserId = async () => {
-      const userId = await AsyncStorage.getItem("userId");
-      setUserId(userId);
-    };
+  console.log(userId)
 
-    getUserId();
 
-  }, []);
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      fetchPosts();
-    }, [])
-  );
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     fetchPosts();
+  //   }, [])
+  // );
 
   const fetchPosts = async () => {
     try {
@@ -83,7 +75,7 @@ const Threads = () => {
       <View style={{ alignItems: "center", marginTop: 20 }}>
         <Image
           style={{ width: 60, height: 40}}
-          src={Images.logo}
+          source={{uri:Images.logo}}
         />
       </View>
 
@@ -93,123 +85,8 @@ const Threads = () => {
         {posts?.map((post) => (
           <Pressable
           onPress={() => router.push(`threads/${post?._id}`)}
-            key={post?._id}
-            style={{
-              width:'100%',
-              height:'auto',
-              padding: 15,
-              borderBottomWidth: 1,
-              borderColor:Colors.gray,
-              display:'flex',
-              gap: 20,
-              flexDirection: "row",
-            }}
-          >
-            <View style={{
-              // width:'100%',
-              display:'flex',
-
-            }}>
-              
-              <Image
-                style={{
-                  width: 30,
-                  height: 30,
-                  borderRadius: 20,
-                }}
-                src={ post.user?.personal_info?.profile_img}
-                />
-            </View>
-
-            <View 
-            style={{
-              width:'100%',
-            }}>
-              <View style={{
-                flexDirection:'row',
-                gap:10,
-              }}>
-              <Text
-                style={{ fontSize: 15, fontFamily:'Ubuntu', color:Colors.white,  }}
-              >
-                {post?.user?.personal_info?.fullname}
-              </Text>
-              <Text
-                style={{ fontSize: 15, fontFamily:'Raleway', color:Colors.gray,  }}
-              >
-                @{post?.user?.personal_info?.username}
-              </Text>
-              </View>
-              <View style={{
-                marginVertical:5,
-                gap:10,
-                width:'100%',
-                paddingRight:10,
-              }}>
-              {post?.content && (
-                <Text style={{color:Colors.white, fontFamily:'Raleway'}}>{post?.content}</Text>
-              )}
-              {post?.image && (
-              <Link 
-                href={`threads/${post?._id}`}
-                style={{
-                  width: '100%',
-                  maxHeight:400,
-                  height:300,
-                  backgroundColor:Colors.green,
-                  borderRadius: 5,
-                }}>
-
-                  <Image
-                   style={{
-                   width: '100%',
-                   height:'100%',
-                   objectFit:'contain',
-                   borderRadius: 2,
-                 }}
-                 src={post?.image}
-               />
-                </Link>
-              )}
-                
-              </View>
-
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 10,
-                  marginTop: 15,
-                }}
-              >
-                <View style={{flexDirection:"row", alignItems:'center'}}>
-                {post?.likes?.includes(userId) ? (
-                  <AntDesign
-                    // onPress={() => handleDislike(post?._id)}
-                    name="heart"
-                    size={20}
-                    color={Colors.red}
-                  />
-                ) : (
-                  <AntDesign
-                    // onPress={() => handleLike(post?._id)}
-                    name="hearto"
-                    size={20}
-                    color={Colors.gray}
-                  />
-                )}
-                  <Text style={{color:Colors.gray, fontFamily:'Raleway', marginLeft:5,}}>{post?.likes?.length}</Text>
-                </View>
-
-               <View style={{flexDirection:'row', alignItems:"center"}}>
-               <AntDesign name="message1" size={20} color={Colors.gray}/>
-               <Text style={{ color:Colors.gray, marginLeft:5}}>{post?.replies?.length}</Text>
-               </View>
-                <AntDesign name="sharealt" size={20} color={Colors.gray} />                
-              </View>
-
-             
-            </View>
+            key={post?._id}>
+          <PostCard post={post}/>
           </Pressable>
         ))}
       </View>

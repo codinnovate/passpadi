@@ -340,6 +340,26 @@ app.get("/user/:userId", (req, res) => {
       res.status(500).json({ message: "error getting the users" });
     }
   });
+// get only me
+  app.get("/me/:userId", (req, res) => {
+    try {
+      const loggedInUserId = req.params.userId;
+      User.findById(loggedInUserId)
+        .then((user) => {
+          if (user) {
+            res.status(200).json(user);
+          } else {
+            res.status(404).json({ message: "User not found" });
+          }
+        })
+        .catch((error) => {
+          console.error("Error: ", error);
+          res.status(500).json({ message: "Error fetching the user" });
+        });
+    } catch (error) {
+      res.status(500).json({ message: "Error getting the user" });
+    }
+  });
   
   //endpoint to follow a particular user
   app.post("/follow", async (req, res) => {
@@ -373,7 +393,44 @@ app.get("/user/:userId", (req, res) => {
   });
   
 
+  app.put('/reply/:postId/', verifyJWT,  async (req, res) => {
+    try {
+      const { postId } = req.params;
+      const { content, image } = req.body;
+      const userId = req.user;
+  
+      if (!content || !image) {
+        return res.status(400).json({ message: "Content is required" });
+      }
+  
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      const post = await Post.findById(postId);
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+  
+      const newReply = {
+        user: userId,
+        content,
+        image,
+        createdAt: new Date(),
+      };
+  
+      post.replies.push(newReply);
+      await post.save();
+  
+      res.status(201).json(post);
+    } catch (error) {
+      console.error("Error adding reply: ", error);
+      res.status(500).json({ message: "Error adding reply" });
+    }
+  });
 
+  
   //endpoint for liking a particular post
   app.put("/posts/:postId/:userId/like", async (req, res) => {
     const postId = req.params.postId;
@@ -448,17 +505,17 @@ app.get("/user/:userId", (req, res) => {
   });
 
   app.get("/post/:postId", async (req, res) => {
-    const {postId} = req.params;
+    const postId = req.params.postId;
+    console.log(postId)
 
     try {
-        const post = await Post.findOne({postId})
+        const post = await Post.findById(postId)
         .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
         .sort({ createdAt: -1 });
         res.status(200).json(post);
         console.log(post)
       } catch (error) {
-        res
-          .status(500)
+        res.status(500)
           .json({ message: "An error occurred while getting the posts" })
           console.log(error)
       }

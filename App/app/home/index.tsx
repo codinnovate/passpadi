@@ -58,14 +58,14 @@ const Logout  = async () => {
        <ScrollView>
 
       <View style={styles.container}>
-      <Text style={styles.bigText}>See What Students are saying in the community?</Text>
+      {/* <Text style={styles.bigText}>See What Students are saying in the community?</Text>
       <Button 
       onPress={() => router.navigate('/threads')}
       title='Go to Community'
       color={Colors.yellow}
       textColor={Colors.black}
       
-      />
+      /> */}
 
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
       {role === 'user' && (

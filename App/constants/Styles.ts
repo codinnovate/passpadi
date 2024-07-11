@@ -12,11 +12,24 @@ export const style = StyleSheet.create({
     buttonText:{
         fontFamily:'Ubuntu',
         textAlign:'center',
-        fontSize:20,
+        fontSize:18,
     },
     label: {
         marginBottom: 10,
         fontSize:20,
         fontFamily:'Raleway',
     },
+    avatar:{
+        width:20,
+        height:20,
+        borderRadius:60,
+    },
+    fullname:{
+    color:Colors.white,
+    fontFamily:'Ubuntu',
+    },
+    username:{
+        color:Colors.gray,
+        fontFamily:'Raleway',
+    }
 })

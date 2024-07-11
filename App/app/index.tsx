@@ -9,7 +9,6 @@ import { style } from '@/constants/Styles'
 import Button from '@/components/Button'
 
 export function Splashpage (){
-    const [role, setRole] = useState('')
 
   useEffect(() => {
       const checkLoginStatus = async () => {

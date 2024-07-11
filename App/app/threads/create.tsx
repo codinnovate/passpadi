@@ -6,28 +6,16 @@ import { server } from '../../server';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons'; // Make sure to install @expo/vector-icons
 import { router } from 'expo-router';
+import { uploadImage } from '@/common/aws';
+
+
 
 const CreatePost = () => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
 
-  const uploadImage = async (img) => {
-    let imgUrl = null;
-    await axios.get(`${server}/get-upload-url`)
-      .then(async ({ data: { uploadURL } }) => {
-        await axios({
-          method: "PUT",
-          url: uploadURL,
-          headers: { 'Content-Type': 'multipart/form-data' },
-          data: img
-        })
-          .then(() => {
-            imgUrl = uploadURL.split("?")[0];
-          });
-      });
-    return imgUrl;
-  };
+ 
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -76,10 +64,12 @@ const CreatePost = () => {
       setContent('');
       setImage(null);
     } catch (error) {
-      Alert.alert("Error creating post:", error.message);
+      Alert.alert("Error creating post:", error?.message);
     } finally {
       setUploading(false);
     }
+
+    
   };
 
   return (
