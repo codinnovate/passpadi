@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Passpadi",
-    "slug": "Passpadi Unilag Cbt App",
+    "slug": "Passpadi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -33,7 +33,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "8fe3fb05-c447-436c-ba4c-a0baea6ab8e4"
+        "projectId": "5538bc2d-fab1-4c88-8a43-8f153e93e919"
       }
     }
   }

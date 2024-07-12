@@ -1,19 +1,19 @@
 {
   "build": {
-    "preview": {
+    "passpadi": {
       "android": {
         "buildType": "apk"
       }
     },
-    "preview2": {
+    "passpadi2": {
       "android": {
         "gradleCommand": ":app:assembleRelease"
       }
     },
-    "preview3": {
+    "passpadi3": {
       "developmentClient": true
     },
-    "preview4": {
+    "passpadi4": {
       "distribution": "internal"
     },
     "production": {}
