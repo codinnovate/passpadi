@@ -433,12 +433,12 @@ app.get("/user/:userId", (req, res) => {
 
   
   //endpoint for liking a particular post
-  app.put("/posts/:postId/:userId/like", async (req, res) => {
-    const postId = req.params.postId;
-    const userId = req.params.userId; // Assuming you have a way to get the logged-in user's ID
+  app.put("/like-post", verifyJWT, async (req, res) => {
+    const {postId} = req.body;
+    const userId = req.user; // Assuming you have a way to get the logged-in user's ID
   
     try {
-      const post = await Post.findById(postId).populate("user", "name");
+      const post = await Post.findById({_id:postId}).populate("user", "name");
   
       const updatedPost = await Post.findByIdAndUpdate(
         postId,
@@ -461,12 +461,12 @@ app.get("/user/:userId", (req, res) => {
   });
   
   //endpoint to unlike a post
-  app.put("/posts/:postId/:userId/unlike", async (req, res) => {
-    const postId = req.params.postId;
-    const userId = req.params.userId;
+  app.put("/unlike-post", verifyJWT, async (req, res) => {
+    const {postId} = req.body;
+    const userId = req.user;
   
     try {
-      const post = await Post.findById(postId).populate("user", "name");
+      const post = await Post.findById({_id:postId}).populate("user", "name");
   
       const updatedPost = await Post.findByIdAndUpdate(
         postId,
@@ -489,19 +489,36 @@ app.get("/user/:userId", (req, res) => {
     }
   });
   
-  //endpoint to get all the posts
-  app.get("/get-posts", async (req, res) => {
+  app.get("/get-posts",  async (req, res) => {
     try {
-      const posts = await Post.find()
-      .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
-      .sort({ createdAt: -1 });
+      // Fetch all posts and populate user info
+      let posts = await Post.find()
+        .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
+        .populate("replies") // Assuming you have a replies field in your Post schema
+        .sort({ createdAt: -1 });
+  
+      // Separate unanswered and answered posts
+      let unansweredPosts = posts.filter(post => !post.replies || post.replies.length === 0);
+      let answeredPosts = posts.filter(post => post.replies && post.replies.length > 0);
+  
+      // Shuffle both arrays to add randomness
+      const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      };
+  
+      shuffleArray(unansweredPosts);
+      shuffleArray(answeredPosts);
+  
+      // Combine arrays, prioritizing unanswered posts
+      posts = [...unansweredPosts, ...answeredPosts];
   
       res.status(200).json(posts);
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: "An error occurred while getting the posts" })
-        console.log(error)
+      res.status(500).json({ message: "An error occurred while getting the posts" });
+      console.error(error);
     }
   });
 

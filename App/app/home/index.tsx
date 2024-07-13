@@ -63,7 +63,7 @@ const Logout  = async () => {
       <View style={styles.container}>
       <Text style={styles.bigText}>See What Students are saying in the community?</Text>
       <Button 
-      onPress={() => router.navigate('/threads')}
+      onPress={() => router.navigate('https://passpadi.com/community')}
       title='Go to Community'
       color={Colors.yellow}
       textColor={Colors.black}

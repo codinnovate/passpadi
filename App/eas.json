@@ -2,7 +2,7 @@
   "build": {
     "passpadi": {
       "android": {
-        "buildType": "apk"
+        "buildType": "app-bundle"
       }
     },
     "passpadi2": {

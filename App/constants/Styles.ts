@@ -65,15 +65,18 @@ export const style = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     position: 'absolute',
-    top:0,
-    padding: 10,
+    // padding: 10,
+    marginLeft:20,
+    marginTop:10,
     zIndex:99,
-    // backgroundColor: Colors.white,
-    bottom:'10%',
+    backgroundColor: Colors.white,
+    // bottom:0,
+    top:0,
   },
   buttonWrapper: {
     display: 'flex',
     flexDirection: 'row',
+    width:'100%',
     justifyContent: 'space-between',
   },
 })

@@ -37,7 +37,7 @@ import PurchasePoints from "./pages/Points";
 import VerifyTransaction from "./pages/verifyTransactions";
 import AdminTransactionsPage from "./pages/Admin/transactions";
 import { Whatsapp } from "./components/whatsapp";
-
+import Community from "./pages/community"
 export const UserContext = createContext({});
 
 const App = () => {
@@ -77,6 +77,7 @@ const App = () => {
                     <Route path="/transactions" element={<AdminTransactionsPage />} />
 
                     <Route path="blog/:blogId" element={<BlogPage />} />
+                    <Route path="/community" element={<Community />} />
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/classroom" element={<Classroom />}>
                         <Route path="chats" element={<Chats />} />

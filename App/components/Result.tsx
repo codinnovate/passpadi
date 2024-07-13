@@ -121,12 +121,15 @@ const question = questions[currentIndex];
 
 const styles = StyleSheet.create({
   container: {
+    width:'100%',
     padding: 20,
   },
   summaryText: {
     fontSize: 20,
     fontFamily:"Ubuntu",
+    marginTop: 50,
     marginBottom: 10,
+
   },
   scoreText: {
     marginBottom: 10,

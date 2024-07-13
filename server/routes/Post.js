@@ -1,11 +1,11 @@
 import express from 'express';
-import { CreatePost } from '../controllers/Post.js';
+import { CreatePost, EditPost, DeletePost } from '../controllers/Post.js';
 import { verifyJWT } from '../middlewares/VerifyJwt.js';
 
 const PostRouter = express.Router()
 
 PostRouter.post('/create-post', verifyJWT, CreatePost)
-// PostRouter.get('/:postId', getPost)
-
+PostRouter.put('/edit-post', verifyJWT, EditPost);
+PostRouter.delete('/delete-post', verifyJWT, DeletePost);
 
 export default PostRouter
