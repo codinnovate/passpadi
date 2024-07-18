@@ -19,8 +19,8 @@ const User = () => {
 
     const { access_token, role } = userAuth;
 
-    if (userAuth && role !== 'admin') {
-        return <Navigate to='/' />
+    if (role && role != 'admin'  ) {
+        <Navigate to='/' />
     }
     const getUsers = async () => {
         await axios.get(serverApp + '/users/', {
@@ -51,7 +51,7 @@ const User = () => {
     return (
         <div className='max-w-4xl mx-auto mt-5'>
 
-    <h1 className='text-2xl font-bold'>({users.length}) Users</h1>
+    <h1 className='text-2xl font-bold'>({users?.length}) Users</h1>
     <div class="relative overflow-x-auto mt-[1em]">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { serverApp } from '../../server';
 import Loader from '../components/loader.component';
 import AnimationWrapper from '../common/page-animation';
 import parse from 'html-react-parser';
+import { UserContext } from '../App';
 
 
 
 const Questions = () => {
+    const {userAuth:{role}} = useContext(UserContext)
     const {subject} = useParams();
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -72,9 +74,11 @@ const Questions = () => {
                                     className='border bg-black border-grey rounded-2xl p-2'>
                                         <p className='text-sm text-white ubuntu-medium'>View Answer</p>
                                 </Link>
+                                {role =='admin' && (
                                 <Link to={`${question._id}/edit-question`} className='link'>
                                 Edit Question
                                 </Link>
+                                )}
                                 <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>
                                     {question.examType}
                                     <span className='ml-3'>{question.examYear}</span>
