@@ -49,10 +49,7 @@ const Header = () => {
                 </div>
                 
                 <div className='flex gap-3 items-center '>
-                       <Link to='/' className='hidden md:flex gap-2 link'>
-                    <i className="fi fi-rr-house-blank"></i>
-                    <p>Home</p>
-                    </Link>     
+                     
                        {/* <Link to='/store' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-shop'></i>
                     <p>Store</p>
@@ -61,9 +58,9 @@ const Header = () => {
                         <i className="fi fi-rr-e-learning"></i>
                         <p>Classroom</p>
                     </Link>  
-                     <Link to='/image-to-text' className='hidden md:flex gap-2 link'>
-                    <i className="fi fi-rr-magic-wand"></i>
-                        <p>Image to Text</p>
+                     <Link to='/community' className='hidden md:flex gap-2 link'>
+                     <i class="fi fi-rr-users-medical"></i>
+                    <p>Community</p>
                     </Link>  
                 </div>
 

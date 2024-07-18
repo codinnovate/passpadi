@@ -5,6 +5,7 @@ import axios from 'axios';
 import { serverApp } from '../../server';
 import toast from 'react-hot-toast';
 import { uploadImage } from '../common/aws';
+import { Link } from 'react-router-dom';
 
 const Threadstools = ({ value, icon, onClick, active }) => {
   return (
@@ -180,7 +181,9 @@ const ThreadsCard = ({ post, user }) => {
   };
 
   return (
-    <div className='flex border-b border-grey relative'>
+    <Link
+    to={`/post/${post._id}`}
+    className='flex border-b border-grey relative'>
       {showBigImage && (
         <div className='bg-black fixed w-full min-h-full overflow-hidden top-0 left-0 right-0 bottom-0 z-[9999]'>
           <button
@@ -233,6 +236,7 @@ const ThreadsCard = ({ post, user }) => {
             <img
               onClick={() => setShowBigImage(true)}
               src={editedImage}
+              loading='lazy'
               alt='post Image'
               className='w-full rounded-2xl h-full max-h-[400px] border mt-1 object-contain'
             />
@@ -261,7 +265,8 @@ const ThreadsCard = ({ post, user }) => {
               onClick={() => setShowBigImage(true)}
               src={post.image}
               alt='post Image'
-              className='w-full rounded-2xl h-full max-h-[400px] border mt-1 object-contain'
+              loading='lazy'
+              className='w-fit flex-start rounded-2xl h-full max-h-[400px] border mt-1 object-contain'
             />
           )}
         </div>
@@ -274,7 +279,7 @@ const ThreadsCard = ({ post, user }) => {
           <Threadstools icon='paper-plane' />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

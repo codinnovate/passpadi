@@ -38,6 +38,8 @@ import VerifyTransaction from "./pages/verifyTransactions";
 import AdminTransactionsPage from "./pages/Admin/transactions";
 import { Whatsapp } from "./components/whatsapp";
 import Community from "./pages/community"
+import ThreadsDetail from "./pages/ThreadsDetail";
+import User from "./pages/Admin/User";
 export const UserContext = createContext({});
 
 const App = () => {
@@ -77,6 +79,8 @@ const App = () => {
                     <Route path="/transactions" element={<AdminTransactionsPage />} />
 
                     <Route path="blog/:blogId" element={<BlogPage />} />
+                    <Route path="post/:postId" element={<ThreadsDetail />} />
+
                     <Route path="/community" element={<Community />} />
                     <Route path="*" element={<PageNotFound />} />
                     <Route path="/classroom" element={<Classroom />}>
@@ -97,7 +101,7 @@ const App = () => {
                     <Route path="/quiz" element={<Quiz />} />
                     <Route path="/image-to-text" element={<ImagetoText />} />
                     <Route path='/ads.txt' element={<AdsTxt />} />
-                    
+                    <Route path="/admin/user" element={<User />} />
                 </Route>
                 
         </Routes>

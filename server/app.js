@@ -124,10 +124,22 @@ app.get('/trending-blogs', (req, res) => {
         .catch(err => {
             return res.status(500).json({error:err.message})
         })
-    
-
-
 })
+
+
+app.get('/drafts', verifyJWT, (req, res) => {
+   const userId = req.userId
+  Blog.find({ draft: true })
+      .populate("author", "personal_info.profile_img personal_info.username personal_info.fullname -_id   ")
+      .select("blog_id title publishedAt -_id")
+      .then(blogs => {
+          return res.status(200).json({blogs})
+      })
+      .catch(err => {
+          return res.status(500).json({error:err.message})
+      })
+})
+
 
 
 app.post("/search-blogs-count", (req, res) => {
@@ -215,7 +227,7 @@ app.post("/create-blog", verifyJWT ,  (req, res) => {
     let blog_id = id || generateSlug(title)
     if (id) {
 
-        Blog.findOneAndUpdate({ blog_id }, { title, des, banner, content, tags, draft: draft? draft : false })
+        Blog.findOneAndUpdate({ blog_id }, { title, des, banner, content, tags, draft: draft ? draft : false })
             .then(() => {
             return res.status(200).json({id: blog_id})
             })
@@ -324,12 +336,12 @@ app.post("/isliked-by-user", verifyJWT, (req, res) => {
 
 
 //endpoint to access all the users except the logged in the user
-app.get("/user/:userId", (req, res) => {
-    try {
-      const loggedInUserId = req.params.userId;
-  
+app.get("/users/", verifyJWT ,(req, res) => {
+try {
+      const loggedInUserId = req.user;
       User.find({ _id: { $ne: loggedInUserId } })
-        .then((users) => {
+      .select("-personal_info.password -google_auth -updatedAt -blogs")
+      .then((users) => {
           res.status(200).json(users);
         })
         .catch((error) => {

@@ -5,7 +5,7 @@ const Items =  [
     {icon:"fi fi-rr-house-blank", link:"/"},
     {icon:"fi fi-rr-e-learning ", link:"/classroom"},
     {icon:"fi fi-rr-square-plus", link:"/"},
-    {icon:"fi fi-rr-store-alt", link:"/store"},
+    {icon:"fi fi-rr-users-medical", link:"/community"},
     {icon:"fi fi-rr-money-bill-wave", link:"/pay-for-app"},
 ]
 const Bottombar = () => {

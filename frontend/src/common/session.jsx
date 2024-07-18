@@ -3,11 +3,11 @@ const storeInSession = (key, value) => {
 }
 
 const lookInSession = (key) => {
-    return localStorage.getItem(key)
+    return  localStorage.getItem(key)
 }
 
 const removeFromSession = (key) => {
-    return localStorage.removeItem(key)
+    return  localStorage.removeItem(key)
 }
 
 const logOutUser = () => {

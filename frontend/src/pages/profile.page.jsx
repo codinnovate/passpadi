@@ -38,7 +38,7 @@ const ProfilePage = () => {
     let [profile, setProfile] = useState(profileDataStructure);
     let { personal_info: { fullname, username: profile_username, profile_img, bio }, account_info: { total_posts, total_reads }, social_links, joinedAt , role } = profile;
     let [loading, setLoading] = useState(true);
-    let { userAuth: { username } } = useContext(UserContext);
+    let { userAuth: { username, access_token } } = useContext(UserContext);
     let [blogs, setBlogs] = useState(null);
     let [profileLoaded, setProfileLoaded] = useState("");
 
@@ -86,7 +86,20 @@ const ProfilePage = () => {
         
     }
 
+   const getDrafts = async () => {
+    try {
+        axios.get(serverApp + '/drafts', {
+            headers: {
+                'Authorization':`Bearer ${access_token}`
+            }
+        }).then((res) => {
+            console.log(res);
 
+        })
+    } catch (error) {
+        console.log(error)
+    }
+   }
 
     useEffect(() => {
         if (profileId != profileLoaded) {
@@ -96,6 +109,7 @@ const ProfilePage = () => {
             resetState();
             fetchUserProfile();
         }
+        getDrafts();
     }, [profileId, blogs])
 
     const resetState = () => {
