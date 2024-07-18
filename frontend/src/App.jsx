@@ -40,6 +40,7 @@ import { Whatsapp } from "./components/whatsapp";
 import Community from "./pages/community"
 import ThreadsDetail from "./pages/ThreadsDetail";
 import User from "./pages/Admin/User";
+import PostDetail from "./pages/PostDetail";
 export const UserContext = createContext({});
 
 const App = () => {
@@ -82,15 +83,15 @@ const App = () => {
                     <Route path="post/:postId" element={<ThreadsDetail />} />
 
                     <Route path="/community" element={<Community />} />
+                    {/* <Route path="/post/:postId" element={<PostDetail />} /> */}
                     <Route path="*" element={<PageNotFound />} />
+
+                    <Route path="/classroom/:subject/:question_id" element={<QuestionDetailPage />} />
+                    <Route path='/classroom/:subject/:question_id/edit-question/' element={<EditQuestion />} />
+                    <Route path="/classroom/:subject" element={<Questions />} />
                     <Route path="/classroom" element={<Classroom />}>
                         <Route path="chats" element={<Chats />} />
                         <Route path="groups" element={<Groups />} />
-                        <Route path=":subject" element={<Questions />} />
-                        
-                        <Route path=":subject/:question_id" element={<QuestionDetailPage />} />
-                        <Route path=':subject/:question_id/edit-question/' element={<EditQuestion />} />
-
                         <Route index element={<Feed />} />
 
                     </Route>

@@ -23,15 +23,15 @@ const ThreadsCard = ({ post, user }) => {
   const { userAuth, userAuth: { access_token, profile_img, fullname, username } } = useContext(UserContext);
   const [showBigImage, setShowBigImage] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedContent, setEditedContent] = useState(post.content);
-  const [editedImage, setEditedImage] = useState(post.image);
-  const [likes, setLikes] = useState(post.likes.length);
-  const [hasLiked, setHasLiked] = useState(post.likes.includes(userAuth._id));
+  const [editedContent, setEditedContent] = useState(post?.content);
+  const [editedImage, setEditedImage] = useState(post?.image);
+  const [likes, setLikes] = useState(post?.likes?.length);
+  const [hasLiked, setHasLiked] = useState(post?.likes?.includes(userAuth._id));
 
   useEffect(() => {
-    setLikes(post.likes.length);
-    setHasLiked(post.likes.includes(userAuth._id));
-  }, [post.likes, userAuth._id]);
+    setLikes(post?.likes?.length);
+    setHasLiked(post?.likes?.includes(userAuth._id));
+  }, [post?.likes, userAuth._id]);
 
   const handleCopyLink = () => {
     const postUrl = `${window.location.origin}/post/${post._id}`;
@@ -182,7 +182,7 @@ const ThreadsCard = ({ post, user }) => {
 
   return (
     <Link
-    to={`/post/${post._id}`}
+    to={`/post/${post?._id}`}
     className='flex border-b border-grey relative'>
       {showBigImage && (
         <div className='bg-black fixed w-full min-h-full overflow-hidden top-0 left-0 right-0 bottom-0 z-[9999]'>
@@ -258,7 +258,7 @@ const ThreadsCard = ({ post, user }) => {
               <button onClick={() => setIsEditing(false)} className='bg-gray-500 text-white rounded p-2 mt-2 ml-2'>Cancel</button>
             </div>
           ) : (
-            <h2 className='text-sm font-semibold'>{post.content}</h2>
+            <h2 className='text-sm font-semibold'>{post?.content}</h2>
           )}
           {post?.image && (
             <img
@@ -274,7 +274,7 @@ const ThreadsCard = ({ post, user }) => {
           <Threadstools icon='heart' value={likes}
            onClick={hasLiked ? handleUnlikePost : handleLikePost} 
            active={hasLiked} />
-          <Threadstools icon='beacon' value="1k" />
+          <Threadstools icon='beacon' value={post?.replies?.length} />
           <Threadstools icon='arrows-retweet' value="80" />
           <Threadstools icon='paper-plane' />
         </div>
