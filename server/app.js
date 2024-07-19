@@ -372,6 +372,8 @@ try {
       res.status(500).json({ message: "Error getting the user" });
     }
   });
+  // remove soon ensure it's not in apps
+
   
   //endpoint to follow a particular user
   app.post("/follow", async (req, res) => {
@@ -404,17 +406,61 @@ try {
     }
   });
   
-
-  app.put('/reply/:postId/', verifyJWT,  async (req, res) => {
+  app.put('/reply/:postId/:replyId', verifyJWT, async (req, res) => {
     try {
-      const { postId } = req.params;
+      const { postId, replyId } = req.params;
       const { content, image } = req.body;
       const userId = req.user;
   
       if (!content && !image) {
-        return res.status(500).json({ message: "Please either write something or upload an image" });
+        return res.status(400).json({ message: "Please provide content or an image to update" });
       }
   
+      // Find the post by postId
+      const post = await Post.findById(postId);
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+  
+      // Find the reply to ensure it exists and belongs to the user (optional, for security)
+      const reply = post.replies.id(replyId);
+      if (!reply) {
+        return res.status(404).json({ message: "Reply not found" });
+      }
+  
+      if (reply.user.toString() !== userId) {
+        console.log(reply.user.toString())
+        console.log(userId)
+        return res.status(403).json({ message: "You are not authorized to edit this reply" });
+      }
+  
+      // Update the reply fields
+      if (content) {
+        reply.content = content;
+      }
+      if (image) {
+        reply.image = image;
+      }
+  
+      // Save the post after modification
+      await post.save();
+  
+      res.status(200).json({ message: "Reply updated successfully", post });
+    } catch (error) {
+      console.error("Error updating reply: ", error);
+      res.status(500).json({ message: "Error updating reply" });
+    }
+  });
+  
+  app.put('/reply/:postId/', verifyJWT,  async (req, res) => {
+    try {
+      const { postId } = req.params;
+      console.log(postId)
+      const { content, image } = req.body;
+      const userId = req.user;
+      if (!content && !image) {
+        return res.status(500).json({ message: "Please either write something or upload an image" });
+      }
   
       const user = await User.findById(userId);
       if (!user) {
@@ -443,6 +489,42 @@ try {
     }
   });
 
+  // delete a reply 
+  app.delete('/reply/:postId/:replyId', verifyJWT, async (req, res) => {
+    try {
+      const { postId, replyId } = req.params;
+      const userId = req.user;
+  
+      // Find the post by postId
+      const post = await Post.findById(postId);
+      if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+      }
+  
+      // Find the reply to ensure it belongs to the user (optional, for security)
+      const reply = post.replies.id(replyId);
+      if (!reply) {
+        return res.status(404).json({ message: "Reply not found" });
+      }
+  
+      if (reply.user.toString() !== userId) {
+        return res.status(403).json({ message: "You are not authorized to delete this reply" });
+      }
+  
+      // Remove the reply from the replies array
+      post.replies.pull({ _id: replyId });
+  
+      // Save the post after modification
+      await post.save();
+  
+      res.status(200).json({ message: "Reply deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting reply: ", error);
+      res.status(500).json({ message: "Error deleting reply" });
+    }
+  });
+
+  // ends delete a reply
   
   //endpoint for liking a particular post
   app.put("/like-post", verifyJWT, async (req, res) => {
@@ -551,22 +633,7 @@ try {
       }
   })
   
-  app.get("/profile/:userId", async (req, res) => {
-    try {
-      const userId = req.params.userId;
-  
-      const user = await User.findById(userId);
-  
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-  
-      return res.status(200).json({ user });
-    } catch (error) {
-      res.status(500).json({ message: "Error while getting the profile" });
-    }
-  });
-  
+
 
 
 

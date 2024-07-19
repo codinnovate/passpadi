@@ -115,6 +115,21 @@ const GoogleAuth = async (req, res) => {
     
 }
 
+const getMyProfile = async (req, res) => {
+    try {
+      const userId = req.user;
+      const user = await User.findById(userId)
+      .select("personal_info.fullname personal_info.username personal_info.profile_img  personal_info.points -_id")
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      return res.status(200).json({ user });
+    } catch (error) {
+      res.status(500).json({ message: "Error while getting the profile" });
+    }
+  };
+  
+
 // async function updateUsers() {
 //     try {
 //       const users = await User.find({ role: { $exists: false } }); // Find users without the role field
@@ -131,5 +146,5 @@ const GoogleAuth = async (req, res) => {
 //   }
   
 export {
-    Register,Login, GoogleAuth
+    Register,Login, GoogleAuth, getMyProfile
 }
