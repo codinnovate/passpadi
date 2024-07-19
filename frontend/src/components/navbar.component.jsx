@@ -58,9 +58,9 @@ const Header = () => {
                         <i className="fi fi-rr-e-learning"></i>
                         <p>Classroom</p>
                     </Link>  
-                     <Link to='/community' className='hidden md:flex gap-2 link'>
-                     <i class="fi fi-rr-users-medical"></i>
-                    <p>Community</p>
+                     <Link to='/Articles' className='hidden md:flex gap-2 link'>
+                     <i className="fi fi-rr-books"></i>
+                    <p>Articles</p>
                     </Link>  
                 </div>
 
@@ -109,7 +109,7 @@ const Header = () => {
                     </Link> */}
 
                     <div className="relative">
-                                <button
+                        <button
                         onBlur={handleBlur}
                         onClick={handleUserNavPanel}
                         className='w-12 h-12  mt-1'>

@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Avatar from './Avatar';
 import { UserContext } from '../App';
 import axios from 'axios';
 import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
 import { uploadImage } from '../common/aws';
-import { Link } from 'react-router-dom';
-
+import Avatar from '../components/Avatar';
+import Button from '../components/UI/Button';
 const Threadstools = ({ value, icon, onClick, active }) => {
   return (
     <div className='flex items-center gap-1 cursor-pointer' onClick={onClick}>
@@ -18,23 +17,18 @@ const Threadstools = ({ value, icon, onClick, active }) => {
   );
 };
 
-const ThreadsCard = ({ post, user }) => {
+const ReplyCard = ({ reply, postId, postAuthor}) => {
+  const [user, setUser] = useState();
   const [showMore, setShowMore] = useState(false);
   const { userAuth, userAuth: { access_token, profile_img, fullname, username } } = useContext(UserContext);
   const [showBigImage, setShowBigImage] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedContent, setEditedContent] = useState(post?.content);
-  const [editedImage, setEditedImage] = useState(post?.image);
-  const [likes, setLikes] = useState(post?.likes?.length);
-  const [hasLiked, setHasLiked] = useState(post?.likes?.includes(userAuth._id));
+  const [editedContent, setEditedContent] = useState(reply?.content);
+  const [editedImage, setEditedImage] = useState(reply?.image);
 
-  useEffect(() => {
-    setLikes(post?.likes?.length);
-    setHasLiked(post?.likes?.includes(userAuth._id));
-  }, [post?.likes, userAuth._id]);
 
   const handleCopyLink = () => {
-    const postUrl = `${window.location.origin}/post/${post._id}`;
+    const postUrl = `${window.location.origin}/post/${postId}`;
     navigator.clipboard.writeText(postUrl);
     toast.success("Link copied to clipboard!");
     setShowMore(false)
@@ -59,45 +53,11 @@ const ThreadsCard = ({ post, user }) => {
     }
   };
 
-  const handleLikePost = async () => {
-    try {
-      const response = await axios.put(`${serverApp}/like-post`, { postId: post._id }, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        }
-      });
-      if (response.status === 200) {
-        setLikes(prev => prev + 1);
-        setHasLiked(true);
-        toast.success("Post liked!");
-      }
-    } catch (error) {
-      toast.error("Failed to like the post");
-      console.error(error);
-    }
-  };
-
-  const handleUnlikePost = async () => {
-    try {
-      const response = await axios.put(`${serverApp}/unlike-post`, { postId: post._id }, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        }
-      });
-      if (response.status === 200) {
-        setLikes(prev => prev - 1);
-        setHasLiked(false);
-        toast.success("Post unliked!");
-      }
-    } catch (error) {
-      toast.error("Failed to unlike the post");
-      console.error(error);
-    }
-  };
+ 
 
   const handleSavePost = async () => {
     try {
-      await axios.post(`${serverApp}/save-post`, { postId: post._id }, {
+      await axios.post(`${serverApp}/save-post`, { postId }, {
         headers: {
           Authorization: `Bearer ${access_token}`
         }
@@ -111,7 +71,7 @@ const ThreadsCard = ({ post, user }) => {
 
   const handleReportPost = async () => {
     try {
-      await axios.post(`${serverApp}/report-post`, { postId: post._id }, {
+      await axios.post(`${serverApp}/report-post`, { postId }, {
         headers: {
           Authorization: `Bearer ${access_token}`
         }
@@ -127,8 +87,7 @@ const ThreadsCard = ({ post, user }) => {
 
   const handleDeletePost = async () => {
     try {
-      await axios.delete(`${serverApp}/delete-post`, {
-        data: { postId: post._id },
+      await axios.delete(`${serverApp}/reply/${postId}/${reply?._id}`, {
         headers: {
           Authorization: `Bearer ${access_token}`
         }
@@ -144,16 +103,18 @@ const ThreadsCard = ({ post, user }) => {
   };
 
   const handleEditPost = () => {
-    setIsEditing(true);
-    setEditedContent(post.content);
-    setEditedImage(post.image);
     setShowMore(false);
+    setIsEditing(true);
+    setEditedContent(reply?.content);
+    setEditedImage(reply?.image);
   };
-
+  const handleBlur = () => {
+        setShowMore(false);
+    }
   const handleSaveEdit = async () => {
     try {
-      const response = await axios.put(`${serverApp}/edit-post`, {
-        postId: post._id,
+      const response = await axios.put(`${serverApp}/reply/${postId}/${reply?._id}`, {
+        postId,
         content: editedContent,
         image: editedImage,
       }, {
@@ -164,12 +125,11 @@ const ThreadsCard = ({ post, user }) => {
 
       if (response.status === 200) {
         toast.success("Post updated successfully!");
-        post.content = editedContent;
-        post.image = editedImage;
         setIsEditing(false);
+        window.location.reload();
       }
     } catch (error) {
-      toast.error("Failed to update the post");
+      toast.error("Failed to update the Reply");
       console.error(error);
     }
   };
@@ -184,11 +144,28 @@ const ThreadsCard = ({ post, user }) => {
       </button>
     );
   };
+  const getMe = async () => {
+    try {
+        await axios.get(serverApp + '/profile', {
+            headers:{
+                Authorization:`Bearer ${access_token}`
+            },
+        }).then((res) => {
+           setUser(res.data.user.personal_info)
+        })
+    } catch (error) {
+        console.log(error)
+    }
 
+}  
+  useEffect(() => {
+    if(access_token){
+        getMe();
+         }
+ }, [access_token])
   return (
-    <Link
-    to={`/post/${post?._id}`}
-    className='flex border-b border-grey relative'>
+    <div
+    className='flex border-b border-grey relative py-2'>
       <Toaster />
       {showBigImage && (
         <div className='bg-black fixed w-full min-h-full overflow-hidden top-0 left-0 right-0 bottom-0 z-[9999]'>
@@ -213,11 +190,15 @@ const ThreadsCard = ({ post, user }) => {
             <h2 className='text-sm font-medium text-dark-grey ml-2'>@{user?.username}</h2>
           </div>
           <button className="relative hover:bg-grey w-8 h-8 rounded-full flex items-center justify-center"
-            onClick={() => setShowMore(!showMore)}>
+            onClick={() => {
+                setShowMore(!showMore)
+                }}>
             <i className="fi fi-sr-menu-dots"></i>
           </button>
           {showMore && (
-            <div className='absolute rounded-3xl w-[12em] gap-2 flex flex-col h-fit p-3 top-0 mt-10 right-0 border bg-white z-50'>
+            <div
+             onBlur={handleBlur}
+             className='absolute rounded-3xl w-[12em] gap-2 flex flex-col h-fit p-3 top-0 mt-8 right-0 border bg-white z-50'>
               <Moretools text="Save" icon="bookmark" onClick={handleSavePost} />
               <Moretools text="Report" icon="hexagon-exclamation" color="text-red" onClick={handleReportPost} />
               {user?.username === username && (
@@ -230,7 +211,7 @@ const ThreadsCard = ({ post, user }) => {
             </div>
           )}
         </div>
-        <div className='w-full mb-2'>
+        <div className='w-full mb-2  -mt-1'>
           {isEditing ? (
             <div>
               <textarea
@@ -238,7 +219,7 @@ const ThreadsCard = ({ post, user }) => {
                 onChange={(e) => setEditedContent(e.target.value)}
                 className='w-full border rounded p-2'
               />
-              {editedImage && (
+             {editedImage && (
             <img
               onClick={() => setShowBigImage(true)}
               src={editedImage}
@@ -260,33 +241,50 @@ const ThreadsCard = ({ post, user }) => {
             style={{ display: 'none' }}
             onChange={handleBannerUpload}
           />
-              <button onClick={handleSaveEdit} className='bg-blue-500 text-white rounded p-2 mt-2'>Save</button>
-              <button onClick={() => setIsEditing(false)} className='bg-gray-500 text-white rounded p-2 mt-2 ml-2'>Cancel</button>
+         
+            <div className='flex gap-3'>
+              <Button
+               bgColor='black'
+               textColor='white'
+               onClick={handleSaveEdit} 
+               title='Save'
+               />
+              <Button
+              bgColor='red'
+              textColor='white' 
+              onClick={() => setIsEditing(false)}
+              title="Cancel"
+              />
+              </div>
             </div>
           ) : (
-            <h2 className='text-sm font-semibold'>{post?.content}</h2>
+            <h2 className='text-sm font-semibold'>
+                <a href={`/${postAuthor}`}
+                 className='mr-1 text-sm hover:underline text-blue-500'>@{postAuthor} 
+                </a>
+                {reply?.content}</h2>
           )}
-          {post?.image && (
+          {reply?.image && (
             <img
               onClick={() => setShowBigImage(true)}
-              src={post.image}
+              src={reply.image}
               alt='post Image'
               loading='lazy'
               className='w-fit flex-start rounded-2xl h-full max-h-[400px] border mt-1 object-contain'
             />
           )}
         </div>
-        <div className='flex gap-[2em] mt-5 mb-2'>
+        {/* <div className='flex gap-[2em] mt-5 mb-2'>
           {/* <Threadstools icon='heart' value={likes}
            onClick={hasLiked ? handleUnlikePost : handleLikePost} 
            active={hasLiked} /> */}
-          <Threadstools icon='beacon' value={post?.replies?.length} />
-          {/* <Threadstools icon='arrows-retweet' value="80" /> */}
+          {/* <Threadstools icon='beacon' value={post?.replies?.length} /> */}
+          {/* <Threadstools icon='arrows-retweet' value="80" /> 
           <Threadstools icon='paper-plane' />
-        </div>
+        </div> */}
       </div>
-    </Link>
+    </div>
   );
 };
 
-export default ThreadsCard;
+export default ReplyCard;

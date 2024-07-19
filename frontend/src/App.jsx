@@ -61,10 +61,13 @@ const App = () => {
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />
                 <Route path="/add-product" element={<ProductEditor />} />
+                <Route path="/community" element={<Community />} />
+
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />, <Bottombar />]}>
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
-                    <Route index element={<HomePage />} />
+                    <Route index element={<Community />} />
+                    <Route path='/Articles' element={<HomePage />} />
                     <Route path="settings" element={<SideNav />}>
                         <Route path='edit-profile' element={<h1>This is to edit profile </h1>} />
                         <Route path='change-password' element={<ChangePassword />} />
@@ -82,7 +85,6 @@ const App = () => {
                     <Route path="blog/:blogId" element={<BlogPage />} />
                     <Route path="post/:postId" element={<ThreadsDetail />} />
 
-                    <Route path="/community" element={<Community />} />
                     {/* <Route path="/post/:postId" element={<PostDetail />} /> */}
                     <Route path="*" element={<PageNotFound />} />
 

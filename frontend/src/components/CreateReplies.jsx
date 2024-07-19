@@ -6,7 +6,7 @@ import { serverApp } from '../../server';
 import toast, { Toaster } from 'react-hot-toast';
 import { uploadImage } from '../common/aws';
 
-const CreateThread = () => {
+const CreateReplies = ({Author, postId}) => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const { userAuth, userAuth: { access_token, profile_img } } = useContext(UserContext);
@@ -40,7 +40,7 @@ const CreateThread = () => {
     if(!content && !image){
       toast.error("Please write something or choose an image!!")
     }
-    await axios.post(`${serverApp}/create-post/`, {
+    await axios.put(`${serverApp}/reply/${postId}/`, {
       content,
       image,
     }, {
@@ -49,19 +49,23 @@ const CreateThread = () => {
       }
     }).then(() => {
       toast.success("Post created successfully!");
+      window.location.reload();
+      setImage(null);
+      setContent(null);
     }).catch(err => {
       toast.error(err.message);
+      toast.error('Something went wrong!!, Try Again');
     });
   };
-  if(!access_token) return null;
+
   return (
-    <div className='flex flex-col border-b p-4 w-full '>
+    <div className='flex flex-col p-4 w-full '>
       <Toaster />
       <div className='flex w-full'>
         <Avatar src={profile_img} />
         <div className='flex w-full flex-col ml-3'>
           <input
-            placeholder='Type Something here ....'
+            placeholder={`Reply @${Author}`}
             className='border-none w-full outline-none font-medium'
             value={content}
             onChange={(e) => setContent(e.target.value)}
@@ -81,10 +85,10 @@ const CreateThread = () => {
           />
         </div>
       <button
-        className='rounded-xl h-[2.3em] px-4 border-grey border-2 font-bold'
+        className='rounded-xl h-[2.3em] px-4 border-grey border-2 font-bold hover:bg-grey transition-all'
         onClick={handleUpload}
       >
-        Post
+        Reply
       </button>
       </div>
 
@@ -94,7 +98,7 @@ const CreateThread = () => {
           <button
           onClick={() => setImage(null)}
            className='absolute right-0 top-0 m-4 bg-red text-white p-2 w-9 h-9 rounded-md'>
-          <i class="fi fi-br-cross text-sm"></i>
+          <i className="fi fi-br-cross text-sm"></i>
           </button>
           <img src={image} className='w-[300px] h-[400px]' alt='image'/>
         </div>
@@ -103,7 +107,7 @@ const CreateThread = () => {
   );
 };
 
-export default CreateThread;
+export default CreateReplies;
 
 
 {/* <ReactQuill

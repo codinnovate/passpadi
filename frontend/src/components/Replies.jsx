@@ -3,7 +3,7 @@ import Avatar from './Avatar';
 import { UserContext } from '../App';
 import axios from 'axios';
 import { serverApp } from '../../server';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { uploadImage } from '../common/aws';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const Threadstools = ({ value, icon, onClick, active }) => {
   );
 };
 
-const ThreadsCard = ({ post, user }) => {
+const Replies = ({ post, user }) => {
   const [showMore, setShowMore] = useState(false);
   const { userAuth, userAuth: { access_token, profile_img, fullname, username } } = useContext(UserContext);
   const [showBigImage, setShowBigImage] = useState(false);
@@ -28,72 +28,17 @@ const ThreadsCard = ({ post, user }) => {
   const [likes, setLikes] = useState(post?.likes?.length);
   const [hasLiked, setHasLiked] = useState(post?.likes?.includes(userAuth._id));
 
-  useEffect(() => {
-    setLikes(post?.likes?.length);
-    setHasLiked(post?.likes?.includes(userAuth._id));
-  }, [post?.likes, userAuth._id]);
+
 
   const handleCopyLink = () => {
     const postUrl = `${window.location.origin}/post/${post._id}`;
     navigator.clipboard.writeText(postUrl);
     toast.success("Link copied to clipboard!");
-    setShowMore(false)
   };
 
-  const handleBannerUpload = (e) => {
-    let img = e.target.files[0];
-    if (img) {
-      let loadingToast = toast.loading("Uploading image please wait ..")
-      uploadImage(img)
-        .then((url) => {
-          if (url) {
-            setEditedImage(url);
-            toast.dismiss(loadingToast);
-            toast.success("Image Uploaded successfully");
-          }
-        })
-        .catch(err => {
-          toast.dismiss(loadingToast);
-          toast.error(err.message);
-        });
-    }
-  };
 
-  const handleLikePost = async () => {
-    try {
-      const response = await axios.put(`${serverApp}/like-post`, { postId: post._id }, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        }
-      });
-      if (response.status === 200) {
-        setLikes(prev => prev + 1);
-        setHasLiked(true);
-        toast.success("Post liked!");
-      }
-    } catch (error) {
-      toast.error("Failed to like the post");
-      console.error(error);
-    }
-  };
 
-  const handleUnlikePost = async () => {
-    try {
-      const response = await axios.put(`${serverApp}/unlike-post`, { postId: post._id }, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        }
-      });
-      if (response.status === 200) {
-        setLikes(prev => prev - 1);
-        setHasLiked(false);
-        toast.success("Post unliked!");
-      }
-    } catch (error) {
-      toast.error("Failed to unlike the post");
-      console.error(error);
-    }
-  };
+ 
 
   const handleSavePost = async () => {
     try {
@@ -117,8 +62,6 @@ const ThreadsCard = ({ post, user }) => {
         }
       });
       toast.success("Post reported successfully!");
-      setShowMore(false)
-
     } catch (error) {
       toast.error("Failed to report the post");
       console.error(error);
@@ -134,8 +77,6 @@ const ThreadsCard = ({ post, user }) => {
         }
       });
       toast.success("Post deleted successfully!");
-      setShowMore(false)
-
       window.location.reload();
     } catch (error) {
       toast.error("Failed to delete the post");
@@ -189,7 +130,6 @@ const ThreadsCard = ({ post, user }) => {
     <Link
     to={`/post/${post?._id}`}
     className='flex border-b border-grey relative'>
-      <Toaster />
       {showBigImage && (
         <div className='bg-black fixed w-full min-h-full overflow-hidden top-0 left-0 right-0 bottom-0 z-[9999]'>
           <button
@@ -220,7 +160,7 @@ const ThreadsCard = ({ post, user }) => {
             <div className='absolute rounded-3xl w-[12em] gap-2 flex flex-col h-fit p-3 top-0 mt-10 right-0 border bg-white z-50'>
               <Moretools text="Save" icon="bookmark" onClick={handleSavePost} />
               <Moretools text="Report" icon="hexagon-exclamation" color="text-red" onClick={handleReportPost} />
-              {user?.username === username && (
+              {user.username === username && (
                 <>
                   <Moretools text="Edit" icon="pencil" onClick={handleEditPost} />
                   <Moretools text="Delete" icon="trash" color="text-red" onClick={handleDeletePost} />
@@ -289,4 +229,4 @@ const ThreadsCard = ({ post, user }) => {
   );
 };
 
-export default ThreadsCard;
+export default Replies;

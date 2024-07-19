@@ -13,7 +13,7 @@ import LoadMoreDataBtn from '../components/load-more.component';
 const HomePage = () => {
     const [blogs, setBlog] = useState(null);
     const [TrendingBlogs, setTrendingBlog] = useState(null);
-    let [pageState, setPageState] = useState("home");
+    let [pageState, setPageState] = useState("Articles");
 
 
 
@@ -74,7 +74,7 @@ const HomePage = () => {
         let category = e.target.innerText.toLowerCase();
         setBlog(null)
         if (pageState == category) {
-            setPageState("home");
+            setPageState("Articles");
             return;
         } 
         setPageState(category);
@@ -83,7 +83,7 @@ const HomePage = () => {
 
     useEffect(() => {
         activeTabRef.current.click();
-        if (pageState == "home") {
+        if (pageState == "Articles") {
             fetchLatestBlogs({ page:1 });
         } else {
             fetchBlogsByCategory({page:1 });
@@ -131,7 +131,7 @@ const HomePage = () => {
                                     )}
                             <LoadMoreDataBtn
                                 state={blogs}
-                                fetchDataFunc={(pageState == "home" ? fetchLatestBlogs : fetchBlogsByCategory )}  
+                                fetchDataFunc={(pageState == "Articles" ? fetchLatestBlogs : fetchBlogsByCategory )}  
                             />
                         </>
                             {
