@@ -10,7 +10,7 @@ import { getAuth } from 'firebase-admin/auth';
 import Blog from './Schema/Blog.js';
 import Notification from './Schema/Notification.js';
 import { verifyJWT } from './middlewares/VerifyJwt.js';
-import { generateUploadURL,formatDatatoSend, generateUsername,generateSlug ,    s3 } from './utils/generates.js';
+import { generateSlug} from './utils/generates.js';
 import { uploadUrl } from './controllers/uploads.js';
 import { userRouter } from './routes/User.js';
 import { commentRouter } from './routes/Comment.js';
@@ -21,7 +21,8 @@ import schoolRoutes  from './routes/School.js';
 import  questionRoutes from './routes/Question.js';
 import { Post } from './Schema/Post.js';
 import PostRouter from './routes/Post.js';
-
+import nodemailer from 'nodemailer';
+import Notifs from './routes/Notifications.js';
 
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
@@ -47,6 +48,7 @@ app.use("/transactions", paymentRouter)
 app.use('/questions', questionRoutes);
 app.use('/subjects', subjectRoutes);
 app.use('/schools', schoolRoutes);
+app.use('/notifications', Notifs);
 app.get('/get-upload-url', uploadUrl);
 // app.use("",)
 
@@ -70,7 +72,6 @@ app.post("/latest-blogs", (req, res) => {
         )
 
 })
-
 app.post("/all-latest-blogs-count", (req, res) => {
     Blog.countDocuments({ draft: false })
         .then(count => {
@@ -83,8 +84,6 @@ app.post("/all-latest-blogs-count", (req, res) => {
     
     
 })
-
-
 app.post("/search-blogs", (req, res) => {
     let { tag, page, query, author, limit, eliminate_blog } = req.body;
     let findQuery;
@@ -125,8 +124,6 @@ app.get('/trending-blogs', (req, res) => {
             return res.status(500).json({error:err.message})
         })
 })
-
-
 app.get('/drafts', verifyJWT, (req, res) => {
    const userId = req.userId
   Blog.find({ draft: true })
@@ -139,9 +136,6 @@ app.get('/drafts', verifyJWT, (req, res) => {
           return res.status(500).json({error:err.message})
       })
 })
-
-
-
 app.post("/search-blogs-count", (req, res) => {
     let { tag, query, author } = req.body;
     let findQuery;
@@ -162,13 +156,6 @@ app.post("/search-blogs-count", (req, res) => {
         })
     
 });
-
-
-
-
-
-
-
 app.post("/search-users", (req, res) => {
 
     let { query } = req.body;
@@ -183,8 +170,6 @@ app.post("/search-users", (req, res) => {
             return res.status(500).json({ error: err.message })
         })
 })
-
-
 app.post("/get-profile", (req, res) => {
     let { username } = req.body;
     User.findOne({ "personal_info.username": username })
@@ -197,10 +182,6 @@ app.post("/get-profile", (req, res) => {
         return res.status(500).json({error:err.message})
     })
 })
-
-
-
-
 app.post("/create-blog", verifyJWT ,  (req, res) => {
     let authorId = req.user;
     
@@ -260,7 +241,6 @@ app.post("/create-blog", verifyJWT ,  (req, res) => {
         return res.json({ "status": "done" })
     }
 })
-
 app.post("/get-blog", (req, res) => {
     let { blog_id, draft, mode } = req.body;
     let incrementVal =  mode != "edit" ? 1: 0 ;
@@ -286,7 +266,6 @@ app.post("/get-blog", (req, res) => {
             return res.status(500).json({ error: err.message });
         })
 })
- 
 app.post("/like-blog", verifyJWT, (req, res) => {
     let user_id = req.user;
     let { _id, isLikedByUser } = req.body;
@@ -317,7 +296,6 @@ app.post("/like-blog", verifyJWT, (req, res) => {
 
 
 })
-
 app.post("/isliked-by-user", verifyJWT, (req, res) => {
     let user_id = req.user;
     let { _id } = req.body;
@@ -330,12 +308,6 @@ app.post("/isliked-by-user", verifyJWT, (req, res) => {
         })
 
 })
-
-
-// new code starts here
-
-
-//endpoint to access all the users except the logged in the user
 app.get("/users/", verifyJWT ,(req, res) => {
 try {
       const loggedInUserId = req.user;
@@ -373,8 +345,6 @@ try {
     }
   });
   // remove soon ensure it's not in apps
-
-  
   //endpoint to follow a particular user
   app.post("/follow", async (req, res) => {
     const { currentUserId, selectedUserId } = req.body;
@@ -452,12 +422,13 @@ try {
     }
   });
   
-  app.put('/reply/:postId/', verifyJWT,  async (req, res) => {
+  // create reply
+  app.put('/reply/:postId/', verifyJWT, async (req, res) => {
     try {
       const { postId } = req.params;
-      console.log(postId)
       const { content, image } = req.body;
       const userId = req.user;
+      
       if (!content && !image) {
         return res.status(500).json({ message: "Please either write something or upload an image" });
       }
@@ -471,7 +442,7 @@ try {
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
       }
-  
+      
       const newReply = {
         user: userId,
         content,
@@ -481,7 +452,48 @@ try {
   
       post.replies.push(newReply);
       await post.save();
+      if(post.user != userId){
+
+      // Create a notification
+      const notification = new Notification({
+        postId,
+        user: post.user,
+        message: `${content || 'Its an Image reply though'}`,
+      });
+      await notification.save();
+      
+      // Send email
+      const receiver = await User.findById(post.user);
+      if (receiver && receiver.personal_info.email) {
+        console.log('Got here too')
+        const transporter = nodemailer.createTransport({
+          host:'smtp.gmail.com',
+          port:465,
+          secure:true,
+          service:'gmail',
+          auth: {
+            user:"kidscantech1@gmail.com", // Replace with your email
+            pass:"angebtunkexsgtzh", // Replace with your email password
+          },
+        });
+        console.log('Got here 5')
+
+        const mailOptions = {
+          from: 'kidscantech1@gmail.com',
+          to: receiver.personal_info.email,
+          subject: `New Reply to Your Post on Passpadi ${receiver.personal_info.fullname}`,
+          text: `You have a new reply from ${user.personal_info.fullname}, @${user.personal_info.username}: ${content || 'Image reply'}`,
+        };
   
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.log('Error sending email: ', error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+      }
+    }
       res.status(201).json(post);
     } catch (error) {
       console.error("Error adding reply: ", error);
@@ -583,56 +595,7 @@ try {
     }
   });
   
-  app.get("/get-posts",  async (req, res) => {
-    try {
-      // Fetch all posts and populate user info
-      let posts = await Post.find()
-        .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
-        .populate("replies") // Assuming you have a replies field in your Post schema
-        .sort({ createdAt: -1 });
-  
-      // Separate unanswered and answered posts
-      let unansweredPosts = posts.filter(post => !post.replies || post.replies.length === 0);
-      let answeredPosts = posts.filter(post => post.replies && post.replies.length > 0);
-  
-      // Shuffle both arrays to add randomness
-      const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-      };
-  
-      shuffleArray(unansweredPosts);
-      shuffleArray(answeredPosts);
-  
-      // Combine arrays, prioritizing unanswered posts
-      posts = [...unansweredPosts, ...answeredPosts];
-  
-      res.status(200).json(posts);
-    } catch (error) {
-      res.status(500).json({ message: "An error occurred while getting the posts" });
-      console.error(error);
-    }
-  });
-
-  app.get("/post/:postId", async (req, res) => {
-    const postId = req.params.postId;
-    console.log(postId)
-
-    try {
-        const post = await Post.findById(postId)
-        .populate("user", "personal_info.profile_img personal_info.username personal_info.fullname")
-        .sort({ createdAt: -1 });
-        res.status(200).json(post);
-        console.log(post)
-      } catch (error) {
-        res.status(500)
-          .json({ message: "An error occurred while getting the posts" })
-          console.log(error)
-      }
-  })
-  
+ 
 
 
 

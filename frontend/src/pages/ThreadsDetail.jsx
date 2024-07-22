@@ -31,10 +31,10 @@ const ThreadsDetail = () => {
  }, [postId])
   return (
     <div className='max-w-3xl mx-auto flex flex-col p-2 w-full relative '>
-      <div className='fixed top-[12%] right-0 border-b justify-center   bg-white items-center w-full z-[99999]'>
+      <div className='fixed top-[9%] right-0 border-b justify-center   bg-white items-center w-full z-[99999]'>
        <div className='max-w-3xl mx-auto w-full flex   justify-between'>
         <IconWrapper
-        link='/community'
+        link='/'
         icon="fi fi-rr-arrow-small-left"
         />
         <div className='flex items-center flex-col '>

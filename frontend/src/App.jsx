@@ -42,6 +42,7 @@ import ThreadsDetail from "./pages/ThreadsDetail";
 import User from "./pages/Admin/User";
 import PostDetail from "./pages/PostDetail";
 import Cbt from "./pages/Cbt";
+import Notifications from "./pages/Notifications";
 
 
 export const UserContext = createContext({});
@@ -69,8 +70,10 @@ const App = () => {
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
                     <Route index element={<Community />} />
-                    <Route path='/Articles' element={<HomePage />} />
-                    <Route path='/cbt' element={<Cbt />} />
+                    <Route path='/articles' element={<HomePage />} />
+                    <Route path='/notifications' element={<Notifications />} />
+
+                    {/* <Route path='/cbt' element={<Cbt />} /> */}
                     <Route path="settings" element={<SideNav />}>
                         <Route path='edit-profile' element={<h1>This is to edit profile </h1>} />
                         <Route path='change-password' element={<ChangePassword />} />

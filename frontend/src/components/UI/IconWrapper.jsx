@@ -5,8 +5,8 @@ const IconWrapper = ({icon, link}) => {
   return (
     <Link 
     to={link ? link : ''}
-     className='hover:bg-grey w-7 h-7 flex items-center justify-center  border rounded-full'>
-        <i className={`${icon} text-xl w-5 h-5`}></i>
+     className='hover:bg-grey w-10 h-10 flex items-center justify-center  border rounded-full'>
+        <i className={`${icon} text-2xl text-center w-8 h-8 `}></i>
     </Link>
   )
 }
