@@ -62,6 +62,10 @@ const Header = () => {
                      <i className="fi fi-rr-books"></i>
                     <p>Articles</p>
                     </Link>  
+                    <Link to='/cbt' className='hidden md:flex gap-2 link'>
+                        <i className="fi fi-rr-e-learning"></i>
+                        <p>Free Cbt</p>
+                    </Link>  
                 </div>
 
             <div className='flex items-center gap-3 md:gap-6 ml-auto '>
@@ -84,7 +88,7 @@ const Header = () => {
                         <Link to='/editor' className='hidden md:flex gap-2 link'>
                     <i className='fi fi-rr-file-edit'></i>
                     <p>Write</p>
-                            </Link>
+                    </Link>
                             
                         )
                     }

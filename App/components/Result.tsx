@@ -44,7 +44,8 @@ const handleBack = () => {
 const question = questions[currentIndex];
 
   return (
-    <View style={styles.container}>
+    <View style={{height:'100%', position:'relative', flexDirection:'column'}}>
+    <ScrollView style={styles.container}>
       <View>
       <Text style={styles.summaryText}>Summary</Text>
       <Text style={styles.scoreText}>You got {correctAnswers} out of {questions.length} questions</Text>
@@ -79,7 +80,7 @@ const question = questions[currentIndex];
        userAnswer={userAnswers[currentIndex]}
        />
 
-{question?.answerDetail ? (
+        {question?.answerDetail ? (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={style.answerDetail}>
               <Text style={{ fontFamily: 'SpaceGM', color: Colors.black }}>Basic Explanation</Text>
@@ -96,6 +97,9 @@ const question = questions[currentIndex];
           </Text>
         )}
         
+
+
+    </ScrollView>
         <View style={style.buttonContainer}>
           <View style={style.buttonWrapper}>
             <Pressable
@@ -113,16 +117,15 @@ const question = questions[currentIndex];
             
           </View>
         </View>
-
-
-    </View>
+        </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width:'100%',
-    padding: 20,
+    paddingHorizontal: 10,
+    position:'relative'
   },
   summaryText: {
     fontSize: 20,

@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.black,
-    fontSize: 23,
+    fontSize: 15,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },

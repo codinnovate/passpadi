@@ -1,8 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Colors from '@/constants/Colors'
-import { Link, router } from 'expo-router'
-import { Feather } from '@expo/vector-icons'
+import {  router } from 'expo-router'
 import Images from '@/constants/Images'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { style } from '@/constants/Styles'
@@ -27,13 +26,14 @@ export function Splashpage (){
      checkLoginStatus();
    }, []);
   return (
-    <View style={{flex:1, height:'100%', backgroundColor:Colors.green}}>
-    <View style={{flex:1, alignItems:'center', padding:10, }}>
-    <Image source={Images.logo} style={styles.logo}/>
+    <View style={{flex:1, width:'100%', justifyContent:'space-evenly', backgroundColor:Colors.green, alignItems:'center', padding:15}}>
+    <Image 
+    source={Images.logo} 
+    style={styles.logo}/>
+      <View>
       <Image 
       source={Images.splash}
       style={styles.Image} />
-      <View>
         <Text style={styles.bigTextContainer}>
           Score <Text style={styles.text}>30/30</Text> With PassPadi Unilag  Cbt App
         </Text>
@@ -59,8 +59,6 @@ export function Splashpage (){
        />
       
       </View>
-
-    </View>
       </View>
   )
 }
@@ -69,7 +67,7 @@ export function Splashpage (){
 const styles = StyleSheet.create({
   Image:{
       width:240,
-      height:300,
+      height:200,
       alignSelf:'center',
   },
   logo:{
@@ -79,11 +77,11 @@ const styles = StyleSheet.create({
     marginLeft:20,
   },
   bigTextContainer:{
-    fontSize:35,
+    fontSize:27,
     color:Colors.white,
     fontFamily:'Ubuntu',
-    fontWeight:'300',
-    marginBottom:10
+    marginBottom:10,
+    textAlign:'center',
   },
   text:{
     color:Colors.yellow,
@@ -93,9 +91,10 @@ const styles = StyleSheet.create({
 
   smallText:{
     color:Colors.white,
-    fontSize:15,
+    fontSize:12,
     fontFamily:'SpaceGM',
-    fontWeight:'300'
+    textAlign:'center',
+
   },
   link:{
     display:'flex',    

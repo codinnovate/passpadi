@@ -14,13 +14,13 @@ const transformQuestionData = (data, subjectId) => {
     return data
     .filter(item => item.question) // Filter out items without a question field
     .map((item) => ({
-        subject: subjectId,
+    subject: subjectId,
     school:"",
     instruction: item.section || "",
     question: item.question,
     question_id: generateSlug(item.question), // Generate slug from question
     options: Object.values(item.option),
-    examType: 'POST UTME', // Ensure the exam type is in uppercase
+    examType: item.exam_year.toUpperCase(), // Ensure the exam type is in uppercase
     examYear: parseInt(item.examyear),
     answer: item.option[item.answer], // Map answer key to actual answer
     answerDetail: item.solution || "",

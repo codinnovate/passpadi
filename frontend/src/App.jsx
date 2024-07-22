@@ -41,6 +41,9 @@ import Community from "./pages/community"
 import ThreadsDetail from "./pages/ThreadsDetail";
 import User from "./pages/Admin/User";
 import PostDetail from "./pages/PostDetail";
+import Cbt from "./pages/Cbt";
+
+
 export const UserContext = createContext({});
 
 const App = () => {
@@ -61,13 +64,13 @@ const App = () => {
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />
                 <Route path="/add-product" element={<ProductEditor />} />
-                <Route path="/community" element={<Community />} />
 
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />, <Bottombar />]}>
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
                     <Route index element={<Community />} />
                     <Route path='/Articles' element={<HomePage />} />
+                    <Route path='/cbt' element={<Cbt />} />
                     <Route path="settings" element={<SideNav />}>
                         <Route path='edit-profile' element={<h1>This is to edit profile </h1>} />
                         <Route path='change-password' element={<ChangePassword />} />
@@ -95,8 +98,9 @@ const App = () => {
                         <Route path="chats" element={<Chats />} />
                         <Route path="groups" element={<Groups />} />
                         <Route index element={<Feed />} />
-
                     </Route>
+                    <Route path="/community" element={<Community />} />
+
                     <Route path='/create-subject' element={<CreateSubject />} />
                     <Route path='/create-question' element={<CreateQuestion />} />
                     <Route path="/privacy" element={<Privacy />} />

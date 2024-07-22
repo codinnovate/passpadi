@@ -4,13 +4,12 @@ import Header from '@/components/Header';
 import Colors from '@/constants/Colors';
 import { server } from '@/server';
 import axios from 'axios';
-import { usePathname } from 'expo-router';
+import { router, usePathname } from 'expo-router';
 import { useWindowDimensions } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Loader from '@/components/Loader';
 import * as FileSystem from 'expo-file-system';
-import { style } from '@/constants/Styles';
-
+import AsyncStorage from '@react-native-async-storage/async-storage'; // Added for AsyncStorage
 
 const Subject = () => {
   const [data, setData] = useState([]);
@@ -20,10 +19,28 @@ const Subject = () => {
   const subjectName = subjectId.split("/").pop();
   const [currentIndex, setCurrentIndex] = useState(0);
   const { width } = useWindowDimensions();
-  const [selectedYear, setSelectedYear] = useState(2023);
+  const [selectedYear, setSelectedYear] = useState(null); // Changed initial state to null
   const [offlineAvailable, setOfflineAvailable] = useState(false);
+  const [role, setRole] = useState('');
+  const allowedYears = [2015, 2016, 2017];
+
+  const getUser = async () => {
+    const userRole = await AsyncStorage.getItem("role");
+    setRole(userRole);
+  }
 
   const handleYearChange = (year) => {
+    if (role === 'user' && !allowedYears.includes(year)) {
+      Alert.alert(
+        "You can only access 2015, 2016, and 2017",
+        "Activate App to access all years and Cbt Practice ?",
+        [
+          { text: "No"},
+          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com/pay-for-app') }
+        ]
+      );
+      return;
+    } 
     setSelectedYear(year);
   };
 
@@ -41,7 +58,9 @@ const Subject = () => {
       const fileUri = `${FileSystem.documentDirectory}${subjectName}.json`;
       await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(response.data));
       setData(response.data);
-      setFilteredData(response.data.filter((question) => question.examYear === selectedYear));
+      const oldestYear = Math.min(...response.data.map(question => question.examYear));
+      setSelectedYear(oldestYear);
+      setFilteredData(response.data.filter((question) => question.examYear === oldestYear));
       setOfflineAvailable(true);
     } catch (error) {
       console.log(error);
@@ -56,7 +75,9 @@ const Subject = () => {
     const jsonData = await FileSystem.readAsStringAsync(fileUri);
     const parsedData = JSON.parse(jsonData);
     setData(parsedData);
-    setFilteredData(parsedData.filter((question) => question.examYear === selectedYear));
+    const oldestYear = Math.min(...parsedData.map(question => question.examYear));
+    setSelectedYear(oldestYear);
+    setFilteredData(parsedData.filter((question) => question.examYear === oldestYear));
     setLoading(false);
   };
 
@@ -77,6 +98,7 @@ const Subject = () => {
   };
 
   useEffect(() => {
+    getUser();
     getQuestions();
   }, []);
 
@@ -88,6 +110,7 @@ const Subject = () => {
   const handleNext = () => {
     if (currentIndex < filteredData.length - 1) {
       setCurrentIndex(currentIndex + 1);
+      
     }
   };
 
@@ -98,7 +121,7 @@ const Subject = () => {
   };
 
   const question = filteredData[currentIndex];
-  
+
   const generateHtmlContent = (content) => {
     return `
       <!DOCTYPE html>
@@ -134,13 +157,11 @@ const Subject = () => {
     html: question ? generateHtmlContent(question.question) : '<p>No question available</p>',
   };
 
-  if (loading) return (
-   <Loader  />
-  );
+  if (loading) return <Loader />;
 
   return (
-    <SafeAreaView style={{ height: '100%', width: '100%' ,}}>
-      <View style={{ height: '100%', width: '100%', position: 'relative', marginTop:40 }}>
+    <SafeAreaView style={{ height: '100%', width: '100%' }}>
+      <View style={{ height: '100%', width: '100%', position: 'relative', marginTop: 40 }}>
         <Header
           title={subjectName}
           questionLength={filteredData?.length}
@@ -176,7 +197,6 @@ const Subject = () => {
           </View>
         </View>
         
-   {/* anwer details */}
         {question?.answerDetail ? (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={styles.answerDetail}>
@@ -211,8 +231,6 @@ const Subject = () => {
             )}
           </View>
         </View>
-
-
       </View>
     </SafeAreaView>
   );
@@ -239,7 +257,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     padding: 10,
     backgroundColor: Colors.white,
-    bottom:'10%',
+    bottom: '10%',
   },
   buttonWrapper: {
     display: 'flex',
@@ -265,7 +283,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.green,
-    fontSize: 23,
+    fontSize: 15,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },

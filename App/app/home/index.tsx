@@ -39,7 +39,7 @@ const Logout  = async () => {
     await AsyncStorage.removeItem("username");
     await AsyncStorage.removeItem("role");
     await AsyncStorage.removeItem("userId");
-    router.navigate('(auth)/signin')
+    router.push('(auth)/signin')
   } 
   return (
     <>
@@ -63,7 +63,7 @@ const Logout  = async () => {
       <View style={styles.container}>
       <Text style={styles.bigText}>See What Students are saying in the community?</Text>
       <Button 
-      onPress={() => router.navigate('https://passpadi.com/community')}
+      onPress={() => router.navigate('https://passpadi.com/')}
       title='Go to Community'
       color={Colors.yellow}
       textColor={Colors.black}
@@ -76,7 +76,7 @@ const Logout  = async () => {
        onPress={() => router.push('https://www.passpadi.com/pay-for-app')}
        style={styles.activate}>
         <View style={{}}>
-          <Text style={{marginBottom:20, fontFamily:'Ubuntu', fontSize:15}}>Activate App</Text>
+          <Text style={{marginBottom:20, fontFamily:'Ubuntu', color:Colors.black, fontSize:15}}>Activate App</Text>
           <Text style={{fontFamily:'SpaceGM', fontSize:16, color:Colors.white}}>Unlock full access to Cbt Practice, free airtimes rewards, no ads, and future airdrops</Text>
         </View>
       </TouchableOpacity>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   bigText:{
     fontFamily:'Ubuntu',
-    fontSize:20,
+    fontSize:17,
     letterSpacing:-1,
     marginTop:20,
     color:Colors.green,
@@ -175,13 +175,13 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-evenly',
     alignItems:'center',
-    borderRadius:5,
-    borderBottomLeftRadius:20,
-    borderTopRightRadius:20,
+    borderRadius:20,
+    borderBottomLeftRadius:0,
+    borderTopRightRadius:0,
     padding:10,
     width:'100%',
     height:120,
-    backgroundColor:'#25D366',
+    backgroundColor:Colors.red,
     marginBottom:20
   }
 

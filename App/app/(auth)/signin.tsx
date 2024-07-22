@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, KeyboardAvoidingView, TextInput, Pressable, Alert } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { StyleSheet, Text, View,  Image, KeyboardAvoidingView, TextInput, Pressable, Alert } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
@@ -10,6 +9,7 @@ import Loader from "@/components/Loader";
 import Colors from "@/constants/Colors";
 import Button from "@/components/Button";
 import * as Device from 'expo-device';
+import FormField from "@/components/FormField";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -70,7 +70,7 @@ const Signin = () => {
         router.push("/home");
       })
       .catch((error) => {
-        Alert.alert("Login error", error.message);
+        Alert.alert(error?.response?.data?.error);
         setLoading(false);
         console.log("error ", error);
       });
@@ -78,82 +78,49 @@ const Signin = () => {
 
   if (loading) return <Loader text="Signing in, please wait!!" />;
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.green, alignItems: "center" }}>
+    <View style={{ flex: 1, backgroundColor: Colors.green,  width:'100%', padding:10, alignItems:'center' }}>
       <Image style={{ width: 250, height: 150, marginTop: 20 }} source={Images.logo} />
-      <KeyboardAvoidingView>
+      <KeyboardAvoidingView style={{ width:'100%'}}>
         <View>
-          <Text style={{ fontSize: 25, fontFamily: 'Ubuntu', marginTop: 25, color: Colors.white }}>
+          <Text style={{ fontSize: 25, fontFamily: 'Ubuntu', textAlign:'center', marginTop: 25, color: Colors.white }}>
             Login
           </Text>
-          <Text style={{ fontSize: 18, fontFamily: 'Raleway', color: Colors.white }}>
+          <Text style={{ fontSize: 13, fontFamily: 'Raleway', textAlign:'center', color: Colors.white }}>
             Enter Your Passpadi Username and Password
           </Text>
-        </View>
-        <View style={{ marginTop: 40 }}>
-          <View style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 5,
-            borderColor: "#D0D0D0",
-            borderWidth: 1,
-            paddingVertical: 5,
-            borderRadius: 10,
-          }}>
-            <MaterialIcons style={{ marginLeft: 8 }} name="email" size={24} color="white" />
-            <TextInput
+          </View>
+          
+            <FormField
+              title="Email"
               value={email}
-              onChangeText={(text) => setEmail(text)}
-              placeholderTextColor={Colors.yellow}
-              style={{
-                color: Colors.white,
-                width: 300,
-                height: '100%',
-                paddingVertical: 5,
-                fontSize: 16,
-              }}
+              onChangeText={(text) => setEmail(text)}          
               placeholder="Enter your Passpadi Email"
             />
-          </View>
-          <View style={{ marginTop: 30 }}>
-            <View style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              borderColor: "#D0D0D0",
-              borderWidth: 1,
-              paddingVertical: 5,
-              borderRadius: 10,
-            }}>
-              <MaterialIcons style={{ marginLeft: 8 }} name="lock" size={24} color="white" />
-              <TextInput
-                // secureTextEntry={true}
+      
+              <FormField
+               title="Password"
                 value={password}
                 onChangeText={(text) => setPassword(text)}
-                placeholderTextColor={Colors.yellow}
-                style={{
-                  color: "white",
-                  paddingVertical: 5,
-                  width: 300,
-                  fontSize: 16,
-                }}
                 placeholder="Enter your Password"
               />
-            </View>
-          </View>
-        </View>
-        <View style={{ marginTop: 45 }}>
-          <Button onPress={handleLogin} title='Login' color={Colors.yellow} textColor={Colors.black} />
+        <View style={{ marginTop: 45, width:'100%' }}>
+          <Button 
+          onPress={handleLogin}
+           title='Login'
+            color={Colors.yellow}
+             textColor={Colors.black} />
         </View>
         <Pressable onPress={() => router.navigate('https://www.passpadi.com/signup')} style={{ marginTop: 10 }}>
-          <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'Raleway', fontSize: 16 }}>
+          <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'SpaceGM', fontSize: 12 }}>
             Don't have an account? 
-            <Text style={{ fontWeight: "500", color: "#007FFF" }}>
+            <Text style={{ fontWeight: "500", marginLeft:10, color: "#007FFF" }}>
               Register Here
             </Text>
           </Text>
         </Pressable>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+      </View>
+
   );
 };
 

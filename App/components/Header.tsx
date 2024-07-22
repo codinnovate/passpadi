@@ -41,15 +41,27 @@ const Header = ({ title, questionLength, selectedYear, onYearChange }: HeaderTyp
       <TouchableOpacity onPress={() => setSettings(!settings)}>
         <Ionicons name="settings-outline" size={24} color="black" />
       </TouchableOpacity>
-      {settings && (
+      <Modal
+        visible={settings}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setSettings(false)}
+      >
+        <View style={styles.modalOverlay}>
+        <View style={styles.modalContainer}>
         <View style={styles.headerSettings}>
-          <TouchableOpacity onPress={() => setYearModalVisible(true)}>
+          <TouchableOpacity onPress={() => {
+            setSettings(false)
+            setYearModalVisible(true)}
+            }>
             <Text style={[styles.headerSubtext, styles.button]}>Change Year</Text>
           </TouchableOpacity>
           <Link href='/home' style={[styles.headerSubtext, styles.button]}>Change Subject</Link>
           <Link href='/cbt' style={[styles.headerSubtext, styles.button]}>CBT ?</Link>
         </View>
-      )}
+        </View>
+        </View>
+      </Modal>
       <Modal
         visible={yearModalVisible}
         transparent={true}
@@ -98,18 +110,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu',
   },
   headerSettings: {
-    position: 'absolute',
     width: '100%',
     display: 'flex',
     gap:10,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    top: 20,
-    backgroundColor: Colors.white,
-    zIndex: 9999,
     padding: 10,
-    marginTop: 30,
   },
   modalOverlay: {
     flex: 1,
@@ -138,19 +143,22 @@ const styles = StyleSheet.create({
   yearButton: {
     padding: 10,
     width: 60,
-    backgroundColor: Colors.gray,
+    backgroundColor: Colors.yellow,
     marginVertical: 5,
     borderRadius: 5,
     alignItems: 'center',
   },
   button:{
-    backgroundColor: Colors.black,
-    color:Colors.white,
+    backgroundColor: Colors.yellow,
+    color:Colors.black,
+    fontFamily:'SpaceGM',
+    
     padding:15,
     width:200
+
   },
   yearText: {
-    fontSize: 16,
+    fontSize: 13,
     fontFamily: 'SpaceGM',
   },
   closeButton: {

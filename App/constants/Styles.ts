@@ -12,12 +12,13 @@ export const style = StyleSheet.create({
     buttonText:{
         fontFamily:'Ubuntu',
         textAlign:'center',
-        fontSize:18,
+        fontSize:16,
     },
     label: {
-        marginBottom: 10,
-        fontSize:20,
-        fontFamily:'Raleway',
+        marginBottom: 5,
+        fontSize:15,
+        color:Colors.green,
+        fontFamily:'SpaceGM',
     },
     avatar:{
         width:20,
@@ -36,13 +37,13 @@ export const style = StyleSheet.create({
   back: {
     borderColor: Colors.green,
     borderWidth: 1,
-    paddingVertical: 13,
-    paddingHorizontal: 40,
+    width:130,
+    padding:10,
     borderRadius: 30,
   },
   text: {
     color: Colors.green,
-    fontSize: 23,
+    fontSize: 17,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },
@@ -51,8 +52,8 @@ export const style = StyleSheet.create({
   },
   next: {
     backgroundColor: Colors.green,
-    paddingVertical: 13,
-    paddingHorizontal: 40,
+    width:130,
+    padding:10,
     borderRadius: 30,
   },
   skip: {
@@ -65,13 +66,10 @@ export const style = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     position: 'absolute',
-    // padding: 10,
-    marginLeft:20,
-    marginTop:10,
-    zIndex:99,
+    bottom:0,
+    borderRadius: 5,
+    zIndex:9999,
     backgroundColor: Colors.white,
-    // bottom:0,
-    top:0,
   },
   buttonWrapper: {
     display: 'flex',

@@ -1,38 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
-import { server } from '@/server';
 import Button from './Button';
-import Colors from '@/constants/Colors';
 import Questions from './Questions';
 import Results from './Result';
-import { style } from '@/constants/Styles';
-import { MaterialIcons } from '@expo/vector-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
+import { MaterialIcons } from 'react-icons/md';
+import { serverApp } from '../../server';
 
-const CbtPage = ({ settings }) => {
+
+const CbtApp = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timer, setTimer] = useState(settings.time * 60 + 6);
   const [submitted, setSubmitted] = useState(false);
   const [correctionsMode, setCorrectionsMode] = useState(false);
-  const [role, setRole] = useState('');
-
   const timerRef = useRef();
 
-
-
-  const getUser = async () => {
-    const userRole = await AsyncStorage.getItem("role");
-    setRole(userRole);
-  };
   useEffect(() => {
-
     const fetchQuestions = async () => {
       try {
-        // Fetch questions based on selected subjects from settings
         const subjects = Object.keys(settings.subjects);
         let fetchedQuestions = [];
 
@@ -40,12 +26,10 @@ const CbtPage = ({ settings }) => {
           const response = await axios.get(`${server}/questions/v1/${subject}`);
           const subjectQuestions = response.data;
 
-          // Randomly select questions based on the number specified in settings
           const selectedQuestions = subjectQuestions.slice(0, settings.subjects[subject]);
           fetchedQuestions = [...fetchedQuestions, ...selectedQuestions];
         }
 
-        // Randomize fetched questions
         const randomizedQuestions = shuffleArray(fetchedQuestions);
         setQuestions(randomizedQuestions);
       } catch (error) {
@@ -60,7 +44,7 @@ const CbtPage = ({ settings }) => {
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, []);
+  }, [settings]);
 
   useEffect(() => {
     if (timer === 0) {
@@ -69,7 +53,6 @@ const CbtPage = ({ settings }) => {
   }, [timer]);
 
   const shuffleArray = (array) => {
-    // Implementation of Fisher-Yates shuffle algorithm
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -89,53 +72,43 @@ const CbtPage = ({ settings }) => {
   const handleSubmit = () => {
     setSubmitted(true);
     setCorrectionsMode(true);
-    clearInterval(timerRef.current); // Stop the timer
+    clearInterval(timerRef.current);
   };
 
   return (
-    <View style={styles.container}>
+    <div className="p-5 mt-5">
       {submitted ? (
         <Results userAnswers={userAnswers} questions={questions} />
       ) : (
         <>
-          <View style={styles.header}>
+          <div className="flex justify-between items-center mb-5">
             {!correctionsMode && (
-              <View style={{display:"flex", justifyContent:'center', flexDirection:"row", alignItems:'center'}}>
-              <MaterialIcons name="timer" size={24} color={Colors.green} />
-              <Text style={[styles.label, {color:Colors.red, fontSize:15, fontFamily:'Ubuntu'}]}>
-                {Math.floor(timer / 60)}:{timer % 60}
-              </Text>
-              </View>
+              <div className="flex justify-center items-center">
+                <MaterialIcons name="timer" size={24} className="text-green-500" />
+                <p className="text-red-500 text-lg font-bold ml-2">
+                  {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}
+                </p>
+              </div>
             )}
             <Button
               width={200}
-              color={Colors.red}
+              color="bg-red-500"
+              textColor="text-white"
               title="Submit"
-              onPress={handleSubmit}
+              onClick={handleSubmit}
               disabled={submitted}
             />
-          </View>
-          <Questions question={questions[currentIndex]} total ={questions.length} onAnswerClicked={handleNext} index={currentIndex} />
+          </div>
+          <Questions
+            question={questions[currentIndex]}
+            total={questions.length}
+            onAnswerClicked={handleNext}
+            index={currentIndex}
+          />
         </>
       )}
-    </View>
+    </div>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    marginTop:20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  label: {
-    fontFamily: 'Raleway',
-  },
-});
-
-export default CbtPage;
+export default CbtApp;

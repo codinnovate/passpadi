@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert, ScrollView } from 'react-native';
 import * as FileSystem from 'expo-file-system';
 import { server } from '@/server';
 import Colors from '@/constants/Colors';
@@ -26,8 +26,14 @@ const CbtSettings = ({ startCBT }) => {
     checkDownloadedQuestions();
     getUser();
     if (role === 'user') {
-      Alert.alert("You Need to Pay just 1000Naira to take CBT !!");
-      router.back();
+      Alert.alert(
+        "",
+        "Activate App to access all years and Cbt Practice",
+        [
+          { text: "No"},
+          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com/pay-for-app') }
+        ]
+      );      router.back();
     }
   }, [role]);
 
@@ -60,16 +66,16 @@ const CbtSettings = ({ startCBT }) => {
         await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(response.data));
       }
       setIsQuestionsDownloaded(true);
-      alert('Questions downloaded for offline use');
+      Alert.alert('Questions downloaded for offline use');
     } catch (error) {
       console.error("Error downloading questions", error);
-      alert('Failed to download questions');
+      Alert.alert('Failed to download questions');
     }
   };
 
   const handleStartCBT = () => {
     if (!isQuestionsDownloaded) {
-      Alert.alert('Error', 'Please download questions before starting the CBT.');
+      Alert.alert('Alert', 'Please download questions before starting the CBT.');
       return;
     }
 
@@ -85,8 +91,8 @@ const CbtSettings = ({ startCBT }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={[style.label, { textAlign: 'center', fontFamily: 'Ubuntu', fontSize: 20 }]}>CBT Settings</Text>
+    <ScrollView style={styles.container}>
+      <Text style={[style.label, { textAlign: 'center', fontFamily: 'Ubuntu', fontSize: 18, marginBottom:20 }]}>Cbt Settings</Text>
       <Text style={style.label}>Set Time (minutes):</Text>
       <TextInput
         style={styles.input}
@@ -119,24 +125,24 @@ const CbtSettings = ({ startCBT }) => {
         onChangeText={(text) => setGeneralPaperQuestions(Number(text))}
       />
 
-      <Text style={[style.label, { backgroundColor: Colors.green, color: Colors.white, width: 150, padding: 5, borderRadius: 10, textAlign: 'center', fontSize: 15 }]}>
+      <Text style={[style.label, { backgroundColor: Colors.green, color: Colors.white, width: 200, padding: 5, borderRadius: 10, textAlign: 'center', fontSize: 15 }]}>
         Total Questions: {totalQuestions}
       </Text>
       <View style={{ display: 'flex', gap: 10, marginTop: 20 }}>
         <Button 
           color={Colors.yellow}
           textColor={Colors.black}
-          title="Start CBT" 
+          title="Start Cbt" 
           onPress={handleStartCBT} 
         />
         {!isQuestionsDownloaded && (
           <Button 
-            title="Download Questions for Offline Use"
+            title="Download Questions Offline "
             onPress={downloadQuestions} 
           />
         )}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

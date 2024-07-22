@@ -26,10 +26,29 @@ const questionSchema = mongoose.Schema({
     required: true,
     unique:true,
   },
-  comments: {
-        type: [Schema.Types.ObjectId],
-        ref: 'comments'
-  },
+  replies: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+      },
+      content: {
+        type: String,
+        required: true,
+      }, 
+      replying_to:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+      },
+      image: {
+        type: String,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
   
   author: {
         type: Schema.Types.ObjectId,
