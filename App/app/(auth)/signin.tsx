@@ -113,10 +113,15 @@ const Signin = () => {
         <Pressable onPress={() => router.navigate('https://www.passpadi.com/signup')} style={{ marginTop: 10 }}>
           <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'SpaceGM', fontSize: 12 }}>
             Don't have an account? 
-            <Text style={{ fontWeight: "500", marginLeft:10, color: "#007FFF" }}>
+            <Text style={{ fontWeight: "500", marginLeft:5, color: "#007FFF" }}>
               Register Here
             </Text>
           </Text>
+        </Pressable>
+        <Pressable onPress={() => router.navigate('https://www.passpadi.com/privacy')} style={{ marginTop: 10 }}>
+            <Text style={{ textAlign:'center', textDecorationLine:'underline', fontFamily: 'SpaceGM', color:Colors.white }}>
+             Our  Privacy and Policy
+            </Text>
         </Pressable>
       </KeyboardAvoidingView>
       </View>

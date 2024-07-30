@@ -115,5 +115,36 @@ export const getQuestionsBySubject = async (req, res) => {
 };
 
 
+// Controller function to get questions based on filters
+export const getFilteredQuestions = async (req, res) => {
+    try {
+        const { examYear, examType, subject, school } = req.query;
+
+        // Build the query object
+        let query = {};
+        
+        if (examYear) query.examYear = examYear;
+        if (examType) query.examType = examType;
+        if (subject) query.subject = subject;
+        if (examType === 'POST UTME' && school) {
+            query.school = school;
+        }
+
+        // Fetch questions based on the query
+        const questions = await Question.find(query)
+            .populate('subject', 'name')  // Adjust the fields to populate as necessary
+            .populate('school', 'name')
+            .populate('author', 'name');
+
+        // Send response
+        res.status(200).json(questions);
+    } catch (error) {
+        console.error('Error fetching filtered questions:', error);
+        res.status(500).json({ message: 'Error fetching filtered questions' });
+    }
+};
+
+
+
 
 

@@ -3,6 +3,6 @@ import { getNotifs } from '../controllers/Notification.js';
 import { verifyJWT } from '../middlewares/VerifyJwt.js';
 
 const Notifs = express.Router();
-Notifs.get("/", verifyJWT,nav getNotifs);
+Notifs.get("/", verifyJWT, getNotifs);
 
 export default Notifs

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Colors from '@/constants/Colors'
 import {  router } from 'expo-router'
@@ -58,6 +58,11 @@ export function Splashpage (){
 
        />
       
+      <Pressable onPress={() => router.navigate('https://www.passpadi.com/privacy')} style={{ marginTop: 10 }}>
+            <Text style={{ textAlign:'center', textDecorationLine:'underline', fontFamily: 'SpaceGM', color:Colors.white }}>
+             Our  Privacy and Policy
+            </Text>
+        </Pressable>
       </View>
       </View>
   )

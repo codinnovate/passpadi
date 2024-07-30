@@ -32,7 +32,7 @@ const Header = () => {
         }
     }
     return (
-        <>
+        <div className='flex flex-col'>
         <nav className='navbar'>
             
             <Logo />
@@ -61,11 +61,7 @@ const Header = () => {
                      <Link to='/articles' className='hidden md:flex gap-2 link'>
                      <i className="fi fi-rr-books"></i>
                     <p>Articles</p>
-                    </Link>  
-                    <Link to='/cbt' className='hidden md:flex gap-2 link'>
-                        <i className="fi fi-rr-e-learning"></i>
-                        <p>Free Cbt</p>
-                    </Link>  
+                    </Link> 
                 </div>
 
             <div className='flex items-center gap-3 md:gap-6 ml-auto '>
@@ -83,15 +79,8 @@ const Header = () => {
                             
                         )
                     } */}
-                    {
-                        location.pathname === '/' && (
-                        <Link to='/editor' className='hidden md:flex gap-2 link'>
-                    <i className='fi fi-rr-file-edit'></i>
-                    <p>Write</p>
-                    </Link>
-                            
-                        )
-                    }
+                    
+                    
                     {
                         location.pathname === '/classroom' && (
                         <Link to='/create-subject' className='hidden md:flex gap-2 link'>
@@ -147,7 +136,7 @@ const Header = () => {
 
         </nav>
         <Outlet />
-        </>
+        </div>
     )
 }
 

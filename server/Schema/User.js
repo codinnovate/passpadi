@@ -95,7 +95,7 @@ const userSchema = mongoose.Schema({
     },
     role:{
         type: String,
-        enum: ["user", "admin", "paidUser"],
+        enum: ["user", "admin", "paidUser", "superadmin"],
         default: "user",
       },
       sentFollowRequests: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],

@@ -29,6 +29,7 @@ const ThreadsDetail = () => {
  useEffect(() => {
   getPost()
  }, [postId])
+ if(!post) return <Loader />
   return (
     <div className='max-w-3xl mx-auto flex flex-col p-2 w-full relative '>
       <div className='fixed top-[9%] right-0 border-b justify-center   bg-white items-center w-full z-[99999]'>

@@ -4,14 +4,11 @@ import { Navigate } from 'react-router-dom';
 import Loader from '../../components/loader.component';
 import axios from 'axios';
 import { serverApp } from '../../../server';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const User = () => {
     const { userAuth } = useContext(UserContext);
     const [users, setUsers] = useState();
-
-    // Debugging: log the context value
-    console.log('UserContext:', userAuth);
 
     if (!userAuth) {
         return <Loader />; // or a loading spinner, etc.
@@ -48,9 +45,25 @@ const User = () => {
         <Navigate to='/signin' />
         }
     },[access_token])
+const deleteUser = async (userId) => {
+    try {
+        const response = await axios.delete(`${serverApp}/user/delete/${userId}`, {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        });
+        toast.success(response?.message)
+        toast.success('User account deleted successfully');
+        // Redirect or update UI after deletion
+        window.location.reload();
+    } catch (error) {
+        console.error('Error deleting user:', error);
+        toast.error('Error deleting user, .');
+    }
+};
     return (
-        <div className='max-w-4xl mx-auto mt-5'>
-
+        <div className='max-w-6xl mx-auto mt-5 p-2'>
+            <Toaster />
     <h1 className='text-2xl font-bold'>({users?.length}) Users</h1>
     <div class="relative overflow-x-auto mt-[1em]">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -84,6 +97,13 @@ const User = () => {
                 </td>
                 <td class="px-6 py-4 text-blue-500">
                     {item.role}/{item.personal_info.points}
+                </td>
+                <td class="px-6 py-4">
+                    <button 
+                    onClick={() => deleteUser(item._id)}
+                    className='bg-red p-2 rounded-xl'>
+                     <h1 className='text-white font-bold '>Delete</h1>
+                    </button>
                 </td>
             </tr>
         </tbody>

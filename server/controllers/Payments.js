@@ -43,7 +43,7 @@ export const verifyTransaction = async (req, res) => {
                 if (user) {
                     // Assuming 1 Naira = 1 point
                     // user.points += amount / 100;
-                    user.role = 'paidUser';
+                    user.role == 'paidUser';
                     await user.save();
                 }
 

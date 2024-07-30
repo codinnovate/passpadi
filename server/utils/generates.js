@@ -42,7 +42,7 @@ const generateUsername = async(email) => {
     // format Data to send
 const formatDatatoSend = (user) => {
     const access_token = jwt.sign(
-        { id: user._id }, process.env.SECRET_ACCESS_KEY
+        { id: user._id, role:user.role }, process.env.SECRET_ACCESS_KEY
     )
     return {
         access_token,
