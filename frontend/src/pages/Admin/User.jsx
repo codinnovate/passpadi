@@ -16,9 +16,7 @@ const User = () => {
 
     const { access_token, role } = userAuth;
 
-    if (role && role != 'admin'  ) {
-        <Navigate to='/' />
-    }
+    
     const getUsers = async () => {
         await axios.get(serverApp + '/users/', {
             headers: {
@@ -45,6 +43,7 @@ const User = () => {
         <Navigate to='/signin' />
         }
     },[access_token])
+
 const deleteUser = async (userId) => {
     try {
         const response = await axios.delete(`${serverApp}/user/delete/${userId}`, {
@@ -61,6 +60,26 @@ const deleteUser = async (userId) => {
         toast.error('Error deleting user, .');
     }
 };
+const activateUser = async (userId) => {
+    try {
+        const response = await axios.put(`${serverApp}/user/activate/${userId}`, {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        });
+        toast.success(response?.message)
+        toast.success('User App Activated');
+        // Redirect or update UI after deletion
+        window.location.reload();
+    } catch (error) {
+        console.error('Error activating account:', error);
+        toast.error('Error Activating app, .');
+    }
+};
+
+    if (role && role != 'admin'  ) {
+        <Navigate to='/' />
+     } 
     return (
         <div className='max-w-6xl mx-auto mt-5 p-2'>
             <Toaster />
@@ -81,6 +100,9 @@ const deleteUser = async (userId) => {
                 <th scope="col" class="px-6 py-3">
                     role/points
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
             </tr>
         </thead>
         {users && users.map((item, index) => (
@@ -98,13 +120,23 @@ const deleteUser = async (userId) => {
                 <td class="px-6 py-4 text-blue-500">
                     {item.role}/{item.personal_info.points}
                 </td>
+                {role == 'superadmin' && (
                 <td class="px-6 py-4">
                     <button 
                     onClick={() => deleteUser(item._id)}
-                    className='bg-red p-2 rounded-xl'>
+                    className='bg-red p-1 rounded-xl'>
                      <h1 className='text-white font-bold '>Delete</h1>
                     </button>
+                    {item.role != 'paidUser' &&  (
+                    <button 
+                    onClick={() => activateUser(item._id)}
+                    className='bg-green p-1 rounded-xl mt-2'>
+                     <h1 className='text-white font-bold '>Activate</h1>
+                    </button>
+                    )}
                 </td>
+                )}
+                
             </tr>
         </tbody>
         ))}

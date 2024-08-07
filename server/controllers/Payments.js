@@ -39,7 +39,7 @@ export const verifyTransaction = async (req, res) => {
                 );
 
                 // Update user's points and role
-                const user = await User.findById(userId);
+                const user = await User.findById({userId});
                 if (user) {
                     // Assuming 1 Naira = 1 point
                     // user.points += amount / 100;

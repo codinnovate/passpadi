@@ -36,11 +36,6 @@ const UserNavigationPanel = () => {
              {/* <Link to='/settings/edit-profile' className='link pl-8 py-4'>
              Settings 
             </Link> */}
-        <Link 
-        to='/community'
-          className='link pl-8 py-4'>
-             Community
-        </Link>
             <span className='absolute border-t border-grey -ml-6 w-[100%] '>
             </span>
             <button 

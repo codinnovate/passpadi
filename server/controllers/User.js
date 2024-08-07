@@ -150,21 +150,17 @@ const getMyProfile = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         // Check if the logged-in user has the role 'superadmin'
-    
         if (req.role !== 'superadmin') {
             return res.status(403).json({ message: 'You are not authorized to delete this account.' });
         }
-
         // Get the user ID from the request parameters
         const userId = req.params.id;
-
         // Find the user by ID and delete
         const user = await User.findByIdAndDelete(userId);
 
         if (!user) {
             return res.status(404).json({ message: 'User not found.' });
         }
-
         res.status(200).json({ message: 'User account deleted successfully.' });
     } catch (error) {
         console.error('Error deleting user:', error);
@@ -172,6 +168,32 @@ const deleteUser = async (req, res) => {
     }
 };
 
+const activateUser = async (req, res) => {
+    try {
+        // Ensure `req.role` is set correctly by your middleware or authentication logic
+        // if (req.role !== 'superadmin') {
+        //     return res.status(403).json({ message: 'You are not authorized to activate this account.' });
+        // }
+
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+
+        if (user) {
+            // Set the role to 'paidUser'
+            user.role = 'paidUser';
+            await user.save();
+            return res.status(200).json({ message: 'User activated successfully.' });
+        } else {
+            // If user not found, return 404
+            return res.status(404).json({ message: 'User not found.' });
+        }
+    } catch (error) {
+        console.error('Error activating user:', error);
+        return res.status(500).json({ message: 'Error activating user.' });
+    }
+};
+
+
 export {
-    Register,Login, GoogleAuth, getMyProfile,deleteUser
+    Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser
 }
