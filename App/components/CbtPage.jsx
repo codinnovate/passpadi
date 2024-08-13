@@ -15,24 +15,21 @@ const CbtPage = ({ settings }) => {
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timer, setTimer] = useState(settings.time * 60 + 6);
+  const [timer, setTimer] = useState(settings.time * 60 + 10);
   const [submitted, setSubmitted] = useState(false);
   const [correctionsMode, setCorrectionsMode] = useState(false);
   const [role, setRole] = useState('');
 
   const timerRef = useRef();
 
-
-
   const getUser = async () => {
     const userRole = await AsyncStorage.getItem("role");
     setRole(userRole);
   };
-  useEffect(() => {
 
+  useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        // Fetch questions based on selected subjects from settings
         const subjects = Object.keys(settings.subjects);
         let fetchedQuestions = [];
 
@@ -41,7 +38,7 @@ const CbtPage = ({ settings }) => {
           const subjectQuestions = response.data;
 
           // Randomly select questions based on the number specified in settings
-          const selectedQuestions = subjectQuestions.slice(0, settings.subjects[subject]);
+          const selectedQuestions = getRandomQuestions(subjectQuestions, settings.subjects[subject]);
           fetchedQuestions = [...fetchedQuestions, ...selectedQuestions];
         }
 
@@ -77,6 +74,15 @@ const CbtPage = ({ settings }) => {
     return array;
   };
 
+  const getRandomQuestions = (questions, count) => {
+    // Create a shallow copy of the array to avoid mutating the original
+    const shuffledQuestions = [...questions];
+    // Shuffle the copied array
+    shuffleArray(shuffledQuestions);
+    // Return the requested number of questions
+    return shuffledQuestions.slice(0, count);
+  };
+
   const handleNext = (option) => {
     setUserAnswers([...userAnswers, option]);
     if (currentIndex === questions.length - 1) {
@@ -92,6 +98,12 @@ const CbtPage = ({ settings }) => {
     clearInterval(timerRef.current); // Stop the timer
   };
 
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
+
   return (
     <View style={styles.container}>
       {submitted ? (
@@ -100,11 +112,11 @@ const CbtPage = ({ settings }) => {
         <>
           <View style={styles.header}>
             {!correctionsMode && (
-              <View style={{display:"flex", justifyContent:'center', flexDirection:"row", alignItems:'center'}}>
-              <MaterialIcons name="timer" size={24} color={Colors.green} />
-              <Text style={[styles.label, {color:Colors.red, fontSize:15, fontFamily:'Ubuntu'}]}>
-                {Math.floor(timer / 60)}:{timer % 60}
-              </Text>
+              <View style={{display: "flex", justifyContent: 'center', flexDirection: "row", alignItems: 'center'}}>
+                <MaterialIcons name="timer" size={24} color={Colors.green} />
+                <Text style={[styles.label, {color: Colors.red, fontSize: 15, fontFamily: 'Ubuntu'}]}>
+                  {formatTime(timer)}
+                </Text>
               </View>
             )}
             <Button
@@ -115,7 +127,7 @@ const CbtPage = ({ settings }) => {
               disabled={submitted}
             />
           </View>
-          <Questions question={questions[currentIndex]} total ={questions.length} onAnswerClicked={handleNext} index={currentIndex} />
+          <Questions question={questions[currentIndex]} total={questions.length} onAnswerClicked={handleNext} index={currentIndex} />
         </>
       )}
     </View>
@@ -125,7 +137,7 @@ const CbtPage = ({ settings }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop:20,
+    marginTop: 20,
   },
   header: {
     flexDirection: 'row',

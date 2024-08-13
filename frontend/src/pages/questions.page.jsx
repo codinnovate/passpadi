@@ -45,7 +45,7 @@ const Questions = () => {
     return (
         <div className="max-w-5xl mx-auto bg-white w-full p-2">
             <div className='flex justify-between w-full'>
-            <h1 className="text-2xl capitalize ubuntu-regular  mb-4">{subject} Past Questions</h1>
+            <h1 className="text-2xl capitalize ubuntu-regular  mb-4">{subject} Past Questions ({questions?.length})</h1>
             <span className='flex items-center justify-center bg-black/10 w-8 h-8 rounded-full p-2'>
             <i className="fi fi-rr-filter"></i>
             </span>

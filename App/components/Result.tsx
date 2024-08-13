@@ -106,13 +106,13 @@ const question = questions[currentIndex];
               style={style.back}
               onPress={handleBack}
             >
-              <Text style={{ color: Colors.green, fontFamily: 'SpaceGM', fontSize: 20, fontWeight: 500, textAlign: 'center' }}>Back</Text>
+              <Text style={{ color: Colors.green, fontFamily: 'SpaceGM', fontSize: 15, textAlign: 'center' }}>Back</Text>
             </Pressable>
               <TouchableOpacity
                 style={style.next}
                 onPress={handleNext}
               >
-                <Text style={{ color: Colors.white, fontFamily: 'SpaceGM', fontSize: 20, fontWeight: 500, textAlign: 'center' }}>Next</Text>
+                <Text style={{ color: Colors.white, fontFamily: 'SpaceGM', fontSize: 15, textAlign: 'center' }}>Next</Text>
               </TouchableOpacity>
             
           </View>

@@ -96,20 +96,41 @@ export const deleteQuestion = async (req, res) => {
 
 
 
+// export const getQuestionsBySubject = async (req, res) => {
+//   const { subject_id } = req.params;
+//   if (!subject_id) {
+//       return res.status(400).json({ error: 'Subject ID is required' });
+//   }
+//   try {
+//     const questions = await Question.find()
+//       .populate('subject')
+//       .sort({ createdAt: -1 });
+//     const filteredQuestions = questions.filter(question => question.subject.subject_id === subject_id);
+//     return res.status(200).json(filteredQuestions);
+    
+//   } catch (err) {
+//     console.log(err);
+//       return res.status(500).json({ error: err.message });
+//   }
+// };
+
 export const getQuestionsBySubject = async (req, res) => {
   const { subject_id } = req.params;
   if (!subject_id) {
       return res.status(400).json({ error: 'Subject ID is required' });
   }
   try {
-    const questions = await Question.find()
-      .populate('subject')
-      .sort({ createdAt: -1 });
-    const filteredQuestions = questions.filter(question => question.subject.subject_id === subject_id);
-    return res.status(200).json(filteredQuestions);
-    
+      const questions = await Question.find()
+          .populate('subject')
+          .sort({ createdAt: -1 });
+
+      const filteredQuestions = questions.filter(question => 
+          question.subject.subject_id === subject_id && question.examType == 'POST UTME'
+      );
+
+      return res.status(200).json(filteredQuestions);
   } catch (err) {
-    console.log(err);
+      console.log(err);
       return res.status(500).json({ error: err.message });
   }
 };
