@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../components/UI/Button';
+import NumberInput from './UI/NumberInput';
 
 const subjectsList = ['mathematics', 'english', 'general-paper'];
 
@@ -39,37 +40,29 @@ const CbtSettings = ({ startCBT }) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-5 border border-gray-300 rounded-lg bg-white shadow-md mt-10">
-      <h1 className="text-center text-2xl font-bold mb-5">CBT Settings</h1>
+    <div className="max-w-xl mx-auto p-5 border border-gray-300 rounded-3xl bg-white shadow-md mt-10">
+      <h1 className="text-center text-xl font-bold  mb-5">CBT Settings</h1>
 
-      <label className="block mb-2 text-sm font-medium text-gray-700">Set Time (minutes):</label>
-      <input
-        type="number"
-        className="block w-full p-2 border border-gray-300 rounded mb-4"
+      <label className="block mt-3  text-xl font-semibold text-black">Set Time (minutes):</label>
+      <NumberInput
         value={time}
         onChange={(e) => setTime(Number(e.target.value))}
       />
 
-      <label className="block mb-2 text-sm font-medium text-gray-700">Mathematics Questions:</label>
-      <input
-        type="number"
-        className="block w-full p-2 border border-gray-300 rounded mb-4"
+      <label className="block mt-3  text-xl font-semibold text-black">Mathematics Questions:</label>
+      <NumberInput
         value={mathQuestions}
         onChange={(e) => setMathQuestions(Number(e.target.value))}
       />
 
-      <label className="block mb-2 text-sm font-medium text-gray-700">English Questions:</label>
-      <input
-        type="number"
-        className="block w-full p-2 border border-gray-300 rounded mb-4"
+      <label className="block mt-3  text-xl font-semibold text-black">English Questions:</label>
+      <NumberInput
         value={englishQuestions}
         onChange={(e) => setEnglishQuestions(Number(e.target.value))}
       />
 
-      <label className="block mb-2 text-sm font-medium text-gray-700">General Paper Questions:</label>
-      <input
-        type="number"
-        className="block w-full p-2 border border-gray-300 rounded mb-4"
+      <label className="block mt-3  text-xl font-semibold text-black">General Paper Questions:</label>
+      <NumberInput
         value={generalPaperQuestions}
         onChange={(e) => setGeneralPaperQuestions(Number(e.target.value))}
       />
@@ -80,7 +73,7 @@ const CbtSettings = ({ startCBT }) => {
 
       <div className="flex justify-between mt-6">
         <Button
-          color="yellow-500"
+          bgColor="green"
           textColor="black"
           title="Start CBT"
           onClick={handleStartCBT}

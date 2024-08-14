@@ -8,7 +8,7 @@ export default {
                 'black': '#242424',
                 'grey': '#F3F3F3',
                 'dark-grey': '#6B6B6B',
-                'green':'#015055',
+                'green':'#b8ff8c',
                 'red': '#FF4E4E',
                 'yellow':'#FFC831',
                 'transparent': 'transparent',

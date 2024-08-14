@@ -66,9 +66,11 @@ const App = () => {
                 <Route path="/editor/:blog_id" element={<Editor />} />
                 <Route path="/add-product" element={<ProductEditor />} />
 
+                <Route path="cbt" element={<Cbt />} />
                 <Route path="/" element={[<Navbar key={1} />, <Footer key={2} />, <Bottombar />]}>
                     <Route path='/question-editor' element={<QuestionEditor />} />
                 <Route path="product/:productId" element={<ProductDetail />} />
+
                     <Route index element={<Community />} />
                     <Route path='/articles' element={<HomePage />} />
                     <Route path='/notifications' element={<Notifications />} />

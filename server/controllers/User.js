@@ -194,6 +194,30 @@ const activateUser = async (req, res) => {
 };
 
 
+const getAllContacts = async (req, res) => {
+    try {
+        // Fetch only the fullname and phone number of users excluding roles "admin" and "superadmin"
+        const users = await User.find({
+            role: "user"
+        }
+        )
+        .select("personal_info.phoneNumber personal_info.fullname -_id"); // Exclude the _id field from the result
+
+        // Extract fullname and phone numbers into an array of formatted strings
+        const contacts = users.map(user => `${user.personal_info.fullname}, ${user.personal_info.phoneNumber}`);
+
+        // Join the contacts with a newline character
+        const contactsString = contacts.join(";");
+
+        // Send response as JSON with newline-separated contacts
+        console.log({ contacts: contactsString });
+    } catch (error) {
+        console.error("Error fetching contacts:", error);
+        // return res.status(500).json("An error occurred");
+    }
+}
+
+
 export {
     Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser
 }

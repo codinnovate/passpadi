@@ -6,7 +6,7 @@ import { Link} from 'react-router-dom';
 const SubCard = ({image, text, link, bgColor}) => {
   return (
     <Link
-     to = {`/classroom${link}`}
+     to = {`${link}`}
      className={`${bgColor} hover:opacity-8 w-full rounded-2xl h-[170px] flex items-center  p-2 flex-col`  }>
       <img
        src={image} 

@@ -308,7 +308,7 @@ app.post("/isliked-by-user", verifyJWT, (req, res) => {
         })
 
 })
-app.get("/users/", verifyJWT ,(req, res) => {
+app.get("/users/", verifyJWT, (req, res) => {
 try {
       const loggedInUserId = req.user;
       User.find({ _id: { $ne: loggedInUserId } })

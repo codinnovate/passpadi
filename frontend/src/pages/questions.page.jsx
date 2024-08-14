@@ -74,7 +74,7 @@ const Questions = () => {
                                     className='border bg-black border-grey rounded-2xl p-2'>
                                         <p className='text-sm text-white ubuntu-medium'>View Answer</p>
                                 </Link>
-                                {role =='admin' && (
+                                {role =='admin' || 'superadmin' && (
                                 <Link to={`${question._id}/edit-question`} className='link'>
                                 Edit Question
                                 </Link>

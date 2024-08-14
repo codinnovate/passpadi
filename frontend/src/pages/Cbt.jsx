@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CbtSettings from '../components/CbtSettings';
 import CbtApp from '../components/CbtApp';
 
@@ -10,7 +10,7 @@ const Cbt = () => {
 
   return (
     <div>
-        <div style={{ flex: 1 }}>
+        <div className=''>
             {!settings ? (
                 <CbtSettings startCBT={startCBT} />
             ) : (

@@ -5,10 +5,10 @@ import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../App.jsx';
 
 const cards = [
-  {name:"Math", link:"/mathematics", image:Images.math, bgColor:'bg-[#f8f899]'},
-  {name:"English", link:"/english", image:Images.english, bgColor:'bg-[#f55f99]'},
-  {name:"General Paper", link:"/general-paper", image:Images.gpaper , bgColor:'bg-[#55ff99]'},
-  // {name:"Cbt", link:"/cbt", image:Images.cbt , bgColor:'bg-[#f9f933]'},
+  {name:"Math", link:"classroom/mathematics", image:Images.math, bgColor:'bg-[#f8f899]'},
+  {name:"English", link:"classroom/english", image:Images.english, bgColor:'bg-[#f55f99]'},
+  {name:"General Paper", link:"classroom/general-paper", image:Images.gpaper , bgColor:'bg-[#55ff99]'},
+  {name:"Cbt", link:"/cbt", image:Images.cbt , bgColor:'bg-[#f9f933]'},
 ]
 
 const Classroom = () => {
