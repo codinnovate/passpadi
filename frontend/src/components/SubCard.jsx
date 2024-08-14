@@ -12,7 +12,7 @@ const SubCard = ({image, text, link, bgColor}) => {
        src={image} 
        className='w-[100px] object-contain'
       />
-      <h1 className="text-xl font-bold text-green">{text}</h1>
+      <h1 className="text-xl font-bold text-black">{text}</h1>
     </Link>
   )
 }

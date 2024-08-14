@@ -5,9 +5,9 @@ import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../App.jsx';
 
 const cards = [
-  {name:"Math", link:"classroom/mathematics", image:Images.math, bgColor:'bg-[#f8f899]'},
-  {name:"English", link:"classroom/english", image:Images.english, bgColor:'bg-[#f55f99]'},
-  {name:"General Paper", link:"classroom/general-paper", image:Images.gpaper , bgColor:'bg-[#55ff99]'},
+  {name:"Math", link:"/classroom/mathematics", image:Images.math, bgColor:'bg-[#f8f899]'},
+  {name:"English", link:"/classroom/english", image:Images.english, bgColor:'bg-[#f55f99]'},
+  {name:"General Paper", link:"/classroom/general-paper", image:Images.gpaper , bgColor:'bg-[#55ff99]'},
   {name:"Cbt", link:"/cbt", image:Images.cbt , bgColor:'bg-[#f9f933]'},
 ]
 
@@ -35,7 +35,7 @@ const Classroom = () => {
           ))
         }
       </div>
-      <Link to='https://chat.whatsapp.com/CZ9ilb1DQZR49k8UizskAl'>
+      <Link to='https://chat.whatsapp.com/L2xEbbnLJQtAh2zeTKrvAQ'>
       <div
         className='w-full bg-green mt-3 rounded-2xl flex flex-col justify-center h-[100px] p-3 mb-[3em]'>
         <h1 className='text-white text-xl mt-2'>Join Unilag Whatsapp Group for Updates</h1>
