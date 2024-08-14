@@ -60,7 +60,7 @@ const App = () => {
             title="Passpadi | Built by Students For Students"
             des="PassPadi is a dynamic and innovative social networking platform tailored specifically for students striving to excel in their exams"
             />
-            <Whatsapp />
+          
             <Routes>
             <Route path="/editor" element={<Editor />} />
                 <Route path="/editor/:blog_id" element={<Editor />} />
