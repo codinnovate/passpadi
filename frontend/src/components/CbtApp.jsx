@@ -22,13 +22,15 @@ const CbtApp = ({ settings }) => {
         let fetchedQuestions = [];
 
         for (const subject of subjects) {
-          const response = await axios.get(`${serverApp}/questions/v1/${subject}`);
+          const response = await axios.get(`${server}/questions/v1/${subject}`);
           const subjectQuestions = response.data;
 
-          const selectedQuestions = subjectQuestions.slice(0, settings.subjects[subject]);
+          // Randomly select questions based on the number specified in settings
+          const selectedQuestions = getRandomQuestions(subjectQuestions, settings.subjects[subject]);
           fetchedQuestions = [...fetchedQuestions, ...selectedQuestions];
         }
 
+        // Randomize fetched questions
         const randomizedQuestions = shuffleArray(fetchedQuestions);
         setQuestions(randomizedQuestions);
       } catch (error) {
@@ -43,7 +45,8 @@ const CbtApp = ({ settings }) => {
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, [settings]);
+  }, []);
+
 
   useEffect(() => {
     if (timer === 0) {
@@ -52,12 +55,23 @@ const CbtApp = ({ settings }) => {
   }, [timer]);
 
   const shuffleArray = (array) => {
+    // Implementation of Fisher-Yates shuffle algorithm
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   };
+
+  const getRandomQuestions = (questions, count) => {
+    // Create a shallow copy of the array to avoid mutating the original
+    const shuffledQuestions = [...questions];
+    // Shuffle the copied array
+    shuffleArray(shuffledQuestions);
+    // Return the requested number of questions
+    return shuffledQuestions.slice(0, count);
+  };
+
 
   const handleNext = (option) => {
     setUserAnswers([...userAnswers, option]);
