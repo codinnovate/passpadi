@@ -47,7 +47,7 @@ const question = questions[currentIndex];
         </div>
         <div className='h-full w-[7em] bg-white rounded-3xl  flex items-center justify-center'>
           <h2 className='text-center text-xl ubuntu-semibold'>
-        {calculateScore(correctAnswers, questionLength)} / 30
+        {calculateScore(correctAnswers, questionLength).toFixed(1)} / 30
           </h2>
         </div>
       </div>

@@ -22,7 +22,7 @@ const CbtApp = ({ settings }) => {
         let fetchedQuestions = [];
 
         for (const subject of subjects) {
-          const response = await axios.get(`${server}/questions/v1/${subject}`);
+          const response = await axios.get(`${serverApp}/questions/v1/${subject}`);
           const subjectQuestions = response.data;
 
           // Randomly select questions based on the number specified in settings

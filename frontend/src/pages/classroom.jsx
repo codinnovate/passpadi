@@ -37,9 +37,9 @@ const Classroom = () => {
       </div>
       <Link to='https://chat.whatsapp.com/L2xEbbnLJQtAh2zeTKrvAQ'>
       <div
-        className='w-full bg-green mt-3 rounded-2xl flex flex-col justify-center h-[100px] p-3 mb-[3em]'>
-        <h1 className='text-white text-xl mt-2'>Join Unilag Whatsapp Group for Updates</h1>
-        <button className='bg-white w-fit py-1.5 hover:bg-green transition-all duration-150 px-4 font-semibold rounded-full mt-3'>
+        className='w-full bg-green mt-3 rounded-2xl flex flex-col justify-center h-[120px] p-3 mb-[3em]'>
+        <h1 className='text-black font-semibold text-2xl mt-2'>Join Unilag Whatsapp Group for Updates</h1>
+        <button className='bg-white w-fit py-1.5 hover:border transition-all duration-150 px-4 font-semibold rounded-full mt-3'>
           Join for Free
         </button>
       </div>
