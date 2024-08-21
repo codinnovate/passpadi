@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../components/UI/Button';
 import NumberInput from './UI/NumberInput';
+import { Navigate } from 'react-router-dom';
+import { UserContext } from '../App';
+import toast from 'react-hot-toast';
 
 const subjectsList = ['mathematics', 'english', 'general-paper'];
 
@@ -10,20 +13,21 @@ const CbtSettings = ({ startCBT }) => {
   const [mathQuestions, setMathQuestions] = useState(10);
   const [englishQuestions, setEnglishQuestions] = useState(20);
   const [generalPaperQuestions, setGeneralPaperQuestions] = useState(10);
-  const [role, setRole] = useState('');
+  let { userAuth: { access_token , role} } = useContext(UserContext)
 
   const totalQuestions = mathQuestions + englishQuestions + generalPaperQuestions;
 
   useEffect(() => {
-    getUser();
     if (role === 'user') {
-      alert("You Need to Pay just 1000 Naira to take CBT!!");
-      window.history.back();
+      toast.error("You need to activate your app before attempting cbt")
+      return <Navigate to='/pay-for-app' />
     }
+    console.log(role);
   }, [role]);
 
   const getUser = () => {
     const userRole = localStorage.getItem("role");
+    console.log(userRole)
     setRole(userRole);
   };
 
