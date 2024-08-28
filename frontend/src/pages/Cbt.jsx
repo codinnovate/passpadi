@@ -14,7 +14,10 @@ const Cbt = () => {
             {!settings ? (
                 <CbtSettings startCBT={startCBT} />
             ) : (
+                <>
+                
                 <CbtApp settings={settings} />
+                </>
             )}
             </div>
     </div>

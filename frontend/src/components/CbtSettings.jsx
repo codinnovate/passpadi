@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../components/UI/Button';
 import NumberInput from './UI/NumberInput';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
 import toast from 'react-hot-toast';
 
@@ -14,22 +14,16 @@ const CbtSettings = ({ startCBT }) => {
   const [englishQuestions, setEnglishQuestions] = useState(20);
   const [generalPaperQuestions, setGeneralPaperQuestions] = useState(10);
   let { userAuth: { access_token , role} } = useContext(UserContext)
-
+  const navigate = useNavigate()
   const totalQuestions = mathQuestions + englishQuestions + generalPaperQuestions;
 
-  useEffect(() => {
-    if (role === 'user') {
-      toast.error("You need to activate your app before attempting cbt")
-      return <Navigate to='/pay-for-app' />
-    }
-    console.log(role);
-  }, [role]);
 
   const getUser = () => {
     const userRole = localStorage.getItem("role");
     console.log(userRole)
     setRole(userRole);
   };
+
 
   const handleStartCBT = () => {
     const settings = {
@@ -40,7 +34,16 @@ const CbtSettings = ({ startCBT }) => {
         'general-paper': generalPaperQuestions,
       },
     };
-    startCBT(settings);
+
+    if (role === 'user') {
+      toast.error("You need to activate your app before attempting cbt");
+      setInterval(() => {
+        navigate('/pay-for-app')
+      },6000)
+    }else {
+      startCBT(settings);
+    }
+
   };
 
   return (

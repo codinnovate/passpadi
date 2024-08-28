@@ -1,1 +1,1 @@
-export const serverApp = 'https://passpadi.onrender.com'
+export const serverApp = import.meta.env.VITE_SERVER_DOMAIN
