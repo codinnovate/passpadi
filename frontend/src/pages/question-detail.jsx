@@ -74,7 +74,7 @@ const QuestionDetailPage = () => {
                             <span className='text-2xl font-bold'>
                             {String.fromCharCode(65 + index)}
                             </span>
-                        <span className='font-semibold'>{option}</span>
+                        <span className='font-semibold'> {parse(`${option}`)}</span>
                     </div>
                 </button>
                 ))}

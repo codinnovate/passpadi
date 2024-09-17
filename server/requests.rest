@@ -1,4 +1,6 @@
-
-GET   http://localhost:3000/notifications
+POST   http://localhost:4000/latest-blogs
 Content-Type: application/json
 
+{
+    "page":2
+}

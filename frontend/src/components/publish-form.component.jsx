@@ -13,7 +13,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 const PublishForm = () => {
-    let { blog, blog: {banner, title, tags, des, content} , setEditorState, setBlog } = useContext(EditorContext);
+    let { blog, blog: {banner, title, tags, des, content}, setEditorState, setBlog } = useContext(EditorContext);
     let { blog_id } = useParams();
 
     let  characterLimit = 200;

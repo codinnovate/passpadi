@@ -4,6 +4,10 @@ import 'dotenv/config'
 import { getAuth } from 'firebase-admin/auth';
 import { formatDatatoSend } from "../utils/generates.js";
 import { generateUsername } from "../utils/generates.js";
+import { initClient } from 'messagebird';
+
+
+
 
 export const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
@@ -194,30 +198,62 @@ const activateUser = async (req, res) => {
 };
 
 
-const getAllContacts = async (req, res) => {
-    try {
-        // Fetch only the fullname and phone number of users excluding roles "admin" and "superadmin"
-        const users = await User.find({
-            role: "user"
-        }
-        )
-        .select("personal_info.phoneNumber personal_info.fullname -_id"); // Exclude the _id field from the result
+// const getAllContacts = async (req, res) => {
+//     try {
+//         // Fetch only the fullname and phone number of users excluding roles "admin" and "superadmin"
+//         const users = await User.find({
+//             role: "user"
+//         }
+//         )
+//         .select("personal_info.phoneNumber personal_info.fullname -_id"); // Exclude the _id field from the result
 
-        // Extract fullname and phone numbers into an array of formatted strings
-        const contacts = users.map(user => `${user.personal_info.fullname}, ${user.personal_info.phoneNumber}`);
+//         // Extract fullname and phone numbers into an array of formatted strings
+//         const contacts = users.map(user => `${user.personal_info.phoneNumber}`);
 
-        // Join the contacts with a newline character
-        const contactsString = contacts.join(";");
+//         // Join the contacts with a newline character
+//         // const contactsString = contacts.join(',\n');
 
-        // Send response as JSON with newline-separated contacts
-        console.log({ contacts: contactsString });
-    } catch (error) {
-        console.error("Error fetching contacts:", error);
-        // return res.status(500).json("An error occurred");
-    }
+//         // Send response as JSON with newline-separated contacts
+//         contacts.forEach(contact => console.log(contact));
+//         console.log(contacts.length);
+//     } catch (error) {
+//         console.error("Error fetching contacts:", error);
+//         // return res.status(500).json("An error occurred");
+//     }
+// }
+
+// getAllContacts()
+
+
+
+const getProfile = async (req, res) =>{
+    let { username } = req.body;
+      User.findOne({ "personal_info.username": username })
+      .select("-personal_info.password -google_auth -updatedAt -blogs")
+          .then(user => {
+          return res.status(200).json(user)
+          console.log(user)
+          })
+          .catch(err => {
+          return res.status(500).json({error:err.message})
+      })
 }
 
 
+export const searchUsers = async (req, res) =>{
+    let { query } = req.body;
+
+    User.find({ "personal_info.username": new RegExp(query, 'i') })
+    .limit(50)
+    .select("personal_info.fullname personal_info.username profile_info.profile_img -_id")
+    .then(users => {
+            return res.status(200).json({ users })
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err.message })
+        })
+  
+}
 export {
-    Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser
+    Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser, getProfile
 }

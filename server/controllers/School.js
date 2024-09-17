@@ -48,9 +48,9 @@ export const getSchoolById = async (req, res) => {
 // Update a School
 export const updateSchool = async (req, res) => {
   const { school_id } = req.params;
-  const { name } = req.body;
+  const { name, shortName, logo, about,  } = req.body;
   try {
-      const updatedSchool = await School.findByIdAndUpdate({ school_id }, { name }, { new: true });
+      const updatedSchool = await School.findByIdAndUpdate({ school_id }, { name, about, logo,  }, { new: true });
     if (!updatedSchool) return res.status(404).json({ error: 'School not found' });
     res.status(200).json(updatedSchool);
   } catch (err) {

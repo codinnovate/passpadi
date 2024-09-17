@@ -140,10 +140,8 @@ export const getQuestionsBySubject = async (req, res) => {
 export const getFilteredQuestions = async (req, res) => {
     try {
         const { examYear, examType, subject, school } = req.query;
-
         // Build the query object
         let query = {};
-        
         if (examYear) query.examYear = examYear;
         if (examType) query.examType = examType;
         if (subject) query.subject = subject;

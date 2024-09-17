@@ -22,6 +22,7 @@ const schoolSchema = new mongoose.Schema({
     about: {
         type: String,
     },
+    
 
 })
 
