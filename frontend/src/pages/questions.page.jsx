@@ -61,7 +61,7 @@ const Questions = () => {
                                 </i>
                             </h3>
                         <h2 className="text-xl flex mt-3 ubuntu-regular font-medium">{index + 1}.{parse(`${question.question}`)}
-  </h2>
+                            </h2>
                         <div className='flex flex-wrap gap-2'>
                             {question.options.map((option, index) => (
                                     <div className='flex gap-2'>

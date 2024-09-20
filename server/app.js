@@ -23,7 +23,7 @@ import { Post } from './Schema/Post.js';
 import PostRouter from './routes/Post.js';
 import nodemailer from 'nodemailer';
 import Notifs from './routes/Notifications.js';
-import { postRouter } from './routes/Blog.js';
+import { blogRouter} from './routes/Blog.js';
 
 admin.initializeApp({
     credential:admin.credential.cert(serviceAccountKey)
@@ -44,21 +44,29 @@ mongoose.connect(process.env.DB_LOCATION, {
 })
 app.use(cors());
 app.use(express.json());
-app.use("", [userRouter, commentRouter, productRouter, PostRouter])
+app.use("/", [userRouter, commentRouter, productRouter, PostRouter, blogRouter])
 app.use("/transactions", paymentRouter)
 app.use('/questions', questionRoutes);
 app.use('/subjects', subjectRoutes);
 app.use('/schools', schoolRoutes);
 app.use('/notifications', Notifs);
 app.get('/get-upload-url', uploadUrl);
-// app.use("",)
-app.use('/', postRouter);
 
 
   
 
-
-
+app.post("/all-latest-blogs-count", (req, res) => {
+  Blog.countDocuments({ draft: false })
+      .then(count => {
+      return res.status(200).json({ totalDocs:count })
+      })
+      .catch(err => {
+          console.log(err.message)
+          return res.status(500).json({error:err.message})
+      })
+  
+  
+})
 app.post("/get-blog", (req, res) => {
     let { blog_id, draft, mode } = req.body;
     let incrementVal =  mode != "edit" ? 1: 0 ;

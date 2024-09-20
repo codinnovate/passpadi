@@ -1,11 +1,37 @@
 import Blog from "../Schema/Blog.js";
+import { generateSlug } from "../utils/generates.js";
 
 
+
+export const getPost = async (req, res) => {
+    let { blog_id } = req.body;
+    Blog.findOne({ blog_id }, { $inc: { "activity.total_reads": incrementVal } })
+        .populate("author", "personal_info.fullname personal_info.username personal_info.profile_img ")
+        .select("title des content banner activity publishedAt blog_id tags")
+        .then(blog => {
+            User.findOneAndUpdate({ "personal_info.username": blog.author.personal_info.username }, {
+                $inc:{"account_info.total_reads":incrementVal}
+            })
+            .catch(err => {
+                return res.status(500).json({ error:err.message})
+            })
+
+            if (blog.draft && !draft) {
+                return res.status(500).json({error:"you can not access draft blog"})
+            }
+
+            return res.status(200).json({ blog });
+
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err.message });
+        })
+}
 export const latestPost = async (req, res) => {
 
     try {
         let {page} = req.body;
-        let maxLimit = 9;
+        let maxLimit = 30;
    
         
         let post = await Blog
@@ -86,10 +112,26 @@ export const draftPost = async (req, res) => {
 }
 
 
+export const getArticlesByTag = async (req, res) => {
+    const { tagId } = req.params;
+    
+    try {
+        const articles = await Blog.find({ tags: tagId }).populate('author', 'name').exec();
+        
+        if (!articles || articles.length === 0) {
+            return res.status(404).json({ message: 'No articles found for this tag.' });
+        }
+        
+        res.status(200).json(articles);
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred while fetching articles." });
+    }
+};
 
 
 
-export const createPost = async (req, res) => {
+
+export const createBlog = async (req, res) => {
     let authorId = req.user;
     
     let { title, banner, content, tags, des, draft, id } = req.body;

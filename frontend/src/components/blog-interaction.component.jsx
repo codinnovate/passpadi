@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const BlogInteraction = () => {
     let { blog, blog: { _id, title, blog_id, activity, activity: { total_likes, total_comments }, author: { personal_info: { username: author_username } } }, setBlog, isLikedByUser, setLikedByUser , setCommentsWrapper, commentsWrapper} = useContext(BlogContext);
-    let { userAuth: { username, access_token } } = useContext(UserContext);
+    let { userAuth: { username,role, access_token } } = useContext(UserContext);
     
     useEffect(() => {
         if (access_token) {
@@ -85,10 +85,11 @@ const BlogInteraction = () => {
                 <div className="flex gap-6 items-center">
 
                     {
-                        username == author_username ? 
+                        username == author_username  || role === 'superadmin' ? 
                             <Link
                                 className='underline hover:text-purple'
                                 to={`/editor/${blog_id}`}>
+                                    
                            Edit
                         </Link> : ""
                     }

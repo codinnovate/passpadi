@@ -121,7 +121,7 @@ export const getQuestionsBySubject = async (req, res) => {
   }
   try {
       const questions = await Question.find()
-          .populate('subject')
+          .populate('subject school')
           .sort({ createdAt: -1 });
 
       const filteredQuestions = questions.filter(question => 

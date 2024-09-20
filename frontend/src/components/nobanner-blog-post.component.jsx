@@ -3,20 +3,20 @@ import { getDay } from '../common/date';
 import { Link } from 'react-router-dom';
 
 
-const MinimalBlogPost = ({ blog, index }) => {
-    let { title, blog_id: id, author: { personal_info: { fullname, username, profile_img } }, publishedAt } = blog;
+const MinimalBlogPost = ({ blog }) => {
 
     return (
-        <Link to={`blog/${id}`} className='flex gap-5 mb-4 '>
-            <h1 className='blog-index'>{index < 10 ? "0" + (index + 1 ) : index }</h1>
+        <Link to={`blog/${blog._id}`} className='flex gap-5 mb-4 '>
+            {/* <h1 className='blog-index'>{index < 10 ? "0" + (index + 1 ) : index }</h1> */}
             <div className=''>
                  <div className='flex gap-2 items-center mb-7'>
-                <img src={profile_img} className='w-6 h-6 rounded-full' />
-                <p className='line-clamp-1'>@{username}</p>
+                {/* <img src={blog.author?.personal_info?.profile_img} className='w-6 h-6 rounded-full' />
+                <p className='line-clamp-1'>@{blog.author?.personal_info.username}</p>
+                */}
                 <p className='min-w-fit'>
-                    {getDay(publishedAt)}</p>
+                    {getDay(blog.publishedAt)}</p>
                 </div>
-                <h1 className='blog-title'>{title}</h1>
+                <h1 className='blog-title'>{blog?.title}</h1>
             </div>
         </Link>
     )

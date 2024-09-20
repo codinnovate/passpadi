@@ -1,13 +1,14 @@
 import { Router } from "express";
-import { countPost, draftPost, latestPost, searchPost, trendingPost } from "../controllers/Blog.js";
+import { countPost, draftPost, latestPost, searchPost, trendingPost, createBlog } from "../controllers/Blog.js";
+import { verifyJWT } from "../middlewares/VerifyJwt.js";
 
 
-export const postRouter = Router();
+export const blogRouter = Router();
 
-postRouter.post('/latest-blogs', latestPost)
-postRouter.post('/search-blogs', searchPost)
-postRouter.post('/trending-blogs', trendingPost)
-postRouter.post('/search-blogs-count', countPost)
-postRouter.post('/drafts', draftPost)
-// postRouter.post('/search-users', usersPost)
-postRouter.post('/create-blog')
+blogRouter.post('/latest-blogs', latestPost)
+            .post('/search-blogs', searchPost)
+            .get('/trending-blogs', trendingPost)
+            .post('/search-blogs-count', countPost)
+            .post('/drafts', draftPost)
+//          .post('/search-users', usersPost)
+            .post('/create-blog',verifyJWT, createBlog)
