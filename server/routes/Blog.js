@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { countPost, draftPost, latestPost, searchPost, trendingPost, createBlog } from "../controllers/Blog.js";
+import { countPost, draftPost, latestPost, searchPost, trendingPost, createBlog, getArticlesByTag } from "../controllers/Blog.js";
 import { verifyJWT } from "../middlewares/VerifyJwt.js";
 
 
@@ -12,3 +12,4 @@ blogRouter.post('/latest-blogs', latestPost)
             .post('/drafts', draftPost)
 //          .post('/search-users', usersPost)
             .post('/create-blog',verifyJWT, createBlog)
+            .get('/tag/:tagId', getArticlesByTag)
