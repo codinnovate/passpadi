@@ -120,17 +120,17 @@ const Subject = () => {
     }
   };
 
+  const base64KaTeXCSS = "/* Base64-encoded CSS content */";
+
   const question = filteredData[currentIndex];
 
-  const generateHtmlContent = (content) => {
+ const generateHtmlContent = (content) => {
     return `
       <!DOCTYPE html>
       <html>
         <head>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css">
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-          <script>
+            <script>
             document.addEventListener("DOMContentLoaded", function() {
               renderMathInElement(document.body, {
                 delimiters: [
@@ -142,8 +142,13 @@ const Subject = () => {
           </script>
           <style>
             body {
-              zoom: 3.5; /* Adjust this value to make content larger or smaller */
+              zoom: 0; /* Adjust this value to make content larger or smaller */
             }
+            *{
+                font-family: 'SpaceGM', sans-serif;
+                font-size: 40px;
+                font-weight: medium;
+              }
           </style>
         </head>
         <body>
@@ -191,10 +196,18 @@ const Subject = () => {
                 key={index}
                 style={[styles.button, option === question?.answer ? styles.clickedBtn : null]}
               >
-                <Text style={styles.text}>{option}</Text>
+                <View style={styles.webViewOption}>
+                <WebView
+                originWhitelist={['*']}
+                source={{ html: generateHtmlContent(`${option}`) }}
+                style={styles.text}
+              />
+          </View>
               </Pressable>
             ))}
           </View>
+         
+          
         </View>
         
         {question?.answerDetail ? (
@@ -244,9 +257,16 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   webViewContainer: {
-    height: 200,
+    height: 100,
     width: '100%',
-    marginTop: 10,
+  },
+  webViewOption: {
+    display:'flex',
+    justifyContent: "center",
+    height: 30,
+    padding:0,
+    backgroundColor:'transparent',
+    width: '100%',
   },
   questionOptions: {
     gap: 10,
@@ -284,6 +304,8 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.green,
     fontSize: 15,
+    marginTop:0,
+    backgroundColor:'transparent',
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },

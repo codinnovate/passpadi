@@ -16,11 +16,14 @@ const CbtSettings = ({ startCBT }) => {
   const [time, setTime] = useState(30);
   const [mathQuestions, setMathQuestions] = useState(10);
   const [englishQuestions, setEnglishQuestions] = useState(20);
+  const [biologyQuestions, setbiologyQuestions] = useState(20);
+  const [chemistryQuestions, setchemistryQuestions] = useState(20);
+  const [physicsQuestions, setphysicsQuestions] = useState(20);
   const [generalPaperQuestions, setGeneralPaperQuestions] = useState(10);
   const [isQuestionsDownloaded, setIsQuestionsDownloaded] = useState(false);
   const [role, setRole] = useState('');
 
-  const totalQuestions = mathQuestions + englishQuestions + generalPaperQuestions;
+  const totalQuestions = mathQuestions + englishQuestions + generalPaperQuestions + biologyQuestions + chemistryQuestions + physicsQuestions;
 
   useEffect(() => {
     checkDownloadedQuestions();
@@ -31,7 +34,7 @@ const CbtSettings = ({ startCBT }) => {
         "Activate App to access all years and Cbt Practice",
         [
           { text: "No"},
-          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com/pay-for-app') }
+          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com.ng/pay-for-app') }
         ]
       );      router.back();
     }
@@ -84,6 +87,9 @@ const CbtSettings = ({ startCBT }) => {
       subjects: {
         mathematics: mathQuestions,
         english: englishQuestions,
+        physics: physicsQuestions,
+        chemistry: chemistryQuestions,
+        biology: biologyQuestions,
         'general-paper': generalPaperQuestions,
       },
     };
@@ -115,6 +121,27 @@ const CbtSettings = ({ startCBT }) => {
         keyboardType="numeric"
         value={String(englishQuestions)}
         onChangeText={(text) => setEnglishQuestions(Number(text))}
+      />
+      <Text style={style.label}>Biology Questions:</Text>
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        value={String(biologyQuestions)}
+        onChangeText={(text) => setbiologyQuestions(Number(text))}
+      />
+      <Text style={style.label}>Chemisty Questions:</Text>
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        value={String(chemistryQuestions)}
+        onChangeText={(text) => setchemistryQuestions(Number(text))}
+      />
+      <Text style={style.label}>Physics Questions:</Text>
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
+        value={String(physicsQuestions)}
+        onChangeText={(text) => setphysicsQuestions(Number(text))}
       />
 
       <Text style={style.label}>General Paper Questions:</Text>

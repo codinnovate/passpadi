@@ -26,7 +26,7 @@ const correctAnswers = questions.reduce((totalCorrect, question, index) => {
   }, 0);
   let questionLength = questions.length
   const calculateScore = (correctAnswers, questionLength) => {
-    return (correctAnswers / questionLength) * 30;
+    return (correctAnswers / questionLength) * 100 ;
 }
 
 
@@ -49,7 +49,7 @@ const question = questions[currentIndex];
       <View>
       <Text style={styles.summaryText}>Summary</Text>
       <Text style={styles.scoreText}>You got {correctAnswers} out of {questions.length} questions</Text>
-      <Text style={styles.scoreText}>Real Score: {calculateScore(correctAnswers, questionLength)} / 30</Text>
+      <Text style={styles.scoreText}>Percent: {calculateScore(correctAnswers, questionLength)}%</Text>
       </View>
 {/* 
       <ScrollView>
@@ -80,7 +80,7 @@ const question = questions[currentIndex];
        userAnswer={userAnswers[currentIndex]}
        />
 
-        {question?.answerDetail ? (
+        {question?.answerDetail && (
           <ScrollView contentContainerStyle={{ height: '100%', padding: 10, marginBottom: 50 }}>
             <View style={style.answerDetail}>
               <Text style={{ fontFamily: 'SpaceGM', color: Colors.black }}>Basic Explanation</Text>
@@ -91,10 +91,6 @@ const question = questions[currentIndex];
               />
             </View>
           </ScrollView>
-        ) : (
-          <Text style={{ fontFamily: 'Ubuntu', marginTop: 10, marginLeft: 10, color: Colors.green }}>
-            {question?.answer} is the answer to this question
-          </Text>
         )}
         
 

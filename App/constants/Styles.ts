@@ -49,6 +49,8 @@ export const style = StyleSheet.create({
   },
   answerDetail: {
     marginTop: 25,
+      height: 200,
+      width: '100%',
   },
   next: {
     backgroundColor: Colors.green,

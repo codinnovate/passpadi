@@ -3,42 +3,15 @@ import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-nativ
 import Colors from '@/constants/Colors';
 import Loader from './Loader';
 import { WebView } from 'react-native-webview';
+import { generateHtmlContent } from '@/utils/utils';
 
 const Questions = ({ question, onAnswerClicked, index, total }) => {
   const [pressed, setPressed] = useState();
   const handleAnswer = (option) => {
     onAnswerClicked(option);
   };
-  const generateHtmlContent = (content) => {
-    return `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css">
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-          <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              renderMathInElement(document.body, {
-                delimiters: [
-                  {left: "$$", right: "$$", display: true},
-                  {left: "$", right: "$", display: false}
-                ]
-              });
-            });
-          </script>
-          <style>
-            body {
-              zoom: 3.5; /* Adjust this value to make content larger or smaller */
-            }
-          </style>
-        </head>
-        <body>
-          ${content}
-        </body>
-      </html>
-    `;
-  };
+ 
+  
   if(!question)
     return <Loader />
   const source = {
@@ -73,7 +46,13 @@ const Questions = ({ question, onAnswerClicked, index, total }) => {
               key={index}
               style={[styles.button]}
             >
-              <Text style={styles.text}>{option}</Text>
+               <View style={styles.webViewOption}>
+                <WebView
+                originWhitelist={['*']}
+                source={{ html: generateHtmlContent(`${option}`) }}
+                style={styles.text}
+              />
+          </View>
             </TouchableOpacity>
           ))}
         </View>
@@ -97,9 +76,19 @@ const styles = StyleSheet.create({
   questionOptions: {
     marginTop: 10,
   },
+  webViewOption: {
+    display:'flex',
+    justifyContent: "center",
+    height: 30,
+    padding:0,
+    backgroundColor:'transparent',
+    width: '100%',
+  },
   button: {
+   
     width: '100%',
     padding: 10,
+    paddingLeft:20,
     borderRadius: 50,
     borderWidth: 1,
     borderColor: Colors.green,
@@ -108,6 +97,7 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.green,
     fontSize: 15,
+    marginBottom:0,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
   },

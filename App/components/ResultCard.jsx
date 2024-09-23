@@ -13,9 +13,7 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
       <html>
         <head>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css">
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-          <script>
+            <script>
             document.addEventListener("DOMContentLoaded", function() {
               renderMathInElement(document.body, {
                 delimiters: [
@@ -26,9 +24,12 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
             });
           </script>
           <style>
-            body {
-              zoom: 3.5; /* Adjust this value to make content larger or smaller */
-            }
+            
+            *{
+                font-family: 'SpaceGM', sans-serif;
+                font-size: 40px;
+                font-weight: 500;
+              }
           </style>
         </head>
         <body>
@@ -70,7 +71,13 @@ const ResultCard = ({ questions, index, total, userAnswer}) => {
                        option === questions.answer ? Colors.yellow : 'white' // Other options
               }, styles.button]}
             >
-              <Text style={styles.text}>{option}</Text>
+              <View style={styles.webViewOption}>
+                <WebView
+                originWhitelist={['*']}
+                source={{ html: generateHtmlContent(`${option}`) }}
+                style={styles.text}
+              />
+          </View>
             </Pressable>
           ))}
         </View>
@@ -87,6 +94,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 20,
     borderRadius: 30,
+  },
+  webViewOption: {
+    display:'flex',
+    justifyContent: "center",
+    height: 30,
+    padding:0,
+    backgroundColor:'transparent',
+    width: '100%',
   },
   webViewContainer: {
     height: 100,
@@ -106,6 +121,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.black,
+    backgroundColor:'transparent',
     fontSize: 15,
     fontFamily: 'Ubuntu',
     textAlign: 'center',

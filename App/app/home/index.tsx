@@ -11,12 +11,15 @@ import Button from '@/components/Button'
 
 
 const cards = [
+  {name:"Cbt", link:"/cbt", image:Images.cbt , bgColor:'#f9f933'},
   {name:"Math", link:"home/mathematics", image:Images.math, bgColor:'#f8f899'},
   {name:"English", link:"home/english", image:Images.english, bgColor:'#f55f99'},
+  {name:"Biology", link:"home/biology", image:Images.dna, bgColor:'#f88f99'},
+  {name:"Physics", link:"home/physics", image:Images.physics, bgColor:'#ffff2f'},
+  {name:"chemistry", link:"home/chemistry", image:Images.chemistry, bgColor:'#f5f699'},
   {name:"General Paper", link:"home/general-paper", image:Images.gpaper , bgColor:'#55ff99'},
-  {name:"Cbt", link:"/cbt", image:Images.cbt , bgColor:'#f9f933'},
-]
 
+]
 
 const Home = () => {
   const [user, setUser] = useState('')
@@ -99,8 +102,8 @@ const Logout  = async () => {
       <View
        style={styles.whatsapp}>
         
-        <Text style={{fontSize:20, fontFamily:'Raleway', color:'white' }}>Join Unilag Whatsapp  {'\n'}Group for Updates</Text>
-        <Link href='https://chat.whatsapp.com/CZ9ilb1DQZR49k8UizskAl'>
+        <Text style={{fontSize:20, fontFamily:'Raleway', color:'white' }}>Join Post UTME Whatsapp  {'\n'}Group for Updates and Classes</Text>
+        <Link href='https://chat.whatsapp.com/Dtq2S8kV9z27mY1VyIUzxl'>
         <Fontisto name="whatsapp" size={50} color="white" />
         </Link>
       </View>

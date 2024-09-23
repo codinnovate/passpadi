@@ -35,7 +35,7 @@ export function Splashpage (){
       source={Images.splash}
       style={styles.Image} />
         <Text style={styles.bigTextContainer}>
-          Score <Text style={styles.text}>30/30</Text> With PassPadi Unilag  Cbt App
+          Score <Text style={styles.text}>80%</Text> With PassPadi Cbt App
         </Text>
         <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized cbt app</Text>
       </View>

@@ -18,9 +18,7 @@ export   const generateHtmlContent = (content) => {
     <html>
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css">
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-        <script>
+          <script>
           document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {
               delimiters: [
@@ -31,9 +29,12 @@ export   const generateHtmlContent = (content) => {
           });
         </script>
         <style>
-          body {
-            zoom: 3.5; /* Adjust this value to make content larger or smaller */
-          }
+          
+          *{
+              font-family: 'SpaceGM', sans-serif;
+              font-size: 40px;
+              font-weight: 500;
+            }
         </style>
       </head>
       <body>
