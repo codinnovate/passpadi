@@ -94,74 +94,93 @@ export const deleteQuestion = async (req, res) => {
 };
 
 
-
-
-// export const getQuestionsBySubject = async (req, res) => {
-//   const { subject_id } = req.params;
-//   if (!subject_id) {
-//       return res.status(400).json({ error: 'Subject ID is required' });
-//   }
-//   try {
-//     const questions = await Question.find()
-//       .populate('subject')
-//       .sort({ createdAt: -1 });
-//     const filteredQuestions = questions.filter(question => question.subject.subject_id === subject_id);
-//     return res.status(200).json(filteredQuestions);
-    
-//   } catch (err) {
-//     console.log(err);
-//       return res.status(500).json({ error: err.message });
-//   }
-// };
-
 export const getQuestionsBySubject = async (req, res) => {
   const { subject_id } = req.params;
+
   if (!subject_id) {
       return res.status(400).json({ error: 'Subject ID is required' });
   }
+
   try {
-      const questions = await Question.find()
-          .populate('subject school')
-          .sort({ createdAt: -1 });
+      // First, find the subject by its slug (subject_id)
+      const subject = await Subject.findOne({ subject_id });
 
-      const filteredQuestions = questions.filter(question => 
-          question.subject.subject_id === subject_id && question.examType == 'POST UTME'
-      );
+      if (!subject) {
+          return res.status(404).json({ error: 'Subject not found' });
+      }
 
-      return res.status(200).json(filteredQuestions);
+      // Now, find the questions using the subject's ObjectId
+      const questions = await Question
+      .find({ subject: subject._id })
+      .populate('author');
+
+      if (!questions.length) {
+          return res.status(404).json({ error: 'No questions found for this subject' });
+      }
+
+      res.status(200).json(questions);
   } catch (err) {
-      console.log(err);
-      return res.status(500).json({ error: err.message });
+      res.status(500).json({ error: err.message });
+      console.error(err);
   }
 };
 
 
-// Controller function to get questions based on filters
-export const getFilteredQuestions = async (req, res) => {
+export const fetchQuestions = async (req, res) => {
+    const {
+        examYear,
+        examType,
+        subject_id,
+        page = 1, // Default to the first page if not provided
+    } = req.query;
+
+    const limit = 40; // Minimum questions per page
+    const skip = (page - 1) * limit;
+
+    // Build the query object
+    const query = {};
+
+    // If examType and examYear are provided, they will be included in the filter
+    if (examYear) {
+        query.examYear = examYear; // Filter by examYear
+    }
+    if (examType) {
+        query.examType = examType; // Filter by examType
+    }
+
     try {
-        const { examYear, examType, subject, school } = req.query;
-        // Build the query object
-        let query = {};
-        if (examYear) query.examYear = examYear;
-        if (examType) query.examType = examType;
-        if (subject) query.subject = subject;
-        if (examType === 'POST UTME' && school) {
-            query.school = school;
+        // If subject_id is provided, find the corresponding subject
+        if (subject_id) {
+            const subject = await Subject.findOne({ subject_id });
+
+            if (!subject) {
+                return res.status(404).json({ error: 'Subject not found' });
+            }
+
+            // Add the subject's ObjectId to the query
+            query.subject = subject._id; // Use subject's _id for the question query
         }
 
-        // Fetch questions based on the query
+        // Fetch questions based on the constructed query
         const questions = await Question.find(query)
-            .populate('subject', 'name')  // Adjust the fields to populate as necessary
-            .populate('school', 'name')
-            .populate('author', 'name');
+            .skip(skip)
+            .limit(limit)
+            .populate('author'); // Adjust as needed to include any other population
 
-        // Send response
-        res.status(200).json(questions);
-    } catch (error) {
-        console.error('Error fetching filtered questions:', error);
-        res.status(500).json({ message: 'Error fetching filtered questions' });
+        const totalQuestions = await Question.countDocuments(query); // Count total documents for pagination
+
+        res.status(200).json({
+            totalQuestions,
+            totalPages: Math.ceil(totalQuestions / limit),
+            currentPage: page,
+            questions,
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+        console.error(err);
     }
 };
+
 
 
 

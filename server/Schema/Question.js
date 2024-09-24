@@ -11,7 +11,6 @@ const questionSchema = mongoose.Schema({
   school: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'School',
-    default:"passpadi"
   },
   instruction: {
     type: String,
@@ -20,6 +19,10 @@ const questionSchema = mongoose.Schema({
   question: {
     type: String,
     required: true,
+  },
+  image:{
+    type: String,
+    
   },
   question_id: {
     type: String,

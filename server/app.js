@@ -25,9 +25,6 @@ import nodemailer from 'nodemailer';
 import Notifs from './routes/Notifications.js';
 import { blogRouter} from './routes/Blog.js';
 
-admin.initializeApp({
-    credential:admin.credential.cert(serviceAccountKey)
-})
 export const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
 const app = express();

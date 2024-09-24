@@ -4,10 +4,10 @@ import { createSubject, getAllSubjects, getSubjectById, updateSubject, deleteSub
 
 const router = express.Router();
 
-router.post('/', createSubject);
-router.get('/', getAllSubjects);
-router.get('/:id', getSubjectById);
-router.put('/:id', updateSubject);
-router.delete('/:id', deleteSubject);
+router.post('/', createSubject)
+      .get('/', getAllSubjects)
+      .get('/:subject_id', getSubjectById)
+      .put('/:id', updateSubject)
+      .delete('/:id', deleteSubject)
 
 export default router;
