@@ -2,7 +2,7 @@
   "expo": {
     "name": "Passpadi",
     "slug": "Passpadi",
-    "version": "5.0.0",
+    "version": "4.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -16,7 +16,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.kidscantech.App",
-      "versionCode": 3
+      "versionCode": 4
     },
     "web": {
       "bundler": "metro",

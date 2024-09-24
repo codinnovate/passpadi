@@ -57,15 +57,16 @@ const Questions = () => {
                         <div className="flex  flex-col">
                             <h3 className='text-sm font-bold underline'>
                                 <i>
-                                    {question?.instruction}
+                                {parse(`${question?.instruction}`)}
+                                    
                                 </i>
                             </h3>
                         <h2 className="text-xl flex mt-3 ubuntu-regular font-medium">{index + 1}.{parse(`${question.question}`)}
                             </h2>
-                        <div className='flex flex-wrap gap-2'>
+                        <div className='flex mt-3 border p-2 flex-col gap-2'>
                             {question.options.map((option, index) => (
                                     <div className='flex gap-2'>
-                                    <h1 className='font-bold'>{optionLabels[index]}. </h1><p className="ubuntu-regular" key={index}>{option}</p>
+                                    <h1 className='font-bold'>{optionLabels[index]}. </h1><p className="ubuntu-regular" key={index}>{parse(`${option}`)}</p>
                                     </div>
                             ))}
                         </div>
@@ -79,7 +80,7 @@ const Questions = () => {
                                 Edit Question
                                 </Link>
                                 )}
-                                <span className='bg-green p-1 text-white flex items-center rounded-tl-2xl  rounded'>
+                                <span className='bg-green p-1 text-white flex items-center'>
                                     {question.examType}
                                     <span className='ml-3'>{question.examYear}</span>
                                 </span>

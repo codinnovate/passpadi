@@ -110,7 +110,7 @@ const Signin = () => {
             color={Colors.yellow}
              textColor={Colors.black} />
         </View>
-        <Pressable onPress={() => router.navigate('https://www.passpadi.com/signup')} style={{ marginTop: 10 }}>
+        <Pressable onPress={() => router.navigate('https://www.passpadi.com.ng/signup')} style={{ marginTop: 10 }}>
           <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'SpaceGM', fontSize: 12 }}>
             Don't have an account? 
             <Text style={{ fontWeight: "500", marginLeft:5, color: "#007FFF" }}>
@@ -118,7 +118,7 @@ const Signin = () => {
             </Text>
           </Text>
         </Pressable>
-        <Pressable onPress={() => router.navigate('https://www.passpadi.com/privacy')} style={{ marginTop: 10 }}>
+        <Pressable onPress={() => router.navigate('https://www.passpadi.com.ng/privacy')} style={{ marginTop: 10 }}>
             <Text style={{ textAlign:'center', textDecorationLine:'underline', fontFamily: 'SpaceGM', color:Colors.white }}>
              Our  Privacy and Policy
             </Text>

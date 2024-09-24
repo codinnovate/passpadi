@@ -123,7 +123,6 @@ const EditQuestion = () => {
                         <select
                             className="border-grey border text-black h-[2em]"
                             value={school}
-                            required
                             onChange={(e) => setSchool(e.target.value)}
                         >
                             <option value="">Select School</option>
