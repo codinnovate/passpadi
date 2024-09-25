@@ -1,646 +1,358 @@
 {
-	"subject": "biology",
+	"subject": "government",
 	"status": 200,
 	"data": [
 		{
-			"id": 89,
-			"question": "I. Rettus rattus   II. Agama agama  II Bufo regularis  IV. Tilapia Zill. The order of evolutionary advancement  of the above",
+			"id": 18,
+			"question": "Alhaji Shehu Shagari was sworn in as President of the Federal Republic of Nigeria in 1979 by ",
 			"option": {
-				"a": "I, II and III , IV  ",
-				"b": "I, IV, III, II  ",
-				"c": "II, III, IV, I",
-				"d": "IV, III, II, I"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2005"
-		},
-		{
-			"id": 130,
-			"question": "Climax communities in a biotic succession are usually characterized by",
-			"option": {
-				"a": "a constant change in the appearance of the commodities  ",
-				"b": "a stable composition of plant and animal species  ",
-				"c": "rapid changes in the plant and animal species  ",
-				"d": "different species that are constantly changing"
+				"a": " Justice Fata Williams ",
+				"b": "Justice Adetokunbo Ademola ",
+				"c": "Justice Salihu Modibbo  Alfa Belgore ",
+				"d": "Justice Isa Mohammed"
 			},
 			"section": "",
 			"image": "",
 			"answer": "b",
 			"solution": "",
-			"examtype": "utme",
+			"examtype": "post-utme",
 			"examyear": "2006"
 		},
 		{
-			"id": 238,
-			"question": "The axial  skeleton is found in the",
+			"id": 8,
+			"question": "A major issue that distinguishes pressure groups from political parties is ",
 			"option": {
-				"a": "skull , ribs, vertebral column and breast bone   ",
-				"b": "skull humerus, vertebral column and ribs  ",
-				"c": " breastbone, clavicle, rids and vertebral column",
-				"d": " femur, sternum, ulnae and skull"
+				"a": "membership drive ",
+				"b": "objective ",
+				"c": "vomiting pattern ",
+				"d": "ideology"
 			},
 			"section": "",
 			"image": "",
-			"answer": "a",
+			"answer": "b",
 			"solution": "",
-			"examtype": "utme",
-			"examyear": "2009"
+			"examtype": "post-utme",
+			"examyear": "2006"
 		},
 		{
-			"id": 356,
-			"question": "In the mammalian male reproductive system, the part that serves as a passage for both urine and semen is the ",
+			"id": 7,
+			"question": "Politics is an act for ",
 			"option": {
-				"a": "urethra  ",
-				"b": "ureter  ",
-				"c": "bladder",
-				"d": "seminal vesicle"
+				"a": "man to govern himself ",
+				"b": "man to create governments ",
+				"c": "states to control its destiny ",
+				"d": "man to dominant others"
 			},
 			"section": "",
 			"image": "",
 			"answer": "a",
 			"solution": "",
-			"examtype": "utme",
-			"examyear": "2012"
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 2,
+			"question": "The benefits of separation of powers include the following except ",
+			"option": {
+				"a": "prevention of tyranny ",
+				"b": "check of abuse ",
+				"c": "promoting democracy with free and fair election ",
+				"d": "avoidance of arbitrariness"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 5,
+			"question": "In a modern democracy, the ultimate source of sovereignty is the ",
+			"option": {
+				"a": "legislature and executive ",
+				"b": "judiciary ",
+				"c": "ruling political party ",
+				"d": "people"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 19,
+			"question": "The electorate is generally  understood to refer to ",
+			"option": {
+				"a": "elected members of the National- Assembly ",
+				"b": "elected members of the state house of assembly  ",
+				"c": "candidates who can contest elections ",
+				"d": "those citizens qualified to vote at elections"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 1,
+			"question": "In which of the following countries is governmental powers most fused? ",
+			"option": {
+				"a": "Nigeria ",
+				"b": "United States of America ",
+				"c": "France ",
+				"d": "Canada"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 15,
+			"question": "What was the primary purpose of the Sir Henry Willink Commission of Inquiry? ",
+			"option": {
+				"a": "to approve the independence of Nigeria ",
+				"b": "to allay the fears of minorities in Nigeria ",
+				"c": "to amalgamate northern and southern  Nigeria ",
+				"d": "to make Lagos a British Colony"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 22,
+			"question": "Which of these men introduced indirect rule in Nigeria? ",
+			"option": {
+				"a": "Mungo Park ",
+				"b": "Dr. Nnamdi Azikiwe ",
+				"c": "Lord Lugard ",
+				"d": "Sir James Robertson."
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 3,
+			"question": "Laws made by state   government are known as ",
+			"option": {
+				"a": "edicts ",
+				"b": "bye-law ",
+				"c": "acts  ",
+				"d": "decrees"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 9,
+			"question": "A nation consist of people with ",
+			"option": {
+				"a": "common history ",
+				"b": "common ancestry ",
+				"c": "a  shared set of values ",
+				"d": "A, B and C above"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 14,
+			"question": "Which of the following best describes French colonial policy in Africa? ",
+			"option": {
+				"a": "policy of association ",
+				"b": "policy of Casus Belli ",
+				"c": "policy hostility ",
+				"d": "policy of assimilation"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 6,
+			"question": "The British took over Nigeria through ",
+			"option": {
+				"a": "negotiation ",
+				"b": "bargaining  ",
+				"c": "war ",
+				"d": "the sea"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 20,
+			"question": "Into how many local government areas in Nigeria officially delineated? ",
+			"option": {
+				"a": "654",
+				"b": "650",
+				"c": "820",
+				"d": "774"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 12,
+			"question": "The agent of political socialization generally regarded as the most important is ",
+			"option": {
+				"a": "family ",
+				"b": "peer group",
+				"c": "school ",
+				"d": "churches and mosques"
+			},
+			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 17,
+			"question": "Which of the following political parties did not participate in the 1979 General Elections in Nigeria? ",
+			"option": {
+				"a": "Unity Party of Nigeria ",
+				"b": "National Party of Nigeria ",
+				"c": "social Democratic Party ",
+				"d": "Great Nigeria People’s Party"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 4,
+			"question": "In a parliamentary system of government, the function of the head of state and the head of government are vested in ",
+			"option": {
+				"a": "the inner cabinet ",
+				"b": "an individual ",
+				"c": "two different individuals ",
+				"d": "the ministerial council"
+			},
+			"section": "",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
 		},
 		{
 			"id": 21,
-			"question": "The most important hormone that induces the ripening of fruit is",
+			"question": "The centenary anniversary of the amalgamation of Northern and Southern Nigeria will be celebrated in ",
 			"option": {
-				"a": "ethylene  ",
-				"b": "indole acetic acid",
-				"c": "gibberellin  ",
-				"d": "cytokinin"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2003"
-		},
-		{
-			"id": 77,
-			"question": "Sex –linked genes are located on",
-			"option": {
-				"a": "Y-chromostome  ",
-				"b": "X and Y chromosomes  ",
-				"c": "Homologens chromosomes  ",
-				"d": "X-Chromosome"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2004"
-		},
-		{
-			"id": 366,
-			"question": "Plants of temperate origin can be grown in tropical areas in the vegetation zones of the",
-			"option": {
-				"a": "rain forest   ",
-				"b": "Guinea savanna   ",
-				"c": "Sudan savanna",
-				"d": "montane forest"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2012"
-		},
-		{
-			"id": 342,
-			"question": "The number of alleles controlling  blood groups in humans is",
-			"option": {
-				"a": "4",
-				"b": "5",
-				"c": "2",
-				"d": "3"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2011"
-		},
-		{
-			"id": 357,
-			"question": "In plants, which of the  following is required in minute quantities  for growth?",
-			"option": {
-				"a": "copper  ",
-				"b": "potassium",
-				"c": "phosphorous",
-				"d": "sodium  "
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2012"
-		},
-		{
-			"id": 236,
-			"question": "The enzymes of the glycolytic pathway are located in  the",
-			"option": {
-				"a": "mitochondria  ",
-				"b": "gastric juice",
-				"c": "plasma",
-				"d": "cytoplasm"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2009"
-		},
-		{
-			"id": 383,
-			"question": "The use and disuse of body parts and the inheritance of acquired traits were used to explain  ",
-			"option": {
-				"a": "Darwin’s theory",
-				"b": "Lamarck’s theory",
-				"c": "genetic drift  ",
-				"d": "gene flow"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2012"
-		},
-		{
-			"id": 30,
-			"question": "The pioneer organism in ecological  succession are usually the",
-			"option": {
-				"a": "mosses  ",
-				"b": "lichens  ",
-				"c": "ferns",
-				"d": "Algae"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2003"
-		},
-		{
-			"id": 158,
-			"question": "Which of the following has the most primitive respiratory system?",
-			"option": {
-				"a": "Fish",
-				"b": "Snail  ",
-				"c": "Mouse",
-				"d": "insect"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2007"
-		},
-		{
-			"id": 219,
-			"question": "A major  adaptive feature of endo-parasites is the   ",
-			"option": {
-				"a": "loss of the organ of movement  ",
-				"b": "presence of claws  ",
-				"c": "loss of the central nervous system  ",
-				"d": "presence of piercing mouthparts"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2008"
-		},
-		{
-			"id": 324,
-			"question": "In nature, plants and animals are perpetually engaged in mutulism because  ",
-			"option": {
-				"a": "all animals rely on food produced  by plants",
-				"b": "they  utilize respiratory wastes of each other  ",
-				"c": "they are neighbours  ",
-				"d": "they are rivals"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2011"
-		},
-		{
-			"id": 259,
-			"question": "The specialized pigment cells that are involved in colouration and colour change in animals are the",
-			"option": {
-				"a": "xanthophyl",
-				"b": "chromatophores",
-				"c": "chlorophyll",
-				"d": "mechanic"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2009"
-		},
-		{
-			"id": 303,
-			"question": "In which of the following species is the biomass of an individual the smallest?",
-			"option": {
-				"a": "Agama sp  ",
-				"b": "Bufo sp",
-				"c": "spirogyra sp   ",
-				"d": "Tilapia sp"
+				"a": "2060",
+				"b": "2063",
+				"c": "2014",
+				"d": "2007"
 			},
 			"section": "",
 			"image": "",
 			"answer": "c",
 			"solution": "",
-			"examtype": "utme",
-			"examyear": "2011"
-		},
-		{
-			"id": 197,
-			"question": "Inn a dictyledonous stem, the zone between the epidermis and the pericycle is the",
-			"option": {
-				"a": "cortex  ",
-				"b": "stele",
-				"c": "xylem",
-				"d": "phloem"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2008"
-		},
-		{
-			"id": 275,
-			"question": "The oily substance that lubricates the mammalian hair to keep it flexible ad water repellent is secreted by the",
-			"option": {
-				"a": "sweat glands",
-				"b": "sebaceous glands",
-				"c": "fatty  cells",
-				"d": "granular layer"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 26,
-			"question": "The correct sequence of biomes from northern to southern Nigeria is",
-			"option": {
-				"a": "gulnea savanna _ sudan savanna_ tropical rain forest_ sahel savanna_eetuarine  ",
-				"b": "estuarine_tripical rainforest_guinea savanna _ sahel_ savanna  ",
-				"c": "sahel savanna_ tropical_rain forest_ estuarine _guinea savanna",
-				"d": "sahel savanna_sudan savanna_guinea savanna _tropical rain forest_estuarine"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2003"
-		},
-		{
-			"id": 264,
-			"question": "The dominant phase in the life cycle of a fern is the",
-			"option": {
-				"a": "gametophyte  ",
-				"b": " prothallus",
-				"c": "sporophyte  ",
-				"d": " antheridium"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 269,
-			"question": "The mode of nutrition of sundew and bladderwort can be described as",
-			"option": {
-				"a": "autotrophic  ",
-				"b": "saprophytic  ",
-				"c": "holozoic   ",
-				"d": "chemosynthetic"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 277,
-			"question": "Which of the following stimuli is likely to elicit a nastic response in an organism? ",
-			"option": {
-				"a": "Touch  ",
-				"b": "Light intensity  ",
-				"c": "Chemical substances  ",
-				"d": "gravity"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 52,
-			"question": "The gall bladder of mammal has a duct connected to",
-			"option": {
-				"a": "liver  ",
-				"b": " duodenum  ",
-				"c": "small intestine",
-				"d": "pancreas"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2004"
-		},
-		{
-			"id": 117,
-			"question": "When a peacock displays its colourful  feathers, it is  ",
-			"option": {
-				"a": "ready for a fight  ",
-				"b": "protecting itself from predators  ",
-				"c": "protecting its mate from predator",
-				"d": "courting a female"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2005"
-		},
-		{
-			"id": 166,
-			"question": "The correct sequence of the movement of urea during urine formation is",
-			"option": {
-				"a": "Convoluted tubule_ glomerulus_Henle’s loop_ Bowman’s capsule_collecting tubule",
-				"b": "Glomerulus_Bowman’s capsule_convoluted tuble_ Henle’s loop_collecting tubule",
-				"c": "convoluted tubule_ Bowman’s capsule_Henle’s loop _ glomerulus_collecting tubule",
-				"d": "Glomerulus_Bowman’s capsule_convoluted tubule_ Henle’s loop_convoluted tubule_collecting tubule"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2007"
-		},
-		{
-			"id": 213,
-			"question": "In an experiment to determine the percentage of air in a soil  sample, the  Following readings were recorded:\nVolume of water inn a measuring cylinder = 500cm3  \nVolume of soil added to water= 350cm2\nVolume of water andn soil after stirring= 800cm2\nThe percentage of air in the soil sample is \n",
-			"option": {
-				"a": "6.25%",
-				"b": "10. 36%    ",
-				"c": "14.28%",
-				"d": "43.28%"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2008"
-		},
-		{
-			"id": 283,
-			"question": "Mycorrhizae promote plant growth by",
-			"option": {
-				"a": "absorbing inorganic ions from the soil  ",
-				"b": "protecting it from infection",
-				"c": "helping it to utilize atmospheric nitrogen",
-				"d": "serving as a growth regulator"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 115,
-			"question": "A yellow maize is crossed with the a white maize and the first filial generation produce yellow maize only. The white trait is said to exhibit  ",
-			"option": {
-				"a": "dominance",
-				"b": " recessiveness",
-				"c": "codominance  ",
-				"d": "Incomplete  dominance"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2005"
-		},
-		{
-			"id": 273,
-			"question": "Yeast respires anaerobically  to covert simple sugar to carbon (IV) oxide and",
-			"option": {
-				"a": "alcohol  ",
-				"b": "acid",
-				"c": "oxygen",
-				"d": "water"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 170,
-			"question": "A biotic factor which affects the distribution and abundance of organisms in a terrestrial  habitat is",
-			"option": {
-				"a": "competition  ",
-				"b": "temperature  ",
-				"c": "light  ",
-				"d": "pH"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2007"
-		},
-		{
-			"id": 192,
-			"question": "The most abundant group of organism in the animal kingdom is",
-			"option": {
-				"a": "Mammalian",
-				"b": "Aves  ",
-				"c": "Annelida  ",
-				"d": "Insecta"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2008"
-		},
-		{
-			"id": 304,
-			"question": "Seed plants are divided into",
-			"option": {
-				"a": "angiosperms and gymnosperms",
-				"b": "monocotyledons and dicotyledons",
-				"c": "thallophyes and pbryophytes  ",
-				"d": "Tracheophytes and ferns"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2011"
-		},
-		{
-			"id": 249,
-			"question": "The major cause of global warming is the",
-			"option": {
-				"a": "Burning of fossil fuel",
-				"b": "construction of dams",
-				"c": "use of electricity  ",
-				"d": "exploration of space"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2009"
-		},
-		{
-			"id": 266,
-			"question": "Which of the following groups of cells is devoid of true nuclei?",
-			"option": {
-				"a": "viruses",
-				"b": "algae  ",
-				"c": "Monera",
-				"d": "Fungi"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
-		},
-		{
-			"id": 54,
-			"question": "The Breakdown of fats and oils into simpler absorbable compounds is catalyzed by the group of enzymes called",
-			"option": {
-				"a": "lipases   ",
-				"b": "hydrolases  ",
-				"c": "amylases",
-				"d": "peptidases"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2004"
-		},
-		{
-			"id": 153,
-			"question": "The chromosomes of members of the kingdom  monera are within the",
-			"option": {
-				"a": "nucleus  ",
-				"b": " nucleolus  ",
-				"c": " cytoplasm   ",
-				"d": " Nucleoplasm"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2007"
-		},
-		{
-			"id": 348,
-			"question": "Plants  that show secondary growth are usually found among the",
-			"option": {
-				"a": "thallophytes",
-				"b": "pteridophytes",
-				"c": "monocotyledons  ",
-				"d": "dicotyledons"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "utme",
-			"examyear": "2012"
-		},
-		{
-			"id": 129,
-			"question": "The main purpose of establishing shelter belts in the sahel region to  ",
-			"option": {
-				"a": "break the harmattan wind  ",
-				"b": "beautify the region  ",
-				"c": " check desert encroachment  ",
-				"d": "provide wood fuel"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "utme",
+			"examtype": "post-utme",
 			"examyear": "2006"
 		},
 		{
-			"id": 300,
-			"question": "The main distinguishing features between the soldier termite and other members of the caste are the",
+			"id": 16,
+			"question": "The military coup of July 25, 1975 which toppled General Yakubu Gowon from power  took place when he was attending which important event? ",
 			"option": {
-				"a": "presence of wings, possession of a small head and large thorax",
-				"b": "presence of wings, possession of a large thorax  and a small head",
-				"c": "absence of wings, possession off strong mandibles and a large head",
-				"d": "absence of wings, possession of big head and the absence of mandible."
+				"a": "OAU Summit in Kampala ",
+				"b": "UN General Assembly in New York ",
+				"c": "Assembly of Heads of states of ECOWAS in Monrovia ",
+				"d": "The Olympic Games"
 			},
 			"section": "",
 			"image": "",
-			"answer": "c",
+			"answer": "a",
 			"solution": "",
-			"examtype": "utme",
-			"examyear": "2010"
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 11,
+			"question": "A political concept that defines  the beliefs, attitudes and values of a society is called ",
+			"option": {
+				"a": "political socialization ",
+				"b": "political culture ",
+				"c": "political transformation ",
+				"d": "referendum"
+			},
+			"section": "",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 13,
+			"question": "A political ideology that defines a system of societal organization in which the state controls the commanding heights of the economy is called ",
+			"option": {
+				"a": "Totalitarianism ",
+				"b": "Communalism ",
+				"c": "socialism ",
+				"d": "communism "
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
+		},
+		{
+			"id": 10,
+			"question": "A totalitarian state is based on  ",
+			"option": {
+				"a": "multi-party system ",
+				"b": "total protection of civic rights ",
+				"c": "the totality of the state processes ",
+				"d": "coercion as the instrument of government"
+			},
+			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "post-utme",
+			"examyear": "2006"
 		}
 	]
 }

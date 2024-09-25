@@ -5,7 +5,7 @@ import { serverApp } from '../../server';
 import toast, {Toaster} from 'react-hot-toast';
 import { uploadImage } from '../common/aws';
 
-const SchoolForm = () => {
+const SchoolForm = ({access_token}) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [name, setName] = useState('');

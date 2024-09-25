@@ -7,7 +7,8 @@ import { serverApp } from '../../server';
 import InputBox from './input.component';
 import toast, {Toaster} from 'react-hot-toast';
 
-const SubjectForm = () => {
+const SubjectForm = ({access_token}) => {
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -29,8 +30,8 @@ const SubjectForm = () => {
               // navigate('/classroom/subjects')
               
           } catch (error) {
-            toast.error(error.response.data)
-          console.error('Error creating subject:', error);
+            toast.error(error.response?.data)
+          console.log(error);
         }}
       }
 

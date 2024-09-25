@@ -28,7 +28,13 @@ const transformQuestionData = (data, subjectId) => {
               image:item.image,
               question_id: generateSlug(item.question), // Generate slug from question
               options: Object.values(item.option),
-              examType: item.examtype.toUpperCase() === 'UTME' ? 'JAMB' : item.examtype.toUpperCase(), // Convert 'utme' to 'JAMB'
+              examType: (() => {
+                const examTypeUpper = item.examtype.toUpperCase();
+                if (examTypeUpper === 'UTME') return 'JAMB';
+                if (examTypeUpper === 'WASSCE') return 'WAEC';
+                if (examTypeUpper === 'POST-UTME') return 'POST UTME';
+                return examTypeUpper;
+              })(),
               examYear: parseInt(item.examyear),
               answer: item.option[item.answer], // Map answer key to actual answer
               answerDetail: solutionField, // Use the determined solution field
