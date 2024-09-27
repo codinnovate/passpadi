@@ -1,213 +1,137 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Pressable,
-  TextInput,
-  KeyboardAvoidingView,
-  Image,
-  Alert,
-} from "react-native";
 import React, { useState } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, View,  Image, KeyboardAvoidingView, TextInput, Pressable, Alert, ScrollView } from "react-native";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 import { server } from "@/server";
 import Images from "@/constants/Images";
-import { router  } from "expo-router";
-
-
-
+import Loader from "@/components/Loader";
+import Colors from "@/constants/Colors";
+import Button from "@/components/Button";
+import FormField from "@/components/FormField";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const handleRegister = () => {
+  const [fullname, setFullname] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
+
+
+
+  const checkFields = () => {
+    if (!email || !password || !fullname || !phoneNumber) {
+      Alert.alert("Please Fill All the Fields");
+      setLoading(false);
+    }
+  };
+
+  const storeData = async (data) => {
+    try {
+      const { access_token, username, role, userId } = data;
+      await AsyncStorage.setItem("authToken", access_token);
+      await AsyncStorage.setItem("username", username);
+      await AsyncStorage.setItem("role", role);
+      await AsyncStorage.setItem("email", email);
+      await AsyncStorage.setItem("userId", userId);
+    } catch (error) {
+      console.log("AsyncStorage error: ", error);
+    }
+  };
+
+  const handleLogin = async () => {
+    setLoading(true);
+    checkFields();
     const user = {
-      fullname: name,
       email: email,
       password: password,
+      fullname: fullname,
+      phoneNumber: phoneNumber,
     };
 
     axios
       .post(`${server}/signup`, user)
-      .then((response) => {
-        console.log(response);
-        Alert.alert(
-          "Registration successful",
-          "you have been registered successfully"
-        );
-        router.push('/(auth)/signin')
-        setName("");
-        setEmail("");
-        setPassword("");
+      .then(async (response) => {
+        const data = response.data;
+        console.log(data);
+        await storeData(data);
+        setLoading(false);
+        router.push("/pay");
       })
       .catch((error) => {
-        Alert.alert(
-          "Registration failed",
-          "An error occurred during registration"
-        );
-        console.log("error", error);
+        Alert.alert(error?.response?.data?.error);
+        setLoading(false);
+        console.log("error ", error);
       });
   };
+
+  if (loading) return <Loader text="Signing up, please wait!!" />;
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white", alignItems: "center", width:'100%' }}
-    >
-      <View style={{ marginTop: 50 }}>
-        <Image
-          style={{ width: 150, height: 100, resizeMode: "contain" }}
-          source={Images.logo}
-        />
-      </View>
-
-      <KeyboardAvoidingView>
-        <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold", fontFamily:'Ubuntu', marginTop: 25 }}>
-            Register to Your Account
+    <KeyboardAvoidingView>
+    <View 
+    style={{  backgroundColor: Colors.green,  width:'100%', padding:10, alignItems:'center' }}>
+      <Image style={{ width: 250, height: 100,  }} source={Images.logo} />
+        <View>
+          <Text style={{ fontSize: 25, fontFamily: 'Ubuntu', textAlign:'center', color: Colors.white }}>
+            Join over 1000+ Students on passpadi
           </Text>
-        </View>
-
-        <View style={{ marginTop: 30 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              borderColor: "#D0D0D0",
-              borderWidth: 1,
-              paddingVertical: 5,
-              borderRadius: 10,
-            }}
+          <Text style={{ fontSize: 13, fontFamily: 'Raleway', textAlign:'center', color: Colors.white }}>
+            Let's get you started in few minutes
+          </Text>
+          </View>
+          <ScrollView 
+          style={{ width:'100%'}}
           >
-            <Ionicons
-              style={{ marginLeft: 8 }}
-              name="person"
-              size={24}
-              color="gray"
+            <FormField
+              title="Email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}          
+              placeholder="Enter your  Email"
             />
-            <TextInput
-              value={name}
-              onChangeText={(text) => setName(text)}
-              placeholderTextColor={"gray"}
-              style={{
-                color: "gray",
-                marginVertical: 10,
-                width: 300,
-                fontSize: password ? 16 : 16,
-              }}
+            <FormField
+              title="Fullname"
+              value={fullname}
+              onChangeText={(text) => setFullname(text)}          
               placeholder="Enter your Name"
             />
-          </View>
-        </View>
-
-        <View style={{ marginTop: 30 }}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 5,
-              borderColor: "#D0D0D0",
-              borderWidth: 1,
-              paddingVertical: 5,
-              borderRadius: 10,
-            }}
-          >
-            <MaterialIcons
-              style={{ marginLeft: 8 }}
-              name="email"
-              size={24}
-              color="gray"
+            <FormField
+              title="Phone Number"
+              value={phoneNumber}
+              onChangeText={(text) => setPhoneNumber(text)}          
+              placeholder="Enter your Phone Number"
             />
-            <TextInput
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-              placeholderTextColor={"gray"}
-              style={{
-                color: "gray",
-                marginVertical: 10,
-                width: 300,
-                fontSize: email ? 16 : 16,
-              }}
-              placeholder="Enter your Email"
-            />
-          </View>
-
-          <View style={{ marginTop: 30 }}>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-                borderColor: "#D0D0D0",
-                borderWidth: 1,
-                paddingVertical: 5,
-                borderRadius: 10,
-              }}
-            >
-              <AntDesign
-                style={{ marginLeft: 8 }}
-                name="lock"
-                size={24}
-                color="gray"
-              />
-              <TextInput
-                secureTextEntry={true}
+              <FormField
+               title="Password"
                 value={password}
                 onChangeText={(text) => setPassword(text)}
-                placeholderTextColor={"gray"}
-                style={{
-                  color: "gray",
-                  marginVertical: 10,
-                  width: 300,
-                  fontSize: password ? 16 : 16,
-                }}
                 placeholder="Enter your Password"
               />
-            </View>
-          </View>
+          
+        <View 
+        style={{ marginTop: 45, width:'100%' }}>
+          <Button 
+          onPress={handleLogin}
+          title='Register'
+          color={Colors.yellow}
+          textColor={Colors.black} />
         </View>
-
-        <View style={{ marginTop: 45 , width:'100%'}} />
-
-        <Pressable
-          onPress={handleRegister}
-          style={{
-            width:340,
-            backgroundColor: "black",
-            padding: 15,
-            marginTop: 40,
-            marginLeft: "auto",
-            marginRight: "auto",
-            borderRadius:10,
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontFamily:'SpaceGM',
-              fontSize: 16,
-              color: "white",
-            }}
-          >
-            Register
+          </ScrollView>
+        <Pressable onPress={() => router.navigate('/(auth)/signin')} style={{ marginTop: 10 }}>
+          <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'SpaceGM', fontSize: 12 }}>
+            Already have an account? 
+            <Text style={{ fontWeight: "500", marginLeft:5, color: "#007FFF" }}>
+              Login Here
+            </Text>
           </Text>
         </Pressable>
-
-        <Pressable
-          onPress={() => navigation.goBack()}
-          style={{ marginTop: 10 }}
-        >
-          <Text style={{ textAlign: "center", fontSize: 16, fontFamily:'SpaceGM' }}>
-            Already have an account? Sign In
-          </Text>
+        <Pressable onPress={() => router.navigate('https://www.passpadi.com.ng/privacy')} style={{ marginTop: 10 }}>
+            <Text style={{ textAlign:'center', textDecorationLine:'underline', fontFamily: 'SpaceGM', color:Colors.white }}>
+             Our  Privacy and Policy
+            </Text>
         </Pressable>
+      </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+
   );
 };
 

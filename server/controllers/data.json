@@ -1,358 +1,539 @@
 {
-	"subject": "government",
+	"message": "We could not find what you asked for, but got you this",
+	"subject": "english",
 	"status": 200,
 	"data": [
 		{
-			"id": 18,
-			"question": "Alhaji Shehu Shagari was sworn in as President of the Federal Republic of Nigeria in 1979 by ",
+			"id": 1399,
+			"question": "Aliya although is born with a silver spoon, but she has no freedom to move around meet new people unlike other persons. This signals to the…",
 			"option": {
-				"a": " Justice Fata Williams ",
-				"b": "Justice Adetokunbo Ademola ",
-				"c": "Justice Salihu Modibbo  Alfa Belgore ",
-				"d": "Justice Isa Mohammed"
+				"a": "criticism of strict parenting",
+				"b": "irony of life",
+				"c": "essence of a child's exposure",
+				"d": " expectations of wealthy parents"
+			},
+			"section": "<b>Questions are based on Bolaji Abdullahi's \"Sweet Sixteen\"<\/b>",
+			"image": "",
+			"answer": "b",
+			"solution": "Aliya at age 12 envy of the girls hawking on the street and their freedom to move about as compared to her restriction to move about, eventhough she born into a comfortable home, significantly indicates the irony of life i.e no one has it all.",
+			"examtype": "utme",
+			"examyear": "2019",
+			"questionNub": 26,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 892,
+			"question": "The athlete has unexpectedly become <u>indomitable<\/u>? ",
+			"option": {
+				"a": "weak",
+				"b": "disoriented",
+				"c": "unruly",
+				"d": "unconquerable"
+			},
+			"section": "<b>In each of questions 86 to 100, choose the option opposite in meaning to the underlined word(s).<\/b>",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2002",
+			"questionNub": 96,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1796,
+			"question": "The guard spent all the night pacing _____.",
+			"option": {
+				"a": "To and fro.",
+				"b": "From and to.",
+				"c": "Fro and to.",
+				"d": "To and from."
+			},
+			"section": "Choose the option that best complete the gap.",
+			"image": "",
+			"answer": "a",
+			"solution": "To and fro as is both a noun, verb and an adverb. It means a constant movement backwards and forwards or from side to side. constant movement backwards and forwards. Example \"she cradled him, rocking him to and fro\"\n\nsynonyms: from place to place · around · about · to and fro · hither and thither ·",
+			"examtype": "utme",
+			"examyear": "2014",
+			"questionNub": 37,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 343,
+			"question": "Because of his …… nature, Ayo was tricked out of his wrist watch. ",
+			"option": {
+				"a": "kind   ",
+				"b": "pliable  ",
+				"c": " uncompromising ",
+				"d": "uncalculating "
+			},
+			"section": "choose the option that best completes the gap(s).",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2007",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1669,
+			"question": "obligation",
+			"option": {
+				"a": "obliGAtion",
+				"b": "OBligation",
+				"c": "obligaTION",
+				"d": "obLIgation"
+			},
+			"section": "For these questions, choose the most appropriate stress pattern from the options. The Stressed syllable are written in capital letter (s)",
+			"image": "",
+			"answer": "a",
+			"solution": "In nouns ending -isation or -ization, we stress the \/eɪ\/:",
+			"examtype": "utme",
+			"examyear": "2016",
+			"questionNub": 57,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1120,
+			"question": "According to the novel, Obu was good at",
+			"option": {
+				"a": "Proverbs",
+				"b": "Cricket",
+				"c": "Games",
+				"d": "Jokes"
+			},
+			"section": "<b>Questions 21 - 30 are based on Chukwuemeka Ike's The Potter's Wheel<\/b>",
+			"image": "",
+			"answer": "a",
+			"solution": "See page 171",
+			"examtype": "utme",
+			"examyear": "2013",
+			"questionNub": 28,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1222,
+			"question": "Many people believed that such an action is <u>unbecoming<\/u> of a leader",
+			"option": {
+				"a": "forthcoming",
+				"b": ". not befitting",
+				"c": "unwanted",
+				"d": " not necessary"
+			},
+			"section": "choose the most appropriate option nearest in meaning to the word(s) underlined.",
+			"image": "",
+			"answer": "b",
+			"solution": "Unbecoming: (of behaviour) not fitting or appropriate; unseemly.",
+			"examtype": "utme",
+			"examyear": "2021",
+			"questionNub": 29,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1699,
+			"question": "From the options, choose the word(s) that best filll the gap.\n\nMrs Godwin ---------------- in this school since 2001\n",
+			"option": {
+				"a": "taught",
+				"b": "was teaching",
+				"c": "teaches",
+				"d": " has been teaching."
 			},
 			"section": "",
+			"image": "",
+			"answer": "d",
+			"solution": "The answer is ‘D’ because it is its present perfect continuous tense",
+			"examtype": "utme",
+			"examyear": "2015",
+			"questionNub": 12,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 294,
+			"question": "The police found a <i>conclusive<\/i> proof of the boy's guilt",
+			"option": {
+				"a": "a corroborative ",
+				"b": "A doubtful ",
+				"c": "a consolatory",
+				"d": " an incriminating"
+			},
+			"section": "choose the option opposite in meaning to the word or phrase in italics.",
 			"image": "",
 			"answer": "b",
 			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
+			"examtype": "utme",
+			"examyear": "2006",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
 		},
 		{
-			"id": 8,
-			"question": "A major issue that distinguishes pressure groups from political parties is ",
+			"id": 1372,
+			"question": "Although Chide's manners are quite <u>refined<\/u> , his colleagues are rather ___________",
 			"option": {
-				"a": "membership drive ",
-				"b": "objective ",
-				"c": "vomiting pattern ",
-				"d": "ideology"
+				"a": "bold",
+				"b": "crude",
+				"c": "hostile",
+				"d": "rash"
+			},
+			"section": "From the list of words or group of words lettered A to D, choose the one that is most nearest opposite in meaning to the underlined word or group of words and that will, at the same time correctly fill in the gap in the sentence. ",
+			"image": "",
+			"answer": "b",
+			"solution": "Refined implies to purify or to be free from impurities. Option B; crude, is a direct opposite to the word 'refine'' which means being in a natural state.",
+			"examtype": "utme",
+			"examyear": "2020",
+			"questionNub": 59,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 488,
+			"question": "He is really very mean. He…… not lend me the money I wanted. ",
+			"option": {
+				"a": "should ",
+				"b": "could  ",
+				"c": "would",
+				"d": "won't  "
+			},
+			"section": "choose the option that best completes the gap(s).",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2009",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 492,
+			"question": "An acceptance of the offer would be a departure from the several rejections that….. ",
+			"option": {
+				"a": "had taken place ",
+				"b": "have taken place",
+				"c": "take place ",
+				"d": "took place "
+			},
+			"section": "choose the option that best completes the gap(s).",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2009",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 257,
+			"question": "1 owe you far less than you owe me",
+			"option": {
+				"a": "My debt to you is greater than yours to me",
+				"b": "Your debt is not much greater than mine",
+				"c": "What we owe each other Is approximately the same",
+				"d": "I owe you something, but you owe me much more"
+			},
+			"section": "the option that best explains the information conveyed in the sentence. ",
+			"image": "",
+			"answer": "d",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2006",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1580,
+			"question": "From the options given, Choose the option that is opposite in meaning to the underlined word.\n\nThis house which was <u>sealed<\/u> off years ago has now been —",
+			"option": {
+				"a": "re-opened",
+				"b": "rebuilt",
+				"c": "re-roofed",
+				"d": "restored"
 			},
 			"section": "",
+			"image": "",
+			"answer": "a",
+			"solution": "Sealed off means to prevent people from entering a building",
+			"examtype": "utme",
+			"examyear": "2017",
+			"questionNub": 17,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 647,
+			"question": "More ...... to your elbow as you as you campaign for press freedom?",
+			"option": {
+				"a": "power",
+				"b": "effort",
+				"c": "grease",
+				"d": "energy"
+			},
+			"section": "<b>In each of the questions 32 to 56, fill the each gap with the most appropriate option from the list option from the list provided.<\/b>",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2001",
+			"questionNub": 51,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 123,
+			"question": "The noise of the fan <i>unnerved<\/i>  the star player.",
+			"option": {
+				"a": "refreshed",
+				"b": "confused",
+				"c": "helped",
+				"d": "calmed"
+			},
+			"section": "choose the option opposite in meaning to the word or phrase in italics.",
 			"image": "",
 			"answer": "b",
 			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
+			"examtype": "utme",
+			"examyear": "2004",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
 		},
 		{
-			"id": 7,
-			"question": "Politics is an act for ",
+			"id": 1079,
+			"question": "I wanted to know his political beliefs, so l asked him what........",
 			"option": {
-				"a": "man to govern himself ",
-				"b": "man to create governments ",
-				"c": "states to control its destiny ",
-				"d": "man to dominant others"
+				"a": "this was",
+				"b": "these are",
+				"c": "this is",
+				"d": "they were"
 			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 2,
-			"question": "The benefits of separation of powers include the following except ",
-			"option": {
-				"a": "prevention of tyranny ",
-				"b": "check of abuse ",
-				"c": "promoting democracy with free and fair election ",
-				"d": "avoidance of arbitrariness"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 5,
-			"question": "In a modern democracy, the ultimate source of sovereignty is the ",
-			"option": {
-				"a": "legislature and executive ",
-				"b": "judiciary ",
-				"c": "ruling political party ",
-				"d": "people"
-			},
-			"section": "",
+			"section": "<b>In each of the question 66 to 85 choose the option that best completes the gap(s)<\/b>",
 			"image": "",
 			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 19,
-			"question": "The electorate is generally  understood to refer to ",
-			"option": {
-				"a": "elected members of the National- Assembly ",
-				"b": "elected members of the state house of assembly  ",
-				"c": "candidates who can contest elections ",
-				"d": "those citizens qualified to vote at elections"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 1,
-			"question": "In which of the following countries is governmental powers most fused? ",
-			"option": {
-				"a": "Nigeria ",
-				"b": "United States of America ",
-				"c": "France ",
-				"d": "Canada"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 15,
-			"question": "What was the primary purpose of the Sir Henry Willink Commission of Inquiry? ",
-			"option": {
-				"a": "to approve the independence of Nigeria ",
-				"b": "to allay the fears of minorities in Nigeria ",
-				"c": "to amalgamate northern and southern  Nigeria ",
-				"d": "to make Lagos a British Colony"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 22,
-			"question": "Which of these men introduced indirect rule in Nigeria? ",
-			"option": {
-				"a": "Mungo Park ",
-				"b": "Dr. Nnamdi Azikiwe ",
-				"c": "Lord Lugard ",
-				"d": "Sir James Robertson."
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 3,
-			"question": "Laws made by state   government are known as ",
-			"option": {
-				"a": "edicts ",
-				"b": "bye-law ",
-				"c": "acts  ",
-				"d": "decrees"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 9,
-			"question": "A nation consist of people with ",
-			"option": {
-				"a": "common history ",
-				"b": "common ancestry ",
-				"c": "a  shared set of values ",
-				"d": "A, B and C above"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 14,
-			"question": "Which of the following best describes French colonial policy in Africa? ",
-			"option": {
-				"a": "policy of association ",
-				"b": "policy of Casus Belli ",
-				"c": "policy hostility ",
-				"d": "policy of assimilation"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 6,
-			"question": "The British took over Nigeria through ",
-			"option": {
-				"a": "negotiation ",
-				"b": "bargaining  ",
-				"c": "war ",
-				"d": "the sea"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 20,
-			"question": "Into how many local government areas in Nigeria officially delineated? ",
-			"option": {
-				"a": "654",
-				"b": "650",
-				"c": "820",
-				"d": "774"
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 12,
-			"question": "The agent of political socialization generally regarded as the most important is ",
-			"option": {
-				"a": "family ",
-				"b": "peer group",
-				"c": "school ",
-				"d": "churches and mosques"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 17,
-			"question": "Which of the following political parties did not participate in the 1979 General Elections in Nigeria? ",
-			"option": {
-				"a": "Unity Party of Nigeria ",
-				"b": "National Party of Nigeria ",
-				"c": "social Democratic Party ",
-				"d": "Great Nigeria People’s Party"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 4,
-			"question": "In a parliamentary system of government, the function of the head of state and the head of government are vested in ",
-			"option": {
-				"a": "the inner cabinet ",
-				"b": "an individual ",
-				"c": "two different individuals ",
-				"d": "the ministerial council"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 21,
-			"question": "The centenary anniversary of the amalgamation of Northern and Southern Nigeria will be celebrated in ",
-			"option": {
-				"a": "2060",
-				"b": "2063",
-				"c": "2014",
-				"d": "2007"
-			},
-			"section": "",
-			"image": "",
-			"answer": "c",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 16,
-			"question": "The military coup of July 25, 1975 which toppled General Yakubu Gowon from power  took place when he was attending which important event? ",
-			"option": {
-				"a": "OAU Summit in Kampala ",
-				"b": "UN General Assembly in New York ",
-				"c": "Assembly of Heads of states of ECOWAS in Monrovia ",
-				"d": "The Olympic Games"
-			},
-			"section": "",
-			"image": "",
-			"answer": "a",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 11,
-			"question": "A political concept that defines  the beliefs, attitudes and values of a society is called ",
-			"option": {
-				"a": "political socialization ",
-				"b": "political culture ",
-				"c": "political transformation ",
-				"d": "referendum"
-			},
-			"section": "",
-			"image": "",
-			"answer": "b",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
-		},
-		{
-			"id": 13,
-			"question": "A political ideology that defines a system of societal organization in which the state controls the commanding heights of the economy is called ",
-			"option": {
-				"a": "Totalitarianism ",
-				"b": "Communalism ",
-				"c": "socialism ",
-				"d": "communism "
-			},
-			"section": "",
-			"image": "",
-			"answer": "d",
-			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
+			"solution": "I wanted to know his political beliefs, so l asked him what they were",
+			"examtype": "utme",
+			"examyear": "2012",
+			"questionNub": 85,
+			"hasPassage": 0,
+			"category": "others"
 		},
 		{
 			"id": 10,
-			"question": "A totalitarian state is based on  ",
+			"question": " It was a free-for-all and the students were blamed for taking the law",
 			"option": {
-				"a": "multi-party system ",
-				"b": "total protection of civic rights ",
-				"c": "the totality of the state processes ",
-				"d": "coercion as the instrument of government"
+				"a": "in their own hands ",
+				"b": "into their own hands ",
+				"c": "into their hands ",
+				"d": "in their hands."
 			},
-			"section": "",
+			"section": "most appropriate option",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2003",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 735,
+			"question": "",
+			"option": {
+				"a": "integral",
+				"b": "intimate",
+				"c": "discourse",
+				"d": "accelerate"
+			},
+			"section": "<b>In each of the questions 39 to 40 identify the word that has a different stress pattern from the others.<\/b>",
 			"image": "",
 			"answer": "d",
+			"solution": "All the other options except option D has its stress pattern on the first syllable.",
+			"examtype": "utme",
+			"examyear": "2000",
+			"questionNub": 39,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 155,
+			"question": "The men were not pawns in someone else’s political game.",
+			"option": {
+				"a": "The action they executed was their idea",
+				"b": "The men used someone else’s plain",
+				"c": "They were used by someone’s political game",
+				"d": "They love playing political games"
+			},
+			"section": "select the option that best explains the information conveyed in the sentence.",
+			"image": "",
+			"answer": "a",
 			"solution": "",
-			"examtype": "post-utme",
-			"examyear": "2006"
+			"examtype": "utme",
+			"examyear": "2005",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1366,
+			"question": "Rather than make <u>derogatory<u\/> remarks about the host, a guest should make ________ ones",
+			"option": {
+				"a": "polite",
+				"b": "complimentary",
+				"c": "interesting",
+				"d": "honest"
+			},
+			"section": "From the list of words or group of words lettered A to D, choose the one that is most nearest opposite in meaning to the underlined word or group of words and that will, at the same time correctly fill in the gap in the sentence. ",
+			"image": "",
+			"answer": "b",
+			"solution": "Derogatory implies 'to lessen one's value'. However, complimentary is an expression of praise.",
+			"examtype": "utme",
+			"examyear": "2020",
+			"questionNub": 53,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 979,
+			"question": "B<u>u<\/u>bble?",
+			"option": {
+				"a": "guy",
+				"b": "bull",
+				"c": "bumper",
+				"d": "gurgle"
+			},
+			"section": "<b>In each of the questions 84 to 89 choose the option that has the same vowel sound as the one represented by the underlined letter(s).<\/b>\n",
+			"image": "",
+			"answer": "c",
+			"solution": "bubble; \/ˈbʌb(ə)l\/\n\nbumper; \/ˈbʌmpə\/",
+			"examtype": "utme",
+			"examyear": "2011",
+			"questionNub": 84,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 751,
+			"question": "There are many……. to her personality.",
+			"option": {
+				"a": "moods",
+				"b": "styles",
+				"c": "facets",
+				"d": "faces"
+			},
+			"section": "<b>In each of questions 41 to 62, fill the gap with the most appropriate option from the list provided.<\/b>",
+			"image": "",
+			"answer": "c",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2000",
+			"questionNub": 55,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 584,
+			"question": "r<u>oa<\/u>red ",
+			"option": {
+				"a": "towered ",
+				"b": "coast ",
+				"c": "brought ",
+				"d": "rod"
+			},
+			"section": "choose the option that has the same vowel sound as the one represented by the letters underlined.",
+			"image": "",
+			"answer": "a",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2010",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 731,
+			"question": "QUALITY?",
+			"option": {
+				"a": "guarantee",
+				"b": "accepted",
+				"c": "bachelor",
+				"d": "related"
+			},
+			"section": "<b>In each of the questions 33 to 36 Select the word that has the same pattern of stress as the given word.<\/b>",
+			"image": "",
+			"answer": "c",
+			"solution": "Quality is stressed on the first syllable \/ˈkwɒlɪti\/\n\nA. guarantee  is stressed on the third syllable \/ɡar(ə)nˈtiː\/\n\nB. accepted  is stressed on the second syllable \/əkˈsɛptid\/\n\nC. bachelor  is stressed on the first syllable \/ˈbatʃələ\/\n\nD. related  is stressed on the second syllable \/rɪˈleɪt\/",
+			"examtype": "utme",
+			"examyear": "2000",
+			"questionNub": 35,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 585,
+			"question": "shea<u>th <\/u>",
+			"option": {
+				"a": "bathe ",
+				"b": "length ",
+				"c": "months ",
+				"d": "paths"
+			},
+			"section": "choose the option that has the same consonant sound as the one represented by the letter(s) underlined",
+			"image": "",
+			"answer": "b",
+			"solution": "",
+			"examtype": "utme",
+			"examyear": "2010",
+			"questionNub": null,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1339,
+			"question": "This class __________students and teachers",
+			"option": {
+				"a": "comprise",
+				"b": "comprises",
+				"c": "comprise of",
+				"d": "comprises of"
+			},
+			"section": "From the words lettered A to D, choose the word or group of words that best completes each of the following sentences.",
+			"image": "",
+			"answer": "b",
+			"solution": "Comprise means 'made up of'. Therefore, to say 'Comprises of\/ Comprise of ' is a tautology.\n\nNote that, singular verbs must agree with a singular noun.\n\nThe subject of the sentence is 'This Class' which is a singular noun\n\nThis makes Option B correct.",
+			"examtype": "utme",
+			"examyear": "2020",
+			"questionNub": 26,
+			"hasPassage": 0,
+			"category": "others"
+		},
+		{
+			"id": 1038,
+			"question": "Otokpa is a member of the <u>ad hoc<\/u>committee on stock acquisition.",
+			"option": {
+				"a": "improvised",
+				"b": "formal",
+				"c": "temporary",
+				"d": "fact-finding"
+			},
+			"section": "In each of the questions 36 to 50 choose the option <b>opposite<\/b> in meaning to the underlined word or phrase.\n",
+			"image": "",
+			"answer": "b",
+			"solution": "Ad hoc; when necessary or needed. something that has been formed or used for a special and immediate purpose, without previous planning. \n\nFormal; done in accordance with convention or etiquette; suitable for or constituting an official or important occasion",
+			"examtype": "utme",
+			"examyear": "2012",
+			"questionNub": 44,
+			"hasPassage": 0,
+			"category": "others"
 		}
 	]
 }

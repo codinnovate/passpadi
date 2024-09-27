@@ -9,6 +9,12 @@ export const style = StyleSheet.create({
         justifyContent:'center',
 
     },
+    bigText:{
+        color: Colors.black,
+        fontSize: 23,
+        fontFamily: 'Ubuntu',
+        textAlign: 'center',
+    },
     buttonText:{
         fontFamily:'Ubuntu',
         textAlign:'center',
@@ -46,6 +52,11 @@ export const style = StyleSheet.create({
     fontSize: 17,
     fontFamily: 'Ubuntu',
     textAlign: 'center',
+  },
+  normaltext: {
+    color: Colors.green,
+    fontSize: 17,
+    fontFamily: 'Raleway',
   },
   answerDetail: {
     marginTop: 25,

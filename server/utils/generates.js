@@ -66,11 +66,17 @@ const generateSlug = (title) => {
   return encodeURIComponent(appId);
 };
 
+const generateQuestionSlug = (title, subject) => {
+    let sanitizedTitle = title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, "-").trim().toLowerCase();
+    let appId = `${sanitizedTitle}${subject}`;
+    return encodeURIComponent(appId);
+  };
 
 
 
 export {
     generateSlug,
+    generateQuestionSlug,
     formatDatatoSend,
     generateUploadURL,
     generateUsername,

@@ -3,7 +3,6 @@ import { Transaction } from '../Schema/Transactions.js';
 const baseUrl = "https://api.paystack.co/transaction";
 import User from '../Schema/User.js';
 
-const PAYSTACK_SECRET_KEY = 'sk_test_267518e236e93283c4b7aba71e85f37a4b630dc0';
 
 export const verifyTransaction = async (req, res) => {
     const { reference } = req.body;

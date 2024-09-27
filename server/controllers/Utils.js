@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { Question } from '../Schema/Question.js';
 import { Subject } from '../Schema/Subject.js';
-import { generateSlug } from '../utils/generates.js';
+import { generateQuestionSlug } from '../utils/generates.js';
 import fs from 'fs';
 import 'dotenv/config'
 import path from 'path';
@@ -23,10 +23,15 @@ const transformQuestionData = (data, subjectId) => {
 
           return {
               subject: subjectId,
+              subject:(() => {
+                const subject = subjectId;
+                if (subject === 'englistlit') return 'literature'; 
+                return subject;
+              })(),
               instruction: item.section || "", // Keep the section for non-mathematics subjects
               question: item.question,
               image:item.image,
-              question_id: generateSlug(item.question), // Generate slug from question
+              question_id: generateQuestionSlug(item.question, subjectId), // Generate slug from question
               options: Object.values(item.option),
               examType: (() => {
                 const examTypeUpper = item.examtype.toUpperCase();

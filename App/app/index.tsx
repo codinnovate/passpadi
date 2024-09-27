@@ -13,8 +13,9 @@ export function Splashpage (){
       const checkLoginStatus = async () => {
         try {
            const token = await AsyncStorage.getItem("authToken");
+           const role = await AsyncStorage.getItem("role");
            
-           if (token !== null) {
+           if (token !== null && role === 'paidUser') {
                router.replace("/home")
              ;
           } 
@@ -35,7 +36,7 @@ export function Splashpage (){
       source={Images.splash}
       style={styles.Image} />
         <Text style={styles.bigTextContainer}>
-          Score <Text style={styles.text}>80%</Text> With PassPadi Cbt App
+          Score <Text style={styles.text}>90%</Text> With PassPadi Cbt App
         </Text>
         <Text style={styles.smallText}>Take Your Learning to the next level with our interactive and personalized cbt app</Text>
       </View>
@@ -47,12 +48,12 @@ export function Splashpage (){
       <Button 
       textColor={Colors.black}
       color={Colors.yellow}
-      title="Register on the website"
-      onPress={() => router.navigate('https://www.passpadi.com.ng/signup')} 
+      title="Register "
+      onPress={() => router.navigate('/(auth)/signup')} 
       style={style.button} />
       
        <Button 
-      title="Login with your passpadi details"
+      title="Login"
       onPress={() => router.push('/(auth)/signin')} 
       style={style.button}
 

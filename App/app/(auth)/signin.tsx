@@ -20,10 +20,13 @@ const Signin = () => {
     const checkLoginStatus = async () => {
       try {
         const token = await AsyncStorage.getItem("authToken");
-        if (token) {
+        const role = await AsyncStorage.getItem("role");
+        if (token && role !== "user") {
           setTimeout(() => {
             router.replace("/home");
           }, 400);
+        } if (token ){
+          router.replace("/pay");
         }
       } catch (error) {
         console.log("error", error);
@@ -45,6 +48,7 @@ const Signin = () => {
       await AsyncStorage.setItem("authToken", access_token);
       await AsyncStorage.setItem("username", username);
       await AsyncStorage.setItem("role", role);
+      await AsyncStorage.setItem("email", email);
       await AsyncStorage.setItem("userId", userId);
     } catch (error) {
       console.log("AsyncStorage error: ", error);
@@ -67,7 +71,7 @@ const Signin = () => {
         console.log(data);
         await storeData(data);
         setLoading(false);
-        router.push("/home");
+        router.push("/pay");
       })
       .catch((error) => {
         Alert.alert(error?.response?.data?.error);
@@ -110,7 +114,7 @@ const Signin = () => {
             color={Colors.yellow}
              textColor={Colors.black} />
         </View>
-        <Pressable onPress={() => router.navigate('https://www.passpadi.com.ng/signup')} style={{ marginTop: 10 }}>
+        <Pressable onPress={() => router.navigate('/(auth)/signup')} style={{ marginTop: 10 }}>
           <Text style={{ textAlign: "center", color: Colors.white, fontFamily: 'SpaceGM', fontSize: 12 }}>
             Don't have an account? 
             <Text style={{ fontWeight: "500", marginLeft:5, color: "#007FFF" }}>
