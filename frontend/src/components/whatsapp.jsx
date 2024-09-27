@@ -5,7 +5,7 @@ export const Whatsapp = () => {
   return (
     <>
     <Link
-    to='https://wa.link/qlx683'
+    to='https://api.whatsapp.com/send?phone=2349031431651&text=Hi%2CGood%20day%2C%20Please%20I%20need%20help'
      className='fixed   bottom-[4em] flex z-[99999999] right-[2em] rounded-full'>
         <i className="fi fi-brands-whatsapp animate-spin text-3xl text-[#25D366]"></i>
         <div className='bg-black flex items-center rounded-full ml-2 h-10 p-1 px-3'>

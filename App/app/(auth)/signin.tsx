@@ -25,7 +25,7 @@ const Signin = () => {
           setTimeout(() => {
             router.replace("/home");
           }, 400);
-        } if (token ){
+        } else {
           router.replace("/pay");
         }
       } catch (error) {

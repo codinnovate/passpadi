@@ -37,7 +37,7 @@ const Home = () => {
     getUser();
   })
 
-const Logout  = async () => {
+ const Logout  = async () => {
     await AsyncStorage.removeItem("authToken")
     await AsyncStorage.removeItem("username");
     await AsyncStorage.removeItem("role");
