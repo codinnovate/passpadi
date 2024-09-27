@@ -1,16 +1,15 @@
 import React, { useContext, useRef } from 'react'
 import InputBox from '../components/input.component'
-import googleIcon from '../imgs/google.png';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import AnimationWrapper from '../common/page-animation'
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
 import { storeInSession} from '../common/session'
 import { UserContext} from '../App';
-import { authWithGoogle} from '../common/firebase';
 
 
 const UserAuthForm = ({ type }) => {
+    const navigate = useNavigate()
      let { userAuth: {access_token}, setUserAuth } = useContext(UserContext)
     const userAuthThroughServer = (serverRoute, formData) => {
         axios.post(import.meta.env.VITE_SERVER_DOMAIN + serverRoute, formData)
@@ -18,6 +17,7 @@ const UserAuthForm = ({ type }) => {
             storeInSession("user", JSON.stringify(data))
             setUserAuth(data)
             console.log(data)
+            navigate('/pay-for-app')
         })   
         .catch(({ response }) => {
             console.log(response)
@@ -32,7 +32,7 @@ const UserAuthForm = ({ type }) => {
         
     let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
     let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
-
+    let phoneRegex = /^(234|080|090|091|081|070)\d{8}$/;
 
         // formdata
         let form = new FormData(formElement)
@@ -46,9 +46,12 @@ const UserAuthForm = ({ type }) => {
         let { fullname, email, password } = formData;
 
       
-    if(fullname && fullname.length < 3){
-        return toast.error("Fullname must be at least 3 letters")
-    }
+        if(fullname && fullname.length < 3){
+            return toast.error("Fullname must be at least 3 letters")
+        }
+        // if(!phoneRegex.test(phoneNumber)){
+        //     return toast.error("Phone number is Invalid, please check your phone number")
+        // }
         if (!email.length) {
             return toast.error("Enter Email")}
         
@@ -59,22 +62,6 @@ const UserAuthForm = ({ type }) => {
 
         userAuthThroughServer(serverRoute, formData)
     }
-    // const handleGoogleAuth = async (e) => {
-    //         e.preventDefault();
-    //      await authWithGoogle()
-    //         .then(user => {
-    //         let serverRoute = '/google-auth';
-    //         let formData = {
-    //             access_token:user.accessToken
-    //         }
-    //         userAuthThroughServer(serverRoute, formData)
-                
-    //         })
-    //             .catch(err => {
-    //                 toast.error("trouble login through google");
-    //                 return console.log(err)
-    //         })
-    //     }
     return (
         access_token ? 
         <Navigate to='/community' />
