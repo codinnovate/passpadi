@@ -36,7 +36,7 @@ const Subject = () => {
         "Activate App to access all years and Cbt Practice ?",
         [
           { text: "No"},
-          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com.ng/pay-for-app') }
+          { text: "Activate", onPress: () => router.navigate('https://www.passpadi.com/pay-for-app') }
         ]
       );
       return;

@@ -59,7 +59,7 @@ export function Splashpage (){
 
        />
       
-      <Pressable onPress={() => router.navigate('https://www.passpadi.com.ng/privacy')} style={{ marginTop: 10 }}>
+      <Pressable onPress={() => router.navigate('https://www.passpadi.com/privacy')} style={{ marginTop: 10 }}>
             <Text style={{ textAlign:'center', textDecorationLine:'underline', fontFamily: 'SpaceGM', color:Colors.white }}>
              Our  Privacy and Policy
             </Text>

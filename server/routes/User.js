@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { GoogleAuth, Register, Login, getMyProfile, deleteUser, activateUser, getProfile } from "../controllers/User.js";
+import { GoogleAuth, Register, Login, getMyProfile, deleteUser, activateUser, checkRole, getProfile } from "../controllers/User.js";
 import { verifyJWT } from "../middlewares/VerifyJwt.js";
 
 export const userRouter = Router();
@@ -11,3 +11,4 @@ userRouter.post("/signup", Register)
           .delete('/user/delete/:id', verifyJWT, deleteUser)
           .put('/user/activate/:id', activateUser)
           .post('/get-profile', getProfile)
+          .post('/check-role',verifyJWT,  checkRole)

@@ -66,7 +66,7 @@ const Logout  = async () => {
       <View style={styles.container}>
       <Text style={styles.bigText}>See What Students are saying in the community?</Text>
       <Button 
-      onPress={() => router.navigate('https://passpadi.com.ng/')}
+      onPress={() => router.navigate('https://passpadi.com/')}
       title='Go to Community'
       color={Colors.yellow}
       textColor={Colors.black}
@@ -76,7 +76,7 @@ const Logout  = async () => {
       <Text style={styles.bigText}>What Subjects do you Want to improve on today ?</Text>
       {role === 'user' && (
       <TouchableOpacity 
-       onPress={() => router.push('https://www.passpadi.com.ng/pay-for-app')}
+       onPress={() => router.push('https://www.passpadi.com/pay-for-app')}
        style={styles.activate}>
         <View style={{}}>
           <Text style={{marginBottom:20, fontFamily:'Ubuntu', color:Colors.black, fontSize:15}}>Activate App</Text>

@@ -172,6 +172,21 @@ const deleteUser = async (req, res) => {
     }
 };
 
+
+const checkRole = async (req, res) => {
+    const userId = req.user;
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+        return res.json({ role: user.role }).status(200).json({ message: 'you role found successfully.' });
+    }catch (error) {
+        return res.status(500).json({ message: 'Error occurred while checking role:', error });
+        console.log(error);
+    }
+}
+
 const activateUser = async (req, res) => {
     try {
         // Ensure `req.role` is set correctly by your middleware or authentication logic
@@ -255,5 +270,5 @@ export const searchUsers = async (req, res) =>{
   
 }
 export {
-    Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser, getProfile
+    Register,Login, GoogleAuth, getMyProfile,deleteUser,activateUser, getProfile, checkRole
 }
