@@ -7,42 +7,26 @@ import { style } from '@/constants/Styles'
 import axios from 'axios'
 import { server } from '@/server'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import Colors from '@/constants/Colors'
 
 
 
-const checkPayment = async () => {
-    const access_token = await AsyncStorage.getItem("authToken")
-    if (access_token === null) {
-        router.push('/signin')
-    }
-    try {
-        const response = await axios.post(`${server}/check-role`, {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-              }
-        })
-        if (response.data.role === 'paidUser') {
-            await AsyncStorage.setItem("authToken", 'paidUser')
-        } else {
-            Alert.alert('Payment not made yet, please make the payment first or contact support if  you have')
-        }
-    } catch (error) {
-        console.log(error)
-        Alert.alert('Error occured, please make the payment first or contact support')
-    }
-    // TODO: Implement logic to check if user has paid for the app.
-    // If yes, set the user role to paidUser. If no, show a message, your app has not been activated yet pls contact support.
-}
+const Logout  = async () => {
+    await AsyncStorage.removeItem("authToken")
+    await AsyncStorage.removeItem("username");
+    await AsyncStorage.removeItem("role");
+    await AsyncStorage.removeItem("userId");
+    router.push('(auth)/signin')
+  }
 const Pay = () => {
   return (
     <SafeAreaView style={{padding:10, gap:10, height:'100%', justifyContent:'space-between'}}>
       <Text style={[style.bigText, {marginTop:40}]}>Congratulations on your first step to gaining admission this year</Text>
-      <Text>
-        The passpadi Team has put in alot of effort in most expecially in uploading various questions on this,
-         so we charge a sum of ₦1,000 token just for our effort.</Text>
+      <Text style={style.bigText}>We charge a sum of ₦1,000 token just for our effort.</Text>
         <View style={{gap:5}}>
             <Button
-            title='Check Play Store Reviews'
+
+            title='Check Our Play Store Reviews'
             />
         </View>
         <View>
@@ -66,16 +50,21 @@ const Pay = () => {
                     <Text style={style.text}>
                         Bank/Acct No: OPay, 8085552943
                     </Text>
+                    <Link
+
+                    href='https://api.whatsapp.com/send?phone=2349031431651&text=Hi%2CGood%20day%2C%20Please%20I%20need%20help'>
+                            <Text style={[style.normaltext, {color:Colors.red}]}>Contact support Here</Text>
+                    </Link>
                 </View>
             </View>
         </View>
         <View style={{gap:10}}>
             <Text>
-                Click the button below to confirm your payment and start your exam preparation
+                Click the button below if you have made your payment to activate your account
             </Text>
             <Button 
             title='I Have made Payment, Activate App'
-            onPress={checkPayment} 
+            onPress={Logout} 
             />
         </View>
     </SafeAreaView>

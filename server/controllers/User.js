@@ -182,8 +182,8 @@ const checkRole = async (req, res) => {
         }
         return res.json({ role: user.role }).status(200).json({ message: 'you role found successfully.' });
     }catch (error) {
-        return res.status(500).json({ message: 'Error occurred while checking role:', error });
         console.log(error);
+        return res.status(500).json({ message: 'Error occurred while checking role:', error });
     }
 }
 
